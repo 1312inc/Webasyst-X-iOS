@@ -1,0 +1,32 @@
+##Build generated
+*.swp
+.DS_Store
+
+## Paths
+
+build/
+DerivedData/
+apns/
+Pods/
+Products/
+
+
+*.mode1
+*.mode1v3
+*.mode2
+*.mode2v3
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.xccheckout
+*.xcuserstate
+
+xcuserdata
+*.xcodeproj/project.xcworkspace
+
+*~.nib
+
+.DS_Store
+*.orig
+*.xcscmblueprint
+*.xcbkptlist
