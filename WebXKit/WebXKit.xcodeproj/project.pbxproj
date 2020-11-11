@@ -12,6 +12,9 @@
 		C34101A2255C80580091B045 /* WXHTTPTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34101A1255C80580091B045 /* WXHTTPTarget.swift */; };
 		C34101A6255C81720091B045 /* WXNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34101A5255C81720091B045 /* WXNetworkService.swift */; };
 		C34101AA255C82150091B045 /* WXEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34101A9255C82150091B045 /* WXEncoder.swift */; };
+		C3410226255C9A240091B045 /* WebasystXCoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3410225255C9A240091B045 /* WebasystXCoreTest.swift */; };
+		C3410228255C9A240091B045 /* WebasystX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C341FFBF255B1F3D0091B045 /* WebasystX.framework */; };
+		C3410237255C9A9A0091B045 /* WXInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3410236255C9A9A0091B045 /* WXInject.swift */; };
 		C341FFC8255B1F3D0091B045 /* WebasystX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C341FFBF255B1F3D0091B045 /* WebasystX.framework */; };
 		C341FFCD255B1F3D0091B045 /* WebasystXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FFCC255B1F3D0091B045 /* WebasystXTests.swift */; };
 		C341FFCF255B1F3D0091B045 /* WebasystX.h in Headers */ = {isa = PBXBuildFile; fileRef = C341FFC1255B1F3D0091B045 /* WebasystX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C3410229255C9A240091B045 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C341FF44255B1B040091B045 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C341FFBE255B1F3D0091B045;
+			remoteInfo = WebasystX;
+		};
 		C341FFC9255B1F3D0091B045 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C341FF44255B1B040091B045 /* Project object */;
@@ -37,6 +47,10 @@
 		C34101A1255C80580091B045 /* WXHTTPTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXHTTPTarget.swift; sourceTree = "<group>"; };
 		C34101A5255C81720091B045 /* WXNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXNetworkService.swift; sourceTree = "<group>"; };
 		C34101A9255C82150091B045 /* WXEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXEncoder.swift; sourceTree = "<group>"; };
+		C3410223255C9A240091B045 /* WebasystXCoreTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebasystXCoreTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3410225255C9A240091B045 /* WebasystXCoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystXCoreTest.swift; sourceTree = "<group>"; };
+		C3410227255C9A240091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3410236255C9A9A0091B045 /* WXInject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXInject.swift; sourceTree = "<group>"; };
 		C341FFBF255B1F3D0091B045 /* WebasystX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebasystX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FFC1255B1F3D0091B045 /* WebasystX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebasystX.h; sourceTree = "<group>"; };
 		C341FFC2255B1F3D0091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +64,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C3410220255C9A240091B045 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3410228255C9A240091B045 /* WebasystX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C341FFBC255B1F3D0091B045 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,13 +90,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3410224255C9A240091B045 /* WebasystXCoreTest */ = {
+			isa = PBXGroup;
+			children = (
+				C3410234255C9A370091B045 /* HTTP */,
+				C3410225255C9A240091B045 /* WebasystXCoreTest.swift */,
+				C3410227255C9A240091B045 /* Info.plist */,
+			);
+			path = WebasystXCoreTest;
+			sourceTree = "<group>";
+		};
+		C3410234255C9A370091B045 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		C3410235255C9A830091B045 /* Inject */ = {
+			isa = PBXGroup;
+			children = (
+				C3410236255C9A9A0091B045 /* WXInject.swift */,
+			);
+			path = Inject;
+			sourceTree = "<group>";
+		};
 		C341FF43255B1B040091B045 = {
 			isa = PBXGroup;
 			children = (
 				C341FFC0255B1F3D0091B045 /* WebasystX */,
+				C3410224255C9A240091B045 /* WebasystXCoreTest */,
 				C341FFCB255B1F3D0091B045 /* WebasystXTests */,
 				C341FFC7255B1F3D0091B045 /* WebasystXTests.xctest */,
 				C341FFBF255B1F3D0091B045 /* WebasystX.framework */,
+				C3410223255C9A240091B045 /* WebasystXCoreTest.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +151,7 @@
 		C341FFD8255B1F630091B045 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C3410235255C9A830091B045 /* Inject */,
 				C341FFEC255B28D90091B045 /* Theard */,
 				C341FFDD255B20960091B045 /* HTTP */,
 				C341FFDB255B1FF60091B045 /* Managers */,
@@ -167,6 +217,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C3410222255C9A240091B045 /* WebasystXCoreTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C341022B255C9A240091B045 /* Build configuration list for PBXNativeTarget "WebasystXCoreTest" */;
+			buildPhases = (
+				C341021F255C9A240091B045 /* Sources */,
+				C3410220255C9A240091B045 /* Frameworks */,
+				C3410221255C9A240091B045 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C341022A255C9A240091B045 /* PBXTargetDependency */,
+			);
+			name = WebasystXCoreTest;
+			productName = WebasystXCoreTest;
+			productReference = C3410223255C9A240091B045 /* WebasystXCoreTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C341FFBE255B1F3D0091B045 /* WebasystX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C341FFD0255B1F3D0091B045 /* Build configuration list for PBXNativeTarget "WebasystX" */;
@@ -212,6 +280,9 @@
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					C3410222255C9A240091B045 = {
+						CreatedOnToolsVersion = 12.1;
+					};
 					C341FFBE255B1F3D0091B045 = {
 						CreatedOnToolsVersion = 12.1;
 						LastSwiftMigration = 1210;
@@ -236,11 +307,19 @@
 			targets = (
 				C341FFBE255B1F3D0091B045 /* WebasystX */,
 				C341FFC6255B1F3D0091B045 /* WebasystXTests */,
+				C3410222255C9A240091B045 /* WebasystXCoreTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C3410221255C9A240091B045 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C341FFBD255B1F3D0091B045 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +337,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C341021F255C9A240091B045 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3410226255C9A240091B045 /* WebasystXCoreTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C341FFBB255B1F3D0091B045 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +354,7 @@
 				C341FFEE255B292F0091B045 /* WXThread.swift in Sources */,
 				C341FFE9255B20EB0091B045 /* WXNetworkManager.swift in Sources */,
 				C34101A6255C81720091B045 /* WXNetworkService.swift in Sources */,
+				C3410237255C9A9A0091B045 /* WXInject.swift in Sources */,
 				C341FFE5255B20C10091B045 /* WXHTTPOperationQueue.swift in Sources */,
 				C341019C255C7D2D0091B045 /* WXHTTPResponse.swift in Sources */,
 				C3410198255C7D140091B045 /* WXHTTPRequest.swift in Sources */,
@@ -285,6 +373,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C341022A255C9A240091B045 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C341FFBE255B1F3D0091B045 /* WebasystX */;
+			targetProxy = C3410229255C9A240091B045 /* PBXContainerItemProxy */;
+		};
 		C341FFCA255B1F3D0091B045 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C341FFBE255B1F3D0091B045 /* WebasystX */;
@@ -293,6 +386,146 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		C341022C255C9A240091B045 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GCBUDGV556;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WebasystXCoreTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.WebasystXCoreTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C341022D255C9A240091B045 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GCBUDGV556;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = WebasystXCoreTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.WebasystXCoreTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		C341FF48255B1B040091B045 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -608,6 +841,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C341022B255C9A240091B045 /* Build configuration list for PBXNativeTarget "WebasystXCoreTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C341022C255C9A240091B045 /* Debug */,
+				C341022D255C9A240091B045 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C341FF47255B1B040091B045 /* Build configuration list for PBXProject "WebXKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

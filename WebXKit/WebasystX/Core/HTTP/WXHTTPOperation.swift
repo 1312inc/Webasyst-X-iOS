@@ -348,7 +348,7 @@ public class WXHTTPOperation: Operation {
         
         for key in keys {
             let value = params[key]
-            let prefix = keys.endIndex == keys.index(of: key) ? "?" : "&"
+            let prefix = keys.endIndex == keys.firstIndex(of: key) ? "?" : "&"
             
             if (value != nil) {
                 let query:String = urlString.appendingFormat("%@%@=%@", prefix,key,value as! CVarArg)
@@ -358,6 +358,39 @@ public class WXHTTPOperation: Operation {
         
         self.opUrl = URL.init(string: urlString)
         self.opRequest.url = self.opUrl
+    }
+    
+    public func set(header value: String, key: String) {
+        self.opRequest.setValue(value, forHTTPHeaderField: key)
+    }
+    
+    public func set(headers params: Dictionary<String,String>) {
+        let keys = params.keys
+        for key in keys {
+            
+            if let value = params[key] {
+                self.opRequest.setValue(value, forHTTPHeaderField: key)
+            }
+        }
+    }
+    
+    public func set(body params:Dictionary<String,Any>, encoding: WXEncoderType) {
+        
+        let encoder = WXEncoder()
+        let contentTypeKey = "Content-Type"
+        var contentTypeValue = "application/x-www-form-urlencoded"
+        switch encoding {
+        case .json:
+            contentTypeValue = "appliccation/json"
+        case .xml:
+            contentTypeValue = "application/xml"
+        case .text:
+            contentTypeValue = "text/plain"
+        }
+        
+        let data = encoder.encode(params: params, encoding: encoding)
+        opRequest.httpBody = data
+        opRequest.setValue(contentTypeValue, forHTTPHeaderField: contentTypeKey)
     }
     
 }

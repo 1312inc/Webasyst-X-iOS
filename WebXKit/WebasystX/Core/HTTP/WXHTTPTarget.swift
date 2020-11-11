@@ -30,28 +30,21 @@ enum WXHTTPAuthorizationType {
     }
 }
 
+enum WXHTTPBody {
+    case requestParametrs(parametrs:[String: Any], encoding: WXEncoderType)
+}
+
+
 protocol WXHTTPTarget {
     
     var baseURL: URL { get }
     var path: String { get }
     var method: WXHTTPMethod { get }
     var authorizationType: WXHTTPAuthorizationType { get }
-    var body: WXHTTPBody { get }
+    var body: WXHTTPBody? { get }
     var headers: [String: String]? { get }
     var urlParams: [String: String]? { get }
+    var tag: String { get }
 }
 
-final class WXHTTPBody {
-    
-    
-    
-    static func requestPlain(text: String) {
-        
-    }
-    
-    static func reqeust(parametrs:[String: Any], encoder: WXEncoder) {
-        
-    }
-    
-}
 
