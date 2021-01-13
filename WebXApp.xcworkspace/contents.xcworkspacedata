@@ -5,6 +5,6 @@
       location = "group:WebXApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:WebXKit/WebXKit.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

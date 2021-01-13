@@ -3,21 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67953C587278199086B8CBDE /* Pods_WebXAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BAAA7CDEC53DF05F48077F /* Pods_WebXAppTests.framework */; };
+		686E47DFDF20921D246FAFCC /* Pods_WebXApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */; };
 		C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FECE255B0AED0091B045 /* AppDelegate.swift */; };
 		C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FED0255B0AED0091B045 /* SceneDelegate.swift */; };
-		C341FED3255B0AED0091B045 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FED2255B0AED0091B045 /* ViewController.swift */; };
-		C341FED6255B0AED0091B045 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FED4255B0AED0091B045 /* Main.storyboard */; };
 		C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
+		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
+		FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */; };
+		FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */; };
+		FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */; };
+		FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCF9CE525AE98CC00EDFE69 /* ImageAssets.xcassets */; };
+		FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CF525AEAEAC00EDFE69 /* WelcomeCoordinator.swift */; };
+		FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */; };
+		FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */; };
+		FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C341FEF7255B0C7A0091B045 /* PBXContainerItemProxy */ = {
+		FDCF9CC625AE822200EDFE69 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C341FEC3255B0AED0091B045 /* Project object */;
 			proxyType = 1;
@@ -40,16 +49,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02BAAA7CDEC53DF05F48077F /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B7AD4E41487C1E9E0E3169 /* Pods-WebXApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXApp.debug.xcconfig"; path = "Target Support Files/Pods-WebXApp/Pods-WebXApp.debug.xcconfig"; sourceTree = "<group>"; };
+		38A7F33B240698D1203ADD3F /* Pods-WebXApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXApp.release.xcconfig"; path = "Target Support Files/Pods-WebXApp/Pods-WebXApp.release.xcconfig"; sourceTree = "<group>"; };
+		5A9387A1ADD6BCE382CA0912 /* Pods-WebXAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXAppTests.release.xcconfig"; path = "Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		891F7FBDFB39A00661287E11 /* Pods-WebXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C341FECB255B0AED0091B045 /* WebXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECE255B0AED0091B045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C341FED0255B0AED0091B045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C341FED2255B0AED0091B045 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C341FED5255B0AED0091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C341FED8255B0AEE0091B045 /* WebXApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WebXApp.xcdatamodel; sourceTree = "<group>"; };
 		C341FEDA255B0AF20091B045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C341FEF3255B0C7A0091B045 /* WebXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebXAppTests.swift; sourceTree = "<group>"; };
+		FDCF9CC525AE822200EDFE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FDCF9CE525AE98CC00EDFE69 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		FDCF9CF525AEAEAC00EDFE69 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,24 +80,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686E47DFDF20921D246FAFCC /* Pods_WebXApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C341FEF0255B0C7A0091B045 /* Frameworks */ = {
+		FDCF9CBE25AE822200EDFE69 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67953C587278199086B8CBDE /* Pods_WebXAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62884CD50FF995722670062A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */,
+				02BAAA7CDEC53DF05F48077F /* Pods_WebXAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67444B04B74142D163DBA96F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33B7AD4E41487C1E9E0E3169 /* Pods-WebXApp.debug.xcconfig */,
+				38A7F33B240698D1203ADD3F /* Pods-WebXApp.release.xcconfig */,
+				891F7FBDFB39A00661287E11 /* Pods-WebXAppTests.debug.xcconfig */,
+				5A9387A1ADD6BCE382CA0912 /* Pods-WebXAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C341FEC2255B0AED0091B045 = {
 			isa = PBXGroup;
 			children = (
 				C341FECD255B0AED0091B045 /* WebXApp */,
+				FDCF9CC225AE822200EDFE69 /* WebXAppTests */,
 				C341FECC255B0AED0091B045 /* Products */,
+				67444B04B74142D163DBA96F /* Pods */,
+				62884CD50FF995722670062A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C341FECB255B0AED0091B045 /* WebXApp.app */,
-				C341FEF3255B0C7A0091B045 /* WebXTests.xctest */,
+				FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,16 +138,127 @@
 		C341FECD255B0AED0091B045 /* WebXApp */ = {
 			isa = PBXGroup;
 			children = (
-				C341FECE255B0AED0091B045 /* AppDelegate.swift */,
-				C341FED0255B0AED0091B045 /* SceneDelegate.swift */,
-				C341FED2255B0AED0091B045 /* ViewController.swift */,
-				C341FED4255B0AED0091B045 /* Main.storyboard */,
-				C341FEDA255B0AF20091B045 /* Assets.xcassets */,
-				C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */,
-				C341FEDF255B0AF20091B045 /* Info.plist */,
-				C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */,
+				FDCF9CB325AE7F6C00EDFE69 /* App */,
+				FDCF9CB525AE7F8900EDFE69 /* Resources */,
+				FDCF9CDD25AE84A300EDFE69 /* Coordinator */,
+				FDCF9CB425AE7F7A00EDFE69 /* Modules */,
+				FDCF9CB225AE7F5900EDFE69 /* CoreDataManager */,
+				FDCF9CB625AE7F9E00EDFE69 /* NetworkManager */,
 			);
 			path = WebXApp;
+			sourceTree = "<group>";
+		};
+		FDCF9CB225AE7F5900EDFE69 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		FDCF9CB325AE7F6C00EDFE69 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C341FECE255B0AED0091B045 /* AppDelegate.swift */,
+				C341FED0255B0AED0091B045 /* SceneDelegate.swift */,
+				C341FEDF255B0AF20091B045 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CF825AEC62900EDFE69 /* AuthModule */,
+				FDCF9CB725AE807A00EDFE69 /* WelcomeModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FDCF9CB525AE7F8900EDFE69 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */,
+				C341FEDA255B0AF20091B045 /* Assets.xcassets */,
+				FDCF9CE525AE98CC00EDFE69 /* ImageAssets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FDCF9CB625AE7F9E00EDFE69 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		FDCF9CB725AE807A00EDFE69 /* WelcomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CE925AE99BD00EDFE69 /* ViewModel */,
+				FDCF9CEB25AE99C600EDFE69 /* View */,
+			);
+			path = WelcomeModule;
+			sourceTree = "<group>";
+		};
+		FDCF9CC225AE822200EDFE69 /* WebXAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */,
+				FDCF9CC525AE822200EDFE69 /* Info.plist */,
+			);
+			path = WebXAppTests;
+			sourceTree = "<group>";
+		};
+		FDCF9CDD25AE84A300EDFE69 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */,
+				FDCF9CF525AEAEAC00EDFE69 /* WelcomeCoordinator.swift */,
+				FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FDCF9CE925AE99BD00EDFE69 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FDCF9CEB25AE99C600EDFE69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDCF9CF825AEC62900EDFE69 /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CF925AEC63600EDFE69 /* ViewModel */,
+				FDCF9CFA25AEC63D00EDFE69 /* View */,
+			);
+			path = AuthModule;
+			sourceTree = "<group>";
+		};
+		FDCF9CF925AEC63600EDFE69 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FDCF9CFA25AEC63D00EDFE69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,10 +268,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C341FEE2255B0AF20091B045 /* Build configuration list for PBXNativeTarget "WebXApp" */;
 			buildPhases = (
+				B63ED963BE7667E3CC6B9E59 /* [CP] Check Pods Manifest.lock */,
 				C341FEC7255B0AED0091B045 /* Sources */,
 				C341FEC8255B0AED0091B045 /* Frameworks */,
 				C341FEC9255B0AED0091B045 /* Resources */,
 				C341FF05255B0C7A0091B045 /* Embed Frameworks */,
+				231B0B46A4530FF4E08E470C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,22 +284,24 @@
 			productReference = C341FECB255B0AED0091B045 /* WebXApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C341FEF2255B0C7A0091B045 /* WebXTests */ = {
+		FDCF9CC025AE822200EDFE69 /* WebXAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C341FF06255B0C7A0091B045 /* Build configuration list for PBXNativeTarget "WebXTests" */;
+			buildConfigurationList = FDCF9CC825AE822200EDFE69 /* Build configuration list for PBXNativeTarget "WebXAppTests" */;
 			buildPhases = (
-				C341FEEF255B0C7A0091B045 /* Sources */,
-				C341FEF0255B0C7A0091B045 /* Frameworks */,
-				C341FEF1255B0C7A0091B045 /* Resources */,
+				4B450B010FC6D511E609E462 /* [CP] Check Pods Manifest.lock */,
+				FDCF9CBD25AE822200EDFE69 /* Sources */,
+				FDCF9CBE25AE822200EDFE69 /* Frameworks */,
+				FDCF9CBF25AE822200EDFE69 /* Resources */,
+				9A41C66D16C912476D6B69D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C341FEF8255B0C7A0091B045 /* PBXTargetDependency */,
+				FDCF9CC725AE822200EDFE69 /* PBXTargetDependency */,
 			);
-			name = WebXTests;
-			productName = WebXTests;
-			productReference = C341FEF3255B0C7A0091B045 /* WebXTests.xctest */;
+			name = WebXAppTests;
+			productName = WebXAppTests;
+			productReference = FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -147,14 +310,14 @@
 		C341FEC3255B0AED0091B045 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					C341FECA255B0AED0091B045 = {
 						CreatedOnToolsVersion = 12.1;
 					};
-					C341FEF2255B0C7A0091B045 = {
-						CreatedOnToolsVersion = 12.1;
+					FDCF9CC025AE822200EDFE69 = {
+						CreatedOnToolsVersion = 12.3;
 						TestTargetID = C341FECA255B0AED0091B045;
 					};
 				};
@@ -173,7 +336,7 @@
 			projectRoot = "";
 			targets = (
 				C341FECA255B0AED0091B045 /* WebXApp */,
-				C341FEF2255B0C7A0091B045 /* WebXTests */,
+				FDCF9CC025AE822200EDFE69 /* WebXAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -185,11 +348,11 @@
 			files = (
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
-				C341FED6255B0AED0091B045 /* Main.storyboard in Resources */,
+				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C341FEF1255B0C7A0091B045 /* Resources */ = {
+		FDCF9CBF25AE822200EDFE69 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,44 +361,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		231B0B46A4530FF4E08E470C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebXApp/Pods-WebXApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebXApp/Pods-WebXApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WebXApp/Pods-WebXApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B450B010FC6D511E609E462 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebXAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A41C66D16C912476D6B69D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B63ED963BE7667E3CC6B9E59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebXApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C341FEC7255B0AED0091B045 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C341FED3255B0AED0091B045 /* ViewController.swift in Sources */,
+				FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */,
+				FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
+				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
+				FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */,
+				FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */,
+				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
+				FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */,
 				C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C341FEEF255B0C7A0091B045 /* Sources */ = {
+		FDCF9CBD25AE822200EDFE69 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C341FEF8255B0C7A0091B045 /* PBXTargetDependency */ = {
+		FDCF9CC725AE822200EDFE69 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C341FECA255B0AED0091B045 /* WebXApp */;
-			targetProxy = C341FEF7255B0C7A0091B045 /* PBXContainerItemProxy */;
+			targetProxy = FDCF9CC625AE822200EDFE69 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C341FED4255B0AED0091B045 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C341FED5255B0AED0091B045 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -365,12 +608,13 @@
 		};
 		C341FEE3255B0AF20091B045 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33B7AD4E41487C1E9E0E3169 /* Pods-WebXApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
-				INFOPLIST_FILE = WebXApp/Info.plist;
+				DEVELOPMENT_TEAM = Z73YGZ4UAM;
+				INFOPLIST_FILE = WebXApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,12 +628,13 @@
 		};
 		C341FEE4255B0AF20091B045 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38A7F33B240698D1203ADD3F /* Pods-WebXApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
-				INFOPLIST_FILE = WebXApp/Info.plist;
+				DEVELOPMENT_TEAM = Z73YGZ4UAM;
+				INFOPLIST_FILE = WebXApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,19 +646,21 @@
 			};
 			name = Release;
 		};
-		C341FF07255B0C7A0091B045 /* Debug */ = {
+		FDCF9CC925AE822200EDFE69 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 891F7FBDFB39A00661287E11 /* Pods-WebXAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
-				INFOPLIST_FILE = WebXTests/Info.plist;
+				DEVELOPMENT_TEAM = 3C2R58B86M;
+				INFOPLIST_FILE = WebXAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.WebXTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.WebXAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -421,19 +668,21 @@
 			};
 			name = Debug;
 		};
-		C341FF08255B0C7A0091B045 /* Release */ = {
+		FDCF9CCA25AE822200EDFE69 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A9387A1ADD6BCE382CA0912 /* Pods-WebXAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
-				INFOPLIST_FILE = WebXTests/Info.plist;
+				DEVELOPMENT_TEAM = 3C2R58B86M;
+				INFOPLIST_FILE = WebXAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.WebXTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.WebXAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,11 +711,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C341FF06255B0C7A0091B045 /* Build configuration list for PBXNativeTarget "WebXTests" */ = {
+		FDCF9CC825AE822200EDFE69 /* Build configuration list for PBXNativeTarget "WebXAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C341FF07255B0C7A0091B045 /* Debug */,
-				C341FF08255B0C7A0091B045 /* Release */,
+				FDCF9CC925AE822200EDFE69 /* Debug */,
+				FDCF9CCA25AE822200EDFE69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
