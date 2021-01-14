@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol WelcomeViewProtocol: class {
     
@@ -15,6 +16,7 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
     
     //MARK: Data variables
     var viewModel: WelcomeViewModelProtocol!
+    var disposeBag = DisposeBag()
     
     //MARK: Interface elements variable
     private var logoImage: UIImageView = {

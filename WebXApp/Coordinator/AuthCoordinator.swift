@@ -9,6 +9,7 @@ import UIKit
 
 protocol AuthCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
+    func successAuth()
 }
 
 class AuthCoordinator: Coordinator, AuthCoordinatorProtocol {
@@ -23,7 +24,16 @@ class AuthCoordinator: Coordinator, AuthCoordinatorProtocol {
     
     func start() {
         let authViewController = AuthViewController()
+        let authCoordinator = AuthCoordinator(self.navigationController)
+        let authViewModel = AuthViewModel(networkingService: AuthNetworkingService(), coordinator: authCoordinator)
+        authViewController.viewModel = authViewModel
         self.navigationController.present(authViewController, animated: true, completion: nil)
+    }
+    
+    func successAuth() {
+        self.navigationController.dismiss(animated: true, completion: nil)
+        let firstViewController = VeniViewController()
+        self.navigationController.setViewControllers([firstViewController], animated: true)
     }
     
 }

@@ -23,6 +23,10 @@
 		FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */; };
 		FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */; };
 		FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */; };
+		FDE8F59F25AFDE1D00B98933 /* AuthNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F59E25AFDE1D00B98933 /* AuthNetworkingService.swift */; };
+		FDE8F5A325AFE75900B98933 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F5A225AFE75900B98933 /* NetworkingManager.swift */; };
+		FDE8F5B025B0400F00B98933 /* VeniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F5AE25B0400F00B98933 /* VeniViewController.swift */; };
+		FDE8F5B125B0400F00B98933 /* VeniViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE8F5AF25B0400F00B98933 /* VeniViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		FDE8F59E25AFDE1D00B98933 /* AuthNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkingService.swift; sourceTree = "<group>"; };
+		FDE8F5A225AFE75900B98933 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		FDE8F5AE25B0400F00B98933 /* VeniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniViewController.swift; sourceTree = "<group>"; };
+		FDE8F5AF25B0400F00B98933 /* VeniViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VeniViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +177,7 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FDE8F5AB25B03FDF00B98933 /* VeniModule */,
 				FDCF9CF825AEC62900EDFE69 /* AuthModule */,
 				FDCF9CB725AE807A00EDFE69 /* WelcomeModule */,
 			);
@@ -188,6 +197,8 @@
 		FDCF9CB625AE7F9E00EDFE69 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				FDE8F59E25AFDE1D00B98933 /* AuthNetworkingService.swift */,
+				FDE8F5A225AFE75900B98933 /* NetworkingManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -259,6 +270,31 @@
 				FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FDE8F5AB25B03FDF00B98933 /* VeniModule */ = {
+			isa = PBXGroup;
+			children = (
+				FDE8F5AD25B03FF900B98933 /* ViewModule */,
+				FDE8F5AC25B03FF200B98933 /* View */,
+			);
+			path = VeniModule;
+			sourceTree = "<group>";
+		};
+		FDE8F5AC25B03FF200B98933 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FDE8F5AE25B0400F00B98933 /* VeniViewController.swift */,
+				FDE8F5AF25B0400F00B98933 /* VeniViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDE8F5AD25B03FF900B98933 /* ViewModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE8F5B125B0400F00B98933 /* VeniViewController.xib in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
@@ -452,11 +489,14 @@
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
 				FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */,
+				FDE8F5A325AFE75900B98933 /* NetworkingManager.swift in Sources */,
+				FDE8F5B025B0400F00B98933 /* VeniViewController.swift in Sources */,
 				FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */,
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
 				FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */,
 				C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */,
+				FDE8F59F25AFDE1D00B98933 /* AuthNetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
