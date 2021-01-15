@@ -7,6 +7,24 @@
 
 import Foundation
 import CryptoKit
+import Alamofire
+
+struct UserToken: Codable {
+    let access_token: String
+    let token_type: String
+    let expires_in: Int
+    let refresh_token: String
+}
+
+struct UserData: Codable {
+    let name: String
+    let email: [Email]
+    let userpic: String
+}
+
+struct Email: Codable {
+    let value: String
+}
 
 private protocol AuthNetworkingServicePrivateProtocol: class {
     func buildAuthUrl(_ path: String, parameters: [String: String]) -> URL
@@ -15,7 +33,8 @@ private protocol AuthNetworkingServicePrivateProtocol: class {
 
 public protocol AuthNetworkingServicePublicProtocol: class {
     func buildAuthRequest() -> URLRequest
-    func getAccessToken(_ authCode: String, stateString: String)
+    func getAccessToken(_ authCode: String, stateString: String, completion: @escaping (Bool) -> Void)
+    func getUserData(completion: @escaping (Bool) -> ())
 }
 
 class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProtocol, AuthNetworkingServicePublicProtocol {
@@ -31,11 +50,13 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
             component.scheme = "https"
             component.host = host
             component.path = path
-            var queryParams = [URLQueryItem]()
-            for param in parameters {
-                queryParams.append(URLQueryItem(name: param.key, value: param.value))
+            if !parameters.isEmpty {
+                var queryParams = [URLQueryItem]()
+                for param in parameters {
+                    queryParams.append(URLQueryItem(name: param.key, value: param.value))
+                }
+                component.queryItems = queryParams
             }
-            component.queryItems = queryParams
             return component.url
         }
         return urlComponents!.absoluteURL
@@ -48,7 +69,8 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
         self.disposablePasswordAuth = rndPswd
         let inputData = Data((rndPswd.utf8))
         let hashedPassword = SHA256.hash(data: inputData)
-        return hashedPassword.description
+        print(Data(hashedPassword.description.utf8).base64EncodedString())
+        return rndPswd
     }
     
     //MARK: Build URLRequset in Webasyst Auth
@@ -59,9 +81,9 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
             "client_id": clientId,
             "scope": "token:blog.site.shop",
             "redirect_uri": "\(bundleId)://oidc_callback",
-            "state": "test_string",
+            "state": bundleId,
             "code_challenge": self.generatePasswordHash(64),
-            "code_challenge_method": "SHA256"
+            "code_challenge_method": "plain"
         ]
         
         var request = URLRequest(url: buildAuthUrl("/id/oauth2/auth/code", parameters: paramRequest))
@@ -70,28 +92,82 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
     }
     
     //MARK: Obtaining a permanent token Webasyst
-    public func getAccessToken(_ authCode: String, stateString: String) {
+    public func getAccessToken(_ authCode: String, stateString: String, completion: @escaping (Bool) -> Void) {
         
         guard let disposablePassword = self.disposablePasswordAuth else { return }
+        guard stateString == self.stateString else { return }
+        
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data"
+        ]
         
         let paramRequest: [String: String] = [
             "grant_type": "authorization_code",
             "code": authCode,
-            "redirect_uri": bundleId,
+            "redirect_uri": "\(bundleId)://oidc_callback",
             "client_id": clientId,
             "code_verifier": disposablePassword
         ]
         
-        var request = URLRequest(url: buildAuthUrl("/id/oauth2/auth/token", parameters: paramRequest))
-        request.httpMethod = "POST"
-        
-        DispatchQueue.global(qos: .utility).async {
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                do {
-                    
-                } catch {
-                    
+        AF.upload(multipartFormData: { multipartFormData in
+            for (key, value) in paramRequest {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: key)
+            }
+        }, to: buildAuthUrl("/id/oauth2/auth/token", parameters: [:]), usingThreshold: UInt64.init(), method: .post, headers: headers).responseJSON(completionHandler: { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else {
+                    completion(false)
+                    return
                 }
+                switch statusCode {
+                case 200...299:
+                    if let data = response.data {
+                        let authData = try! JSONDecoder().decode(UserToken.self, from: data)
+                        let accessTokenSuccess = KeychainManager.save(key: "accessToken", data: Data("Bearer \(authData.access_token)".utf8))
+                        let refreshTokenSuccess = KeychainManager.save(key: "refreshToken", data: Data(authData.refresh_token.utf8))
+                        if accessTokenSuccess == 0 && refreshTokenSuccess == 0 {
+                            completion(true)
+                        }
+                    }
+                default:
+                    let outputStr  = String(data: response.data!, encoding: String.Encoding.utf8)
+                    print(outputStr ?? "")
+                    completion(false)
+                }
+            case .failure:
+                completion(false)
+            }
+        })
+        
+    }
+    
+    //MARK: Get user data
+    public func getUserData(completion: @escaping (Bool) -> ()) {
+        
+        let accessToken = KeychainManager.load(key: "accessToken")
+        let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": accessTokenString
+        ]
+        
+        AF.request(buildAuthUrl("/id/api/v1/profile/", parameters: [:]), method: .get, headers: headers).response { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                switch statusCode {
+                case 200...299:
+                    let userData = try! JSONDecoder().decode(UserData.self, from: response.data!)
+                    let userDefaults = UserDefaults.standard
+                    userDefaults.set(userData.name, forKey: "userName")
+                    userDefaults.set(userData.email[0].value, forKey: "userEmail")
+                    completion(true)
+                default:
+                    completion(false)
+                }
+            case .failure:
+                print("failure")
             }
         }
     }

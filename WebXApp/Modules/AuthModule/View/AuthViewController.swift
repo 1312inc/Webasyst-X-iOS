@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import RxSwift
 import WebKit
 
 class AuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     //MARK: Data variables
     var viewModel: AuthViewModelProtocol!
-    var disposeBag = DisposeBag()
     
     //MARK: Interface elements variable
     private lazy var authWebView: WKWebView = {

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VeniViewController" customModule="WebXApp" customModuleProvider="target">
             <connections>
+                <outlet property="textLabel" destination="csC-mZ-iqU" id="kvm-ot-bOx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация успешна" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csC-mZ-iqU">
-                    <rect key="frame" x="118.5" y="442.5" width="177" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизация успешна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csC-mZ-iqU">
+                    <rect key="frame" x="10" y="443" width="394" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <color key="highlightedColor" systemColor="labelColor"/>
@@ -29,7 +30,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="csC-mZ-iqU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="7NS-uR-mgy"/>
                 <constraint firstItem="csC-mZ-iqU" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="KUL-Dm-LKJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="csC-mZ-iqU" secondAttribute="trailing" constant="10" id="he2-F7-9n9"/>
                 <constraint firstItem="csC-mZ-iqU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="oW0-vm-8to"/>
             </constraints>
             <point key="canvasLocation" x="139" y="110"/>

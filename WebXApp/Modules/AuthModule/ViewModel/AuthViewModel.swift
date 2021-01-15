@@ -3,10 +3,9 @@
 //  WebXApp
 //
 //  Created by Виктор Кобыхно on 1/13/21.
-//
+//a
 
 import Foundation
-import RxSwift
 
 protocol AuthViewModelProtocol: class {
     var authRequest: URLRequest { get }
@@ -17,8 +16,8 @@ protocol AuthViewModelProtocol: class {
 final class AuthViewModel: AuthViewModelProtocol {
     
     private var networkingService: AuthNetworkingServicePublicProtocol
+    private var coordinator: AuthCoordinatorProtocol
     var authRequest: URLRequest
-    var coordinator: AuthCoordinatorProtocol
     
     init(networkingService: AuthNetworkingServicePublicProtocol, coordinator: AuthCoordinatorProtocol) {
         self.networkingService = networkingService
@@ -27,8 +26,22 @@ final class AuthViewModel: AuthViewModelProtocol {
     }
     
     func successAuth(code: String, state: String) {
-        self.coordinator.successAuth()
-        networkingService.getAccessToken(code, stateString: state)
+        networkingService.getAccessToken(code, stateString: state) { success in
+            DispatchQueue.main.async {
+                if success {
+                    self.networkingService.getUserData { (success) in
+                        if success {
+                            self.coordinator.successAuth()
+                        } else {
+                            self.coordinator.errorAuth()
+                        }
+                    }
+                } else {
+                    self.coordinator.errorAuth()
+                }
+            }
+        }
+        
     }
     
 }
