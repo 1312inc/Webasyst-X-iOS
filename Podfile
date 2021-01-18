@@ -7,6 +7,8 @@ target 'WebXApp' do
 
   # Pods for WebXApp
   pod 'Alamofire'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'WebXAppTests' do
     inherit! :search_paths

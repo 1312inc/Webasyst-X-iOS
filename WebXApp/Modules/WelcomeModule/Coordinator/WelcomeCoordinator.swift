@@ -10,7 +10,6 @@ import UIKit
 protocol WelcomeCoordinatorProtocol: class {
     init(_ navigationController: UINavigationController)
     func showWebAuthModal()
-    func showWebRegisterModal()
 }
 
 final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
@@ -34,10 +33,6 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
         let authCoordinator = AuthCoordinator(navigationController)
         childCoordinator.append(authCoordinator)
         authCoordinator.start()
-    }
-    
-    func showWebRegisterModal() {
-        print("Register tap")
     }
     
 }

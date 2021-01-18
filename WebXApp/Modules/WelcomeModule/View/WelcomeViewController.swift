@@ -69,16 +69,6 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
         return label
     }()
     
-    private var registrationButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Register Now".uppercased(), for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        button.setTitleColor(UIColor.systemIndigo, for: .normal)
-        button.addTarget(self, action: #selector(tapRegister), for: .touchDown)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
@@ -104,8 +94,6 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
         view.addSubview(appNameLabel)
         view.addSubview(descriptionAppLabel)
         view.addSubview(authButton)
-        view.addSubview(registrationLabel)
-        view.addSubview(registrationButton)
         NSLayoutConstraint.activate([
             //Top screen constraint
             logoImage.widthAnchor.constraint(equalToConstant: view.frame.width / 3),
@@ -122,17 +110,9 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
             descriptionAppLabel.widthAnchor.constraint(equalToConstant: 340),
             descriptionAppLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             descriptionAppLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 10),
-            //Bottom Screen constraint
-            registrationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            registrationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            registrationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            registrationButton.heightAnchor.constraint(equalToConstant: 44),
-            registrationLabel.bottomAnchor.constraint(equalTo: registrationButton.topAnchor, constant: -10),
-            registrationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            registrationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             authButton.widthAnchor.constraint(equalToConstant: view.frame.width / 1.5),
             authButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            authButton.bottomAnchor.constraint(equalTo: registrationLabel.topAnchor, constant: -40),
+            authButton.topAnchor.constraint(equalTo: descriptionAppLabel.bottomAnchor, constant: 40),
             authButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -140,10 +120,6 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
     //MARK: User event
     @objc func tapLogin() {
         self.viewModel.tappedLoginButton()
-    }
-    
-    @objc func tapRegister() {
-        self.viewModel.tappedRegisterButton()
     }
     
 }

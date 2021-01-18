@@ -29,7 +29,7 @@ final class AuthViewModel: AuthViewModelProtocol {
         networkingService.getAccessToken(code, stateString: state) { success in
             DispatchQueue.main.async {
                 if success {
-                    self.networkingService.getUserData { (success) in
+                    UserNetworkingService().getUserData { (success) in
                         if success {
                             self.coordinator.successAuth()
                         } else {

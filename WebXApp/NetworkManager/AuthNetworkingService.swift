@@ -9,32 +9,13 @@ import Foundation
 import CryptoKit
 import Alamofire
 
-struct UserToken: Codable {
-    let access_token: String
-    let token_type: String
-    let expires_in: Int
-    let refresh_token: String
-}
-
-struct UserData: Codable {
-    let name: String
-    let email: [Email]
-    let userpic: String
-}
-
-struct Email: Codable {
-    let value: String
-}
-
 private protocol AuthNetworkingServicePrivateProtocol: class {
-    func buildAuthUrl(_ path: String, parameters: [String: String]) -> URL
     func generatePasswordHash(_ len: Int) -> String
 }
 
 public protocol AuthNetworkingServicePublicProtocol: class {
     func buildAuthRequest() -> URLRequest
     func getAccessToken(_ authCode: String, stateString: String, completion: @escaping (Bool) -> Void)
-    func getUserData(completion: @escaping (Bool) -> ())
 }
 
 class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProtocol, AuthNetworkingServicePublicProtocol {
@@ -43,24 +24,7 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
     private let stateString: String = Bundle.main.bundleIdentifier ?? ""
     private var disposablePasswordAuth: String? = nil
     
-    //MARK: Build URL Webasyst Auth
-    fileprivate func buildAuthUrl(_ path: String, parameters: [String: String]) -> URL {
-        var urlComponents: URL? {
-            var component = URLComponents()
-            component.scheme = "https"
-            component.host = host
-            component.path = path
-            if !parameters.isEmpty {
-                var queryParams = [URLQueryItem]()
-                for param in parameters {
-                    queryParams.append(URLQueryItem(name: param.key, value: param.value))
-                }
-                component.queryItems = queryParams
-            }
-            return component.url
-        }
-        return urlComponents!.absoluteURL
-    }
+    
     
     //MARK: Generating a one-time password in Webasyst
     fileprivate func generatePasswordHash(_ len: Int) -> String {
@@ -86,7 +50,7 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
             "code_challenge_method": "plain"
         ]
         
-        var request = URLRequest(url: buildAuthUrl("/id/oauth2/auth/code", parameters: paramRequest))
+        var request = URLRequest(url: buildWebasystUrl("/id/oauth2/auth/code", parameters: paramRequest))
         request.httpMethod = "GET"
         return request
     }
@@ -113,7 +77,7 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
             for (key, value) in paramRequest {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: key)
             }
-        }, to: buildAuthUrl("/id/oauth2/auth/token", parameters: [:]), usingThreshold: UInt64.init(), method: .post, headers: headers).responseJSON(completionHandler: { (response) in
+        }, to: buildWebasystUrl("/id/oauth2/auth/token", parameters: [:]), usingThreshold: UInt64.init(), method: .post, headers: headers).responseJSON(completionHandler: { (response) in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else {
@@ -142,34 +106,6 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
         
     }
     
-    //MARK: Get user data
-    public func getUserData(completion: @escaping (Bool) -> ()) {
-        
-        let accessToken = KeychainManager.load(key: "accessToken")
-        let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
-        
-        let headers: HTTPHeaders = [
-            "Authorization": accessTokenString
-        ]
-        
-        AF.request(buildAuthUrl("/id/api/v1/profile/", parameters: [:]), method: .get, headers: headers).response { (response) in
-            switch response.result {
-            case .success:
-                guard let statusCode = response.response?.statusCode else { return }
-                switch statusCode {
-                case 200...299:
-                    let userData = try! JSONDecoder().decode(UserData.self, from: response.data!)
-                    let userDefaults = UserDefaults.standard
-                    userDefaults.set(userData.name, forKey: "userName")
-                    userDefaults.set(userData.email[0].value, forKey: "userEmail")
-                    completion(true)
-                default:
-                    completion(false)
-                }
-            case .failure:
-                print("failure")
-            }
-        }
-    }
+    
     
 }

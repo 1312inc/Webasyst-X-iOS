@@ -10,7 +10,6 @@ import Foundation
 protocol WelcomeViewModelProtocol: class {
     init(coordinator: WelcomeCoordinatorProtocol)
     func tappedLoginButton()
-    func tappedRegisterButton()
 }
 
 final class WelcomeViewModel: WelcomeViewModelProtocol {
@@ -23,10 +22,6 @@ final class WelcomeViewModel: WelcomeViewModelProtocol {
     
     public func tappedLoginButton() {
         coordinator.showWebAuthModal()
-    }
-    
-    public func tappedRegisterButton() {
-        coordinator.showWebRegisterModal()
     }
     
 }
