@@ -7,13 +7,13 @@
 
 import Foundation
 
-public protocol NetworkingManagerProtocol {
+public protocol WebasystNetworkingManagerProtocol {
     var host: String { get }
     var clientId: String { get }
     func buildWebasystUrl(_ path: String, parameters: [String: String]) -> URL
 }
 
-class NetworkingManager: NetworkingManagerProtocol {
+class WebasystNetworkingManager: WebasystNetworkingManagerProtocol {
     
     public var host: String = "www.webasyst.com"
     public let clientId: String = "96fa27732ea21b508a24f8599168ed49"

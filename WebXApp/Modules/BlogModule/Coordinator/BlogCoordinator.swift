@@ -10,6 +10,7 @@ import UIKit
 protocol BlogCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
     func openInstallList()
+    func openProfileScreen()
 }
 
 class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
@@ -33,6 +34,11 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
         let installListCoordinator = InstallListCoordinator(navigationController)
         childCoordinator.append(installListCoordinator)
         installListCoordinator.start()
+    }
+    
+    func openProfileScreen() {
+        let profileCoordinator = ProfileCoordinator(self.navigationController)
+        profileCoordinator.start()
     }
         
 }

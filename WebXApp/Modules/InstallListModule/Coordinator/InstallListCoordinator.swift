@@ -9,6 +9,7 @@ import UIKit
 
 protocol InstallListCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
+    func dismissInstallList()
 }
 
 class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
@@ -21,12 +22,16 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
     }
     
     func start() {
-        let userNetworkingService = UserNetworkingService()
-        let installListViewModel = InstallListViewModel(networkingService: userNetworkingService)
+        let userNetworkingService = WebasystUserNetworkingService()
+        let installListViewModel = InstallListViewModel(networkingService: userNetworkingService, coordinator: self)
         let installListViewController = InstallListViewController()
         installListViewController.viewModel = installListViewModel
         let installListNavigationController = UINavigationController(rootViewController: installListViewController)
         self.navigationController.present(installListNavigationController, animated: true, completion: nil)
+    }
+    
+    func dismissInstallList() {
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
     
 }

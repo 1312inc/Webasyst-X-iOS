@@ -9,12 +9,15 @@ import Foundation
 import Alamofire
 import RxSwift
 
-protocol UserNetworkingServiceProtocol {
+protocol WebasystUserNetworkingServiceProtocol {
     func getUserData(completion: @escaping (Bool) -> ())
     func getInstallList() -> Observable<[InstallList]>
+    func refreshAccessToken()
 }
 
-final class UserNetworkingService: NetworkingManager, UserNetworkingServiceProtocol {
+final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUserNetworkingServiceProtocol {
+    
+    private var timer: DispatchSourceTimer?
     
     //MARK: Get user data
     public func getUserData(completion: @escaping (Bool) -> ()) {
@@ -66,6 +69,7 @@ final class UserNetworkingService: NetworkingManager, UserNetworkingServiceProto
                     case 200...299:
                         if let data = response.data {
                             let installList = try! JSONDecoder().decode([InstallList].self, from: data)
+                            UserDefaults.standard.setValue(installList[0].domain, forKey: "selectDomainUser")
                             observer.onNext(installList)
                             observer.onCompleted()
                         }
@@ -86,4 +90,56 @@ final class UserNetworkingService: NetworkingManager, UserNetworkingServiceProto
         }
         
     }
+    
+    func refreshAccessToken() {
+        
+        let refreshToken = KeychainManager.load(key: "refreshToken")
+        let refreshTokenString = String(decoding: refreshToken ?? Data("".utf8), as: UTF8.self)
+        
+        let paramsRequest: [String: String] = [
+            "grant_type": "refresh_token",
+            "refresh_token": refreshTokenString,
+            "client_id": clientId
+        ]
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in paramsRequest {
+                multipartFormData.append("\(value)".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: key)
+            }
+        }, to: buildWebasystUrl("/id/oauth2/auth/token", parameters: [:]), method: .post).response { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                switch statusCode {
+                case 200...299:
+                    if let data = response.data {
+                        let authData = try! JSONDecoder().decode(UserToken.self, from: data)
+                        let _ = KeychainManager.save(key: "accessToken", data: Data("Bearer \(authData.access_token)".utf8))
+                        let _ = KeychainManager.save(key: "refreshToken", data: Data(authData.refresh_token.utf8))
+                        self.startRefreshTokenTimer(timeInterval: authData.expires_in)
+                        }
+                default:
+                    print("Token refresh error answer")
+                }
+            case .failure:
+                print("Refresh token failure request")
+            }
+        }
+    }
+    
+    private func startRefreshTokenTimer(timeInterval: Int) {
+        let queue = DispatchQueue(label: "com.domain.app.timerRefreshAccessToken")
+        timer = DispatchSource.makeTimerSource(queue: queue)
+        timer!.schedule(deadline: .now(), repeating: .seconds(timeInterval))
+        timer!.setEventHandler { [weak self] in
+            self?.refreshAccessToken()
+        }
+        timer!.resume()
+    }
+
+    private func stopTimer() {
+        timer?.cancel()
+        timer = nil
+    }
+    
 }

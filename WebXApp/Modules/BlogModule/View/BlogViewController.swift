@@ -15,12 +15,17 @@ class BlogViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Блог"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(openSetupList))
-        view.backgroundColor = .systemBackground
+        self.view.backgroundColor = .systemBackground
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(openUserProfile))
     }
     
     @objc func openSetupList() {
         self.viewModel.openInstallList()
+    }
+    
+    @objc func openUserProfile() {
+        self.viewModel.openProfileScreen()
     }
 
 }

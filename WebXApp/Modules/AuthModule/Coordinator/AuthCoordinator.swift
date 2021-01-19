@@ -26,7 +26,7 @@ class AuthCoordinator: Coordinator, AuthCoordinatorProtocol {
     func start() {
         let authViewController = AuthViewController()
         let authCoordinator = AuthCoordinator(self.navigationController)
-        let networkingService = AuthNetworkingService()
+        let networkingService = WebasystAuthNetworkingService()
         let authViewModel = AuthViewModel(networkingService: networkingService, coordinator: authCoordinator)
         authViewController.viewModel = authViewModel
         self.navigationController.present(authViewController, animated: true, completion: nil)

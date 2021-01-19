@@ -10,6 +10,7 @@ import Foundation
 protocol BlogViewModelProtocol {
     init(coordinator: BlogCoordinatorProtocol)
     func openInstallList()
+    func openProfileScreen()
 }
 
 class BlogViewModel: BlogViewModelProtocol {
@@ -22,6 +23,10 @@ class BlogViewModel: BlogViewModelProtocol {
     
     func openInstallList() {
         self.coordinator.openInstallList()
+    }
+    
+    func openProfileScreen() {
+        self.coordinator.openProfileScreen()
     }
     
 }

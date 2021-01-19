@@ -13,9 +13,8 @@ class SiteViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Сайт"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(openSetupList))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
         view.backgroundColor = .systemBackground
-        // Do any additional setup after loading the view.
     }
     
     @objc func openSetupList() {

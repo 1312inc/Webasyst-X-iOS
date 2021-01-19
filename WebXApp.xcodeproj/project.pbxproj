@@ -14,6 +14,14 @@
 		C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
+		FD461F8F25B6872C00DB9B50 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461F8E25B6872C00DB9B50 /* ProfileModel.swift */; };
+		FD461FA725B6938800DB9B50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FA525B6938800DB9B50 /* ProfileViewController.swift */; };
+		FD461FA825B6938800DB9B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD461FA625B6938800DB9B50 /* ProfileViewController.xib */; };
+		FD461FAB25B6968700DB9B50 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FAA25B6968700DB9B50 /* ProfileCoordinator.swift */; };
+		FD461FC325B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FC125B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift */; };
+		FD461FC425B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FC225B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift */; };
+		FD461FCF25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FCD25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift */; };
+		FD461FD025B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FCE25B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift */; };
 		FD61241D25B1826D00F5714B /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD61241C25B1826D00F5714B /* KeychainService.swift */; };
 		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
 		FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */; };
@@ -24,7 +32,6 @@
 		FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */; };
 		FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */; };
 		FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */; };
-		FDD6E34D25B5294700F5CE24 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E34C25B5294700F5CE24 /* UserData.swift */; };
 		FDD6E35025B5295400F5CE24 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E34F25B5295400F5CE24 /* UserToken.swift */; };
 		FDD6E35725B540CE00F5CE24 /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E35625B540CE00F5CE24 /* BlogViewController.swift */; };
 		FDD6E35B25B540DC00F5CE24 /* BlogViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E35A25B540DC00F5CE24 /* BlogViewModule.swift */; };
@@ -39,9 +46,9 @@
 		FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E38C25B552BC00F5CE24 /* InstalListViewModel.swift */; };
 		FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E38F25B552D000F5CE24 /* InstallListViewController.swift */; };
 		FDD6E39425B5593A00F5CE24 /* InstallListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E39325B5593A00F5CE24 /* InstallListModel.swift */; };
-		FDD6E39825B559F200F5CE24 /* UserNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E39725B559F200F5CE24 /* UserNetworkingService.swift */; };
-		FDE8F59F25AFDE1D00B98933 /* AuthNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F59E25AFDE1D00B98933 /* AuthNetworkingService.swift */; };
-		FDE8F5A325AFE75900B98933 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F5A225AFE75900B98933 /* NetworkingManager.swift */; };
+		FDD6E39825B559F200F5CE24 /* WebasystUserNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E39725B559F200F5CE24 /* WebasystUserNetworkingService.swift */; };
+		FDE8F59F25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F59E25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift */; };
+		FDE8F5A325AFE75900B98933 /* WebasystNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE8F5A225AFE75900B98933 /* WebasystNetworkingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +88,14 @@
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD461F8E25B6872C00DB9B50 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		FD461FA525B6938800DB9B50 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FD461FA625B6938800DB9B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		FD461FAA25B6968700DB9B50 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		FD461FC125B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "InstallUser+CoreDataClass.swift"; path = "WebXApp/CoreDataManager/InstallUserList/InstallUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FD461FC225B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "InstallUser+CoreDataProperties.swift"; path = "WebXApp/CoreDataManager/InstallUserList/InstallUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FD461FCD25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileData+CoreDataClass.swift"; path = "WebXApp/CoreDataManager/ProfileUserData/ProfileData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FD461FCE25B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileData+CoreDataProperties.swift"; path = "WebXApp/CoreDataManager/ProfileUserData/ProfileData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FD61241C25B1826D00F5714B /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +108,6 @@
 		FDCF9CFB25AEC64F00EDFE69 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FDCF9CFE25AEC65E00EDFE69 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FDCF9D0325AEDB2200EDFE69 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
-		FDD6E34C25B5294700F5CE24 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		FDD6E34F25B5295400F5CE24 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
 		FDD6E35625B540CE00F5CE24 /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		FDD6E35A25B540DC00F5CE24 /* BlogViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewModule.swift; sourceTree = "<group>"; };
@@ -108,9 +122,9 @@
 		FDD6E38C25B552BC00F5CE24 /* InstalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalListViewModel.swift; sourceTree = "<group>"; };
 		FDD6E38F25B552D000F5CE24 /* InstallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallListViewController.swift; sourceTree = "<group>"; };
 		FDD6E39325B5593A00F5CE24 /* InstallListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallListModel.swift; sourceTree = "<group>"; };
-		FDD6E39725B559F200F5CE24 /* UserNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingService.swift; sourceTree = "<group>"; };
-		FDE8F59E25AFDE1D00B98933 /* AuthNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkingService.swift; sourceTree = "<group>"; };
-		FDE8F5A225AFE75900B98933 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		FDD6E39725B559F200F5CE24 /* WebasystUserNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystUserNetworkingService.swift; sourceTree = "<group>"; };
+		FDE8F59E25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystAuthNetworkingService.swift; sourceTree = "<group>"; };
+		FDE8F5A225AFE75900B98933 /* WebasystNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystNetworkingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,10 +196,88 @@
 				FDCF9CDD25AE84A300EDFE69 /* AppCoordinator */,
 				FDCF9CB425AE7F7A00EDFE69 /* Modules */,
 				FDCF9CB225AE7F5900EDFE69 /* CoreDataManager */,
-				FDCF9CB625AE7F9E00EDFE69 /* NetworkManager */,
+				FDCF9CB625AE7F9E00EDFE69 /* NetworkingService */,
 				FD61241B25B1825000F5714B /* KeychainManager */,
 			);
 			path = WebXApp;
+			sourceTree = "<group>";
+		};
+		FD461F8325B6865500DB9B50 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				FD461F8725B6868300DB9B50 /* Coordinator */,
+				FD461F8625B6867E00DB9B50 /* Model */,
+				FD461F8525B6867700DB9B50 /* ViewModel */,
+				FD461F8425B6866200DB9B50 /* View */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		FD461F8425B6866200DB9B50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD461FA525B6938800DB9B50 /* ProfileViewController.swift */,
+				FD461FA625B6938800DB9B50 /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD461F8525B6867700DB9B50 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD461F8625B6867E00DB9B50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD461F8E25B6872C00DB9B50 /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD461F8725B6868300DB9B50 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FD461FAA25B6968700DB9B50 /* ProfileCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FD461F9D25B6921B00DB9B50 /* WebasystNetworkingService */ = {
+			isa = PBXGroup;
+			children = (
+				FDE8F59E25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift */,
+				FDE8F5A225AFE75900B98933 /* WebasystNetworkingManager.swift */,
+				FDD6E39725B559F200F5CE24 /* WebasystUserNetworkingService.swift */,
+			);
+			path = WebasystNetworkingService;
+			sourceTree = "<group>";
+		};
+		FD461FA325B692D800DB9B50 /* UserNetworkingService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserNetworkingService;
+			sourceTree = "<group>";
+		};
+		FD461FCC25B6A91A00DB9B50 /* InstallUserList */ = {
+			isa = PBXGroup;
+			children = (
+				FD461FC125B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift */,
+				FD461FC225B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift */,
+			);
+			path = InstallUserList;
+			sourceTree = "<group>";
+		};
+		FD461FD225B6A93800DB9B50 /* ProfileUserData */ = {
+			isa = PBXGroup;
+			children = (
+				FD461FCD25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift */,
+				FD461FCE25B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift */,
+			);
+			path = ProfileUserData;
 			sourceTree = "<group>";
 		};
 		FD61241B25B1825000F5714B /* KeychainManager */ = {
@@ -199,6 +291,8 @@
 		FDCF9CB225AE7F5900EDFE69 /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				FD461FD225B6A93800DB9B50 /* ProfileUserData */,
+				FD461FCC25B6A91A00DB9B50 /* InstallUserList */,
 				C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */,
 			);
 			path = CoreDataManager;
@@ -217,6 +311,7 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD461F8325B6865500DB9B50 /* ProfileModule */,
 				FDD6E38425B551E300F5CE24 /* InstallListModule */,
 				FDD6E36125B543D500F5CE24 /* ShopModule */,
 				FDD6E36025B543CB00F5CE24 /* SiteModule */,
@@ -237,14 +332,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FDCF9CB625AE7F9E00EDFE69 /* NetworkManager */ = {
+		FDCF9CB625AE7F9E00EDFE69 /* NetworkingService */ = {
 			isa = PBXGroup;
 			children = (
-				FDE8F59E25AFDE1D00B98933 /* AuthNetworkingService.swift */,
-				FDE8F5A225AFE75900B98933 /* NetworkingManager.swift */,
-				FDD6E39725B559F200F5CE24 /* UserNetworkingService.swift */,
+				FD461FA325B692D800DB9B50 /* UserNetworkingService */,
+				FD461F9D25B6921B00DB9B50 /* WebasystNetworkingService */,
 			);
-			path = NetworkManager;
+			path = NetworkingService;
 			sourceTree = "<group>";
 		};
 		FDCF9CB725AE807A00EDFE69 /* WelcomeModule */ = {
@@ -319,7 +413,6 @@
 		FDD6E34B25B5293500F5CE24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FDD6E34C25B5294700F5CE24 /* UserData.swift */,
 				FDD6E34F25B5295400F5CE24 /* UserToken.swift */,
 			);
 			path = Models;
@@ -572,6 +665,7 @@
 			files = (
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
+				FD461FA825B6938800DB9B50 /* ProfileViewController.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,32 +751,38 @@
 				FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */,
 				FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */,
 				FDD6E36E25B5441500F5CE24 /* ShopViewController.swift in Sources */,
+				FD461FC425B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift in Sources */,
 				FDD6E35B25B540DC00F5CE24 /* BlogViewModule.swift in Sources */,
 				FDD6E36B25B5440A00F5CE24 /* SiteViewModel.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
-				FDD6E34D25B5294700F5CE24 /* UserData.swift in Sources */,
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
 				FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */,
 				FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */,
-				FDE8F5A325AFE75900B98933 /* NetworkingManager.swift in Sources */,
+				FD461FAB25B6968700DB9B50 /* ProfileCoordinator.swift in Sources */,
+				FDE8F5A325AFE75900B98933 /* WebasystNetworkingManager.swift in Sources */,
+				FD461FD025B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift in Sources */,
 				FDD6E35725B540CE00F5CE24 /* BlogViewController.swift in Sources */,
 				FDD6E37125B5441F00F5CE24 /* ShopViewModel.swift in Sources */,
+				FD461FA725B6938800DB9B50 /* ProfileViewController.swift in Sources */,
 				FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */,
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
 				FDD6E35025B5295400F5CE24 /* UserToken.swift in Sources */,
+				FD461FCF25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift in Sources */,
+				FD461F8F25B6872C00DB9B50 /* ProfileModel.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
+				FD461FC325B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift in Sources */,
 				FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */,
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
 				FD61241D25B1826D00F5714B /* KeychainService.swift in Sources */,
-				FDD6E39825B559F200F5CE24 /* UserNetworkingService.swift in Sources */,
+				FDD6E39825B559F200F5CE24 /* WebasystUserNetworkingService.swift in Sources */,
 				C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */,
 				FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */,
 				FDD6E39425B5593A00F5CE24 /* InstallListModel.swift in Sources */,
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,
-				FDE8F59F25AFDE1D00B98933 /* AuthNetworkingService.swift in Sources */,
+				FDE8F59F25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

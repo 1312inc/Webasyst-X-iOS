@@ -9,16 +9,16 @@ import Foundation
 import CryptoKit
 import Alamofire
 
-private protocol AuthNetworkingServicePrivateProtocol: class {
+private protocol WebasystAuthNetworkingServicePrivateProtocol: class {
     func generatePasswordHash(_ len: Int) -> String
 }
 
-public protocol AuthNetworkingServicePublicProtocol: class {
+public protocol WebasystAuthNetworkingServicePublicProtocol: class {
     func buildAuthRequest() -> URLRequest
     func getAccessToken(_ authCode: String, stateString: String, completion: @escaping (Bool) -> Void)
 }
 
-class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProtocol, AuthNetworkingServicePublicProtocol {
+class WebasystAuthNetworkingService: WebasystNetworkingManager, WebasystAuthNetworkingServicePrivateProtocol, WebasystAuthNetworkingServicePublicProtocol {
     
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let stateString: String = Bundle.main.bundleIdentifier ?? ""
@@ -95,8 +95,6 @@ class AuthNetworkingService: NetworkingManager, AuthNetworkingServicePrivateProt
                         }
                     }
                 default:
-                    let outputStr  = String(data: response.data!, encoding: String.Encoding.utf8)
-                    print(outputStr ?? "")
                     completion(false)
                 }
             case .failure:

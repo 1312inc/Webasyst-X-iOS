@@ -61,8 +61,4 @@ final class AppCoordinator: Coordinator {
         
     }
     
-    @objc private func openSetupList(_ navigationController: UINavigationController) {
-        
-    }
-    
 }
