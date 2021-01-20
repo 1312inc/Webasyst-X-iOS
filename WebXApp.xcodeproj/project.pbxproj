@@ -18,11 +18,14 @@
 		FD461FA725B6938800DB9B50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FA525B6938800DB9B50 /* ProfileViewController.swift */; };
 		FD461FA825B6938800DB9B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD461FA625B6938800DB9B50 /* ProfileViewController.xib */; };
 		FD461FAB25B6968700DB9B50 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FAA25B6968700DB9B50 /* ProfileCoordinator.swift */; };
-		FD461FC325B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FC125B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift */; };
-		FD461FC425B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FC225B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift */; };
-		FD461FCF25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FCD25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift */; };
-		FD461FD025B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FCE25B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift */; };
 		FD61241D25B1826D00F5714B /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD61241C25B1826D00F5714B /* KeychainService.swift */; };
+		FD83A42E25B7D00F00A55EBD /* UserNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A42D25B7D00F00A55EBD /* UserNetworkingService.swift */; };
+		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
+		FD83A43425B7DC8400A55EBD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43325B7DC8400A55EBD /* ProfileViewModel.swift */; };
+		FD83A47225B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47025B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift */; };
+		FD83A47325B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47125B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift */; };
+		FD83A47725B823AB00A55EBD /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47525B823AB00A55EBD /* ProfileData+CoreDataClass.swift */; };
+		FD83A47825B823AB00A55EBD /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47625B823AB00A55EBD /* ProfileData+CoreDataProperties.swift */; };
 		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
 		FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */; };
 		FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */; };
@@ -92,11 +95,14 @@
 		FD461FA525B6938800DB9B50 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD461FA625B6938800DB9B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		FD461FAA25B6968700DB9B50 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
-		FD461FC125B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "InstallUser+CoreDataClass.swift"; path = "WebXApp/CoreDataManager/InstallUserList/InstallUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FD461FC225B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "InstallUser+CoreDataProperties.swift"; path = "WebXApp/CoreDataManager/InstallUserList/InstallUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		FD461FCD25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileData+CoreDataClass.swift"; path = "WebXApp/CoreDataManager/ProfileUserData/ProfileData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		FD461FCE25B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ProfileData+CoreDataProperties.swift"; path = "WebXApp/CoreDataManager/ProfileUserData/ProfileData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FD61241C25B1826D00F5714B /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		FD83A42D25B7D00F00A55EBD /* UserNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingService.swift; sourceTree = "<group>"; };
+		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
+		FD83A43325B7DC8400A55EBD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FD83A47025B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileInstallList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD83A47125B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileInstallList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FD83A47525B823AB00A55EBD /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD83A47625B823AB00A55EBD /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +231,7 @@
 		FD461F8525B6867700DB9B50 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FD83A43325B7DC8400A55EBD /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -258,24 +265,26 @@
 		FD461FA325B692D800DB9B50 /* UserNetworkingService */ = {
 			isa = PBXGroup;
 			children = (
+				FD83A42D25B7D00F00A55EBD /* UserNetworkingService.swift */,
+				FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */,
 			);
 			path = UserNetworkingService;
 			sourceTree = "<group>";
 		};
-		FD461FCC25B6A91A00DB9B50 /* InstallUserList */ = {
+		FD461FCC25B6A91A00DB9B50 /* ProfileInstallList */ = {
 			isa = PBXGroup;
 			children = (
-				FD461FC125B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift */,
-				FD461FC225B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift */,
+				FD83A47025B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift */,
+				FD83A47125B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift */,
 			);
-			path = InstallUserList;
+			path = ProfileInstallList;
 			sourceTree = "<group>";
 		};
 		FD461FD225B6A93800DB9B50 /* ProfileUserData */ = {
 			isa = PBXGroup;
 			children = (
-				FD461FCD25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift */,
-				FD461FCE25B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift */,
+				FD83A47525B823AB00A55EBD /* ProfileData+CoreDataClass.swift */,
+				FD83A47625B823AB00A55EBD /* ProfileData+CoreDataProperties.swift */,
 			);
 			path = ProfileUserData;
 			sourceTree = "<group>";
@@ -292,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				FD461FD225B6A93800DB9B50 /* ProfileUserData */,
-				FD461FCC25B6A91A00DB9B50 /* InstallUserList */,
+				FD461FCC25B6A91A00DB9B50 /* ProfileInstallList */,
 				C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */,
 			);
 			path = CoreDataManager;
@@ -751,28 +760,29 @@
 				FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */,
 				FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */,
 				FDD6E36E25B5441500F5CE24 /* ShopViewController.swift in Sources */,
-				FD461FC425B6A8EA00DB9B50 /* InstallUser+CoreDataProperties.swift in Sources */,
 				FDD6E35B25B540DC00F5CE24 /* BlogViewModule.swift in Sources */,
 				FDD6E36B25B5440A00F5CE24 /* SiteViewModel.swift in Sources */,
+				FD83A47725B823AB00A55EBD /* ProfileData+CoreDataClass.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
+				FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */,
 				FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */,
 				FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */,
 				FD461FAB25B6968700DB9B50 /* ProfileCoordinator.swift in Sources */,
 				FDE8F5A325AFE75900B98933 /* WebasystNetworkingManager.swift in Sources */,
-				FD461FD025B6A93500DB9B50 /* ProfileData+CoreDataProperties.swift in Sources */,
 				FDD6E35725B540CE00F5CE24 /* BlogViewController.swift in Sources */,
 				FDD6E37125B5441F00F5CE24 /* ShopViewModel.swift in Sources */,
 				FD461FA725B6938800DB9B50 /* ProfileViewController.swift in Sources */,
 				FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */,
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
+				FD83A43425B7DC8400A55EBD /* ProfileViewModel.swift in Sources */,
 				FDD6E35025B5295400F5CE24 /* UserToken.swift in Sources */,
-				FD461FCF25B6A93500DB9B50 /* ProfileData+CoreDataClass.swift in Sources */,
 				FD461F8F25B6872C00DB9B50 /* ProfileModel.swift in Sources */,
+				FD83A42E25B7D00F00A55EBD /* UserNetworkingService.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
-				FD461FC325B6A8EA00DB9B50 /* InstallUser+CoreDataClass.swift in Sources */,
 				FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */,
+				FD83A47825B823AB00A55EBD /* ProfileData+CoreDataProperties.swift in Sources */,
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
@@ -781,8 +791,10 @@
 				C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */,
 				FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */,
 				FDD6E39425B5593A00F5CE24 /* InstallListModel.swift in Sources */,
+				FD83A47225B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift in Sources */,
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,
 				FDE8F59F25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift in Sources */,
+				FD83A47325B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

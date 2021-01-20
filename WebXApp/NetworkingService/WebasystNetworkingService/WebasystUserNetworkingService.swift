@@ -36,15 +36,15 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 switch statusCode {
                 case 200...299:
                     let userData = try! JSONDecoder().decode(UserData.self, from: response.data!)
-                    let userDefaults = UserDefaults.standard
-                    userDefaults.set(userData.name, forKey: "userName")
-                    userDefaults.set(userData.email[0].value, forKey: "userEmail")
+                    UserNetworkingManager().downloadImage(userData.userpic_original_crop) { data in
+                        ProfileData().saveProfileData(userData, avatar: data)
+                    }
                     completion(true)
                 default:
                     completion(false)
                 }
             case .failure:
-                print("Get user data failure")
+                completion(false)
             }
         }
     }

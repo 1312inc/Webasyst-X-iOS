@@ -9,14 +9,13 @@ import Foundation
 
 struct UserData: Codable {
     let name: String
+    let firstname: String
+    let lastname: String
+    let middlename: String
     let email: [Email]
-    let userpic: String
+    let userpic_original_crop: String
 }
 
 struct Email: Codable {
     let value: String
-}
-
-enum status: String {
-    case unknown = "Неизвестен"
 }

@@ -38,7 +38,6 @@ final class InstallListViewModel: InstallListViewModelProtocol {
     }
     
     func selectDomainUser() {
-        print(selectDomain)
         UserDefaults.standard.setValue(selectDomain, forKey: "selectDomainUser")
         self.coordinator.dismissInstallList()
     }
