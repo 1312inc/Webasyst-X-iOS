@@ -18,7 +18,6 @@ class InstallListViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "installCell")
-        tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -30,7 +29,8 @@ class InstallListViewController: UIViewController {
         setupLayout()
         
         viewModel.fetchInstallList().bind(to: tableView.rx.items(cellIdentifier: "installCell")) { index, viewModel, cell in
-            cell.textLabel?.text = viewModel.domain
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.text = "Домен: \(viewModel.domain ?? "")"
             if viewModel.domain == self.viewModel.selectDomain {
                 cell.accessoryType = .checkmark
             }
@@ -66,10 +66,4 @@ class InstallListViewController: UIViewController {
         self.viewModel.cancelSelectDomain()
     }
 
-}
-
-extension InstallListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
 }

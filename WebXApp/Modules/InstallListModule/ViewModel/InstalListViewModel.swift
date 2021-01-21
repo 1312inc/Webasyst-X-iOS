@@ -11,8 +11,8 @@ import RxSwift
 protocol InstallListViewModelProtocol {
     var selectDomain: String { get set }
     var title: String { get }
-    init(networkingService: WebasystUserNetworkingServiceProtocol, coordinator: InstallListCoordinatorProtocol)
-    func fetchInstallList() -> Observable<[InstallList]>
+    init(profileInstallListService: ProfileInstallListServiceProtocol, coordinator: InstallListCoordinatorProtocol)
+    func fetchInstallList() -> Observable<[ProfileInstallList]>
     func selectDomainUser()
     func cancelSelectDomain()
 }
@@ -24,15 +24,15 @@ final class InstallListViewModel: InstallListViewModelProtocol {
     let disposeBag = DisposeBag()
     
     var installList: [InstallList] = []
-    private var userNetworkingService: WebasystUserNetworkingServiceProtocol
+    private var profileInstallListService: ProfileInstallListServiceProtocol
     var coordinator: InstallListCoordinatorProtocol
-    required init(networkingService: WebasystUserNetworkingServiceProtocol, coordinator: InstallListCoordinatorProtocol) {
-        self.userNetworkingService = networkingService
+    required init(profileInstallListService: ProfileInstallListServiceProtocol, coordinator: InstallListCoordinatorProtocol) {
+        self.profileInstallListService = profileInstallListService
         self.coordinator = coordinator
     }
     
-    func fetchInstallList() -> Observable<[InstallList]> {
-        self.userNetworkingService.getInstallList().map {
+    func fetchInstallList() -> Observable<[ProfileInstallList]> {
+        self.profileInstallListService.getInstallList().map {
             $0.map { $0 }
         }
     }

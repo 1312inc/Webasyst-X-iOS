@@ -48,4 +48,12 @@ class KeychainManager {
         let swiftString: String = cfStr as String
         return swiftString
     }
+    
+    class func deleteAllKeys() {
+        let secItemClasses = [kSecClassGenericPassword, kSecClassInternetPassword, kSecClassCertificate, kSecClassKey, kSecClassIdentity]
+        for itemClass in secItemClasses {
+            let spec: NSDictionary = [kSecClass: itemClass]
+            SecItemDelete(spec)
+        }
+    }
 }

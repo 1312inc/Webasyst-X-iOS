@@ -14,6 +14,7 @@
 		C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C341FED7255B0AEE0091B045 /* WebXApp.xcdatamodeld */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
+		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
 		FD461F8F25B6872C00DB9B50 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461F8E25B6872C00DB9B50 /* ProfileModel.swift */; };
 		FD461FA725B6938800DB9B50 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD461FA525B6938800DB9B50 /* ProfileViewController.swift */; };
 		FD461FA825B6938800DB9B50 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD461FA625B6938800DB9B50 /* ProfileViewController.xib */; };
@@ -91,6 +92,7 @@
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		FD461F8E25B6872C00DB9B50 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		FD461FA525B6938800DB9B50 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD461FA625B6938800DB9B50 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 				FD61241B25B1825000F5714B /* KeychainManager */,
 			);
 			path = WebXApp;
+			sourceTree = "<group>";
+		};
+		FD1062E725B96CEC00E53A29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD1062E825B96D0100E53A29 /* BlogModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FD461F8325B6865500DB9B50 /* ProfileModule */ = {
@@ -566,6 +576,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD6E37725B5449100F5CE24 /* Coordinator */,
+				FD1062E725B96CEC00E53A29 /* Model */,
 				FDE8F5AD25B03FF900B98933 /* ViewModule */,
 				FDE8F5AC25B03FF200B98933 /* View */,
 			);
@@ -776,6 +787,7 @@
 				FDCF9CFC25AEC64F00EDFE69 /* AuthViewModel.swift in Sources */,
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
+				FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */,
 				FD83A43425B7DC8400A55EBD /* ProfileViewModel.swift in Sources */,
 				FDD6E35025B5295400F5CE24 /* UserToken.swift in Sources */,
 				FD461F8F25B6872C00DB9B50 /* ProfileModel.swift in Sources */,

@@ -11,13 +11,16 @@ import RxSwift
 
 protocol WebasystUserNetworkingServiceProtocol {
     func getUserData(completion: @escaping (Bool) -> ())
-    func getInstallList() -> Observable<[InstallList]>
+    func getInstallList() 
     func refreshAccessToken()
+    func getAccessTokenApi( clientId: [String]) -> Observable<[String: Any]>
 }
 
 final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUserNetworkingServiceProtocol {
     
     private var timer: DispatchSourceTimer?
+    private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
+    private let profileInstallService = ProfileInstallListService()
     
     //MARK: Get user data
     public func getUserData(completion: @escaping (Bool) -> ()) {
@@ -37,7 +40,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 case 200...299:
                     let userData = try! JSONDecoder().decode(UserData.self, from: response.data!)
                     UserNetworkingManager().downloadImage(userData.userpic_original_crop) { data in
-                        ProfileData().saveProfileData(userData, avatar: data)
+                        ProfileDataService().saveProfileData(userData, avatar: data)
                     }
                     completion(true)
                 default:
@@ -50,43 +53,38 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     }
     
     //MARK: Get installation's list user
-    public func getInstallList() -> Observable<[InstallList]> {
+    public func getInstallList() {
         
-        return Observable.create { observer -> Disposable in
-            
-            let accessToken = KeychainManager.load(key: "accessToken")
-            let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
-            
-            let headers: HTTPHeaders = [
-                "Authorization": accessTokenString
-            ]
-            
-             let request = AF.request(self.buildWebasystUrl("/id/api/v1/installations/", parameters: [:]), method: .get, headers: headers).response { (response) in
-                switch response.result {
-                case .success:
-                    guard let statusCode = response.response?.statusCode else { return }
-                    switch statusCode {
-                    case 200...299:
-                        if let data = response.data {
-                            let installList = try! JSONDecoder().decode([InstallList].self, from: data)
-                            UserDefaults.standard.setValue(installList[0].domain, forKey: "selectDomainUser")
-                            observer.onNext(installList)
-                            observer.onCompleted()
+        let accessToken = KeychainManager.load(key: "accessToken")
+        let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
+        
+        let headers: HTTPHeaders = [
+            "Authorization": accessTokenString
+        ]
+        
+         AF.request(self.buildWebasystUrl("/id/api/v1/installations/", parameters: [:]), method: .get, headers: headers).response { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                switch statusCode {
+                case 200...299:
+                    if let data = response.data {
+                        let installList = try! JSONDecoder().decode([InstallList].self, from: data)
+                        UserDefaults.standard.setValue(installList[0].domain, forKey: "selectDomainUser")
+                        var clientId: [String] = []
+                        for install in installList {
+                            clientId.append(install.id)
                         }
-                    default:
-                        observer.onError(NSError(domain: "UserNetworkingService server answer code not 200", code: -1, userInfo: nil))
+                        let _ = self.getAccessTokenApi(clientId: clientId).bind { (accessToken) in
+                            self.getAccessTokenInstall(installList, accessCodes: accessToken)
+                        }
                     }
-                case .failure:
-                    observer.onError(NSError(domain: "UserNetworkingService failure", code: -1, userInfo: nil))
+                default:
+                    print("UserNetworkingService server answer code not 200")
                 }
+            case .failure:
+                print("UserNetworkingService failure")
             }
-            
-            request.resume()
-            
-            return Disposables.create {
-                request.cancel()
-            }
-            
         }
         
     }
@@ -127,8 +125,82 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
         }
     }
     
+    func getAccessTokenApi(clientId: [String]) -> Observable<[String: Any]> {
+        return Observable.create { (observer) -> Disposable in
+            
+            let paramReqestApi: Parameters = [
+                "client_id": clientId
+            ]
+            
+            let accessToken = KeychainManager.load(key: "accessToken")
+            let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
+            
+            let headerRequest: HTTPHeaders = [
+                "Authorization": accessTokenString
+            ]
+            
+            let apiRequest = AF.request(self.buildWebasystUrl("/id/api/v1/auth/client/", parameters: [:]), method: .post, parameters: paramReqestApi, headers: headerRequest).response { (response) in
+                switch response.result {
+                case .success:
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 200...299:
+                            if let data = response.data {
+                                let accessTokens = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                                observer.onNext(accessTokens)
+                                observer.onCompleted()
+                            }
+                        default:
+                            observer.onError(NSError(domain: "getAccessTokenApi status code request \(statusCode)", code: -1, userInfo: nil))
+                        }
+                    } else {
+                        observer.onError(NSError(domain: "getAccessTokenApi status code error", code: -1, userInfo: nil))
+                    }
+                case .failure:
+                    observer.onError(NSError(domain: "get center Api tokens list error request", code: -1, userInfo: nil))
+                }
+            }
+            
+            apiRequest.resume()
+            
+            return Disposables.create {
+                apiRequest.cancel()
+            }
+            
+        }
+    }
+    
+    func getAccessTokenInstall(_ installList: [InstallList], accessCodes: [String: Any]) {
+        for install in installList {
+            let code = accessCodes.filter { $0.key == install.id }.first?.value ?? ""
+            AF.upload(multipartFormData: { (multipartFormData) in
+                multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
+                multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
+                multipartFormData.append(self.bundleId.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "client_id")
+            }, to: "\(install.url)/api.php/token-headless", method: .post).response {response in
+                switch response.result {
+                case .success:
+                    if let statusCode = response.response?.statusCode {
+                        switch statusCode {
+                        case 200...299:
+                            if let data = response.data {
+                                let accessCode = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                                self.profileInstallService.saveInstall(install, accessToken: "\(accessCode.first?.value ?? "")")
+                            }
+                            
+                        default:
+                            print("getAccessTokenInstall status code \(statusCode)")
+                        }
+                    }
+                case .failure:
+                    print("error getAccessTokenInstall request")
+                }
+            }
+        }
+    }
+    
     private func startRefreshTokenTimer(timeInterval: Int) {
-        let queue = DispatchQueue(label: "com.domain.app.timerRefreshAccessToken")
+        let queue = DispatchQueue(label: "com.webasyst.WebXApp.timerRefreshAccessToken")
         timer = DispatchSource.makeTimerSource(queue: queue)
         timer!.schedule(deadline: .now(), repeating: .seconds(timeInterval))
         timer!.setEventHandler { [weak self] in

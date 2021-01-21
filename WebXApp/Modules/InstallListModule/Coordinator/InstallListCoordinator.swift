@@ -22,8 +22,8 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
     }
     
     func start() {
-        let userNetworkingService = WebasystUserNetworkingService()
-        let installListViewModel = InstallListViewModel(networkingService: userNetworkingService, coordinator: self)
+        let profileInstallListService = ProfileInstallListService()
+        let installListViewModel = InstallListViewModel(profileInstallListService: profileInstallListService, coordinator: self)
         let installListViewController = InstallListViewController()
         installListViewController.viewModel = installListViewModel
         let installListNavigationController = UINavigationController(rootViewController: installListViewController)

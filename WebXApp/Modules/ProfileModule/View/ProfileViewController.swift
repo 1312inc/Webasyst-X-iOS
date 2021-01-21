@@ -39,7 +39,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func exitAccount(_ sender: Any) {
-        
+        self.viewModel.exitAccount()
     }
     
 }

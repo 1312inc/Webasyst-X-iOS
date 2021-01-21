@@ -44,7 +44,6 @@ final class AppCoordinator: Coordinator {
             shopNavigationController.tabBarItem = UITabBarItem(title: "Магазин", image: UIImage(systemName: "cart"), tag: 2)
             let shopCoordinator = ShopCoordinator(shopNavigationController)
             shopCoordinator.start()
-            
             tabBarController.setViewControllers([blogNavigationController, siteNavigationController, shopNavigationController], animated: true)
             guard let window = self.window else { return }
             window.rootViewController = tabBarController

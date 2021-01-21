@@ -10,7 +10,7 @@ import RxSwift
 
 protocol ProfileViewModelProtocol {
     var title: String { get }
-    init(coordinator: ProfileCoordinatorProtocol, profileDataService: ProfileDataProtocol)
+    init(coordinator: ProfileCoordinatorProtocol, profileDataService: ProfileDataServiceProtocol)
     func getUserData() -> Observable<ProfileData>
     func exitAccount()
 }
@@ -21,7 +21,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     private var coordinator: ProfileCoordinatorProtocol
     private var profileDataService: ProfileDataProtocol
     
-    required init(coordinator: ProfileCoordinatorProtocol, profileDataService: ProfileDataProtocol) {
+    required init(coordinator: ProfileCoordinatorProtocol, profileDataService: ProfileDataServiceProtocol) {
         self.coordinator = coordinator
         self.profileDataService = profileDataService
     }
@@ -31,7 +31,14 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func exitAccount() {
-        
+        let profileDataService = ProfileDataService()
+        profileDataService.deleteProfileData()
+        let profileInstallListService = ProfileInstallListService()
+        profileInstallListService.deleteAllList()
+        KeychainManager.deleteAllKeys()
+        let window = UIApplication.shared.windows.first ?? UIWindow()
+        let appCoordinator = AppCoordinator(window: window)
+        appCoordinator.start()
     }
     
 }

@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let _ = webasystUserNetworking.getUserData { _ in
                 
             }
+            webasystUserNetworking.getInstallList()
         }
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)

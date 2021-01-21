@@ -24,7 +24,8 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
     
     func start() {
         let blogCoordinator = BlogCoordinator(self.navigationController)
-        let blogViewModel = BlogViewModel(coordinator: blogCoordinator)
+        let blogNetworkingService = BlogNetworkingService()
+        let blogViewModel = BlogViewModel(coordinator: blogCoordinator, blogNetworkingService: blogNetworkingService)
         let blogViewController = BlogViewController()
         blogViewController.viewModel = blogViewModel
         self.navigationController.setViewControllers([blogViewController], animated: true)

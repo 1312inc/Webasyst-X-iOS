@@ -21,7 +21,7 @@ class ProfileCoordinator: Coordinator, ProfileCoordinatorProtocol {
     }
     
     func start() {
-        let profileDataService = ProfileData()
+        let profileDataService = ProfileDataService()
         let profileViewModel = ProfileViewModel(coordinator: self, profileDataService: profileDataService)
         let profileViewController = ProfileViewController()
         profileViewController.viewModel = profileViewModel

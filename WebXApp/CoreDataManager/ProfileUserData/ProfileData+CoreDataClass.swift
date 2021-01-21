@@ -10,19 +10,22 @@ import Foundation
 import CoreData
 import RxSwift
 
+typealias ProfileDataServiceProtocol = ProfileDataProtocol
+typealias ProfileDataService = ProfileData
+
 protocol ProfileDataProtocol {
     func saveProfileData(_ user: UserData, avatar: Data)
     func getUserData() ->  Observable<ProfileData>
+    func deleteProfileData()
 }
 
 @objc(ProfileData)
-public class ProfileData: NSManagedObject, ProfileDataProtocol {
+public class ProfileData: NSManagedObject, ProfileDataServiceProtocol {
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private lazy var context = appDelegate.persistentContainer.viewContext
     
     func saveProfileData(_ user: UserData, avatar: Data) {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let context = appDelegate.persistentContainer.viewContext
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileData")
         request.predicate = NSPredicate(format: "email == %@", user.email[0].value)
@@ -53,15 +56,9 @@ public class ProfileData: NSManagedObject, ProfileDataProtocol {
     func getUserData() ->  Observable<ProfileData> {
         
         return Observable.create { (observer) -> Disposable in
-            
-            guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
-                observer.onError(NSError(domain: "getUserData Core Data context error", code: -1, userInfo: nil))
-                return Disposables.create {}
-            }
-            
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileData")
             do {
-                if let result = try context.fetch(request) as? [ProfileData] {
+                if let result = try self.context.fetch(request) as? [ProfileData] {
                     observer.onNext(result[0])
                     observer.onCompleted()
                     return Disposables.create {}
@@ -75,6 +72,17 @@ public class ProfileData: NSManagedObject, ProfileDataProtocol {
             
         }.asObservable()
         
+    }
+    
+    func deleteProfileData() {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileData")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
     }
     
 }

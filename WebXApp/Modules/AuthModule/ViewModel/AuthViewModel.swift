@@ -36,6 +36,7 @@ final class AuthViewModel: AuthViewModelProtocol {
                             self.coordinator.errorAuth()
                         }
                     }
+                    WebasystUserNetworkingService().getInstallList()
                 } else {
                     self.coordinator.errorAuth()
                 }
