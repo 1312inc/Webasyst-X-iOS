@@ -27,6 +27,10 @@
 		FD83A47325B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47125B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift */; };
 		FD83A47725B823AB00A55EBD /* ProfileData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47525B823AB00A55EBD /* ProfileData+CoreDataClass.swift */; };
 		FD83A47825B823AB00A55EBD /* ProfileData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A47625B823AB00A55EBD /* ProfileData+CoreDataProperties.swift */; };
+		FDCE832925BA754300FDC437 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE832725BA754300FDC437 /* LoaderViewController.swift */; };
+		FDCE832A25BA754300FDC437 /* LoaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDCE832825BA754300FDC437 /* LoaderViewController.xib */; };
+		FDCE832D25BA776400FDC437 /* LoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE832C25BA776400FDC437 /* LoaderViewModel.swift */; };
+		FDCE833025BA786500FDC437 /* LoaderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE832F25BA786500FDC437 /* LoaderCoordinator.swift */; };
 		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
 		FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */; };
 		FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */; };
@@ -105,6 +109,10 @@
 		FD83A47125B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileInstallList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FD83A47525B823AB00A55EBD /* ProfileData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FD83A47625B823AB00A55EBD /* ProfileData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDCE832725BA754300FDC437 /* LoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
+		FDCE832825BA754300FDC437 /* LoaderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderViewController.xib; sourceTree = "<group>"; };
+		FDCE832C25BA776400FDC437 /* LoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderViewModel.swift; sourceTree = "<group>"; };
+		FDCE832F25BA786500FDC437 /* LoaderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderCoordinator.swift; sourceTree = "<group>"; };
 		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +315,41 @@
 			path = KeychainManager;
 			sourceTree = "<group>";
 		};
+		FDCE832225BA6CA600FDC437 /* LoaderModule */ = {
+			isa = PBXGroup;
+			children = (
+				FDCE832525BA6CBF00FDC437 /* Coordinator */,
+				FDCE832425BA6CB900FDC437 /* ViewModel */,
+				FDCE832325BA6CB300FDC437 /* View */,
+			);
+			path = LoaderModule;
+			sourceTree = "<group>";
+		};
+		FDCE832325BA6CB300FDC437 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FDCE832725BA754300FDC437 /* LoaderViewController.swift */,
+				FDCE832825BA754300FDC437 /* LoaderViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDCE832425BA6CB900FDC437 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FDCE832C25BA776400FDC437 /* LoaderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FDCE832525BA6CBF00FDC437 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FDCE832F25BA786500FDC437 /* LoaderCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		FDCF9CB225AE7F5900EDFE69 /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +373,7 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FDCE832225BA6CA600FDC437 /* LoaderModule */,
 				FD461F8325B6865500DB9B50 /* ProfileModule */,
 				FDD6E38425B551E300F5CE24 /* InstallListModule */,
 				FDD6E36125B543D500F5CE24 /* ShopModule */,
@@ -683,6 +727,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDCE832A25BA754300FDC437 /* LoaderViewController.xib in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
 				FD461FA825B6938800DB9B50 /* ProfileViewController.xib in Resources */,
@@ -772,6 +817,7 @@
 				FDCF9D0425AEDB2200EDFE69 /* AuthCoordinator.swift in Sources */,
 				FDD6E36E25B5441500F5CE24 /* ShopViewController.swift in Sources */,
 				FDD6E35B25B540DC00F5CE24 /* BlogViewModule.swift in Sources */,
+				FDCE832D25BA776400FDC437 /* LoaderViewModel.swift in Sources */,
 				FDD6E36B25B5440A00F5CE24 /* SiteViewModel.swift in Sources */,
 				FD83A47725B823AB00A55EBD /* ProfileData+CoreDataClass.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
@@ -799,10 +845,12 @@
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
 				FD61241D25B1826D00F5714B /* KeychainService.swift in Sources */,
+				FDCE833025BA786500FDC437 /* LoaderCoordinator.swift in Sources */,
 				FDD6E39825B559F200F5CE24 /* WebasystUserNetworkingService.swift in Sources */,
 				C341FED9255B0AEE0091B045 /* WebXApp.xcdatamodeld in Sources */,
 				FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */,
 				FDD6E39425B5593A00F5CE24 /* InstallListModel.swift in Sources */,
+				FDCE832925BA754300FDC437 /* LoaderViewController.swift in Sources */,
 				FD83A47225B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift in Sources */,
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,
 				FDE8F59F25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift in Sources */,
@@ -844,6 +892,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -905,6 +954,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

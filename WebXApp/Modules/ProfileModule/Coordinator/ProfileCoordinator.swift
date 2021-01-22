@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ProfileCoordinatorProtocol {
+protocol ProfileCoordinatorProtocol: class {
     init(_ navigationController: UINavigationController)
 }
 

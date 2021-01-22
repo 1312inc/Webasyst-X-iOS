@@ -29,14 +29,7 @@ final class AuthViewModel: AuthViewModelProtocol {
         networkingService.getAccessToken(code, stateString: state) { success in
             DispatchQueue.main.async {
                 if success {
-                    WebasystUserNetworkingService().getUserData { (success) in
-                        if success {
-                            self.coordinator.successAuth()
-                        } else {
-                            self.coordinator.errorAuth()
-                        }
-                    }
-                    WebasystUserNetworkingService().getInstallList()
+                    self.coordinator.successAuth()
                 } else {
                     self.coordinator.errorAuth()
                 }
