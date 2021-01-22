@@ -20,6 +20,8 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     private var timer: DispatchSourceTimer?
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let profileInstallService = ProfileInstallListService()
+    private let queue = DispatchQueue(label: "WebasystUserNetworkingService")
+    private let semaphore = DispatchSemaphore(value: 1)
     
     func preloadUserData() -> Observable<(String, Int)> {
         return Observable.create { (observer) -> Disposable in
@@ -32,12 +34,19 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 self.getAccessTokenApi(clientID: clientId) { (accessToken) in
                     observer.onNext(("Готовимся на старт", 30))
                     self.getAccessTokenInstall(installList, accessCodes: accessToken) { (saveSuccess) in
-                        DispatchQueue.main.async {
+                        self.semaphore.wait()
+                        self.queue.async {
                             observer.onNext(("Поехали!", 30))
+                            self.semaphore.signal()
+                        }
+                        self.semaphore.wait()
+                        self.queue.async {
                             observer.onCompleted()
                         }
                     }
+                    
                 }
+                
             }
             
             return Disposables.create {  }
@@ -133,7 +142,6 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                         let authData = try! JSONDecoder().decode(UserToken.self, from: data)
                         let _ = KeychainManager.save(key: "accessToken", data: Data("Bearer \(authData.access_token)".utf8))
                         let _ = KeychainManager.save(key: "refreshToken", data: Data(authData.refresh_token.utf8))
-                        self.startRefreshTokenTimer(timeInterval: authData.expires_in)
                     }
                 default:
                     print("Token refresh error answer")
@@ -184,47 +192,33 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     func getAccessTokenInstall(_ installList: [InstallList], accessCodes: [String: Any], completion: @escaping (Bool) -> ()) {
         for install in installList {
             let code = accessCodes.filter { $0.key == install.id }.first?.value ?? ""
-            AF.upload(multipartFormData: { (multipartFormData) in
-                multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
-                multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
-                multipartFormData.append(self.bundleId.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "client_id")
-            }, to: "\(install.url)/api.php/token-headless", method: .post).response {response in
-                switch response.result {
-                case .success:
-                    if let statusCode = response.response?.statusCode {
-                        switch statusCode {
-                        case 200...299:
-                            if let data = response.data {
-                                let accessCode = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                                self.profileInstallService.saveInstall(install, accessToken: "\(accessCode.first?.value ?? "")")
-                                DispatchQueue.main.async {
+            self.queue.async {
+                AF.upload(multipartFormData: { (multipartFormData) in
+                    multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
+                    multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
+                    multipartFormData.append(self.bundleId.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "client_id")
+                }, to: "\(install.url)/api.php/token-headless", method: .post).response {response in
+                    switch response.result {
+                    case .success:
+                        if let statusCode = response.response?.statusCode {
+                            switch statusCode {
+                            case 200...299:
+                                if let data = response.data {
+                                    let accessCode = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                                    self.profileInstallService.saveInstall(install, accessToken: "\(accessCode.first?.value ?? "")")
                                     completion(true)
+                                    self.semaphore.signal()
                                 }
+                            default:
+                                print("getAccessTokenInstall status code \(statusCode)")
                             }
-                        default:
-                            print("getAccessTokenInstall status code \(statusCode)")
                         }
+                    case .failure:
+                        print("error getAccessTokenInstall request")
                     }
-                case .failure:
-                    print("error getAccessTokenInstall request")
                 }
             }
         }
-    }
-    
-    private func startRefreshTokenTimer(timeInterval: Int) {
-        let queue = DispatchQueue(label: "com.webasyst.WebXApp.timerRefreshAccessToken")
-        timer = DispatchSource.makeTimerSource(queue: queue)
-        timer!.schedule(deadline: .now(), repeating: .seconds(timeInterval))
-        timer!.setEventHandler { [weak self] in
-            self?.refreshAccessToken()
-        }
-        timer!.resume()
-    }
-    
-    private func stopTimer() {
-        timer?.cancel()
-        timer = nil
     }
     
 }

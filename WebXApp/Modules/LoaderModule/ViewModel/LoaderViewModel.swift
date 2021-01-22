@@ -34,8 +34,9 @@ class LoaderViewModel: LoaderViewModelProtocol {
             } onError: { (error) in
                 print(error)
             } onCompleted: {
-                observer.onNext(("Все готово... Поехали", 100))
-                self.coordinator.successLoad()
+                DispatchQueue.main.async {
+                    self.coordinator.successLoad()
+                }
             } onDisposed: {
                 
             }

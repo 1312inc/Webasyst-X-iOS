@@ -38,7 +38,7 @@
                         <constraint firstAttribute="width" constant="304" id="WU0-Xf-Ebo"/>
                     </constraints>
                 </progressView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Берем у Илона Falcon X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRr-KH-xN1">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Берем у Илона Falcon X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRr-KH-xN1">
                     <rect key="frame" x="112" y="821" width="190" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="190" id="GTn-ca-RfW"/>
