@@ -37,8 +37,10 @@ class LoaderViewController: UIViewController {
     
     private func fetchData() {
         self.viewModel.fetchLoadUserData().bind { event in
-            self.progressView.progress += 0.1
-            self.progressLabel.text = event.0
+            DispatchQueue.main.async {
+                self.progressView.progress += 0.1
+                self.progressLabel.text = event.0
+            }
         }.disposed(by: disposeBag)
     }
 
