@@ -34,10 +34,14 @@ class BlogViewController: UIViewController {
     }
     
     private func fetchData() {
-        self.viewModel.fetchBlogPosts().bind(to: postTableView.rx.items(cellIdentifier: "postCell")) {index, post, cell in
+        self.viewModel.dataSource.bind(to: postTableView.rx.items(cellIdentifier: "postCell")) {index, post, cell in
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = post.title
         }.disposed(by: disposedBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.viewModel.fetchBlogPosts()
     }
     
     private func setupLayout() {

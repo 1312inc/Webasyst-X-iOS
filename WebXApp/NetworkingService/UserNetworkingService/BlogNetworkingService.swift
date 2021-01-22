@@ -18,7 +18,7 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
     private let profileInstallListService = ProfileInstallListService()
     
     func getPosts() -> Observable<[PostList]> {
-        return Observable.create { (observer) -> Disposable in
+        return Observable<[PostList]>.create { (observer) -> Disposable in
             
             let parameters: [String: String] = [
                 "hash": "author/0",

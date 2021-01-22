@@ -30,7 +30,7 @@ class InstallListViewController: UIViewController {
         
         viewModel.fetchInstallList().bind(to: tableView.rx.items(cellIdentifier: "installCell")) { index, viewModel, cell in
             cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.text = "Домен: \(viewModel.domain ?? "")"
+            cell.textLabel?.text = viewModel.domain
             if viewModel.domain == self.viewModel.selectDomain {
                 cell.accessoryType = .checkmark
             }
@@ -40,7 +40,6 @@ class InstallListViewController: UIViewController {
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             let cell = self?.tableView.cellForRow(at: indexPath)
             self?.viewModel.selectDomain = cell?.textLabel?.text ?? ""
-            cell?.accessoryType = .checkmark
         }).disposed(by: disposedBag)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выбрать", style: .done, target: self, action: #selector(tappedSuccess))

@@ -36,6 +36,9 @@ class ProfileViewModel: ProfileViewModelProtocol {
         let profileInstallListService = ProfileInstallListService()
         profileInstallListService.deleteAllList()
         KeychainManager.deleteAllKeys()
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
         let window = UIApplication.shared.windows.first ?? UIWindow()
         let appCoordinator = AppCoordinator(window: window)
         appCoordinator.start()

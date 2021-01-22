@@ -27,11 +27,14 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
         let installListViewController = InstallListViewController()
         installListViewController.viewModel = installListViewModel
         let installListNavigationController = UINavigationController(rootViewController: installListViewController)
+        installListNavigationController.modalPresentationStyle = .fullScreen
+        installListNavigationController.navigationBar.prefersLargeTitles = true
         self.navigationController.present(installListNavigationController, animated: true, completion: nil)
     }
     
     func dismissInstallList() {
         self.navigationController.dismiss(animated: true, completion: nil)
+        BlogNetworkingService().getPosts().subscribe()
     }
     
 }

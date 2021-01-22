@@ -53,6 +53,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
         
         AF.request(buildWebasystUrl("/id/api/v1/profile/", parameters: [:]), method: .get, headers: headers).response { (response) in
             switch response.result {
+            
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 switch statusCode {
@@ -89,7 +90,9 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 case 200...299:
                     if let data = response.data {
                         let installList = try! JSONDecoder().decode([InstallList].self, from: data)
-                        UserDefaults.standard.setValue(installList[0].domain, forKey: "selectDomainUser")
+                        if UserDefaults.standard.string(forKey: "selectDomainUser") == nil {
+                            UserDefaults.standard.setValue(installList[0].domain, forKey: "selectDomainUser")
+                        }
                         completion(installList)
                     }
                 default:

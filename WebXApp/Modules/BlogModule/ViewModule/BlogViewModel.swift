@@ -7,10 +7,12 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol BlogViewModelProtocol {
+    var dataSource: BehaviorRelay<[PostList]> { get }
     init(coordinator: BlogCoordinatorProtocol, blogNetworkingService: BlogNetworkingServiceProtocol)
-    func fetchBlogPosts() -> Observable<[PostList]>
+    func fetchBlogPosts()
     func openInstallList()
     func openProfileScreen()
 }
@@ -20,15 +22,17 @@ class BlogViewModel: BlogViewModelProtocol {
     private var coordinator: BlogCoordinatorProtocol
     private var blogNetworkingService: BlogNetworkingServiceProtocol
     
+    var dataSource = BehaviorRelay(value: [PostList]())
+    
     required init(coordinator: BlogCoordinatorProtocol, blogNetworkingService: BlogNetworkingServiceProtocol) {
         self.coordinator = coordinator
         self.blogNetworkingService = blogNetworkingService
     }
     
-    func fetchBlogPosts() -> Observable<[PostList]> {
-        self.blogNetworkingService.getPosts().map {
-            $0.map { $0 }
-        }
+    func fetchBlogPosts() {
+        self.blogNetworkingService.getPosts().bind(onNext: { (posts) in
+            self.dataSource.accept(posts)
+        })
     }
     
     func openInstallList() {

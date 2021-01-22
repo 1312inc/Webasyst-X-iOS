@@ -37,7 +37,7 @@ class LoaderViewModel: LoaderViewModelProtocol {
                 observer.onNext(("Все готово... Поехали", 100))
                 self.coordinator.successLoad()
             } onDisposed: {
-                print("disposed")
+                
             }
         }
     }
