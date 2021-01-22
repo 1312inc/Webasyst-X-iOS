@@ -32,7 +32,10 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 self.getAccessTokenApi(clientID: clientId) { (accessToken) in
                     observer.onNext(("Готовимся на старт", 30))
                     self.getAccessTokenInstall(installList, accessCodes: accessToken) { (saveSuccess) in
-                        observer.onCompleted()
+                        DispatchQueue.main.async {
+                            observer.onNext(("Поехали!", 30))
+                            observer.onCompleted()
+                        }
                     }
                 }
             }
@@ -194,7 +197,9 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                             if let data = response.data {
                                 let accessCode = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                                 self.profileInstallService.saveInstall(install, accessToken: "\(accessCode.first?.value ?? "")")
-                                completion(true)
+                                DispatchQueue.main.async {
+                                    completion(true)
+                                }
                             }
                         default:
                             print("getAccessTokenInstall status code \(statusCode)")
