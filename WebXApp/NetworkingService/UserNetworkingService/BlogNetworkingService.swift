@@ -26,6 +26,8 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                 "access_token": self.profileInstallListService.getTokenActiveInstall(UserDefaults.standard.string(forKey: "selectDomainUser") ?? "")
             ]
             
+            print(parameters)
+            
             let request = AF.request(self.buildApiUrl(path: "/api.php/blog.post.search", parameters: parameters)!, method: .get).response { response in
                 switch response.result {
                 case .success:
@@ -43,6 +45,8 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                     case 401:
                         observer.onError(NSError(domain: "PERMISSION_DENIED", code: 401, userInfo: nil))
                     default:
+                        let text = try! JSONSerialization.jsonObject(with: response.data!, options: []) as! [String: Any]
+                        print(text)
                         observer.onError(NSError(domain: "RESPONSE_ERROR", code: response.response?.statusCode ?? -1, userInfo: nil))
                     }
                 case .failure:

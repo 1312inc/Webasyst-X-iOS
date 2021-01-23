@@ -30,7 +30,7 @@ class BlogViewModel: BlogViewModelProtocol {
     }
     
     func fetchBlogPosts() {
-        self.blogNetworkingService.getPosts().bind(onNext: { (posts) in
+        _ = self.blogNetworkingService.getPosts().bind(onNext: { (posts) in
             self.dataSource.accept(posts)
         })
     }

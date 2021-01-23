@@ -20,8 +20,8 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     private var timer: DispatchSourceTimer?
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let profileInstallService = ProfileInstallListService()
-    private let queue = DispatchQueue(label: "WebasystUserNetworkingService")
-    private let semaphore = DispatchSemaphore(value: 2)
+    private let queue = DispatchQueue(label: "com.webasyst.WebXApp.WebasystUserNetworkingService", qos: .utility)
+    private let dispatchGroup = DispatchGroup()
     
     func preloadUserData() -> Observable<(String, Int)> {
         return Observable.create { (observer) -> Disposable in
@@ -33,19 +33,14 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 }
                 self.getAccessTokenApi(clientID: clientId) { (accessToken) in
                     observer.onNext(("Готовимся на старт", 30))
-                    self.getAccessTokenInstall(installList, accessCodes: accessToken) { (saveSuccess) in
-                        self.queue.async {
-                            observer.onNext(("Поехали!", 30))
-                            self.semaphore.signal()
-                        }
-                        self.semaphore.wait()
-                        self.queue.async {
+                    self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
+                        if !saveSuccess {
+                            observer.onNext((loadText, 30))
+                        } else {
                             observer.onCompleted()
                         }
                     }
-                    
                 }
-                
             }
             
             return Disposables.create {  }
@@ -188,11 +183,11 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     }
     
     
-    func getAccessTokenInstall(_ installList: [InstallList], accessCodes: [String: Any], completion: @escaping (Bool) -> ()) {
-        for install in installList {
-            let code = accessCodes.filter { $0.key == install.id }.first?.value ?? ""
-            self.semaphore.wait()
-            self.queue.async {
+    func getAccessTokenInstall(_ installList: [InstallList], accessCodes: [String: Any], completion: @escaping (String, Bool) -> ()) {
+        self.queue.async(group: dispatchGroup) {
+            for install in installList {
+                let code = accessCodes.filter { $0.key == install.id }.first?.value ?? ""
+                self.dispatchGroup.enter()
                 AF.upload(multipartFormData: { (multipartFormData) in
                     multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
                     multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
@@ -206,8 +201,10 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                                 if let data = response.data {
                                     let accessCode = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                                     self.profileInstallService.saveInstall(install, accessToken: "\(accessCode.first?.value ?? "")")
-                                    completion(true)
-                                    self.semaphore.signal()
+                                    defer {
+                                        self.dispatchGroup.leave()
+                                    }
+                                    completion("Загрузка \(install.url)", false)
                                 }
                             default:
                                 print("getAccessTokenInstall status code \(statusCode)")
@@ -218,6 +215,9 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                     }
                 }
             }
+        }
+        self.dispatchGroup.notify(queue: queue) {
+            completion("", true)
         }
     }
     

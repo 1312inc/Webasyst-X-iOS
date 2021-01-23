@@ -25,7 +25,6 @@ class InstallListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = viewModel.title
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         setupLayout()
         
         viewModel.fetchInstallList().bind(to: tableView.rx.items(cellIdentifier: "installCell")) { index, viewModel, cell in
