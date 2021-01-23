@@ -25,24 +25,28 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     
     func preloadUserData() -> Observable<(String, Int)> {
         return Observable.create { (observer) -> Disposable in
-            self.getInstallList { (installList) in
-                observer.onNext(("Заправляем топливо", 30))
-                var clientId: [String] = []
-                for install in installList {
-                    clientId.append(install.id)
-                }
-                self.getAccessTokenApi(clientID: clientId) { (accessToken) in
-                    observer.onNext(("Готовимся на старт", 30))
-                    self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
-                        if !saveSuccess {
-                            observer.onNext((loadText, 30))
-                        } else {
-                            observer.onCompleted()
+            self.queue.async(group: self.dispatchGroup) {
+                self.refreshAccessToken()
+            }
+            self.dispatchGroup.notify(queue: self.queue) {
+                self.getInstallList { (installList) in
+                    observer.onNext(("Заправляем топливо", 30))
+                    var clientId: [String] = []
+                    for install in installList {
+                        clientId.append(install.id)
+                    }
+                    self.getAccessTokenApi(clientID: clientId) { (accessToken) in
+                        observer.onNext(("Готовимся на старт", 30))
+                        self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
+                            if !saveSuccess {
+                                observer.onNext((loadText, 30))
+                            } else {
+                                observer.onCompleted()
+                            }
                         }
                     }
                 }
             }
-            
             return Disposables.create {  }
         }
     }
@@ -121,7 +125,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
             "refresh_token": refreshTokenString,
             "client_id": clientId
         ]
-        
+        self.dispatchGroup.enter()
         AF.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in paramsRequest {
                 multipartFormData.append("\(value)".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: key)
@@ -136,6 +140,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                         let authData = try! JSONDecoder().decode(UserToken.self, from: data)
                         let _ = KeychainManager.save(key: "accessToken", data: Data("Bearer \(authData.access_token)".utf8))
                         let _ = KeychainManager.save(key: "refreshToken", data: Data(authData.refresh_token.utf8))
+                        self.dispatchGroup.leave()
                     }
                 default:
                     print("Token refresh error answer")
