@@ -17,6 +17,7 @@ protocol ProfileInstallListProtocol {
     func saveInstall(_ installList: InstallList, accessToken: String)
     func getInstallList() -> Observable<[ProfileInstallList]>
     func deleteAllList()
+    func deleteInstall(clientId: String)
     func getTokenActiveInstall(_ domain: String) -> String
 }
 
@@ -67,6 +68,18 @@ public class ProfileInstallList: NSManagedObject, ProfileInstallListServiceProto
     
     func deleteAllList() {
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileInstallList")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    func deleteInstall(clientId: String) {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileInstallList")
+        deleteFetch.predicate = NSPredicate(format: "clientId == %@", clientId)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         do {
             try context.execute(deleteRequest)

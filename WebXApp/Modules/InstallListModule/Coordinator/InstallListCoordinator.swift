@@ -28,7 +28,6 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
         installListViewController.viewModel = installListViewModel
         let installListNavigationController = UINavigationController(rootViewController: installListViewController)
         installListNavigationController.modalPresentationStyle = .currentContext
-        installListNavigationController.navigationBar.prefersLargeTitles = true
         self.navigationController.present(installListNavigationController, animated: true, completion: nil)
     }
     

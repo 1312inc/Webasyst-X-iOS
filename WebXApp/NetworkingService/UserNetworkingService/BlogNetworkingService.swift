@@ -9,6 +9,11 @@ import Foundation
 import Alamofire
 import RxSwift
 
+enum Result<Value> {
+    case Success(Value)
+    case Failure(NSError)
+}
+
 protocol BlogNetworkingServiceProtocol {
     func getPosts() -> Observable<[PostList]>
 }
@@ -18,15 +23,13 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
     private let profileInstallListService = ProfileInstallListService()
     
     func getPosts() -> Observable<[PostList]> {
-        return Observable<[PostList]>.create { (observer) -> Disposable in
+        return Observable.create { (observer) -> Disposable in
             
             let parameters: [String: String] = [
                 "hash": "author/0",
                 "limit": "10",
                 "access_token": self.profileInstallListService.getTokenActiveInstall(UserDefaults.standard.string(forKey: "selectDomainUser") ?? "")
             ]
-            
-            print(parameters)
             
             let request = AF.request(self.buildApiUrl(path: "/api.php/blog.post.search", parameters: parameters)!, method: .get).response { response in
                 switch response.result {
@@ -43,13 +46,14 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                             observer.onCompleted()
                         }
                     case 401:
+                        observer.onCompleted()
                         observer.onError(NSError(domain: "PERMISSION_DENIED", code: 401, userInfo: nil))
                     default:
-                        let text = try! JSONSerialization.jsonObject(with: response.data!, options: []) as! [String: Any]
-                        print(text)
+                        observer.onCompleted()
                         observer.onError(NSError(domain: "RESPONSE_ERROR", code: response.response?.statusCode ?? -1, userInfo: nil))
                     }
                 case .failure:
+                    observer.onCompleted()
                     observer.onError(NSError(domain: "REQUEST_FAILER", code: 404, userInfo: nil))
                 }
             }

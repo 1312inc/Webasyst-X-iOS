@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import RxSwift
+import RxCocoa
 
 protocol WebasystUserNetworkingServiceProtocol {
     func getUserData()
@@ -20,30 +21,44 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     private var timer: DispatchSourceTimer?
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let profileInstallService = ProfileInstallListService()
-    private let queue = DispatchQueue(label: "com.webasyst.WebXApp.WebasystUserNetworkingService", qos: .utility)
+    private let queue = DispatchQueue(label: "com.webasyst.WebXApp.WebasystUserNetworkingService", qos: .userInitiated)
     private let dispatchGroup = DispatchGroup()
+    private let disposeBag = DisposeBag()
     
     func preloadUserData() -> Observable<(String, Int)> {
         return Observable.create { (observer) -> Disposable in
             self.queue.async(group: self.dispatchGroup) {
                 self.refreshAccessToken()
             }
+            self.queue.async {
+                self.getUserData()
+            }
             self.dispatchGroup.notify(queue: self.queue) {
-                self.getInstallList { (installList) in
-                    observer.onNext(("Заправляем топливо", 30))
-                    var clientId: [String] = []
-                    for install in installList {
-                        clientId.append(install.id)
-                    }
-                    self.getAccessTokenApi(clientID: clientId) { (accessToken) in
-                        observer.onNext(("Готовимся на старт", 30))
-                        self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
-                            if !saveSuccess {
-                                observer.onNext((loadText, 30))
+                self.getInstallList { (successGetInstall, installList) in
+                    if successGetInstall {
+                        observer.onNext(("Заправляем топливо", 30))
+                        var clientId: [String] = []
+                        for install in installList {
+                            clientId.append(install.id)
+                        }
+                        self.getAccessTokenApi(clientID: clientId) { (success, accessToken) in
+                            if success {
+                                observer.onNext(("Готовимся на старт", 30))
+                                self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
+                                    if !saveSuccess {
+                                        observer.onNext((loadText, 30))
+                                    } else {
+                                        observer.onCompleted()
+                                    }
+                                }
                             } else {
-                                observer.onCompleted()
+                                observer.onNext(("Ошибка загрузки, попробуйте повторить позже", 30))
+                                observer.onError(NSError(domain: "getAccessTokenApi error", code: 401, userInfo: nil))
                             }
                         }
+                    } else {
+                        observer.onNext(("Ошибка загрузки, попробуйте повторить позже", 30))
+                        observer.onError(NSError(domain: "getInstallList error", code: 401, userInfo: nil))
                     }
                 }
             }
@@ -74,16 +89,16 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                         ProfileDataService().saveProfileData(userData, avatar: data)
                     }
                 default:
-                    print("get user data not 200 response")
+                    print("getUserData not 200 response")
                 }
             case .failure:
-                print("get user data request failure")
+                print("getUserData request failure")
             }
         }
     }
     
     //MARK: Get installation's list user
-    public func getInstallList(completion: @escaping ([InstallList]) -> ()) {
+    public func getInstallList(completion: @escaping (Bool, [InstallList]) -> ()) {
         
         let accessToken = KeychainManager.load(key: "accessToken")
         let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
@@ -103,13 +118,15 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                         if UserDefaults.standard.string(forKey: "selectDomainUser") == nil {
                             UserDefaults.standard.setValue(installList[0].domain, forKey: "selectDomainUser")
                         }
-                        completion(installList)
+                        completion(true, installList)
                     }
                 default:
-                    print("UserNetworkingService server answer code not 200")
+                    print("getInstallList server answer code not 200")
+                    completion(false, [])
                 }
             case .failure:
-                print("UserNetworkingService failure")
+                print("getInstallList failure")
+                completion(false, [])
             }
         }
         
@@ -143,15 +160,15 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                         self.dispatchGroup.leave()
                     }
                 default:
-                    print("Token refresh error answer")
+                    print("refreshAccessToken error answer \(statusCode)")
                 }
             case .failure:
-                print("Refresh token failure request")
+                print("refreshAccessToken failure request")
             }
         }
     }
     
-    func getAccessTokenApi(clientID: [String], completion: @escaping ([String: Any]) -> ()) {
+    func getAccessTokenApi(clientID: [String], completion: @escaping (Bool, [String: Any]) -> ()) {
         
         let paramReqestApi: Parameters = [
             "client_id": clientID
@@ -172,26 +189,28 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                     case 200...299:
                         if let data = response.data {
                             let accessTokens = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                            completion(accessTokens)
+                            completion(true, accessTokens)
                         }
                     default:
                         print("getAccessTokenApi status code request \(statusCode)")
+                        completion(false, [:])
                     }
                 } else {
                     print("getAccessTokenApi status code error")
+                    completion(false, [:])
                 }
             case .failure:
                 print("get center Api tokens list error request")
+                completion(false, [:])
             }
         }
         
     }
     
-    
     func getAccessTokenInstall(_ installList: [InstallList], accessCodes: [String: Any], completion: @escaping (String, Bool) -> ()) {
         self.queue.async(group: dispatchGroup) {
             for install in installList {
-                let code = accessCodes.filter { $0.key == install.id }.first?.value ?? ""
+                let code = accessCodes[install.id] ?? ""
                 self.dispatchGroup.enter()
                 AF.upload(multipartFormData: { (multipartFormData) in
                     multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
@@ -204,24 +223,55 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                             switch statusCode {
                             case 200...299:
                                 if let data = response.data {
-                                    let accessCode = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                                    self.profileInstallService.saveInstall(install, accessToken: "\(accessCode.first?.value ?? "")")
+                                    let accessTokenInstall = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                                    self.profileInstallService.saveInstall(install, accessToken: "\(accessTokenInstall.first?.value ?? "")")
                                     defer {
                                         self.dispatchGroup.leave()
                                     }
-                                    completion("Загрузка \(install.url)", false)
+                                    completion("Загрузка \(install.domain)", false)
                                 }
                             default:
-                                print("getAccessTokenInstall status code \(statusCode)")
+                                self.profileInstallService.saveInstall(install, accessToken: "")
+                                defer {
+                                    self.dispatchGroup.leave()
+                                }
+                                completion("Ошибка загрузки \(install.domain)", false)
                             }
                         }
                     case .failure:
-                        print("error getAccessTokenInstall request")
+                        defer {
+                            self.dispatchGroup.leave()
+                        }
+                        completion("Ошибка загрузки \(install.domain)", false)
                     }
                 }
             }
         }
         self.dispatchGroup.notify(queue: queue) {
+            completion("Удаляем отключенные установки", false)
+            self.deleteNonActiveInstall(installList) { text, bool in
+                completion("", true)
+            }
+        }
+    }
+    
+    func deleteNonActiveInstall(_ installList: [InstallList], completion: @escaping (String, Bool)->()) {
+        let saveInstallList = BehaviorRelay<[ProfileInstallList]>(value: [])
+        
+        DispatchQueue.main.async {
+            self.profileInstallService.getInstallList()
+                .map { install in
+                    return install
+                }
+                .bind(to: saveInstallList)
+                .disposed(by: self.disposeBag)
+            
+            for install in saveInstallList.value {
+                let find = installList.filter({ $0.id == install.clientId ?? "" })
+                if find.isEmpty {
+                    self.profileInstallService.deleteInstall(clientId: install.clientId ?? "")
+                }
+            }
             completion("", true)
         }
     }

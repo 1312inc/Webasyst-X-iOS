@@ -26,7 +26,7 @@ class InstallListViewController: UIViewController {
         super.viewDidLoad()
         self.title = viewModel.title
         setupLayout()
-        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         viewModel.fetchInstallList().bind(to: tableView.rx.items(cellIdentifier: "installCell")) { index, viewModel, cell in
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = viewModel.domain

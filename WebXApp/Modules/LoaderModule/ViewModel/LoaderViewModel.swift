@@ -24,7 +24,6 @@ class LoaderViewModel: LoaderViewModelProtocol {
     required init(networkingManager: WebasystUserNetworkingServiceProtocol, coordinator: LoaderCoordinatorProtocol) {
         self.networkingManager = networkingManager
         self.coordinator = coordinator
-        loadUserProfileData()
     }
     
     func fetchLoadUserData() -> Observable<(String, Int)> {
@@ -41,10 +40,6 @@ class LoaderViewModel: LoaderViewModelProtocol {
                 
             }
         }
-    }
-    
-    func loadUserProfileData() {
-        self.networkingManager.getUserData()
     }
 
 }

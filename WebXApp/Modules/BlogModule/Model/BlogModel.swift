@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PostsBlog: Codable {
+struct PostsBlog: Codable, Equatable {
     let posts: [PostList]
 }
 
-struct PostList: Codable {
+struct PostList: Codable, Equatable {
     let id: String
     let blog_id: String
     let datetime: String
@@ -22,7 +22,7 @@ struct PostList: Codable {
     let user: PostAuthor
 }
 
-struct PostAuthor: Codable {
+struct PostAuthor: Codable, Equatable {
     let id: String
     let name: String
     let photo_url_20: String
