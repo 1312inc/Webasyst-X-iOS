@@ -11,6 +11,7 @@ protocol BlogCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
     func openInstallList()
     func openProfileScreen()
+    func openDetailBlogEntry(_ blogEntry: PostList)
 }
 
 class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
@@ -31,15 +32,24 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
         self.navigationController.setViewControllers([blogViewController], animated: true)
     }
     
+    //Opening install list
     func openInstallList() {
         let installListCoordinator = InstallListCoordinator(navigationController)
         childCoordinator.append(installListCoordinator)
         installListCoordinator.start()
     }
     
+    //Opening user profile
     func openProfileScreen() {
         let profileCoordinator = ProfileCoordinator(self.navigationController)
+        childCoordinator.append(profileCoordinator)
         profileCoordinator.start()
     }
-        
+    
+    //Opening detail blog entry
+    func openDetailBlogEntry(_ blogEntry: PostList) {
+        let blogEntryCoordinator = BlogEntryCoordinator(self.navigationController, blogEntry: blogEntry)
+        childCoordinator.append(blogEntryCoordinator)
+        blogEntryCoordinator.start()
+    }
 }

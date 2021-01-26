@@ -41,8 +41,8 @@ class InstallListViewController: UIViewController {
             self?.viewModel.selectDomain = cell?.textLabel?.text ?? ""
         }).disposed(by: disposedBag)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выбрать", style: .done, target: self, action: #selector(tappedSuccess))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .done, target: self, action: #selector(tappedCancel))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("choiceButtonTitle", comment: ""), style: .done, target: self, action: #selector(tappedSuccess))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("cancelButtonTitle", comment: ""), style: .done, target: self, action: #selector(tappedCancel))
     }
     
     private func setupLayout() {

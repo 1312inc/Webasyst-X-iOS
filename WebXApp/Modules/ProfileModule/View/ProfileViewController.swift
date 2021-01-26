@@ -19,12 +19,26 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var middleNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var lastNameTitle: UILabel!
+    @IBOutlet weak var firstNameTitle: UILabel!
+    @IBOutlet weak var middleNameTitle: UILabel!
+    @IBOutlet weak var emailTitle: UILabel!
+    @IBOutlet weak var exitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = viewModel.title
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.setupLayout()
+        self.localize()
+    }
+    
+    private func localize() {
+        lastNameTitle.text = NSLocalizedString("lastNameTitle", comment: "")
+        firstNameTitle.text = NSLocalizedString("firstNameTitle", comment: "")
+        middleNameTitle.text = NSLocalizedString("middleNameTitle", comment: "")
+        emailTitle.text = NSLocalizedString("emailTitle", comment: "")
+        exitButton.setTitle(NSLocalizedString("exitAccountButtonTitle", comment: ""), for: .normal)
     }
     
     private func setupLayout() {

@@ -10,11 +10,14 @@ import RxSwift
 import RxCocoa
 
 protocol BlogViewModelProtocol {
-    var dataSource: BehaviorRelay<[PostList]> { get }
+    var blogPosts: [PostList] { get }
+    var dataSource: BehaviorRelay<Result<[PostList]>> { get }
     init(coordinator: BlogCoordinatorProtocol, blogNetworkingService: BlogNetworkingServiceProtocol)
     func fetchBlogPosts()
     func openInstallList()
     func openProfileScreen()
+    func openBlogEntry(_ indexPath: Int)
+    func changeUserDomain(_ domain: String) -> Bool
 }
 
 class BlogViewModel: BlogViewModelProtocol {
@@ -22,25 +25,50 @@ class BlogViewModel: BlogViewModelProtocol {
     private var coordinator: BlogCoordinatorProtocol
     private var blogNetworkingService: BlogNetworkingServiceProtocol
     
-    var dataSource = BehaviorRelay(value: [PostList]())
+    var blogPosts = [PostList]()
+    var dataSource = BehaviorRelay(value: Result<[PostList]>.Success([]))
+    private var activeDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
     
     required init(coordinator: BlogCoordinatorProtocol, blogNetworkingService: BlogNetworkingServiceProtocol) {
         self.coordinator = coordinator
         self.blogNetworkingService = blogNetworkingService
     }
-    
+
+    // Retrieving installation blog entries
     func fetchBlogPosts() {
-        _ = self.blogNetworkingService.getPosts().bind(onNext: { (posts) in
-            self.dataSource.accept(posts)
+        _ = self.blogNetworkingService.getPosts().bind(onNext: { (result) in
+            switch result {
+            case .Success(let post):
+                self.blogPosts = post
+                self.dataSource.accept(Result.Success(post))
+            case .Failure(let error):
+                self.dataSource.accept(Result.Failure(error))
+            }
         })
     }
     
+    // Opening the install list
     func openInstallList() {
         self.coordinator.openInstallList()
     }
     
+    // Opening user profile
     func openProfileScreen() {
         self.coordinator.openProfileScreen()
+    }
+    
+    //Opening detail blog entry
+    func openBlogEntry(_ indexPath: Int) {
+        self.coordinator.openDetailBlogEntry(self.blogPosts[indexPath])
+    }
+    
+    func changeUserDomain(_ domain: String) -> Bool {
+        guard domain == self.activeDomain else {
+            self.activeDomain = domain
+            return false
+        }
+        self.activeDomain = domain
+        return true
     }
     
 }

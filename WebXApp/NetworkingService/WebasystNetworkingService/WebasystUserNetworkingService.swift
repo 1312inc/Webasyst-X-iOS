@@ -18,7 +18,6 @@ protocol WebasystUserNetworkingServiceProtocol {
 
 final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUserNetworkingServiceProtocol {
     
-    private var timer: DispatchSourceTimer?
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let profileInstallService = ProfileInstallListService()
     private let queue = DispatchQueue(label: "com.webasyst.WebXApp.WebasystUserNetworkingService", qos: .userInitiated)
@@ -36,14 +35,14 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
             self.dispatchGroup.notify(queue: self.queue) {
                 self.getInstallList { (successGetInstall, installList) in
                     if successGetInstall {
-                        observer.onNext(("Заправляем топливо", 30))
+                        observer.onNext((NSLocalizedString("refuelingMessage", comment: ""), 30))
                         var clientId: [String] = []
                         for install in installList {
                             clientId.append(install.id)
                         }
                         self.getAccessTokenApi(clientID: clientId) { (success, accessToken) in
                             if success {
-                                observer.onNext(("Готовимся на старт", 30))
+                                observer.onNext((NSLocalizedString("gettingReadyMessage", comment: ""), 30))
                                 self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
                                     if !saveSuccess {
                                         observer.onNext((loadText, 30))
@@ -52,12 +51,12 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                                     }
                                 }
                             } else {
-                                observer.onNext(("Ошибка загрузки, попробуйте повторить позже", 30))
+                                observer.onNext((NSLocalizedString("loadingError", comment: ""), 30))
                                 observer.onError(NSError(domain: "getAccessTokenApi error", code: 401, userInfo: nil))
                             }
                         }
                     } else {
-                        observer.onNext(("Ошибка загрузки, попробуйте повторить позже", 30))
+                        observer.onNext((NSLocalizedString("loadingError", comment: ""), 30))
                         observer.onError(NSError(domain: "getInstallList error", code: 401, userInfo: nil))
                     }
                 }
@@ -228,27 +227,27 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                                     defer {
                                         self.dispatchGroup.leave()
                                     }
-                                    completion("Загрузка \(install.domain)", false)
+                                    completion("\(NSLocalizedString("loadingInstallMessage", comment: "")) \(install.domain)", false)
                                 }
                             default:
                                 self.profileInstallService.saveInstall(install, accessToken: "")
                                 defer {
                                     self.dispatchGroup.leave()
                                 }
-                                completion("Ошибка загрузки \(install.domain)", false)
+                                completion("\(NSLocalizedString("errorInstallMessage", comment: "")) \(install.domain)", false)
                             }
                         }
                     case .failure:
                         defer {
                             self.dispatchGroup.leave()
                         }
-                        completion("Ошибка загрузки \(install.domain)", false)
+                        completion("\(NSLocalizedString("errorInstallMessage", comment: "")) \(install.domain)", false)
                     }
                 }
             }
         }
         self.dispatchGroup.notify(queue: queue) {
-            completion("Удаляем отключенные установки", false)
+            completion(NSLocalizedString("deleteInstallMessage", comment: ""), false)
             self.deleteNonActiveInstall(installList) { text, bool in
                 completion("", true)
             }

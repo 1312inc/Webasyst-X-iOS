@@ -40,7 +40,7 @@ class AuthCoordinator: Coordinator, AuthCoordinatorProtocol {
     
     func errorAuth() {
         self.navigationController.dismiss(animated: true, completion: nil)
-        let alertController = UIAlertController(title: "Ошибка", message: "Ошибка авторизации. Попробуйте повторить попытку позже", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("errorTitle", comment: ""), message: NSLocalizedString("authError", comment: ""), preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
         self.navigationController.present(alertController, animated: true, completion: nil)
     }

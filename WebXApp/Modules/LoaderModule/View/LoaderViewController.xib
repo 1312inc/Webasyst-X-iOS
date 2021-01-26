@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoaderViewController" customModule="WebXApp" customModuleProvider="target">
             <connections>
+                <outlet property="commentLabel" destination="d5c-2I-qD8" id="JF8-kF-fFU"/>
                 <outlet property="progressLabel" destination="MRr-KH-xN1" id="N5S-se-xtf"/>
                 <outlet property="progressView" destination="sYI-S0-Oxg" id="xGi-WG-Z6g"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

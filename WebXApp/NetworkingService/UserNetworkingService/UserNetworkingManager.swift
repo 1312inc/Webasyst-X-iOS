@@ -8,7 +8,6 @@
 import Foundation
 
 protocol UserNetworkingManagerProtocol {
-    
     func buildApiUrl(path: String, parameters: [String: String]) -> URL?
     func downloadImage(_ imagePath: String, completion: @escaping (Data) -> ())
 }

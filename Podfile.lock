@@ -6,13 +6,11 @@ PODS:
   - RxRelay (6.0.0):
     - RxSwift (= 6.0.0)
   - RxSwift (6.0.0)
-  - Unbox (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - RxCocoa
   - RxSwift
-  - Unbox (= 4.0.0)
 
 SPEC REPOS:
   trunk:
@@ -20,15 +18,13 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - Unbox
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
   RxRelay: 8d593be109c06ea850df027351beba614b012ffb
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
-  Unbox: d2677af8fde59a30141e02981b11cb6a0e3b6bc5
 
-PODFILE CHECKSUM: 39eb636f1f1e09e027c6110922d216c44a5ab6b3
+PODFILE CHECKSUM: 130f54cdd0ca1233d429905c28cc30dd8d391f3a
 
 COCOAPODS: 1.10.0

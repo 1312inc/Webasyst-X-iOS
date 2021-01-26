@@ -20,7 +20,7 @@ protocol InstallListViewModelProtocol {
 final class InstallListViewModel: InstallListViewModelProtocol {
     
     var selectDomain: String = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
-    let title = "Сменить аккаунт"
+    let title = NSLocalizedString("installListTitle", comment: "")
     let disposeBag = DisposeBag()
     
     var installList: [InstallList] = []

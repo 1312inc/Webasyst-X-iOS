@@ -33,7 +33,7 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
     
     private var appNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Webasyst X"
+        label.text = NSLocalizedString("appName", comment: "")
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
     
     private var descriptionAppLabel: UILabel = {
         let label = UILabel()
-        label.text = "Our amazing app makes your Webasyst shine at its best and enables you to do things you've never done ever before."
+        label.text = NSLocalizedString("appDescription", comment: "")
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +51,7 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
     
     private var authButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Login with Webasyst Id".uppercased(), for: .normal)
+        button.setTitle(NSLocalizedString("loginButtonTitle", comment: "").uppercased(), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.systemIndigo
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -59,14 +59,6 @@ class WelcomeViewController: UIViewController, WelcomeViewProtocol {
         button.addTarget(self, action: #selector(tapLogin), for: .touchDown)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-    }()
-    
-    private var registrationLabel: UILabel = {
-        let label = UILabel()
-        label.text = "New to Webasyst? Try it free."
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
     }()
     
     override func viewDidLoad() {

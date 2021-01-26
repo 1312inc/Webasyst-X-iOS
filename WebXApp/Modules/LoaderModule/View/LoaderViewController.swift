@@ -16,11 +16,12 @@ class LoaderViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.welcomeLabel.text = self.viewModel.userName == "" ? "Добро пожаловать" : "С возвращением,\n\(self.viewModel.userName)"
         fetchData()
+        localize()
     }
     
     // Hide navigation bar
@@ -33,6 +34,12 @@ class LoaderViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    private func localize() {
+        self.welcomeLabel.text = self.viewModel.userName == "" ? NSLocalizedString("welcome", comment: "") : "\(NSLocalizedString("welcomeBack", comment: ""))\(self.viewModel.userName)"
+        self.commentLabel.text = NSLocalizedString("loaderComment", comment: "")
+        self.progressLabel.text = NSLocalizedString("startMessageLoader", comment: "")
     }
     
     private func fetchData() {

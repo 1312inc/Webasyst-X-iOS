@@ -17,7 +17,7 @@ protocol ProfileViewModelProtocol {
 
 class ProfileViewModel: ProfileViewModelProtocol {
     
-    var title: String = "Профиль"
+    var title: String = NSLocalizedString("profileTitle", comment: "")
     private var coordinator: ProfileCoordinatorProtocol
     private var profileDataService: ProfileDataProtocol
     

@@ -1,0 +1,36 @@
+"errorTitle" = "Error";
+"permisionDenied" = "Access to this installation is prohibited";
+"requestFailed" = "Something went wrong, try again later";
+
+"authError" = "Authorization error. Try again later.";
+
+"welcome" = "Welcome";
+"welcomeBack" = "Welcome back, ";
+"startMessageLoader" = "Taking the Falcon X from Ilon";
+"loaderComment" = "One minute, we upload your data for comfortable work";
+"refuelingMessage" = "Refueling...";
+"gettingReadyMessage" = "Getting ready to go";
+"loadingError" = "Error loading, try again later";
+"loadingInstallMessage" = "Loading";
+"errorInstallMessage" = "Loading error";
+"deleteInstallMessage" = "Deleting disabled settings";
+
+"appName" = "Webasyst X";
+"appDescription" = "Our amazing app makes your Webasyst shine at its best and enables you to do things you've never done ever before.";
+"loginButtonTitle" = "Login with Webasyst Id";
+
+"installListTitle" = "Change account";
+"cancelButtonTitle" = "Cancel";
+"choiceButtonTitle" = "Select";
+
+"blogTitle" = "Blog";
+"emptyBlog" = "No posts have been added to this blog yet";
+"blogEntryTitle" = "Blog entry";
+"loadingBlog" = "Loading data";
+
+"profileTitle" = "Profile";
+"firstNameTitle" = "First name";
+"lastNameTitle" = "Last name";
+"middleNameTitle" = "Middle name";
+"emailTitle" = "Email";
+"exitAccountButtonTitle" = "Sign out of your account";

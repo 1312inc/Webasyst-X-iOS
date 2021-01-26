@@ -12,9 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="WebXApp" customModuleProvider="target">
             <connections>
                 <outlet property="emailLabel" destination="Rsw-xj-UlB" id="TdX-fG-EgO"/>
+                <outlet property="emailTitle" destination="XtN-jq-UpV" id="02S-bn-511"/>
+                <outlet property="exitButton" destination="w2M-QA-l8Y" id="nBz-nR-hgC"/>
                 <outlet property="firstNameLabel" destination="oBW-mt-BPp" id="OJl-YC-JGZ"/>
+                <outlet property="firstNameTitle" destination="Muz-um-1PJ" id="Yaz-T2-FrC"/>
                 <outlet property="lastNameLabel" destination="gR6-Xl-mY7" id="WM5-3L-4NJ"/>
+                <outlet property="lastNameTitle" destination="uQ5-oU-fbp" id="Wwz-XL-nsq"/>
                 <outlet property="middleNameLabel" destination="dgs-xR-kCj" id="pFL-IC-HFJ"/>
+                <outlet property="middleNameTitle" destination="V6h-2a-quo" id="CLZ-9q-TMU"/>
                 <outlet property="profileImage" destination="N1D-iJ-xEk" id="00w-jg-Yks"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
