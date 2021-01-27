@@ -55,6 +55,12 @@
 		FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E38F25B552D000F5CE24 /* InstallListViewController.swift */; };
 		FDD6E39425B5593A00F5CE24 /* InstallListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E39325B5593A00F5CE24 /* InstallListModel.swift */; };
 		FDD6E39825B559F200F5CE24 /* WebasystUserNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD6E39725B559F200F5CE24 /* WebasystUserNetworkingService.swift */; };
+		FDD7E9CC25C104EB00B4F869 /* SiteNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9CB25C104EB00B4F869 /* SiteNetworkingService.swift */; };
+		FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9D025C1057700B4F869 /* SiteModel.swift */; };
+		FDD7E9D525C107FE00B4F869 /* ShopNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9D425C107FE00B4F869 /* ShopNetworkingService.swift */; };
+		FDD7E9D925C108B900B4F869 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9D825C108B900B4F869 /* ShopModel.swift */; };
+		FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9DD25C12F9500B4F869 /* OrderViewCell.swift */; };
+		FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD7E9DE25C12F9500B4F869 /* OrderViewCell.xib */; };
 		FDE6407725BFB82E008082F3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE6407625BFB82E008082F3 /* Result.swift */; };
 		FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDE6409F25BFCA2B008082F3 /* Localizable.strings */; };
 		FDE640A825BFE327008082F3 /* BlogEntryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE640A725BFE327008082F3 /* BlogEntryCoordinator.swift */; };
@@ -144,6 +150,12 @@
 		FDD6E38F25B552D000F5CE24 /* InstallListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallListViewController.swift; sourceTree = "<group>"; };
 		FDD6E39325B5593A00F5CE24 /* InstallListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallListModel.swift; sourceTree = "<group>"; };
 		FDD6E39725B559F200F5CE24 /* WebasystUserNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystUserNetworkingService.swift; sourceTree = "<group>"; };
+		FDD7E9CB25C104EB00B4F869 /* SiteNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteNetworkingService.swift; sourceTree = "<group>"; };
+		FDD7E9D025C1057700B4F869 /* SiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteModel.swift; sourceTree = "<group>"; };
+		FDD7E9D425C107FE00B4F869 /* ShopNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopNetworkingService.swift; sourceTree = "<group>"; };
+		FDD7E9D825C108B900B4F869 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
+		FDD7E9DD25C12F9500B4F869 /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
+		FDD7E9DE25C12F9500B4F869 /* OrderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewCell.xib; sourceTree = "<group>"; };
 		FDE6407625BFB82E008082F3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FDE6409F25BFCA2B008082F3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FDE640A725BFE327008082F3 /* BlogEntryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryCoordinator.swift; sourceTree = "<group>"; };
@@ -296,6 +308,8 @@
 			children = (
 				FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */,
 				FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */,
+				FDD7E9CB25C104EB00B4F869 /* SiteNetworkingService.swift */,
+				FDD7E9D425C107FE00B4F869 /* ShopNetworkingService.swift */,
 			);
 			path = UserNetworkingService;
 			sourceTree = "<group>";
@@ -384,6 +398,7 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FDD7E9CE25C1054F00B4F869 /* New Group */,
 				FDCE832225BA6CA600FDC437 /* LoaderModule */,
 				FD461F8325B6865500DB9B50 /* ProfileModule */,
 				FDD6E38425B551E300F5CE24 /* InstallListModule */,
@@ -498,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				FDD6E37925B544E800F5CE24 /* Coordinator */,
+				FDD7E9CF25C1055D00B4F869 /* Model */,
 				FDD6E36325B543E100F5CE24 /* ViewModel */,
 				FDD6E36225B543DC00F5CE24 /* View */,
 			);
@@ -507,7 +523,9 @@
 		FDD6E36125B543D500F5CE24 /* ShopModule */ = {
 			isa = PBXGroup;
 			children = (
+				FDD7E9DC25C12F7D00B4F869 /* Cell */,
 				FDD6E37E25B546FE00F5CE24 /* Coordinator */,
+				FDD7E9D725C1089C00B4F869 /* Model */,
 				FDD6E36525B543EE00F5CE24 /* ViewModel */,
 				FDD6E36425B543E900F5CE24 /* View */,
 			);
@@ -627,6 +645,38 @@
 				FDD6E39325B5593A00F5CE24 /* InstallListModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FDD7E9CE25C1054F00B4F869 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		FDD7E9CF25C1055D00B4F869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7E9D025C1057700B4F869 /* SiteModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDD7E9D725C1089C00B4F869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7E9D825C108B900B4F869 /* ShopModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDD7E9DC25C12F7D00B4F869 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FDD7E9DD25C12F9500B4F869 /* OrderViewCell.swift */,
+				FDD7E9DE25C12F9500B4F869 /* OrderViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FDE6408125BFC547008082F3 /* Localization */ = {
@@ -786,6 +836,7 @@
 				FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
+				FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */,
 				FD461FA825B6938800DB9B50 /* ProfileViewController.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
@@ -880,7 +931,10 @@
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
 				FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */,
 				FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */,
+				FDD7E9CC25C104EB00B4F869 /* SiteNetworkingService.swift in Sources */,
+				FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */,
 				FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */,
+				FDD7E9D925C108B900B4F869 /* ShopModel.swift in Sources */,
 				FD461FAB25B6968700DB9B50 /* ProfileCoordinator.swift in Sources */,
 				FDE8F5A325AFE75900B98933 /* WebasystNetworkingManager.swift in Sources */,
 				FDD6E35725B540CE00F5CE24 /* BlogViewController.swift in Sources */,
@@ -900,6 +954,7 @@
 				FD83A47825B823AB00A55EBD /* ProfileData+CoreDataProperties.swift in Sources */,
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
+				FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
 				FD61241D25B1826D00F5714B /* KeychainService.swift in Sources */,
 				FDE640AF25BFE4F9008082F3 /* BlogEntryViewController.swift in Sources */,
@@ -912,6 +967,7 @@
 				FD83A47225B8237B00A55EBD /* ProfileInstallList+CoreDataClass.swift in Sources */,
 				FDE640AC25BFE45F008082F3 /* BlogEntryViewModel.swift in Sources */,
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,
+				FDD7E9D525C107FE00B4F869 /* ShopNetworkingService.swift in Sources */,
 				FDE8F59F25AFDE1D00B98933 /* WebasystAuthNetworkingService.swift in Sources */,
 				FDE6407725BFB82E008082F3 /* Result.swift in Sources */,
 				FD83A47325B8237B00A55EBD /* ProfileInstallList+CoreDataProperties.swift in Sources */,

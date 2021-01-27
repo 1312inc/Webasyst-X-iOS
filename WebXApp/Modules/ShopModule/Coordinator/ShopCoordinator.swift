@@ -9,6 +9,7 @@ import UIKit
 
 protocol ShopCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
+    func openInstallList()
 }
 
 class ShopCoordinator: Coordinator, ShopCoordinatorProtocol {
@@ -20,8 +21,18 @@ class ShopCoordinator: Coordinator, ShopCoordinatorProtocol {
     }
 
     func start() {
+        let shopNetworkingService = ShopNetworkingService()
+        let shopViewModel = ShopViewModel(shopNetworkingService, coordinator: self)
         let shopViewController = ShopViewController()
+        shopViewController.viewModel = shopViewModel
         self.navigationController.setViewControllers([shopViewController], animated: true)
+    }
+    
+    //Opening install list
+    func openInstallList() {
+        let installListCoordinator = InstallListCoordinator(navigationController)
+        childCoordinator.append(installListCoordinator)
+        installListCoordinator.start()
     }
     
 }

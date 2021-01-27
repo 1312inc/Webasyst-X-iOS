@@ -32,7 +32,7 @@ class BlogViewController: UIViewController {
     
     var errorLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("loadingBlog", comment: "")
+        label.text = NSLocalizedString("loading", comment: "")
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +45,15 @@ class BlogViewController: UIViewController {
         indicator.style = .large
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
+    }()
+    
+    var installButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitle(NSLocalizedString("installModuleButtonTitle", comment: ""), for: .normal)
+        button.backgroundColor = .systemGray5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     override func viewDidLoad() {
@@ -63,19 +72,32 @@ class BlogViewController: UIViewController {
         self.viewModel.dataSource.bind { result in
             switch result {
             case .Success(_):
-                self.setupLayoutTableView()
-                self.postTableView.reloadData()
+                DispatchQueue.main.async {
+                    self.setupLayoutTableView()
+                    self.postTableView.reloadData()
+                }
             case .Failure(let error):
                 switch error {
                 case .permisionDenied:
-                    self.setupLayoutError()
-                    self.errorLabel.text = NSLocalizedString("permisionDenied", comment: "")
+                    DispatchQueue.main.async {
+                        self.setupLayoutError()
+                        self.errorLabel.text = NSLocalizedString("permisionDenied", comment: "")
+                    }
                 case .requestFailed:
-                    self.setupLayoutError()
-                    self.errorLabel.text = NSLocalizedString("requestFailed", comment: "")
+                    DispatchQueue.main.async {
+                        self.setupLayoutError()
+                        self.errorLabel.text = NSLocalizedString("requestFailed", comment: "")
+                    }
                 case .notEntity:
-                    self.setupLayoutError()
-                    self.errorLabel.text = NSLocalizedString("emptyBlog", comment: "")
+                    DispatchQueue.main.async {
+                        self.setupLayoutError()
+                        self.errorLabel.text = NSLocalizedString("emptyBlog", comment: "")
+                    }
+                case .notInstall:
+                    DispatchQueue.main.async {
+                        self.setupInstallView()
+                        self.errorLabel.text = NSLocalizedString("notInstallBlog", comment: "")
+                    }
                 }
             }
         }.disposed(by: disposedBag)
@@ -97,6 +119,7 @@ class BlogViewController: UIViewController {
         self.postTableView.tableFooterView = UIView()
         view.addSubview(postTableView)
         self.errorView.removeFromSuperview()
+        self.installButton.removeFromSuperview()
         NSLayoutConstraint.activate([
             postTableView.topAnchor.constraint(equalTo: view.topAnchor),
             postTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -110,6 +133,7 @@ class BlogViewController: UIViewController {
         self.view.addSubview(errorView)
         self.activityIndicator.removeFromSuperview()
         self.errorView.addSubview(errorLabel)
+        self.installButton.removeFromSuperview()
         NSLayoutConstraint.activate([
             errorView.topAnchor.constraint(equalTo: view.topAnchor),
             errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -126,6 +150,7 @@ class BlogViewController: UIViewController {
         self.view.addSubview(errorView)
         self.errorView.addSubview(activityIndicator)
         self.errorView.addSubview(errorLabel)
+        self.installButton.removeFromSuperview()
         NSLayoutConstraint.activate([
             errorView.topAnchor.constraint(equalTo: view.topAnchor),
             errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -137,7 +162,26 @@ class BlogViewController: UIViewController {
             errorLabel.topAnchor.constraint(equalTo: activityIndicator.bottomAnchor, constant: 10),
             errorLabel.widthAnchor.constraint(equalToConstant: 200)
         ])
-        
+    }
+    
+    private func setupInstallView() {
+        self.errorLabel.text = NSLocalizedString("notInstallBlog", comment: "")
+        self.view.addSubview(errorView)
+        self.errorView.addSubview(errorLabel)
+        self.errorView.addSubview(installButton)
+        self.activityIndicator.removeFromSuperview()
+        NSLayoutConstraint.activate([
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            errorLabel.widthAnchor.constraint(equalToConstant: 200),
+            installButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            installButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 10),
+            installButton.widthAnchor.constraint(equalToConstant: 200)
+        ])
     }
     
     @objc func openSetupList() {

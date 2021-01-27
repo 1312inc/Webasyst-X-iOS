@@ -1,6 +1,8 @@
 "errorTitle" = "Error";
 "permisionDenied" = "Access to this installation is prohibited";
 "requestFailed" = "Something went wrong, try again later";
+"loading" = "Loading data";
+"installModuleButtonTitle" = "Install module";
 
 "authError" = "Authorization error. Try again later.";
 
@@ -26,7 +28,23 @@
 "blogTitle" = "Blog";
 "emptyBlog" = "No posts have been added to this blog yet";
 "blogEntryTitle" = "Blog entry";
-"loadingBlog" = "Loading data";
+"notInstallBlog" = "The blog module is not installed on this account";
+
+"shopTitle" = "Shop";
+"emptyShop" = "No orders in this store yet";
+"notInstallShop" = "The store module is not installed on this account";
+"orderStatusTitle" = "Status";
+"orderSummTitle" = "Price";
+"orderNumberTitle" = "Order number";
+"newOrder" = "New";
+"shippedOrder" = "Shipped";
+"completedOrder" = "Completed";
+"refunedOrder" = "Refuned";
+"unknownOrder" = "Unknown";
+"productItem" = "Product";
+"serviceItem" = "Service";
+
+"siteTitle" = "Site";
 
 "profileTitle" = "Profile";
 "firstNameTitle" = "First name";

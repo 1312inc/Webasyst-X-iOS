@@ -1,50 +1,48 @@
 //
-//  UserNetworkingService.swift
+//  ShopNetworkingService.swift
 //  WebXApp
 //
-//  Created by Виктор Кобыхно on 1/20/21.
+//  Created by Виктор Кобыхно on 1/27/21.
 //
 
 import Foundation
 import Alamofire
 import RxSwift
 
-
-
-protocol BlogNetworkingServiceProtocol {
-    func getPosts() -> Observable<Result<[PostList]>>
+protocol ShopNetwrokingServiceProtocol: class {
+    func getOrdersList() -> Observable<Result<[Orders]>>
 }
 
-class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtocol {
+class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtocol {
     
     private let profileInstallListService = ProfileInstallListService()
     
-    func getPosts() -> Observable<Result<[PostList]>> {
+    func getOrdersList() -> Observable<Result<[Orders]>> {
         return Observable.create { (observer) -> Disposable in
             
             let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
             
             let parameters: [String: String] = [
-                "hash": "author/0",
                 "limit": "10",
                 "access_token": self.profileInstallListService.getTokenActiveInstall(selectDomain)
             ]
             
-            let request = AF.request(self.buildApiUrl(path: "/api.php/blog.post.search", parameters: parameters)!, method: .get).response { response in
+            let request = AF.request(self.buildApiUrl(path: "/api.php/shop.order.search", parameters: parameters)!, method: .get).response { response in
                 switch response.result {
-                case .success:
+                case .success(let data):
                     guard let statusCode = response.response?.statusCode else {
                         observer.onNext(Result.Failure(.requestFailed))
+                        observer.onCompleted()
                         return
                     }
                     switch statusCode {
                     case 200...299:
-                        if let data = response.data {
-                            let blog = try! JSONDecoder().decode(PostsBlog.self, from: data)
-                            if blog.posts.isEmpty {
+                        if let data = data {
+                            let orders = try! JSONDecoder().decode(OrderList.self, from: data)
+                            if orders.orders.isEmpty {
                                 observer.onNext(Result.Failure(.notEntity))
                             } else {
-                                observer.onNext(Result.Success(blog.posts))
+                                observer.onNext(Result.Success(orders.orders))
                             }
                             observer.onCompleted()
                         }
@@ -56,11 +54,9 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                         observer.onCompleted()
                     default:
                         observer.onNext(Result.Failure(.permisionDenied))
-                        observer.onCompleted()
                     }
                 case .failure:
                     observer.onNext(Result.Failure(.requestFailed))
-                    observer.onCompleted()
                 }
             }
             
@@ -70,7 +66,6 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                 request.cancel()
             }
         }
-        
     }
     
 }

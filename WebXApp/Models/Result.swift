@@ -9,11 +9,12 @@ import Foundation
 
 enum Result<Value> {
     case Success(Value)
-    case Failure(CustomError)
+    case Failure(ServerError)
 }
 
-enum CustomError {
+enum ServerError {
     case permisionDenied
     case notEntity
     case requestFailed
+    case notInstall
 }
