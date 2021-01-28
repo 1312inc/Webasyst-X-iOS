@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class BlogViewController: UIViewController {
-
+    
     var viewModel: BlogViewModelProtocol!
     let disposedBag = DisposeBag()
     
@@ -62,9 +62,10 @@ class BlogViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .systemBackground
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(openUserProfile))
-        setupLayoutTableView()
-        fetchData()
+        self.postTableView.layoutMargins = UIEdgeInsets.zero
+        self.postTableView.separatorInset = UIEdgeInsets.zero
+        self.setupLayoutTableView()
+        self.fetchData()
     }
     
     // Subscribe for model updates
@@ -104,15 +105,17 @@ class BlogViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
-        if !self.viewModel.changeUserDomain(selectDomain) {
-            self.errorView.removeFromSuperview()
-            self.postTableView.removeFromSuperview()
-            self.setupLoadingView()
-            self.viewModel.fetchBlogPosts()
-        } else {
-            self.viewModel.fetchBlogPosts()
-        }
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(updateData), name: Notification.Name("ChangedSelectDomain"), object: nil)
+        self.viewModel.fetchBlogPosts()
+    }
+    
+    @objc func updateData() {
+        print("update Data")
+        self.errorView.removeFromSuperview()
+        self.postTableView.removeFromSuperview()
+        self.setupLoadingView()
+        self.viewModel.fetchBlogPosts()
     }
     
     private func setupLayoutTableView() {
@@ -146,7 +149,7 @@ class BlogViewController: UIViewController {
     }
     
     private func setupLoadingView() {
-        self.errorLabel.text = NSLocalizedString("loadingBlog", comment: "")
+        self.errorLabel.text = NSLocalizedString("loading", comment: "")
         self.view.addSubview(errorView)
         self.errorView.addSubview(activityIndicator)
         self.errorView.addSubview(errorLabel)
@@ -186,10 +189,6 @@ class BlogViewController: UIViewController {
     
     @objc func openSetupList() {
         self.viewModel.openInstallList()
-    }
-    
-    @objc func openUserProfile() {
-        self.viewModel.openProfileScreen()
     }
     
 }

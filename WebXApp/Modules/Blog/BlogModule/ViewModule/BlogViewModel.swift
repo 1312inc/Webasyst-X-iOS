@@ -15,7 +15,6 @@ protocol BlogViewModelProtocol {
     init(coordinator: BlogCoordinatorProtocol, blogNetworkingService: BlogNetworkingServiceProtocol)
     func fetchBlogPosts()
     func openInstallList()
-    func openProfileScreen()
     func openBlogEntry(_ indexPath: Int)
     func changeUserDomain(_ domain: String) -> Bool
 }
@@ -50,11 +49,6 @@ class BlogViewModel: BlogViewModelProtocol {
     // Opening the install list
     func openInstallList() {
         self.coordinator.openInstallList()
-    }
-    
-    // Opening user profile
-    func openProfileScreen() {
-        self.coordinator.openProfileScreen()
     }
     
     //Opening detail blog entry

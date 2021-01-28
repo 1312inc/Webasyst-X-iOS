@@ -23,11 +23,11 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
     
     func start() {
         let profileInstallListService = ProfileInstallListService()
-        let installListViewModel = InstallListViewModel(profileInstallListService: profileInstallListService, coordinator: self)
+        let profileDataService = ProfileDataService()
+        let installListViewModel = InstallListViewModel(profileInstallListService: profileInstallListService, coordinator: self, profileDataService: profileDataService)
         let installListViewController = InstallListViewController()
         installListViewController.viewModel = installListViewModel
         let installListNavigationController = UINavigationController(rootViewController: installListViewController)
-        installListNavigationController.modalPresentationStyle = .currentContext
         self.navigationController.present(installListNavigationController, animated: true, completion: nil)
     }
     

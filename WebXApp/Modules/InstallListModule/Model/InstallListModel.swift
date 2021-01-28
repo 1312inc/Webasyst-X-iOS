@@ -12,3 +12,16 @@ struct InstallList: Codable {
     let domain: String
     let url: String
 }
+
+struct UserData: Codable {
+    let name: String
+    let firstname: String
+    let lastname: String
+    let middlename: String
+    let email: [Email]
+    let userpic_original_crop: String
+}
+
+struct Email: Codable {
+    let value: String
+}

@@ -24,13 +24,15 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
             
             let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
             
-            let parameters: [String: String] = [
+            let parameters: Parameters = [
                 "hash": "author/0",
                 "limit": "10",
                 "access_token": self.profileInstallListService.getTokenActiveInstall(selectDomain)
             ]
             
-            let request = AF.request(self.buildApiUrl(path: "/api.php/blog.post.search", parameters: parameters)!, method: .get).response { response in
+            let url = self.profileInstallListService.getUrlActiveInstall(selectDomain)
+            
+            let request = AF.request("\(url)/api.php/blog.post.search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
                 switch response.result {
                 case .success:
                     guard let statusCode = response.response?.statusCode else {

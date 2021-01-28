@@ -62,20 +62,23 @@ class ShopViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
         view.backgroundColor = .systemBackground
+        ordersTableView.layoutMargins = UIEdgeInsets.zero
+        ordersTableView.separatorInset = UIEdgeInsets.zero
         self.fetchData()
         self.setupLayoutTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
-        if !self.viewModel.changeUserDomain(selectDomain) {
-            self.errorView.removeFromSuperview()
-            self.ordersTableView.removeFromSuperview()
-            self.setupLoadingView()
-            self.viewModel.fetchOrderList()
-        } else {
-            self.viewModel.fetchOrderList()
-        }
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(updateData), name: Notification.Name("ChangedSelectDomain"), object: nil)
+        self.viewModel.fetchOrderList()
+    }
+    
+    @objc func updateData() {
+        self.errorView.removeFromSuperview()
+        self.ordersTableView.removeFromSuperview()
+        self.setupLoadingView()
+        self.viewModel.fetchOrderList()
     }
     
     private func fetchData() {

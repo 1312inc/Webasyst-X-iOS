@@ -21,10 +21,6 @@
 "appDescription" = "Our amazing app makes your Webasyst shine at its best and enables you to do things you've never done ever before.";
 "loginButtonTitle" = "Login with Webasyst Id";
 
-"installListTitle" = "Change account";
-"cancelButtonTitle" = "Cancel";
-"choiceButtonTitle" = "Select";
-
 "blogTitle" = "Blog";
 "emptyBlog" = "No posts have been added to this blog yet";
 "blogEntryTitle" = "Blog entry";
@@ -46,9 +42,6 @@
 
 "siteTitle" = "Site";
 
-"profileTitle" = "Profile";
-"firstNameTitle" = "First name";
-"lastNameTitle" = "Last name";
-"middleNameTitle" = "Middle name";
-"emailTitle" = "Email";
+"profileTitle" = "User profile";
 "exitAccountButtonTitle" = "Sign out of your account";
+"addWebasystButton" = "Add webasyst";

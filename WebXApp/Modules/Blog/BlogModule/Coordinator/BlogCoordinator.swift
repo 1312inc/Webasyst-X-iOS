@@ -10,7 +10,6 @@ import UIKit
 protocol BlogCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
     func openInstallList()
-    func openProfileScreen()
     func openDetailBlogEntry(_ blogEntry: PostList)
 }
 
@@ -37,13 +36,6 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
         let installListCoordinator = InstallListCoordinator(navigationController)
         childCoordinator.append(installListCoordinator)
         installListCoordinator.start()
-    }
-    
-    //Opening user profile
-    func openProfileScreen() {
-        let profileCoordinator = ProfileCoordinator(self.navigationController)
-        childCoordinator.append(profileCoordinator)
-        profileCoordinator.start()
     }
     
     //Opening detail blog entry

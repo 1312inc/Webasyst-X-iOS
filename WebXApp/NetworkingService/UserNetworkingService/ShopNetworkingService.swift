@@ -27,7 +27,9 @@ class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtoco
                 "access_token": self.profileInstallListService.getTokenActiveInstall(selectDomain)
             ]
             
-            let request = AF.request(self.buildApiUrl(path: "/api.php/shop.order.search", parameters: parameters)!, method: .get).response { response in
+            let url = self.profileInstallListService.getUrlActiveInstall(selectDomain)
+            
+            let request = AF.request("\(url)/api.php/shop.order.search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
                 switch response.result {
                 case .success(let data):
                     guard let statusCode = response.response?.statusCode else {

@@ -203,7 +203,6 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 completion(false, [:])
             }
         }
-        
     }
     
     func getAccessTokenInstall(_ installList: [InstallList], accessCodes: [String: Any], completion: @escaping (String, Bool) -> ()) {
@@ -213,7 +212,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 self.dispatchGroup.enter()
                 AF.upload(multipartFormData: { (multipartFormData) in
                     multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
-                    multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
+                    multipartFormData.append("blog,site,shop,webasyst".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
                     multipartFormData.append(self.bundleId.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "client_id")
                 }, to: "\(install.url)/api.php/token-headless", method: .post).response {response in
                     switch response.result {
@@ -255,23 +254,57 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     }
     
     func deleteNonActiveInstall(_ installList: [InstallList], completion: @escaping (String, Bool)->()) {
-        let saveInstallList = BehaviorRelay<[ProfileInstallList]>(value: [])
+        var saveInstallList = [ProfileInstallList]()
         
         DispatchQueue.main.async {
             self.profileInstallService.getInstallList()
-                .map { install in
-                    return install
-                }
-                .bind(to: saveInstallList)
-                .disposed(by: self.disposeBag)
+                .bind { (result) in
+                    switch result {
+                    case .Success(let install):
+                        saveInstallList = install
+                    case .Failure(_):
+                        saveInstallList = []
+                    }
+                }.disposed(by: self.disposeBag)
             
-            for install in saveInstallList.value {
+            for install in saveInstallList {
                 let find = installList.filter({ $0.id == install.clientId ?? "" })
                 if find.isEmpty {
                     self.profileInstallService.deleteInstall(clientId: install.clientId ?? "")
                 }
             }
             completion("", true)
+        }
+    }
+    
+    func singUpUser(completion: @escaping (Bool) -> ()) {
+        
+        let accessToken = KeychainManager.load(key: "accessToken")
+        let accessTokenString = String(decoding: accessToken ?? Data("".utf8), as: UTF8.self)
+        
+        let headerRequest: HTTPHeaders = [
+            "Authorization": accessTokenString
+        ]
+        
+        AF.request(self.buildWebasystUrl("/id/api/v1/delete/", parameters: [:]), method: .delete, headers: headerRequest).response { (response) in
+            switch response.result {
+            case .success:
+                if let statusCode = response.response?.statusCode {
+                    switch statusCode {
+                    case 200...299:
+                        completion(true)
+                    default:
+                        print("singUpUser status code request \(statusCode)")
+                        completion(false)
+                    }
+                } else {
+                    print("singUpUser status code error")
+                    completion(false)
+                }
+            case .failure:
+                print("singUpUser error request")
+                completion(false)
+            }
         }
     }
     

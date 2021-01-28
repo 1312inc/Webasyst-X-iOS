@@ -15,10 +15,11 @@ typealias ProfileInstallListService = ProfileInstallList
 
 protocol ProfileInstallListProtocol {
     func saveInstall(_ installList: InstallList, accessToken: String)
-    func getInstallList() -> Observable<[ProfileInstallList]>
+    func getInstallList() -> Observable<Result<[ProfileInstallList]>>
     func deleteAllList()
     func deleteInstall(clientId: String)
     func getTokenActiveInstall(_ domain: String) -> String
+    func getUrlActiveInstall(_ domain: String) -> String
 }
 
 @objc(ProfileInstallList)
@@ -47,19 +48,20 @@ public class ProfileInstallList: NSManagedObject, ProfileInstallListServiceProto
         } catch { }
     }
     
-    func getInstallList() -> Observable<[ProfileInstallList]> {
+    func getInstallList() -> Observable<Result<[ProfileInstallList]>> {
         return Observable.create { (observer) -> Disposable in
             
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileInstallList")
             
             do {
                 if let result = try self.context.fetch(request) as? [ProfileInstallList] {
-                    observer.onNext(result)
+                    observer.onNext(Result.Success(result))
                     observer.onCompleted()
                 }
             } catch {
-                observer.onError(NSError(domain: "getInstallList Core Data request error", code: -1, userInfo: nil))
-                return Disposables.create {}
+                observer.onNext(Result.Failure(.notEntity))
+                observer.onCompleted()
+                return Disposables.create { }
             }
             return Disposables.create { }
             
@@ -98,6 +100,23 @@ public class ProfileInstallList: NSManagedObject, ProfileInstallListServiceProto
         do {
             if let result = try self.context.fetch(request) as? [ProfileInstallList] {
                 returnToken = result.first?.accessToken ?? ""
+            }
+        } catch {
+            print ("There was an error")
+        }
+        
+        return returnToken
+    }
+    
+    func getUrlActiveInstall(_ domain: String) -> String {
+        var returnToken = ""
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ProfileInstallList")
+        request.predicate = NSPredicate(format: "domain == %@", domain)
+        
+        do {
+            if let result = try self.context.fetch(request) as? [ProfileInstallList] {
+                returnToken = result.first?.url ?? ""
             }
         } catch {
             print ("There was an error")
