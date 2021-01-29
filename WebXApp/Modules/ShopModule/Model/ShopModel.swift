@@ -18,7 +18,7 @@ struct Orders: Decodable {
     let total: String
     let currency: String
     let shipping: String
-    let items: [ItemsOrder]
+    let items: [ItemsOrder]?
     let params: ParamOrder
     let idEncoded: String
     
