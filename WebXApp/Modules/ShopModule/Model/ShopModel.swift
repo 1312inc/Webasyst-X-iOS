@@ -77,12 +77,12 @@ enum TypeItems: Decodable {
 
 struct ParamOrder: Decodable {
     let shippingId: String
-    let shipingAddressCountry: String
-    let shippingAddressCity: String
-    let shippingAddress: String
-    let shippingName : String
-    let shippingEstDelivery: String
-    let shippingCurrency: String
+    let shipingAddressCountry: String?
+    let shippingAddressCity: String?
+    let shippingAddress: String?
+    let shippingName : String?
+    let shippingEstDelivery: String?
+    let shippingCurrency: String?
     
     private enum CodingKeys: String, CodingKey {
         case shippingId = "shipping_id"
