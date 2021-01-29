@@ -15,6 +15,6 @@ enum Result<Value> {
 enum ServerError {
     case permisionDenied
     case notEntity
-    case requestFailed
+    case requestFailed(text: String)
     case notInstall
 }

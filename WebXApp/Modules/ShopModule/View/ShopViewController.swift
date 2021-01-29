@@ -96,10 +96,10 @@ class ShopViewController: UIViewController {
                         self.setupLayoutError()
                         self.errorLabel.text = NSLocalizedString("permisionDenied", comment: "")
                     }
-                case .requestFailed:
+                case .requestFailed(let text):
                     DispatchQueue.main.async {
                         self.setupLayoutError()
-                        self.errorLabel.text = NSLocalizedString("requestFailed", comment: "")
+                        self.errorLabel.text = "\(NSLocalizedString("requestFailed", comment: ""))\n\(text)"
                     }
                 case .notEntity:
                     DispatchQueue.main.async {

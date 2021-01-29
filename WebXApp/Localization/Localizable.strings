@@ -4,6 +4,7 @@
 "loading" = "Loading data"; // Лоадер на вкладках TabBar
 "installModuleButtonTitle" = "Install module"; // Модуль не установлен
 "connectionAlertMessage" = "You have no internet connection, check your connection and try again"; // Нет соединения с инетом
+"getStatusCodeError" = "#Error request";
 
 "authError" = "Authorization error. Try again later."; // Ошибка авторизации через ВАИД
 

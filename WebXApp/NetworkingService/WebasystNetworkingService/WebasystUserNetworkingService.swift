@@ -219,7 +219,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 self.dispatchGroup.enter()
                 AF.upload(multipartFormData: { (multipartFormData) in
                     multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
-                    multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
+                    multipartFormData.append("blog,site,shop,webasyst".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
                     multipartFormData.append(self.bundleId.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "client_id")
                 }, to: "\(install.url)/api.php/token-headless", method: .post).response {response in
                     switch response.result {

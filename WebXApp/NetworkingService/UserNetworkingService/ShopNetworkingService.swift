@@ -33,7 +33,7 @@ class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtoco
                 switch response.result {
                 case .success(let data):
                     guard let statusCode = response.response?.statusCode else {
-                        observer.onNext(Result.Failure(.requestFailed))
+                        observer.onNext(Result.Failure(.requestFailed(text: NSLocalizedString("getStatusCodeError", comment: ""))))
                         observer.onCompleted()
                         return
                     }
@@ -58,7 +58,7 @@ class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtoco
                         observer.onNext(Result.Failure(.permisionDenied))
                     }
                 case .failure:
-                    observer.onNext(Result.Failure(.requestFailed))
+                    observer.onNext(Result.Failure(.requestFailed(text: NSLocalizedString("getStatusCodeError", comment: ""))))
                 }
             }
             

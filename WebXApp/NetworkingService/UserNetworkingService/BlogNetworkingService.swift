@@ -36,7 +36,7 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                 switch response.result {
                 case .success:
                     guard let statusCode = response.response?.statusCode else {
-                        observer.onNext(Result.Failure(.requestFailed))
+                        observer.onNext(Result.Failure(.requestFailed(text: NSLocalizedString("getStatusCodeError", comment: ""))))
                         return
                     }
                     switch statusCode {
@@ -61,7 +61,7 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                         observer.onCompleted()
                     }
                 case .failure:
-                    observer.onNext(Result.Failure(.requestFailed))
+                    observer.onNext(Result.Failure(.requestFailed(text: NSLocalizedString("getStatusCodeError", comment: ""))))
                     observer.onCompleted()
                 }
             }

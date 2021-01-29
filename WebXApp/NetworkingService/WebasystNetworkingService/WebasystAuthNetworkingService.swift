@@ -41,7 +41,7 @@ class WebasystAuthNetworkingService: WebasystNetworkingManager, WebasystAuthNetw
         let paramRequest: [String: String] = [
             "response_type": "code",
             "client_id": clientId,
-            "scope": "token:blog.site.shop",
+            "scope": "token:blog.site.shop.webasyst",
             "redirect_uri": "\(bundleId)://oidc_callback",
             "state": bundleId,
             "code_challenge": self.generatePasswordHash(64),
