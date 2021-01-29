@@ -10,6 +10,7 @@ import UIKit
 protocol WelcomeCoordinatorProtocol: class {
     init(_ navigationController: UINavigationController)
     func showWebAuthModal()
+    func showConnectionAlert()
 }
 
 final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
@@ -24,7 +25,8 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
     func start() {
         let welcomeViewController = WelcomeViewController()
         let welcomeCoordinator = WelcomeCoordinator(navigationController)
-        let welcomeViewModel = WelcomeViewModel(coordinator: welcomeCoordinator)
+        let networkingHelper = NetworkingHelper()
+        let welcomeViewModel = WelcomeViewModel(coordinator: welcomeCoordinator, networkingHelper: networkingHelper)
         welcomeViewController.viewModel = welcomeViewModel
         self.navigationController.setViewControllers([welcomeViewController], animated: true)
     }
@@ -33,6 +35,12 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
         let authCoordinator = AuthCoordinator(navigationController)
         childCoordinator.append(authCoordinator)
         authCoordinator.start()
+    }
+    
+    func showConnectionAlert() {
+        let alertController = UIAlertController(title: NSLocalizedString("errorTitle", comment: ""), message: NSLocalizedString("connectionAlertMessage", comment: ""), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
+        self.navigationController.present(alertController, animated: true, completion: nil)
     }
     
 }

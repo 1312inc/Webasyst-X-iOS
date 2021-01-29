@@ -1,11 +1,13 @@
-"errorTitle" = "Error";
-"permisionDenied" = "Access to this installation is prohibited";
-"requestFailed" = "Something went wrong, try again later";
-"loading" = "Loading data";
-"installModuleButtonTitle" = "Install module";
+"errorTitle" = "Error"; // Заголовок модального окна ошибки
+"permisionDenied" = "Access to this installation is prohibited"; // Доступ в установку запрещен
+"requestFailed" = "Something went wrong, try again later"; // Ошибка запроса
+"loading" = "Loading data"; // Лоадер на вкладках TabBar
+"installModuleButtonTitle" = "Install module"; // Модуль не установлен
+"connectionAlertMessage" = "You have no internet connection, check your connection and try again"; // Нет соединения с инетом
 
-"authError" = "Authorization error. Try again later.";
+"authError" = "Authorization error. Try again later."; // Ошибка авторизации через ВАИД
 
+//Loader screen
 "welcome" = "Welcome";
 "welcomeBack" = "Welcome back, ";
 "startMessageLoader" = "Taking the Falcon X from Ilon";
@@ -17,15 +19,18 @@
 "errorInstallMessage" = "Loading error";
 "deleteInstallMessage" = "Deleting disabled settings";
 
+//Welcome screen
 "appName" = "Webasyst X";
 "appDescription" = "Our amazing app makes your Webasyst shine at its best and enables you to do things you've never done ever before.";
 "loginButtonTitle" = "Login with Webasyst Id";
 
+// Blog screen
 "blogTitle" = "Blog";
 "emptyBlog" = "No posts have been added to this blog yet";
 "blogEntryTitle" = "Blog entry";
 "notInstallBlog" = "The blog module is not installed on this account";
 
+// Shop screen
 "shopTitle" = "Shop";
 "emptyShop" = "No orders in this store yet";
 "notInstallShop" = "The store module is not installed on this account";
@@ -40,8 +45,10 @@
 "productItem" = "Product";
 "serviceItem" = "Service";
 
+// Site screen
 "siteTitle" = "Site";
 
+// Install list screen
 "profileTitle" = "User profile";
 "exitAccountButtonTitle" = "Sign out of your account";
 "addWebasystButton" = "Add webasyst";

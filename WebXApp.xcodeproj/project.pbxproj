@@ -15,6 +15,7 @@
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
 		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
+		FD4A270625C3B6D400E2399C /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4A270525C3B6D400E2399C /* NetworkingHelper.swift */; };
 		FD61241D25B1826D00F5714B /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD61241C25B1826D00F5714B /* KeychainService.swift */; };
 		FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */; };
 		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
@@ -105,6 +106,7 @@
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
+		FD4A270525C3B6D400E2399C /* NetworkingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
 		FD61241C25B1826D00F5714B /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogNetworkingService.swift; sourceTree = "<group>"; };
 		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
@@ -282,6 +284,14 @@
 			path = ProfileUserData;
 			sourceTree = "<group>";
 		};
+		FD4A270825C3B72A00E2399C /* NetworkingHelper */ = {
+			isa = PBXGroup;
+			children = (
+				FD4A270525C3B6D400E2399C /* NetworkingHelper.swift */,
+			);
+			path = NetworkingHelper;
+			sourceTree = "<group>";
+		};
 		FD61241B25B1825000F5714B /* KeychainManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +402,7 @@
 			children = (
 				FD461FA325B692D800DB9B50 /* UserNetworkingService */,
 				FD461F9D25B6921B00DB9B50 /* WebasystNetworkingService */,
+				FD4A270825C3B72A00E2399C /* NetworkingHelper */,
 			);
 			path = NetworkingService;
 			sourceTree = "<group>";
@@ -904,6 +915,7 @@
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
 				FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */,
 				FDD6E35025B5295400F5CE24 /* UserToken.swift in Sources */,
+				FD4A270625C3B6D400E2399C /* NetworkingHelper.swift in Sources */,
 				FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
 				FDCF9CFF25AEC65E00EDFE69 /* AuthViewController.swift in Sources */,

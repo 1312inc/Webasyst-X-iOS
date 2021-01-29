@@ -43,12 +43,24 @@ class LoaderViewController: UIViewController {
     }
     
     private func fetchData() {
-        self.viewModel.fetchLoadUserData().bind { event in
-            DispatchQueue.main.async {
-                self.progressView.progress += 0.1
-                self.progressLabel.text = event.0
+        self.viewModel.fetchLoadUserData().bind { [self] event in
+            if event.2 {
+                DispatchQueue.main.async {
+                    self.progressView.progress += 0.1
+                    self.progressLabel.text = event.0
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.progressLabel.text = event.0
+                }
+                _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(repeatFetchData), userInfo: nil, repeats: false)
             }
+            
         }.disposed(by: disposeBag)
+    }
+    
+    @objc func repeatFetchData() {
+        fetchData()
     }
 
 }

@@ -13,54 +13,60 @@ import RxCocoa
 protocol WebasystUserNetworkingServiceProtocol {
     func getUserData()
     func refreshAccessToken()
-    func preloadUserData() -> Observable<(String, Int)>
+    func preloadUserData() -> Observable<(String, Int, Bool)>
 }
 
 final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUserNetworkingServiceProtocol {
     
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let profileInstallService = ProfileInstallListService()
+    private let networkingHelper = NetworkingHelper()
     private let queue = DispatchQueue(label: "com.webasyst.WebXApp.WebasystUserNetworkingService", qos: .userInitiated)
     private let dispatchGroup = DispatchGroup()
     private let disposeBag = DisposeBag()
     
-    func preloadUserData() -> Observable<(String, Int)> {
+    func preloadUserData() -> Observable<(String, Int, Bool)> {
         return Observable.create { (observer) -> Disposable in
-            self.queue.async(group: self.dispatchGroup) {
-                self.refreshAccessToken()
-            }
-            self.queue.async {
-                self.getUserData()
-            }
-            self.dispatchGroup.notify(queue: self.queue) {
-                self.getInstallList { (successGetInstall, installList) in
-                    if successGetInstall {
-                        observer.onNext((NSLocalizedString("refuelingMessage", comment: ""), 30))
-                        var clientId: [String] = []
-                        for install in installList {
-                            clientId.append(install.id)
-                        }
-                        self.getAccessTokenApi(clientID: clientId) { (success, accessToken) in
-                            if success {
-                                observer.onNext((NSLocalizedString("gettingReadyMessage", comment: ""), 30))
-                                self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
-                                    if !saveSuccess {
-                                        observer.onNext((loadText, 30))
-                                    } else {
-                                        observer.onCompleted()
-                                    }
-                                }
-                            } else {
-                                observer.onNext((NSLocalizedString("loadingError", comment: ""), 30))
-                                observer.onError(NSError(domain: "getAccessTokenApi error", code: 401, userInfo: nil))
+            if self.networkingHelper.isConnectedToNetwork() {
+                self.queue.async(group: self.dispatchGroup) {
+                    self.refreshAccessToken()
+                }
+                self.queue.async {
+                    self.getUserData()
+                }
+                self.dispatchGroup.notify(queue: self.queue) {
+                    self.getInstallList { (successGetInstall, installList) in
+                        if successGetInstall {
+                            observer.onNext((NSLocalizedString("refuelingMessage", comment: ""), 30, true))
+                            var clientId: [String] = []
+                            for install in installList {
+                                clientId.append(install.id)
                             }
+                            self.getAccessTokenApi(clientID: clientId) { (success, accessToken) in
+                                if success {
+                                    observer.onNext((NSLocalizedString("gettingReadyMessage", comment: ""), 30, true))
+                                    self.getAccessTokenInstall(installList, accessCodes: accessToken) { (loadText, saveSuccess) in
+                                        if !saveSuccess {
+                                            observer.onNext((loadText, 30, true))
+                                        } else {
+                                            observer.onCompleted()
+                                        }
+                                    }
+                                } else {
+                                    observer.onNext((NSLocalizedString("loadingError", comment: ""), 30, true))
+                                    observer.onError(NSError(domain: "getAccessTokenApi error", code: 401, userInfo: nil))
+                                }
+                            }
+                        } else {
+                            observer.onNext((NSLocalizedString("loadingError", comment: ""), 30, true))
+                            observer.onError(NSError(domain: "getInstallList error", code: 401, userInfo: nil))
                         }
-                    } else {
-                        observer.onNext((NSLocalizedString("loadingError", comment: ""), 30))
-                        observer.onError(NSError(domain: "getInstallList error", code: 401, userInfo: nil))
                     }
                 }
+            } else {
+                observer.onNext((NSLocalizedString("connectionAlertMessage", comment: ""), 0, false))
             }
+            
             return Disposables.create {  }
         }
     }
@@ -160,6 +166,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                     }
                 default:
                     print("refreshAccessToken error answer \(statusCode)")
+                    self.dispatchGroup.leave()
                 }
             case .failure:
                 print("refreshAccessToken failure request")
@@ -212,7 +219,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
                 self.dispatchGroup.enter()
                 AF.upload(multipartFormData: { (multipartFormData) in
                     multipartFormData.append("\(String(describing: code))".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "code")
-                    multipartFormData.append("blog,site,shop,webasyst".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
+                    multipartFormData.append("blog,site,shop".data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "scope")
                     multipartFormData.append(self.bundleId.data(using: String.Encoding.utf8, allowLossyConversion: false)!, withName: "client_id")
                 }, to: "\(install.url)/api.php/token-headless", method: .post).response {response in
                     switch response.result {
