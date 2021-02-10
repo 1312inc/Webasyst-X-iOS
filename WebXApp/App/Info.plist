@@ -27,7 +27,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.webasyst.WebXApp://oidc_callback</string>
+				<string>com.webasyst.x.ios</string>
 			</array>
 		</dict>
 	</array>

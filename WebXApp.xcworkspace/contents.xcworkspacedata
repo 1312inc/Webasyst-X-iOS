@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:WebXApp.xcodeproj">
+      location = "group:/Applications/1312/Webasyst-X-iOS/Webasyst X.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -21,7 +21,7 @@ final class WebasystUserNetworkingService: WebasystNetworkingManager, WebasystUs
     private let bundleId: String = Bundle.main.bundleIdentifier ?? ""
     private let profileInstallService = ProfileInstallListService()
     private let networkingHelper = NetworkingHelper()
-    private let queue = DispatchQueue(label: "com.webasyst.WebXApp.WebasystUserNetworkingService", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "com.webasyst.x.ios.WebasystUserNetworkingService", qos: .userInitiated)
     private let dispatchGroup = DispatchGroup()
     private let disposeBag = DisposeBag()
     

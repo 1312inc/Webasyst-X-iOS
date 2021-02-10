@@ -17,7 +17,7 @@
                BlueprintIdentifier = "C341FECA255B0AED0091B045"
                BuildableName = "WebXApp.app"
                BlueprintName = "WebXApp"
-               ReferencedContainer = "container:WebXApp.xcodeproj">
+               ReferencedContainer = "container:Webasyst X.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "C341FEF2255B0C7A0091B045"
                BuildableName = "WebXTests.xctest"
                BlueprintName = "WebXTests"
-               ReferencedContainer = "container:WebXApp.xcodeproj">
+               ReferencedContainer = "container:Webasyst X.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "C341FF7C255B1EC40091B045"
                BuildableName = "WebasystXTests.xctest"
                BlueprintName = "WebasystXTests"
-               ReferencedContainer = "container:WebXApp.xcodeproj">
+               ReferencedContainer = "container:Webasyst X.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -55,7 +55,7 @@
                BlueprintIdentifier = "FDCF9CC025AE822200EDFE69"
                BuildableName = "WebXAppTests.xctest"
                BlueprintName = "WebXAppTests"
-               ReferencedContainer = "container:WebXApp.xcodeproj">
+               ReferencedContainer = "container:Webasyst X.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "C341FECA255B0AED0091B045"
             BuildableName = "WebXApp.app"
             BlueprintName = "WebXApp"
-            ReferencedContainer = "container:WebXApp.xcodeproj">
+            ReferencedContainer = "container:Webasyst X.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -111,7 +111,7 @@
             BlueprintIdentifier = "C341FECA255B0AED0091B045"
             BuildableName = "WebXApp.app"
             BlueprintName = "WebXApp"
-            ReferencedContainer = "container:WebXApp.xcodeproj">
+            ReferencedContainer = "container:Webasyst X.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
