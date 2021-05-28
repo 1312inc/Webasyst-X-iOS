@@ -8,8 +8,7 @@
 import Foundation
 import Alamofire
 import RxSwift
-
-
+import Webasyst
 
 protocol BlogNetworkingServiceProtocol {
     func getPosts() -> Observable<Result<[PostList]>>
@@ -17,20 +16,25 @@ protocol BlogNetworkingServiceProtocol {
 
 class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtocol {
     
-    private let profileInstallListService = ProfileInstallListService()
+    private let webasyst = WebasystApp()
     
     func getPosts() -> Observable<Result<[PostList]>> {
-        return Observable.create { (observer) -> Disposable in
+        return Observable.create { [self] (observer) -> Disposable in
             
             let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
             
+            guard let changeInstall = webasyst.getUserInstall(selectDomain) else {
+                observer.onCompleted()
+                return Disposables.create { }
+            }
+ 
             let parameters: Parameters = [
                 "hash": "author/0",
                 "limit": "10",
-                "access_token": self.profileInstallListService.getTokenActiveInstall(selectDomain)
+                "access_token": "\(String(describing: changeInstall.accessToken))"
             ]
             
-            let url = self.profileInstallListService.getUrlActiveInstall(selectDomain)
+            let url = changeInstall.url
             
             let request = AF.request("\(url)/api.php/blog.post.search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
                 switch response.result {

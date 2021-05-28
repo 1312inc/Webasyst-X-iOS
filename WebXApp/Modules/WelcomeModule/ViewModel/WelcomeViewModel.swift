@@ -7,28 +7,21 @@
 
 import Foundation
 
-protocol WelcomeViewModelProtocol: class {
-    init(coordinator: WelcomeCoordinatorProtocol, networkingHelper: NetworkingHelperProtocol)
+protocol WelcomeViewModelProtocol: AnyObject {
+    init(coordinator: WelcomeCoordinatorProtocol)
     func tappedLoginButton()
 }
 
 final class WelcomeViewModel: WelcomeViewModelProtocol {
     
     var coordinator: WelcomeCoordinatorProtocol
-    private var networkingHelper: NetworkingHelperProtocol
     
-    init(coordinator: WelcomeCoordinatorProtocol, networkingHelper: NetworkingHelperProtocol) {
+    init(coordinator: WelcomeCoordinatorProtocol) {
         self.coordinator = coordinator
-        self.networkingHelper = networkingHelper
     }
     
     public func tappedLoginButton() {
-        if networkingHelper.isConnectedToNetwork() {
-            coordinator.showWebAuthModal()
-        } else {
-            coordinator.showConnectionAlert()
-        }
-        
+        coordinator.showWebAuthModal()
     }
     
 }

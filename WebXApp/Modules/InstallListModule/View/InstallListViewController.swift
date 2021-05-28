@@ -41,7 +41,6 @@ class InstallListViewController: UIViewController {
     
     var userName: UILabel = {
         let label = UILabel()
-        label.text = "Иванов Иван Иванович"
         label.font = UIFont.boldSystemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +48,6 @@ class InstallListViewController: UIViewController {
     
     var userEmail: UILabel = {
         let label = UILabel()
-        label.text = "ViktkobST@gmail.com"
         label.textColor = .systemGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,11 +57,22 @@ class InstallListViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .systemGray5
         button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.setTitle(NSLocalizedString("exitAccountButtonTitle", comment: ""), for: .normal)
+        button.setTitleColor(UIColor.gray, for: .normal)
         button.addTarget(self, action: #selector(signOutAccount), for: .touchDown)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    var myInstallLabel: UILabel = {
+        var label = UILabel()
+        label.text = "мои установки WEBASYST".uppercased()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     lazy var footerView: UIView = {
@@ -73,20 +82,24 @@ class InstallListViewController: UIViewController {
     
     var addWebasystButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemGray5
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        button.setTitle(NSLocalizedString("addWebasystButton", comment: ""), for: .normal)
+        button.contentHorizontalAlignment = .left
+        let icon = UIImage(systemName: "plus.circle.fill")
+        button.setImage(icon, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: -10)
+        button.setTitle("      \(NSLocalizedString("addWebasystButton", comment: ""))", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = viewModel.title
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.layoutMargins = UIEdgeInsets.zero
-        tableView.separatorInset = UIEdgeInsets.zero
+        navigationController?.navigationBar.barTintColor = UIColor(named: "backgroundColor")
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.fetchData()
         self.setupLayout()
         self.fetchProfileData()
@@ -109,42 +122,48 @@ class InstallListViewController: UIViewController {
     
     func fetchProfileData() {
         self.viewModel.getUserData().bind { profile in
-            self.userName.text = "\(profile.firstName == "" ? " " : profile.firstName ?? "")  \(profile.lastName == "" ? " " : profile.lastName ?? "")"
+            self.userName.text = "\(profile.firstname) \(profile.lastname)"
             self.userEmail.text = profile.email
-            self.profileImage.image = UIImage(data: profile.userPic!)
+            self.profileImage.image = UIImage(data: profile.userpic_original_crop!)
         }.disposed(by: disposedBag)
     }
     
     private func setupLayout() {
+        self.tableView.backgroundColor = UIColor(named: "backgroundColor")
+        self.view.backgroundColor = UIColor(named: "backgroundColor")
+        tableView.separatorStyle = .none
         self.view.addSubview(tableView)
+        profileImage.makeRounded()
         self.profileView.addSubview(profileImage)
         self.profileView.addSubview(userName)
         self.profileView.addSubview(userEmail)
         self.profileView.addSubview(signOutButton)
+        self.profileView.addSubview(myInstallLabel)
         self.footerView.addSubview(addWebasystButton)
         self.tableView.tableHeaderView = profileView
         self.tableView.tableFooterView = footerView
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             profileView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             profileView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            profileImage.heightAnchor.constraint(equalToConstant: 80),
-            profileImage.widthAnchor.constraint(equalToConstant: 80),
-            profileImage.topAnchor.constraint(equalTo: profileView.topAnchor, constant: 10),
-            profileImage.leadingAnchor.constraint(equalTo: profileView.leadingAnchor, constant: 20),
-            userName.centerYAnchor.constraint(equalTo: self.profileImage.centerYAnchor, constant: -20),
-            userName.leadingAnchor.constraint(equalTo: self.profileImage.trailingAnchor, constant: 10),
-            userName.trailingAnchor.constraint(equalTo: self.profileView.trailingAnchor, constant: -20),
-            userEmail.centerYAnchor.constraint(equalTo: self.profileImage.centerYAnchor, constant: 20),
-            userEmail.leadingAnchor.constraint(equalTo: self.profileImage.trailingAnchor, constant: 10),
-            userEmail.trailingAnchor.constraint(equalTo: self.profileView.trailingAnchor, constant: -20),
-            signOutButton.topAnchor.constraint(equalTo: self.profileImage.bottomAnchor, constant: 10),
+            profileImage.heightAnchor.constraint(equalToConstant: 100),
+            profileImage.widthAnchor.constraint(equalToConstant: 100),
+            profileImage.topAnchor.constraint(equalTo: profileView.topAnchor),
+            profileImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            userName.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 10),
+            userName.centerXAnchor.constraint(equalTo: self.profileView.centerXAnchor),
+            userEmail.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 5),
+            userEmail.centerXAnchor.constraint(equalTo: self.profileView.centerXAnchor),
+            signOutButton.topAnchor.constraint(equalTo: self.userEmail.bottomAnchor, constant: 10),
             signOutButton.leadingAnchor.constraint(equalTo: self.profileView.leadingAnchor, constant: 20),
             signOutButton.trailingAnchor.constraint(equalTo: self.profileView.trailingAnchor, constant: -20),
-            signOutButton.bottomAnchor.constraint(equalTo: self.profileView.bottomAnchor, constant: -10),
+            myInstallLabel.leadingAnchor.constraint(equalTo: self.profileView.leadingAnchor, constant: 20),
+            myInstallLabel.trailingAnchor.constraint(equalTo: self.profileView.trailingAnchor, constant: -20),
+            myInstallLabel.topAnchor.constraint(equalTo: self.signOutButton.bottomAnchor, constant: 30),
+            myInstallLabel.bottomAnchor.constraint(equalTo: self.profileView.bottomAnchor, constant: -5),
             addWebasystButton.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor, constant: 20),
             addWebasystButton.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor, constant: -20),
             addWebasystButton.topAnchor.constraint(equalTo: self.footerView.topAnchor, constant: 10),
@@ -178,10 +197,18 @@ extension InstallListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 77
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.selectDomainUser(indexPath.row)
+    }
+}
+
+extension UIImageView {
+    func makeRounded() {
+        self.layer.masksToBounds = false
+        self.layer.cornerRadius = 50
+        self.clipsToBounds = true
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol WelcomeViewProtocol: class {
+protocol WelcomeViewProtocol: AnyObject {
     
 }
 

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Webasyst
 
-protocol Coordinator: class {
+protocol Coordinator: AnyObject {
     var childCoordinator: [Coordinator] { get }
     func start()
 }
@@ -15,7 +16,7 @@ protocol Coordinator: class {
 final class AppCoordinator: Coordinator {
     
     private(set) var childCoordinator: [Coordinator] = []
-    
+    private let webasyst = WebasystApp()
     private var window: UIWindow?
     
     required init(window: UIWindow) {
@@ -23,23 +24,52 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        if let token = KeychainManager.load(key: "accessToken") {
-            debugPrint(String(decoding: token, as: UTF8.self))
-            let navigationController = UINavigationController()
-            let loaderCoordinator = LoaderCoordinator(navigationController)
-            childCoordinator.append(loaderCoordinator)
-            loaderCoordinator.start()
-            guard let window = window else { return }
-            window.rootViewController = navigationController
-            window.makeKeyAndVisible()
-        } else {
-            let navigationController = UINavigationController()
-            let welcomeCoordinator = WelcomeCoordinator(navigationController)
-            childCoordinator.append(welcomeCoordinator)
-            welcomeCoordinator.start()
-            guard let window = window else { return }
-            window.rootViewController = navigationController
-            window.makeKeyAndVisible()
+        webasyst.checkUserAuth { userStatus in
+            print(userStatus)
+            switch userStatus {
+            case .authorized:
+                DispatchQueue.main.async {
+                    let tabBarController = UITabBarController()
+                    // Build Blog View Controller
+                    let blogNavigationController = UINavigationController()
+                    blogNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("blogTitle", comment: ""), image: UIImage(systemName: "newspaper"), tag: 0)
+                    let blogCoordinator = BlogCoordinator(blogNavigationController)
+                    blogCoordinator.start()
+                    //Build Site View Controller
+                    let siteNavigationController = UINavigationController()
+                    siteNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("siteTitle", comment: ""), image: UIImage(systemName: "doc.text"), tag: 1)
+                    let siteCoordinator = SiteCoordinator(siteNavigationController)
+                    siteCoordinator.start()
+                    //Build Shop View Controller
+                    let shopNavigationController = UINavigationController()
+                    shopNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("shopTitle", comment: ""), image: UIImage(systemName: "cart"), tag: 2)
+                    let shopCoordinator = ShopCoordinator(shopNavigationController)
+                    shopCoordinator.start()
+                    tabBarController.setViewControllers([blogNavigationController, siteNavigationController, shopNavigationController], animated: true)
+                    self.window?.rootViewController = tabBarController
+                    self.window?.makeKeyAndVisible()
+                }
+            case .nonAuthorized:
+                DispatchQueue.main.async {
+                    let navigationController = UINavigationController()
+                    let welcomeCoordinator = WelcomeCoordinator(navigationController)
+                    self.childCoordinator.append(welcomeCoordinator)
+                    welcomeCoordinator.start()
+                    guard let window = self.window else { return }
+                    window.rootViewController = navigationController
+                    window.makeKeyAndVisible()
+                }
+            case .error(message: _):
+                DispatchQueue.main.async {
+                    let navigationController = UINavigationController()
+                    let welcomeCoordinator = WelcomeCoordinator(navigationController)
+                    self.childCoordinator.append(welcomeCoordinator)
+                    welcomeCoordinator.start()
+                    guard let window = self.window else { return }
+                    window.rootViewController = navigationController
+                    window.makeKeyAndVisible()
+                }
+            }
         }
         
     }

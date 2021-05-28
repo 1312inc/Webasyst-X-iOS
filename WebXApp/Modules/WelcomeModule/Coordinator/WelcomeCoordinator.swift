@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Webasyst
 
-protocol WelcomeCoordinatorProtocol: class {
+protocol WelcomeCoordinatorProtocol: AnyObject {
     init(_ navigationController: UINavigationController)
     func showWebAuthModal()
     func showConnectionAlert()
@@ -17,6 +18,7 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
     
     private(set) var childCoordinator: [Coordinator] = []
     private var navigationController: UINavigationController
+    private let webasyst = WebasystApp()
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,16 +27,15 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
     func start() {
         let welcomeViewController = WelcomeViewController()
         let welcomeCoordinator = WelcomeCoordinator(navigationController)
-        let networkingHelper = NetworkingHelper()
-        let welcomeViewModel = WelcomeViewModel(coordinator: welcomeCoordinator, networkingHelper: networkingHelper)
+        let welcomeViewModel = WelcomeViewModel(coordinator: welcomeCoordinator)
         welcomeViewController.viewModel = welcomeViewModel
         self.navigationController.setViewControllers([welcomeViewController], animated: true)
     }
     
     func showWebAuthModal() {
-        let authCoordinator = AuthCoordinator(navigationController)
-        childCoordinator.append(authCoordinator)
-        authCoordinator.start()
+        webasyst.oAuthLogin(navigationController: self.navigationController) { result in
+            print(result)
+        }
     }
     
     func showConnectionAlert() {

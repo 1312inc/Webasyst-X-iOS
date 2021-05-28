@@ -22,9 +22,7 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
     }
     
     func start() {
-        let profileInstallListService = ProfileInstallListService()
-        let profileDataService = ProfileDataService()
-        let installListViewModel = InstallListViewModel(profileInstallListService: profileInstallListService, coordinator: self, profileDataService: profileDataService)
+        let installListViewModel = InstallListViewModel(coordinator: self)
         let installListViewController = InstallListViewController()
         installListViewController.viewModel = installListViewModel
         let installListNavigationController = UINavigationController(rootViewController: installListViewController)

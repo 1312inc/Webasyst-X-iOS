@@ -8,27 +8,33 @@
 import Foundation
 import Alamofire
 import RxSwift
+import Webasyst
 
-protocol ShopNetwrokingServiceProtocol: class {
+protocol ShopNetwrokingServiceProtocol: AnyObject {
     func getOrdersList() -> Observable<Result<[Orders]>>
 }
 
 class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtocol {
     
-    private let profileInstallListService = ProfileInstallListService()
+    private let webasyst = WebasystApp()
     
     func getOrdersList() -> Observable<Result<[Orders]>> {
         return Observable.create { (observer) -> Disposable in
             
             let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
             
+            guard let changeInstall = self.webasyst.getUserInstall(selectDomain) else {
+                observer.onCompleted()
+                return Disposables.create { }
+            }
+            
             let parameters: [String: String] = [
                 "limit": "10",
-                "access_token": self.profileInstallListService.getTokenActiveInstall(selectDomain)
+                "access_token": "\(String(describing: changeInstall.accessToken))"
             ]
             
             
-            let url = self.profileInstallListService.getUrlActiveInstall(selectDomain)
+            let url = changeInstall.url
             
             let request = AF.request("\(url)/api.php/shop.order.search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
                 switch response.result {

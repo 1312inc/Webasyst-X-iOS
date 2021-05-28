@@ -8,12 +8,13 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Webasyst
 
 protocol InstallListViewModelProtocol {
-    var installList: [ProfileInstallList] { get }
-    var dataSource: BehaviorRelay<Result<[ProfileInstallList]>> { get }
+    var installList: [UserInstall] { get }
+    var dataSource: BehaviorRelay<Result<[UserInstall]>> { get }
     var title: String { get }
-    init(profileInstallListService: ProfileInstallListServiceProtocol, coordinator: InstallListCoordinatorProtocol, profileDataService: ProfileDataServiceProtocol)
+    init(coordinator: InstallListCoordinatorProtocol)
     func fetchInstallList()
     func selectDomainUser(_ index: Int)
     func getUserData() -> Observable<ProfileData>
@@ -25,54 +26,50 @@ final class InstallListViewModel: InstallListViewModelProtocol {
     let title = NSLocalizedString("profileTitle", comment: "")
     let disposeBag = DisposeBag()
     
-    var installList: [ProfileInstallList] = []
-    var dataSource = BehaviorRelay(value: Result<[ProfileInstallList]>.Success([]))
-    private var profileInstallListService: ProfileInstallListServiceProtocol
+    var installList: [UserInstall] = []
+    var dataSource = BehaviorRelay(value: Result<[UserInstall]>.Success([]))
     var coordinator: InstallListCoordinatorProtocol
-    private var profileDataService: ProfileDataProtocol
+    private var webasyst = WebasystApp()
     
-    required init(profileInstallListService: ProfileInstallListServiceProtocol, coordinator: InstallListCoordinatorProtocol, profileDataService: ProfileDataServiceProtocol) {
-        self.profileInstallListService = profileInstallListService
+    required init(coordinator: InstallListCoordinatorProtocol) {
         self.coordinator = coordinator
-        self.profileDataService = profileDataService
         fetchInstallList()
     }
     
     func fetchInstallList() {
-        self.profileInstallListService.getInstallList()
-            .bind { (result) in
-                switch result {
-                case .Success(let install):
-                    self.installList = install
-                    self.dataSource.accept(Result.Success(install))
-                case .Failure(_):
-                    self.dataSource.accept(Result.Failure(.notEntity))
-                }
-            }.disposed(by: disposeBag)
+        webasyst.getAllUserInstall { userInstalls in
+            guard let installs = userInstalls else {
+                self.dataSource.accept(Result.Failure(.notEntity))
+                return
+            }
+            self.installList = installs
+            self.dataSource.accept(Result.Success(installs))
+        }
     }
     
     func selectDomainUser(_ index: Int) {
-        UserDefaults.standard.setValue(self.installList[index].domain, forKey: "selectDomainUser")
+        UserDefaults.standard.setValue(self.installList[index].id, forKey: "selectDomainUser")
         let nc = NotificationCenter.default
         nc.post(name: Notification.Name("ChangedSelectDomain"), object: nil)
         self.coordinator.dismissInstallList()
     }
     
     func getUserData() -> Observable<ProfileData> {
-        self.profileDataService.getUserData().map { $0 }
+        return Observable.create { observer in
+            let profileData = self.webasyst.getProfileData()
+            if let profile = profileData {
+                observer.onNext(profile)
+            }
+            
+            return Disposables.create {
+                
+            }
+        }
     }
     
     func sinOutAccount() {
-        WebasystUserNetworkingService().singUpUser { (success) in
-            if success {
-                let profileDataService = ProfileDataService()
-                profileDataService.deleteProfileData()
-                let profileInstallListService = ProfileInstallListService()
-                profileInstallListService.deleteAllList()
-                KeychainManager.deleteAllKeys()
-                let domain = Bundle.main.bundleIdentifier!
-                UserDefaults.standard.removePersistentDomain(forName: domain)
-                UserDefaults.standard.synchronize()
+        webasyst.logOutUser { result in
+            if result {
                 let window = UIApplication.shared.windows.first ?? UIWindow()
                 let appCoordinator = AppCoordinator(window: window)
                 appCoordinator.start()

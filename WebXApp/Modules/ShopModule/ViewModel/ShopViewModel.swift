@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol ShopViewModelProtocol: class {
+protocol ShopViewModelProtocol: AnyObject {
     var title: String { get }
     var orderList: [Orders] { get }
     var dataSource: BehaviorRelay<Result<[Orders]>> { get }

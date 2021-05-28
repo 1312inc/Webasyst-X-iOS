@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol BlogEntryViewModelProtocol: class {
+protocol BlogEntryViewModelProtocol: AnyObject {
     var title: String { get }
     var blogEntry: PostList { get }
     init(_ blogEntry: PostList)

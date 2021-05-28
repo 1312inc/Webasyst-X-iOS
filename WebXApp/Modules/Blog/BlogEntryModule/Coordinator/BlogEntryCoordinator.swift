@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol BlogEntryCoordinatorProtocol: class {
+protocol BlogEntryCoordinatorProtocol: AnyObject {
     var blogEntry: PostList { get }
     init(_ navigationController: UINavigationController, blogEntry: PostList)
 }
