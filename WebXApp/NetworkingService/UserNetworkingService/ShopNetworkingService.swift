@@ -30,7 +30,7 @@ class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtoco
             
             let parameters: [String: String] = [
                 "limit": "10",
-                "access_token": "\(String(describing: changeInstall.accessToken))"
+                "access_token": "\(changeInstall.accessToken ?? "")"
             ]
             
             
@@ -47,13 +47,18 @@ class ShopNetworkingService: UserNetworkingManager, ShopNetwrokingServiceProtoco
                     switch statusCode {
                     case 200...299:
                         if let data = data {
-                            let orders = try! JSONDecoder().decode(OrderList.self, from: data)
-                            if orders.orders.isEmpty {
-                                observer.onNext(Result.Failure(.notEntity))
-                            } else {
-                                observer.onNext(Result.Success(orders.orders))
+                            do {
+                                let orders = try JSONDecoder().decode(OrderList.self, from: data)
+                                if orders.orders.isEmpty {
+                                    observer.onNext(Result.Failure(.notEntity))
+                                } else {
+                                    observer.onNext(Result.Success(orders.orders))
+                                }
+                                observer.onCompleted()
+                            } catch let error {
+                                print(error)
+                                observer.onCompleted()
                             }
-                            observer.onCompleted()
                         }
                     case 401:
                         observer.onNext(Result.Failure(.permisionDenied))

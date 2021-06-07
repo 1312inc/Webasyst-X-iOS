@@ -30,8 +30,8 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
  
             let parameters: Parameters = [
                 "hash": "author/0",
-                "limit": "10",
-                "access_token": "\(String(describing: changeInstall.accessToken))"
+                "limit": "100",
+                "access_token": "\(changeInstall.accessToken ?? "")"
             ]
             
             let url = changeInstall.url
@@ -47,10 +47,10 @@ class BlogNetworkingService: UserNetworkingManager, BlogNetworkingServiceProtoco
                     case 200...299:
                         if let data = response.data {
                             let blog = try! JSONDecoder().decode(PostsBlog.self, from: data)
-                            if blog.posts.isEmpty {
+                            if blog.posts?.isEmpty ?? false {
                                 observer.onNext(Result.Failure(.notEntity))
                             } else {
-                                observer.onNext(Result.Success(blog.posts))
+                                observer.onNext(Result.Success(blog.posts ?? []))
                             }
                             observer.onCompleted()
                         }

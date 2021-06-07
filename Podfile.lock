@@ -6,7 +6,7 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
-  - Webasyst (1.0.2)
+  - Webasyst (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -27,7 +27,7 @@ SPEC CHECKSUMS:
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  Webasyst: bd43e05f67b2b3a684dcf4a081b09b59a5e64958
+  Webasyst: 05311d2afa84ca7fbc2b92e384884b26ccfbf160
 
 PODFILE CHECKSUM: ec2bbaec64bdc7e1eba292e8b23dd452198dc816
 

@@ -19,7 +19,6 @@ class BlogViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "postCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -62,6 +61,7 @@ class BlogViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .systemBackground
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
+        postTableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
         self.postTableView.layoutMargins = UIEdgeInsets.zero
         self.postTableView.separatorInset = UIEdgeInsets.zero
         self.setupLayoutTableView()
@@ -200,11 +200,10 @@ extension BlogViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableViewCell.identifier, for: indexPath) as! BlogTableViewCell
         
         let post = self.viewModel.blogPosts[indexPath.row]
-        cell.textLabel?.text = post.title
-        cell.textLabel?.numberOfLines = 0
+        cell.configure(post)
         
         return cell
     }

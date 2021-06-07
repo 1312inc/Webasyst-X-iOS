@@ -82,7 +82,7 @@ class InstallListViewController: UIViewController {
     
     var addWebasystButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
+        button.backgroundColor = .systemBackground
         button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         button.contentHorizontalAlignment = .left

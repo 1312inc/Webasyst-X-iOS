@@ -15,6 +15,9 @@
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
 		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
 		FD576DF32660C08300F4D707 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF22660C08300F4D707 /* Result.swift */; };
+		FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */; };
+		FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */; };
+		FD576DFA2661005100F4D707 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF92661005100F4D707 /* NetworkingManager.swift */; };
 		FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */; };
 		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
 		FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */; };
@@ -87,6 +90,9 @@
 		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		FD576DF22660C08300F4D707 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
+		FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogTableViewCell.xib; sourceTree = "<group>"; };
+		FD576DF92661005100F4D707 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogNetworkingService.swift; sourceTree = "<group>"; };
 		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
 		FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 				FDD7E9CB25C104EB00B4F869 /* SiteNetworkingService.swift */,
 				FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */,
 				FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */,
+				FD576DF92661005100F4D707 /* NetworkingManager.swift */,
 			);
 			path = UserNetworkingService;
 			sourceTree = "<group>";
@@ -222,6 +229,15 @@
 				FD576DF22660C08300F4D707 /* Result.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FD576DF42660FDAC00F4D707 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */,
+				FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FD922BAA25C269F700559AB5 /* Cell */ = {
@@ -517,6 +533,7 @@
 		FDE8F5AB25B03FDF00B98933 /* BlogModule */ = {
 			isa = PBXGroup;
 			children = (
+				FD576DF42660FDAC00F4D707 /* Cell */,
 				FDD6E37725B5449100F5CE24 /* Coordinator */,
 				FD1062E725B96CEC00E53A29 /* Model */,
 				FDE8F5AD25B03FF900B98933 /* ViewModule */,
@@ -625,6 +642,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */,
 				FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
@@ -730,6 +748,7 @@
 				FDE640A825BFE327008082F3 /* BlogEntryCoordinator.swift in Sources */,
 				FDD6E37125B5441F00F5CE24 /* ShopViewModel.swift in Sources */,
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
+				FD576DFA2661005100F4D707 /* NetworkingManager.swift in Sources */,
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
 				FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */,
 				FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */,
@@ -737,6 +756,7 @@
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
 				FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */,
+				FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
 				FDE640AF25BFE4F9008082F3 /* BlogEntryViewController.swift in Sources */,
 				FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */,

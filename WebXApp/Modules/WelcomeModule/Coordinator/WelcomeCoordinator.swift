@@ -34,7 +34,15 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
     
     func showWebAuthModal() {
         webasyst.oAuthLogin(navigationController: self.navigationController) { result in
-            print(result)
+            switch result {
+            case .success:
+                let appCoordinator = AppCoordinator(window: UIApplication.shared.windows.first ?? UIWindow())
+                appCoordinator.start()
+            case .error(error: let error):
+                let alertController = UIAlertController(title: NSLocalizedString("errorTitle", comment: ""), message: error, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
+                self.navigationController.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     

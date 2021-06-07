@@ -70,9 +70,11 @@ final class InstallListViewModel: InstallListViewModelProtocol {
     func sinOutAccount() {
         webasyst.logOutUser { result in
             if result {
-                let window = UIApplication.shared.windows.first ?? UIWindow()
-                let appCoordinator = AppCoordinator(window: window)
-                appCoordinator.start()
+                DispatchQueue.main.async {
+                    let window = UIApplication.shared.windows.first ?? UIWindow()
+                    let appCoordinator = AppCoordinator(window: window)
+                    appCoordinator.start()
+                }
             }
         }
     }

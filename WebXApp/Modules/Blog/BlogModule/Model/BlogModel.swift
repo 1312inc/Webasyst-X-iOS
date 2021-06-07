@@ -8,7 +8,7 @@
 import Foundation
 
 struct PostsBlog: Codable, Equatable {
-    let posts: [PostList]
+    let posts: [PostList]?
 }
 
 struct PostList: Codable, Equatable {
@@ -19,11 +19,10 @@ struct PostList: Codable, Equatable {
     let text: String
     let comment_count: Int
     let icon: String
-    let user: PostAuthor
+    let user: PostAuthor?
 }
 
 struct PostAuthor: Codable, Equatable {
-    let id: String
     let name: String
     let photo_url_20: String
 }
