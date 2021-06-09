@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Webasyst
 
 class BlogViewController: UIViewController {
     

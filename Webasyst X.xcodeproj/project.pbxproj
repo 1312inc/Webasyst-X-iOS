@@ -18,12 +18,13 @@
 		FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */; };
 		FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */; };
 		FD576DFA2661005100F4D707 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF92661005100F4D707 /* NetworkingManager.swift */; };
+		FD6D6CE2267099EC008340E0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6D6CE0267099EC008340E0 /* WelcomeViewController.swift */; };
+		FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6D6CE1267099EC008340E0 /* WelcomeViewController.xib */; };
 		FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */; };
 		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
 		FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */; };
 		FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */; };
 		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
-		FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */; };
 		FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */; };
 		FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */; };
 		FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCF9CE525AE98CC00EDFE69 /* ImageAssets.xcassets */; };
@@ -93,12 +94,13 @@
 		FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogTableViewCell.xib; sourceTree = "<group>"; };
 		FD576DF92661005100F4D707 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		FD6D6CE0267099EC008340E0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		FD6D6CE1267099EC008340E0 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogNetworkingService.swift; sourceTree = "<group>"; };
 		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
 		FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
 		FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallViewCell.xib; sourceTree = "<group>"; };
 		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
-		FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebXAppTests.swift; sourceTree = "<group>"; };
 		FDCF9CC525AE822200EDFE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -249,15 +251,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		FD922BB225C2898800559AB5 /* Blog */ = {
-			isa = PBXGroup;
-			children = (
-				FDE8F5AB25B03FDF00B98933 /* BlogModule */,
-				FDE640A225BFE297008082F3 /* BlogEntryModule */,
-			);
-			path = Blog;
-			sourceTree = "<group>";
-		};
 		FDCF9CB325AE7F6C00EDFE69 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +267,8 @@
 				FDD6E38425B551E300F5CE24 /* InstallListModule */,
 				FDD6E36125B543D500F5CE24 /* ShopModule */,
 				FDD6E36025B543CB00F5CE24 /* SiteModule */,
-				FD922BB225C2898800559AB5 /* Blog */,
+				FDE8F5AB25B03FDF00B98933 /* BlogModule */,
+				FDE640A225BFE297008082F3 /* BlogEntryModule */,
 				FDCF9CB725AE807A00EDFE69 /* WelcomeModule */,
 			);
 			path = Modules;
@@ -336,7 +330,8 @@
 		FDCF9CEB25AE99C600EDFE69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FDCF9CBB25AE80BA00EDFE69 /* WelcomeViewController.swift */,
+				FD6D6CE0267099EC008340E0 /* WelcomeViewController.swift */,
+				FD6D6CE1267099EC008340E0 /* WelcomeViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -647,6 +642,7 @@
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
 				FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */,
+				FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */,
 				FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
@@ -742,7 +738,6 @@
 				FDD7E9CC25C104EB00B4F869 /* SiteNetworkingService.swift in Sources */,
 				FD576DF32660C08300F4D707 /* Result.swift in Sources */,
 				FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */,
-				FDCF9CBC25AE80BA00EDFE69 /* WelcomeViewController.swift in Sources */,
 				FDD7E9D925C108B900B4F869 /* ShopModel.swift in Sources */,
 				FDD6E35725B540CE00F5CE24 /* BlogViewController.swift in Sources */,
 				FDE640A825BFE327008082F3 /* BlogEntryCoordinator.swift in Sources */,
@@ -755,6 +750,7 @@
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
+				FD6D6CE2267099EC008340E0 /* WelcomeViewController.swift in Sources */,
 				FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */,
 				FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
@@ -921,7 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
+				DEVELOPMENT_TEAM = Z73YGZ4UAM;
 				INFOPLIST_FILE = WebXApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -941,7 +937,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
+				DEVELOPMENT_TEAM = Z73YGZ4UAM;
 				INFOPLIST_FILE = WebXApp/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

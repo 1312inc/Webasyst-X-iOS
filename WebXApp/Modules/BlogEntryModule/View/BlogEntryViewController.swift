@@ -28,7 +28,7 @@ class BlogEntryViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.font = UIFont.boldSystemFont(ofSize: 30)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -43,13 +43,14 @@ class BlogEntryViewController: UIViewController {
     
     let dateLabel: UILabel = {
         let label = UILabel()
+        label.textColor = UIColor.gray
+        label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = viewModel.title
         self.view.backgroundColor = .systemBackground
         self.setupData()
     }
@@ -61,6 +62,13 @@ class BlogEntryViewController: UIViewController {
         let htmlEnd = "</BODY></HTML>"
         let htmlString = "\(htmlStart)\(self.viewModel.blogEntry.text)\(htmlEnd)"
         self.textLView.loadHTMLString(htmlString, baseURL:  nil)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let myDate = dateFormatter.date(from: self.viewModel.blogEntry.datetime)!
+        
+        dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
+        let somedateString = dateFormatter.string(from: myDate)
+        self.dateLabel.text = somedateString
     }
     
     private func setupLayout() {
@@ -78,15 +86,15 @@ class BlogEntryViewController: UIViewController {
             self.containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             self.containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             self.containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            self.titleLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 10),
+            self.titleLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: -40),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 20),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
             self.dateLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 10),
             self.dateLabel.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 20),
             self.dateLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
             self.textLView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 10),
-            self.textLView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 20),
-            self.textLView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
+            self.textLView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 15),
+            self.textLView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -15),
             self.textLView.heightAnchor.constraint(equalToConstant: self.webViewHeight),
             self.textLView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor)
         ])

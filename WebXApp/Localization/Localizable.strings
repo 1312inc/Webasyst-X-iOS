@@ -22,8 +22,17 @@
 
 //Welcome screen
 "appName" = "Webasyst X";
-"appDescription" = "Our amazing app makes your Webasyst shine at its best and enables you to do things you've never done ever before.";
-"loginButtonTitle" = "Login with Webasyst Id";
+"appDescription" = "To make this screen look great, simply replace the app icon and the app name above with your project credentials, and add an encouraging welcome message.";
+"loginButtonTitle" = " Login with Webasyst ID";
+"onGithub" = "Webasyst X on GitHub";
+"howItWorks" = "How it works";
+"slideTitle_0" = "Hello, World!";
+"slideText_0" = "Webasyst X is a simple demo app that helps developing native mobile client apps for Webasyst server-side apps. Quickly, easily, with all boring stuff handled out-of-the-box.";
+"slideTitle_1" = "REST API";
+"slideText_1" = "For demo purposes, this app connects to Blog, Site, and Shop-Script APIs. When switching this prototype to work with your custom app API, simply replace the logo and the API scope — and start working your app's custom flow right away!";
+"slideTitle_2" = "Open Source";
+"slideText_2" = "Webasyst X is an open source project (MIT license). Feel free to use it as a foundation for your custom Webasyst-powered mobile client app or project.";
+"nextButton" = "Next";
 
 // Blog screen
 "blogTitle" = "Blog";

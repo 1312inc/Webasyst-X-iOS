@@ -25,7 +25,6 @@ final class AppCoordinator: Coordinator {
     
     func start() {
         webasyst.checkUserAuth { userStatus in
-            print(userStatus)
             switch userStatus {
             case .authorized:
                 DispatchQueue.main.async {
