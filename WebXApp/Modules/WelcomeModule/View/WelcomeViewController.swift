@@ -45,20 +45,41 @@ class WelcomeViewController: UIViewController {
         return label
     }()
     
-    private var authButton: UIButton = {
+    private var oAuthButton: UIButton = {
         let button = UIButton()
         button.setTitle(NSLocalizedString("loginButtonTitle", comment: ""), for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor.systemGreen
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor.systemBackground
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.layer.cornerRadius = 5
-        let origImage = UIImage(systemName: "lock.shield")
-        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
-        button.setImage(tintedImage, for: .normal)
-        button.tintColor = .white
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.cornerRadius = 10
+        let origImage = UIImage(named: "magic-wand-small")
+        button.setImage(origImage, for: .normal)
         button.addTarget(self, action: #selector(tapLogin), for: .touchDown)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private var phoneAuthButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(NSLocalizedString("phoneLogin", comment: ""), for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor.systemGreen
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(openPhoneAuth), for: .touchDown)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var orLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("orLabel", comment: "")
+        label.textAlignment = .center
+        label.textColor = UIColor.systemGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private var githubButton: UIButton = {
@@ -113,7 +134,7 @@ class WelcomeViewController: UIViewController {
                 imageView.image = UIImage(named: slide.image)
                 imageView.contentMode = .scaleAspectFit
                 slideView.addSubview(imageView)
-                imageView.widthAnchor.constraint(equalToConstant: 86).isActive = true
+                imageView.widthAnchor.constraint(equalToConstant: slideView.frame.width - 20).isActive = true
                 imageView.heightAnchor.constraint(equalToConstant: 86).isActive = true
                 imageView.topAnchor.constraint(equalTo: slideView.topAnchor, constant: 170).isActive = true
                 imageView.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
@@ -154,8 +175,10 @@ class WelcomeViewController: UIViewController {
                 slideView.addSubview(self.descriptionAppLabel)
                 slideView.addSubview(self.welcomeImage)
                 slideView.addSubview(self.logoImage)
-                slideView.addSubview(self.authButton)
+                slideView.addSubview(self.oAuthButton)
                 slideView.addSubview(self.githubButton)
+                slideView.addSubview(phoneAuthButton)
+                slideView.addSubview(orLabel)
                 logoImage.topAnchor.constraint(equalTo: slideView.topAnchor).isActive = true
                 logoImage.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
                 logoImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -170,11 +193,20 @@ class WelcomeViewController: UIViewController {
                 descriptionAppLabel.topAnchor.constraint(equalTo: appNameLabel.bottomAnchor, constant: 10).isActive = true
                 githubButton.topAnchor.constraint(equalTo: descriptionAppLabel.bottomAnchor, constant: 10).isActive = true
                 githubButton.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
-                authButton.leadingAnchor.constraint(equalTo: slideView.leadingAnchor, constant: 20).isActive = true
-                authButton.trailingAnchor.constraint(equalTo: slideView.trailingAnchor, constant: -20).isActive = true
-                authButton.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
-                authButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-                authButton.bottomAnchor.constraint(equalTo: slideView.bottomAnchor, constant: -20).isActive = true
+                oAuthButton.leadingAnchor.constraint(equalTo: slideView.leadingAnchor, constant: 20).isActive = true
+                oAuthButton.trailingAnchor.constraint(equalTo: slideView.trailingAnchor, constant: -20).isActive = true
+                oAuthButton.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
+                oAuthButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+                oAuthButton.bottomAnchor.constraint(equalTo: slideView.bottomAnchor, constant: -20).isActive = true
+                orLabel.leadingAnchor.constraint(equalTo: slideView.leadingAnchor, constant: 20).isActive = true
+                orLabel.trailingAnchor.constraint(equalTo: slideView.trailingAnchor, constant: -20).isActive = true
+                orLabel.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
+                orLabel.bottomAnchor.constraint(equalTo: oAuthButton.topAnchor, constant: -15).isActive = true
+                phoneAuthButton.leadingAnchor.constraint(equalTo: slideView.leadingAnchor, constant: 20).isActive = true
+                phoneAuthButton.trailingAnchor.constraint(equalTo: slideView.trailingAnchor, constant: -20).isActive = true
+                phoneAuthButton.centerXAnchor.constraint(equalTo: slideView.centerXAnchor).isActive = true
+                phoneAuthButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+                phoneAuthButton.bottomAnchor.constraint(equalTo: orLabel.topAnchor, constant: -15).isActive = true
             }
             self.scrollView.addSubview(slideView)
             self.scrollView.showsHorizontalScrollIndicator = false
@@ -211,6 +243,11 @@ class WelcomeViewController: UIViewController {
         if let url = URL(string: "https://github.com/1312inc/Webasyst-X-iOS") {
             UIApplication.shared.open(url)
         }
+    }
+    
+    //MARK: Open phone uthorization
+    @objc private func openPhoneAuth() {
+        viewModel.openPhoneAuth()
     }
     
 }

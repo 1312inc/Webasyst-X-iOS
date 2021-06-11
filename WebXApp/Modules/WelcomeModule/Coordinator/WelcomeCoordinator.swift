@@ -12,6 +12,7 @@ protocol WelcomeCoordinatorProtocol: AnyObject {
     init(_ navigationController: UINavigationController)
     func showWebAuthModal()
     func showConnectionAlert()
+    func openPhoneAuth()
 }
 
 final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
@@ -66,6 +67,11 @@ final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
                 }
             }
         }
+    }
+    
+    func openPhoneAuth() {
+        let authCoordinator = AuthCoordinator(self.navigationController)
+        authCoordinator.start()
     }
     
     func showConnectionAlert() {

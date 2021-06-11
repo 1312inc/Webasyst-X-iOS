@@ -31,14 +31,15 @@ protocol WelcomeViewModelProtocol: AnyObject {
     var slides: [WelcomeSlides] { get }
     init(coordinator: WelcomeCoordinatorProtocol)
     func tappedLoginButton()
+    func openPhoneAuth() 
 }
 
 final class WelcomeViewModel: WelcomeViewModelProtocol {
     
     var slides: [WelcomeSlides] = [
-        WelcomeSlides(title: NSLocalizedString("slideTitle_0", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_0", comment: ""), image: "Vector"))),
-        WelcomeSlides(title: NSLocalizedString("slideTitle_1", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_1", comment: ""), image: "Vector-2"))),
-        WelcomeSlides(title: NSLocalizedString("slideTitle_2", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_2", comment: ""), image: "Vector-3"))),
+        WelcomeSlides(title: NSLocalizedString("slideTitle_0", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_0", comment: ""), image: "slide-1"))),
+        WelcomeSlides(title: NSLocalizedString("slideTitle_1", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_1", comment: ""), image: "slide-2"))),
+        WelcomeSlides(title: NSLocalizedString("slideTitle_2", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_2", comment: ""), image: "slide-3"))),
         WelcomeSlides(title: "Webasyst X", type: .auth)
     ]
     
@@ -50,6 +51,10 @@ final class WelcomeViewModel: WelcomeViewModelProtocol {
     
     public func tappedLoginButton() {
         coordinator.showWebAuthModal()
+    }
+    
+    public func openPhoneAuth() {
+        coordinator.openPhoneAuth()
     }
     
 }

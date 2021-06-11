@@ -5,6 +5,8 @@
 "installModuleButtonTitle" = "Install module"; // Модуль не установлен
 "connectionAlertMessage" = "You have no internet connection, check your connection and try again"; // Нет соединения с инетом
 "getStatusCodeError" = "#Error request";
+"okAlert" = "OK";
+"seconds" = "seconds";
 
 "authError" = "Authorization error. Try again later."; // Ошибка авторизации через ВАИД
 
@@ -22,7 +24,7 @@
 
 //Welcome screen
 "appName" = "Webasyst X";
-"appDescription" = "To make this screen look great, simply replace the app icon and the app name above with your project credentials, and add an encouraging welcome message.";
+"appDescription" = "The app will connect to all your Webasyst accounts using a single Webasyst ID authorisation.";
 "loginButtonTitle" = " Login with Webasyst ID";
 "onGithub" = "Webasyst X on GitHub";
 "howItWorks" = "How it works";
@@ -33,6 +35,29 @@
 "slideTitle_2" = "Open Source";
 "slideText_2" = "Webasyst X is an open source project (MIT license). Feel free to use it as a foundation for your custom Webasyst-powered mobile client app or project.";
 "nextButton" = "Next";
+"phoneLogin" = "Log in by phone number";
+"orLabel" = "or";
+
+//Phone authorization
+"titlePhone" = "Enter your telephone number";
+"descriptionPhone" = "We will send a confirmation code to this number";
+"nextButton" = "Next";
+"phoneError" = "Phone number entered incorrectly";
+"clientIdError" = "ClientID is incorrect";
+"codeChalengeError" = "Code challenge is incorrect or missing";
+"emailError" = "E-mail address is incorrect";
+"phoneError" = "The phone number is wrong";
+"requestTimeoutLimit" = "Repeat request sent before timeout expires for repeat request";
+"sentNotificationFail" = "The server was unable to send the code";
+"errorCode" = "The code is not entered correctly";
+
+//Confirm code screen
+"titleConfirmCode" = "Enter the code from the message";
+"descriptionConfirmCode" = "Confirmation code sent to ";
+"resendCodeLabel" = "No confirmation code arrived?";
+"resendCodeButton" = "Resend code";
+"codeSendLabel" = "Code sent";
+"timerText" = "You can send it again through";
 
 // Blog screen
 "blogTitle" = "Blog";

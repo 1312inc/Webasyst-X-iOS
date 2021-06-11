@@ -13,6 +13,12 @@
 		C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FED0255B0AED0091B045 /* SceneDelegate.swift */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
+		FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */; };
+		FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */; };
+		FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */; };
+		FD0C1A3326720EB500FE41D0 /* ConfirmCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3226720EB500FE41D0 /* ConfirmCodeViewController.swift */; };
+		FD0C1A3526720EC000FE41D0 /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */; };
+		FD0C1A3726720ECC00FE41D0 /* ConfirmCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */; };
 		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
 		FD576DF32660C08300F4D707 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF22660C08300F4D707 /* Result.swift */; };
 		FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */; };
@@ -89,6 +95,12 @@
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		FD0C1A3226720EB500FE41D0 /* ConfirmCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewController.swift; sourceTree = "<group>"; };
+		FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
+		FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeCoordinator.swift; sourceTree = "<group>"; };
 		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		FD576DF22660C08300F4D707 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +217,74 @@
 			path = WebXApp;
 			sourceTree = "<group>";
 		};
+		FD0C1A242671E1B200FE41D0 /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A272671E1D000FE41D0 /* Coordinator */,
+				FD0C1A262671E1C900FE41D0 /* ViewModel */,
+				FD0C1A252671E1BD00FE41D0 /* View */,
+			);
+			path = AuthModule;
+			sourceTree = "<group>";
+		};
+		FD0C1A252671E1BD00FE41D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD0C1A262671E1C900FE41D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD0C1A272671E1D000FE41D0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FD0C1A2E26720E8300FE41D0 /* ConfirmCodeModule */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A3126720E9E00FE41D0 /* Coordinator */,
+				FD0C1A3026720E9900FE41D0 /* ViewModel */,
+				FD0C1A2F26720E9500FE41D0 /* View */,
+			);
+			path = ConfirmCodeModule;
+			sourceTree = "<group>";
+		};
+		FD0C1A2F26720E9500FE41D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A3226720EB500FE41D0 /* ConfirmCodeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD0C1A3026720E9900FE41D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD0C1A3126720E9E00FE41D0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		FD1062E725B96CEC00E53A29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +344,8 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD0C1A2E26720E8300FE41D0 /* ConfirmCodeModule */,
+				FD0C1A242671E1B200FE41D0 /* AuthModule */,
 				FDD6E38425B551E300F5CE24 /* InstallListModule */,
 				FDD6E36125B543D500F5CE24 /* ShopModule */,
 				FDD6E36025B543CB00F5CE24 /* SiteModule */,
@@ -730,12 +812,16 @@
 				FDD6E36E25B5441500F5CE24 /* ShopViewController.swift in Sources */,
 				FDD6E35B25B540DC00F5CE24 /* BlogViewModel.swift in Sources */,
 				FDD6E36B25B5440A00F5CE24 /* SiteViewModel.swift in Sources */,
+				FD0C1A3526720EC000FE41D0 /* ConfirmCodeViewModel.swift in Sources */,
+				FD0C1A3726720ECC00FE41D0 /* ConfirmCodeCoordinator.swift in Sources */,
 				FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
 				FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */,
 				FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */,
+				FD0C1A3326720EB500FE41D0 /* ConfirmCodeViewController.swift in Sources */,
 				FDD7E9CC25C104EB00B4F869 /* SiteNetworkingService.swift in Sources */,
+				FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */,
 				FD576DF32660C08300F4D707 /* Result.swift in Sources */,
 				FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */,
 				FDD7E9D925C108B900B4F869 /* ShopModel.swift in Sources */,
@@ -752,12 +838,14 @@
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
 				FD6D6CE2267099EC008340E0 /* WelcomeViewController.swift in Sources */,
 				FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */,
+				FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */,
 				FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
 				FDE640AF25BFE4F9008082F3 /* BlogEntryViewController.swift in Sources */,
 				FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */,
 				FDE640AC25BFE45F008082F3 /* BlogEntryViewModel.swift in Sources */,
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,
+				FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */,
 				FDD7E9D525C107FE00B4F869 /* ShopNetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
