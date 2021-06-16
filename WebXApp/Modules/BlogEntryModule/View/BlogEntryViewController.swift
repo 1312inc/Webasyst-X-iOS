@@ -34,7 +34,7 @@ class BlogEntryViewController: UIViewController {
         return label
     }()
     
-    lazy var textLView: WKWebView = {
+    lazy var textView: WKWebView = {
         let label = WKWebView()
         label.navigationDelegate = self
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +49,12 @@ class BlogEntryViewController: UIViewController {
         return label
     }()
     
+    var loadingView: LoadingView = {
+        let view = LoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
@@ -57,26 +63,27 @@ class BlogEntryViewController: UIViewController {
     
     private func setupData() {
         self.titleLabel.text = self.viewModel.blogEntry.title
-        self.textLView.scrollView.bounces = false
-        let htmlStart = "<HTML><HEAD><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"></HEAD><BODY>"
+        self.textView.scrollView.bounces = false
+        let htmlStart = "<HTML><HEAD><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></HEAD><BODY>"
         let htmlEnd = "</BODY></HTML>"
         let htmlString = "\(htmlStart)\(self.viewModel.blogEntry.text)\(htmlEnd)"
-        self.textLView.loadHTMLString(htmlString, baseURL:  nil)
+        self.textView.loadHTMLString(htmlString, baseURL:  nil)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let myDate = dateFormatter.date(from: self.viewModel.blogEntry.datetime)!
-        
         dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
         let somedateString = dateFormatter.string(from: myDate)
         self.dateLabel.text = somedateString
     }
     
     private func setupLayout() {
+        loadingView.removeFromSuperview()
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(containerView)
         self.containerView.addSubview(titleLabel)
         self.containerView.addSubview(dateLabel)
-        self.containerView.addSubview(textLView)
+        self.containerView.addSubview(textView)
+        self.scrollView.contentSize = textView.frame.size
         NSLayoutConstraint.activate([
             self.scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             self.scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -92,19 +99,26 @@ class BlogEntryViewController: UIViewController {
             self.dateLabel.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 10),
             self.dateLabel.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 20),
             self.dateLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
-            self.textLView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 10),
-            self.textLView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 15),
-            self.textLView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -15),
-            self.textLView.heightAnchor.constraint(equalToConstant: self.webViewHeight),
-            self.textLView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor)
+            self.textView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 10),
+            self.textView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 15),
+            self.textView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -15),
+            self.textView.heightAnchor.constraint(equalToConstant: self.webViewHeight),
+            self.textView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor)
         ])
     }
 }
 
 extension BlogEntryViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            loadingView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            loadingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+        ])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.webViewHeight = self.textLView.scrollView.contentSize.height
+            self.webViewHeight = self.textView.scrollView.contentSize.height
             self.setupLayout()
         }
     }

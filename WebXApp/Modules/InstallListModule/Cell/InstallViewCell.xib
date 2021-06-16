@@ -25,6 +25,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://1312.io" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWb-Sg-g1n">
                                 <rect key="frame" x="66" y="37.5" width="262" height="14.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="jUQ-Fj-iLm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
@@ -93,7 +96,7 @@
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <namedColor name="backgroundColor">
-            <color red="0.94897311929999995" green="0.94970792530000003" blue="0.96857637169999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94999998807907104" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

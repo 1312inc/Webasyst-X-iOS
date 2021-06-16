@@ -146,6 +146,22 @@ class ConfirmCodeViewController: UIViewController {
                     }
                 }
             }).disposed(by: disposeBag)
+        
+        self.viewModel.enabledButtonSubject
+            .subscribe(onNext: { enabled in
+                if enabled {
+                    DispatchQueue.main.async {
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("nextButton", comment: ""), style: .plain, target: self, action: #selector(self.tappedNext))
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let uiBusy = UIActivityIndicatorView()
+                        uiBusy.hidesWhenStopped = true
+                        uiBusy.startAnimating()
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
+                    }
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func setupLayout() {

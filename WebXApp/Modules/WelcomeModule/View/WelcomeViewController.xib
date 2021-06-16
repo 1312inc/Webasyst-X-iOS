@@ -12,9 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="WebXApp" customModuleProvider="target">
             <connections>
-                <outlet property="howAreWork" destination="zwT-H8-9Tr" id="VHW-Po-Zk0"/>
-                <outlet property="pageControl" destination="ouP-z4-8A5" id="rel-Rb-KFU"/>
-                <outlet property="scrollView" destination="gj7-sA-byL" id="nTq-oX-7WF"/>
+                <outlet property="pageControl" destination="zqf-RK-NZR" id="tYI-22-htV"/>
+                <outlet property="scrollView" destination="gpc-f2-uFR" id="Eol-pp-htf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,35 +22,26 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gj7-sA-byL">
-                    <rect key="frame" x="0.0" y="99" width="414" height="727"/>
-                    <viewLayoutGuide key="contentLayoutGuide" id="5yN-bd-TcA"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="3Ot-2u-jfk"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpc-f2-uFR">
+                    <rect key="frame" x="0.0" y="44" width="414" height="784"/>
                 </scrollView>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ouP-z4-8A5">
-                    <rect key="frame" x="146" y="834" width="122" height="28"/>
-                    <color key="pageIndicatorTintColor" systemColor="opaqueSeparatorColor"/>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-RK-NZR">
+                    <rect key="frame" x="20" y="848" width="374" height="28"/>
+                    <color key="pageIndicatorTintColor" systemColor="systemGray2Color"/>
                     <color key="currentPageIndicatorTintColor" name="AccentColor"/>
                 </pageControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Как это работает" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwT-H8-9Tr">
-                    <rect key="frame" x="10" y="64" width="394" height="21"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="ouP-z4-8A5" firstAttribute="top" secondItem="gj7-sA-byL" secondAttribute="bottom" constant="8" symbolic="YES" id="804-8h-zru"/>
-                <constraint firstItem="gj7-sA-byL" firstAttribute="centerX" secondItem="ouP-z4-8A5" secondAttribute="centerX" id="B6E-S0-xcE"/>
-                <constraint firstItem="gj7-sA-byL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jxa-V9-yh6"/>
-                <constraint firstItem="gj7-sA-byL" firstAttribute="top" secondItem="zwT-H8-9Tr" secondAttribute="bottom" constant="14" id="RUI-ba-HxB"/>
-                <constraint firstItem="zwT-H8-9Tr" firstAttribute="centerX" secondItem="gj7-sA-byL" secondAttribute="centerX" id="i3R-Pg-2fd"/>
-                <constraint firstItem="ouP-z4-8A5" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mJI-yf-gcf"/>
-                <constraint firstAttribute="trailing" secondItem="gj7-sA-byL" secondAttribute="trailing" id="tCE-mh-4nV"/>
-                <constraint firstItem="zwT-H8-9Tr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="uMo-Ne-mnB"/>
-                <constraint firstItem="zwT-H8-9Tr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="wAO-bd-WcN"/>
+                <constraint firstItem="gpc-f2-uFR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Cfv-co-yCp"/>
+                <constraint firstItem="zqf-RK-NZR" firstAttribute="top" secondItem="gpc-f2-uFR" secondAttribute="bottom" constant="20" id="F04-vU-ZC9"/>
+                <constraint firstAttribute="bottom" secondItem="zqf-RK-NZR" secondAttribute="bottom" constant="20" id="HD9-sz-1gE"/>
+                <constraint firstItem="zqf-RK-NZR" firstAttribute="top" secondItem="gpc-f2-uFR" secondAttribute="bottom" constant="20" id="Nb0-sb-J0r"/>
+                <constraint firstItem="gpc-f2-uFR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Uky-bb-gaw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqf-RK-NZR" secondAttribute="trailing" constant="20" id="ay5-Cm-ZoZ"/>
+                <constraint firstItem="zqf-RK-NZR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dO5-cw-T5q"/>
+                <constraint firstItem="gpc-f2-uFR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wh9-yT-lNI"/>
             </constraints>
             <point key="canvasLocation" x="121.73913043478262" y="128.57142857142856"/>
         </view>
@@ -60,11 +50,11 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

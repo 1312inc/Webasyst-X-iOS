@@ -24,6 +24,9 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
+        let loadingViewController = LoadingViewController()
+        self.window?.rootViewController = loadingViewController
+        self.window?.makeKeyAndVisible()
         webasyst.checkUserAuth { userStatus in
             switch userStatus {
             case .authorized:
@@ -47,6 +50,7 @@ final class AppCoordinator: Coordinator {
                     tabBarController.setViewControllers([blogNavigationController, siteNavigationController, shopNavigationController], animated: true)
                     self.window?.rootViewController = tabBarController
                     self.window?.makeKeyAndVisible()
+                    return
                 }
             case .nonAuthorized:
                 DispatchQueue.main.async {
@@ -57,6 +61,7 @@ final class AppCoordinator: Coordinator {
                     guard let window = self.window else { return }
                     window.rootViewController = navigationController
                     window.makeKeyAndVisible()
+                    return
                 }
             case .error(message: _):
                 DispatchQueue.main.async {
@@ -67,6 +72,7 @@ final class AppCoordinator: Coordinator {
                     guard let window = self.window else { return }
                     window.rootViewController = navigationController
                     window.makeKeyAndVisible()
+                    return
                 }
             }
         }

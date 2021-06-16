@@ -20,6 +20,13 @@
 		FD0C1A3526720EC000FE41D0 /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */; };
 		FD0C1A3726720ECC00FE41D0 /* ConfirmCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */; };
 		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
+		FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E67FB2679AFC400A42283 /* AuthSlide.swift */; };
+		FD4E67FE2679AFCD00A42283 /* AuthSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */; };
+		FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68012679CED300A42283 /* InstallModuleView.swift */; };
+		FD4E68052679E1DC00A42283 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68042679E1DC00A42283 /* EmptyListView.swift */; };
+		FD4E680B2679F13900A42283 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68092679F13900A42283 /* LoadingViewController.swift */; };
+		FD4E680C2679F13900A42283 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4E680A2679F13900A42283 /* LoadingViewController.xib */; };
+		FD4E680F2679F61A00A42283 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E680E2679F61A00A42283 /* ErrorView.swift */; };
 		FD576DF32660C08300F4D707 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF22660C08300F4D707 /* Result.swift */; };
 		FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */; };
 		FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */; };
@@ -30,6 +37,9 @@
 		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
 		FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */; };
 		FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */; };
+		FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBB9F7A2679FA880027DD53 /* LoadingView.swift */; };
+		FDCA6E972678954100922517 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCA6E962678954100922517 /* SlideView.swift */; };
+		FDCA6E992678955700922517 /* SlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDCA6E982678955700922517 /* SlideView.xib */; };
 		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
 		FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */; };
 		FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */; };
@@ -102,6 +112,13 @@
 		FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeCoordinator.swift; sourceTree = "<group>"; };
 		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
+		FD4E67FB2679AFC400A42283 /* AuthSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
+		FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthSlide.xib; sourceTree = "<group>"; };
+		FD4E68012679CED300A42283 /* InstallModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModuleView.swift; sourceTree = "<group>"; };
+		FD4E68042679E1DC00A42283 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		FD4E68092679F13900A42283 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		FD4E680A2679F13900A42283 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		FD4E680E2679F61A00A42283 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		FD576DF22660C08300F4D707 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FD576DF52660FDC800F4D707 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		FD576DF62660FDC800F4D707 /* BlogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlogTableViewCell.xib; sourceTree = "<group>"; };
@@ -112,6 +129,9 @@
 		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
 		FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
 		FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallViewCell.xib; sourceTree = "<group>"; };
+		FDBB9F7A2679FA880027DD53 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FDCA6E962678954100922517 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
+		FDCA6E982678955700922517 /* SlideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideView.xib; sourceTree = "<group>"; };
 		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebXAppTests.swift; sourceTree = "<group>"; };
@@ -206,6 +226,7 @@
 		C341FECD255B0AED0091B045 /* WebXApp */ = {
 			isa = PBXGroup;
 			children = (
+				FD4E67FF2679CE7400A42283 /* Views */,
 				FDE6408125BFC547008082F3 /* Localization */,
 				FD576DF12660C08300F4D707 /* Models */,
 				FDCF9CB325AE7F6C00EDFE69 /* App */,
@@ -305,6 +326,67 @@
 			path = UserNetworkingService;
 			sourceTree = "<group>";
 		};
+		FD4E67FA2679AFB200A42283 /* AuthSlide */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E67FB2679AFC400A42283 /* AuthSlide.swift */,
+				FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */,
+			);
+			path = AuthSlide;
+			sourceTree = "<group>";
+		};
+		FD4E67FF2679CE7400A42283 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDBB9F792679FA780027DD53 /* LoadingView */,
+				FD4E680D2679F60800A42283 /* ErrorView */,
+				FD4E68032679E1CD00A42283 /* EmptyListView */,
+				FD4E68002679CEB700A42283 /* InstallModuleView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FD4E68002679CEB700A42283 /* InstallModuleView */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E68012679CED300A42283 /* InstallModuleView.swift */,
+			);
+			path = InstallModuleView;
+			sourceTree = "<group>";
+		};
+		FD4E68032679E1CD00A42283 /* EmptyListView */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E68042679E1DC00A42283 /* EmptyListView.swift */,
+			);
+			path = EmptyListView;
+			sourceTree = "<group>";
+		};
+		FD4E68062679F0E200A42283 /* LoadingModule */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E68072679F10C00A42283 /* View */,
+			);
+			path = LoadingModule;
+			sourceTree = "<group>";
+		};
+		FD4E68072679F10C00A42283 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E68092679F13900A42283 /* LoadingViewController.swift */,
+				FD4E680A2679F13900A42283 /* LoadingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD4E680D2679F60800A42283 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E680E2679F61A00A42283 /* ErrorView.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
 		FD576DF12660C08300F4D707 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +413,32 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		FDBB9F792679FA780027DD53 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				FDBB9F7A2679FA880027DD53 /* LoadingView.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		FDCA6E942678952500922517 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E67FA2679AFB200A42283 /* AuthSlide */,
+				FDCA6E952678952C00922517 /* SlideView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FDCA6E952678952C00922517 /* SlideView */ = {
+			isa = PBXGroup;
+			children = (
+				FDCA6E962678954100922517 /* SlideView.swift */,
+				FDCA6E982678955700922517 /* SlideView.xib */,
+			);
+			path = SlideView;
+			sourceTree = "<group>";
+		};
 		FDCF9CB325AE7F6C00EDFE69 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +452,7 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD4E68062679F0E200A42283 /* LoadingModule */,
 				FD0C1A2E26720E8300FE41D0 /* ConfirmCodeModule */,
 				FD0C1A242671E1B200FE41D0 /* AuthModule */,
 				FDD6E38425B551E300F5CE24 /* InstallListModule */,
@@ -377,6 +486,7 @@
 		FDCF9CB725AE807A00EDFE69 /* WelcomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				FDCA6E942678952500922517 /* Views */,
 				FDD6E37325B5443D00F5CE24 /* Coordinator */,
 				FDCF9CE925AE99BD00EDFE69 /* ViewModel */,
 				FDCF9CEB25AE99C600EDFE69 /* View */,
@@ -722,9 +832,12 @@
 				FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */,
 				FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
+				FD4E67FE2679AFCD00A42283 /* AuthSlide.xib in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
+				FD4E680C2679F13900A42283 /* LoadingViewController.xib in Resources */,
 				FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */,
 				FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */,
+				FDCA6E992678955700922517 /* SlideView.xib in Resources */,
 				FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
@@ -822,20 +935,25 @@
 				FD0C1A3326720EB500FE41D0 /* ConfirmCodeViewController.swift in Sources */,
 				FDD7E9CC25C104EB00B4F869 /* SiteNetworkingService.swift in Sources */,
 				FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */,
+				FDCA6E972678954100922517 /* SlideView.swift in Sources */,
 				FD576DF32660C08300F4D707 /* Result.swift in Sources */,
 				FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */,
 				FDD7E9D925C108B900B4F869 /* ShopModel.swift in Sources */,
 				FDD6E35725B540CE00F5CE24 /* BlogViewController.swift in Sources */,
+				FD4E680B2679F13900A42283 /* LoadingViewController.swift in Sources */,
 				FDE640A825BFE327008082F3 /* BlogEntryCoordinator.swift in Sources */,
 				FDD6E37125B5441F00F5CE24 /* ShopViewModel.swift in Sources */,
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				FD576DFA2661005100F4D707 /* NetworkingManager.swift in Sources */,
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
+				FD4E680F2679F61A00A42283 /* ErrorView.swift in Sources */,
 				FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */,
+				FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */,
 				FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
 				FDD6E36725B543FF00F5CE24 /* SiteViewController.swift in Sources */,
+				FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */,
 				FD6D6CE2267099EC008340E0 /* WelcomeViewController.swift in Sources */,
 				FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */,
 				FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */,
@@ -847,6 +965,8 @@
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,
 				FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */,
 				FDD7E9D525C107FE00B4F869 /* ShopNetworkingService.swift in Sources */,
+				FD4E68052679E1DC00A42283 /* EmptyListView.swift in Sources */,
+				FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

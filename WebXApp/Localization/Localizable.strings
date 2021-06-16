@@ -87,3 +87,8 @@
 "profileTitle" = "User profile";
 "exitAccountButtonTitle" = "Sign out of your account";
 "addWebasystButton" = "Add webasyst";
+
+//Adittional views
+"installModule" = "The %@ app is not installed on this account";
+"installButton" = "Install module";
+"emptyList" = "No %@ have been added to this %@ yet";

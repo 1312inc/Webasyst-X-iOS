@@ -24,48 +24,38 @@ class ShopViewController: UIViewController {
         return tableView
     }()
     
-    var errorView: UIView = {
-        let view = UIView()
+    private var errorView: ErrorView = {
+        let view = ErrorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var errorLabel: UILabel = {
-        let label = UILabel()
-        label.text = NSLocalizedString("loading", comment: "")
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private var installView: InstallModuleView = {
+        let view = InstallModuleView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
-    var activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.startAnimating()
-        indicator.style = .large
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        return indicator
+    private var emptyView: EmptyListView = {
+        let view = EmptyListView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
-    var installButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.setTitle(NSLocalizedString("installModuleButtonTitle", comment: ""), for: .normal)
-        button.backgroundColor = .systemGray5
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    private var loadingView: LoadingView = {
+        let view = LoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLoadingView()
         self.title = self.viewModel.title
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
         view.backgroundColor = .systemBackground
-        ordersTableView.layoutMargins = UIEdgeInsets.zero
-        ordersTableView.separatorInset = UIEdgeInsets.zero
         self.fetchData()
-        self.setupLayoutTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,7 +65,6 @@ class ShopViewController: UIViewController {
     }
     
     @objc func updateData() {
-        self.errorView.removeFromSuperview()
         self.ordersTableView.removeFromSuperview()
         self.setupLoadingView()
         self.viewModel.fetchOrderList()
@@ -93,23 +82,19 @@ class ShopViewController: UIViewController {
                 switch error {
                 case .permisionDenied:
                     DispatchQueue.main.async {
-                        self.setupLayoutError()
-                        self.errorLabel.text = NSLocalizedString("permisionDenied", comment: "")
+                        self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                     }
                 case .requestFailed(let text):
                     DispatchQueue.main.async {
-                        self.setupLayoutError()
-                        self.errorLabel.text = "\(NSLocalizedString("requestFailed", comment: ""))\n\(text)"
+                        self.setupServerError(with: "\(NSLocalizedString("requestFailed", comment: ""))\n\(text)")
                     }
                 case .notEntity:
                     DispatchQueue.main.async {
-                        self.setupLayoutError()
-                        self.errorLabel.text = NSLocalizedString("emptyShop", comment: "")
+                        self.setupEmptyView()
                     }
                 case .notInstall:
                     DispatchQueue.main.async {
                         self.setupInstallView()
-                        self.errorLabel.text = NSLocalizedString("notInstallShop", comment: "")
                     }
                 }
             }
@@ -117,10 +102,15 @@ class ShopViewController: UIViewController {
     }
     
     private func setupLayoutTableView() {
+        self.installView.removeFromSuperview()
+        self.ordersTableView.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.emptyView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
         self.ordersTableView.tableFooterView = UIView()
-        view.addSubview(ordersTableView)
-        self.errorView.removeFromSuperview()
-        self.installButton.removeFromSuperview()
+        self.view.addSubview(ordersTableView)
+        ordersTableView.layoutMargins = UIEdgeInsets.zero
+        ordersTableView.separatorInset = UIEdgeInsets.zero
         NSLayoutConstraint.activate([
             ordersTableView.topAnchor.constraint(equalTo: view.topAnchor),
             ordersTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -129,59 +119,67 @@ class ShopViewController: UIViewController {
         ])
     }
     
-    private func setupLayoutError() {
+    private func setupEmptyView() {
+        self.installView.removeFromSuperview()
         self.ordersTableView.removeFromSuperview()
-        self.installButton.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.emptyView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
+        emptyView.moduleName = "shop"
+        emptyView.entityName = "orders"
+        self.view.addSubview(emptyView)
+        NSLayoutConstraint.activate([
+            emptyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
+    
+    private func setupServerError(with: String) {
+        self.installView.removeFromSuperview()
+        self.ordersTableView.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.emptyView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
+        errorView.errorText = with
         self.view.addSubview(errorView)
-        self.activityIndicator.removeFromSuperview()
-        self.errorView.addSubview(errorLabel)
         NSLayoutConstraint.activate([
             errorView.topAnchor.constraint(equalTo: view.topAnchor),
             errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            errorLabel.widthAnchor.constraint(equalToConstant: 200)
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
     
     private func setupLoadingView() {
-        self.errorLabel.text = NSLocalizedString("loading", comment: "")
-        self.view.addSubview(errorView)
-        self.errorView.addSubview(activityIndicator)
-        self.errorView.addSubview(errorLabel)
-        self.installButton.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.ordersTableView.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.emptyView.removeFromSuperview()
+        self.view.addSubview(loadingView)
         NSLayoutConstraint.activate([
-            errorView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorLabel.topAnchor.constraint(equalTo: activityIndicator.bottomAnchor, constant: 10),
-            errorLabel.widthAnchor.constraint(equalToConstant: 200)
+            loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
     private func setupInstallView() {
-        self.errorLabel.text = NSLocalizedString("notInstallShop", comment: "")
-        self.view.addSubview(errorView)
-        self.errorView.addSubview(errorLabel)
-        self.errorView.addSubview(installButton)
-        self.activityIndicator.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.ordersTableView.removeFromSuperview()
+        self.installView.removeFromSuperview()
+        self.emptyView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
+        installView.delegate = self
+        installView.moduleName = "shop"
+        self.view.addSubview(installView)
         NSLayoutConstraint.activate([
-            errorView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            errorLabel.widthAnchor.constraint(equalToConstant: 200),
-            installButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            installButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 10),
-            installButton.widthAnchor.constraint(equalToConstant: 200)
+            installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            installView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            installView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            installView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
@@ -206,7 +204,17 @@ extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 175
+        return 80
     }
     
+}
+
+extension ShopViewController: InstallModuleViewDelegate {
+    
+    func installModuleTap() {
+        let alertController = UIAlertController(title: "Install module", message: "Tap in install module button", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.navigationController?.present(alertController, animated: true, completion: nil)
+    }
 }

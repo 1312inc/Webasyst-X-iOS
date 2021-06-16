@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class AuthViewController: UIViewController {
     
     var viewModel: AuthViewModel!
+    private let disposeBag = DisposeBag()
 
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -54,6 +57,25 @@ class AuthViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("nextButton", comment: ""), style: .plain, target: self, action: #selector(tappedNext))
         phoneField.becomeFirstResponder()
         self.setupLayout()
+        self.bindableViewModel()
+    }
+    
+    private func bindableViewModel() {
+        self.viewModel.enabledButtonSubject
+            .subscribe(onNext: { enabled in
+                if enabled {
+                    DispatchQueue.main.async {
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("nextButton", comment: ""), style: .plain, target: self, action: #selector(self.tappedNext))
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let uiBusy = UIActivityIndicatorView()
+                        uiBusy.hidesWhenStopped = true
+                        uiBusy.startAnimating()
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: uiBusy)
+                    }
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func setupLayout() {
