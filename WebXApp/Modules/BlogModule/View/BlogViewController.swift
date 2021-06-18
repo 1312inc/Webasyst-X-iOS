@@ -112,6 +112,7 @@ class BlogViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         self.postTableView.tableFooterView = UIView()
         view.addSubview(postTableView)
         NSLayoutConstraint.activate([
@@ -128,6 +129,7 @@ class BlogViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         emptyView.moduleName = "shop"
         emptyView.entityName = "orders"
         self.view.addSubview(emptyView)
@@ -145,6 +147,7 @@ class BlogViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         errorView.errorText = with
         self.view.addSubview(errorView)
         NSLayoutConstraint.activate([
@@ -160,6 +163,8 @@ class BlogViewController: UIViewController {
         self.postTableView.removeFromSuperview()
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         self.view.addSubview(loadingView)
         NSLayoutConstraint.activate([
             loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),

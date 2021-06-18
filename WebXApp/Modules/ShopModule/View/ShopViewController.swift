@@ -107,6 +107,7 @@ class ShopViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         self.ordersTableView.tableFooterView = UIView()
         self.view.addSubview(ordersTableView)
         ordersTableView.layoutMargins = UIEdgeInsets.zero
@@ -125,6 +126,7 @@ class ShopViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         emptyView.moduleName = "shop"
         emptyView.entityName = "orders"
         self.view.addSubview(emptyView)
@@ -142,6 +144,7 @@ class ShopViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         errorView.errorText = with
         self.view.addSubview(errorView)
         NSLayoutConstraint.activate([
@@ -157,6 +160,8 @@ class ShopViewController: UIViewController {
         self.ordersTableView.removeFromSuperview()
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         self.view.addSubview(loadingView)
         NSLayoutConstraint.activate([
             loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -172,6 +177,7 @@ class ShopViewController: UIViewController {
         self.installView.removeFromSuperview()
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
+        self.errorView.removeFromSuperview()
         installView.delegate = self
         installView.moduleName = "shop"
         self.view.addSubview(installView)

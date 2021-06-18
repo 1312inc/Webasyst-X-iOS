@@ -23,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpc-f2-uFR">
-                    <rect key="frame" x="0.0" y="44" width="414" height="784"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="794.5"/>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-RK-NZR">
-                    <rect key="frame" x="20" y="848" width="374" height="28"/>
+                    <rect key="frame" x="20" y="848.5" width="374" height="27.5"/>
                     <color key="pageIndicatorTintColor" systemColor="systemGray2Color"/>
                     <color key="currentPageIndicatorTintColor" name="AccentColor"/>
                 </pageControl>
@@ -34,14 +34,14 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="gpc-f2-uFR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Cfv-co-yCp"/>
-                <constraint firstItem="zqf-RK-NZR" firstAttribute="top" secondItem="gpc-f2-uFR" secondAttribute="bottom" constant="20" id="F04-vU-ZC9"/>
-                <constraint firstAttribute="bottom" secondItem="zqf-RK-NZR" secondAttribute="bottom" constant="20" id="HD9-sz-1gE"/>
-                <constraint firstItem="zqf-RK-NZR" firstAttribute="top" secondItem="gpc-f2-uFR" secondAttribute="bottom" constant="20" id="Nb0-sb-J0r"/>
-                <constraint firstItem="gpc-f2-uFR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Uky-bb-gaw"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqf-RK-NZR" secondAttribute="trailing" constant="20" id="ay5-Cm-ZoZ"/>
-                <constraint firstItem="zqf-RK-NZR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dO5-cw-T5q"/>
-                <constraint firstItem="gpc-f2-uFR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wh9-yT-lNI"/>
+                <constraint firstItem="zqf-RK-NZR" firstAttribute="top" secondItem="gpc-f2-uFR" secondAttribute="bottom" constant="10" id="4cr-87-A9o"/>
+                <constraint firstItem="zqf-RK-NZR" firstAttribute="top" secondItem="gpc-f2-uFR" secondAttribute="bottom" constant="10" id="BLv-yT-91a"/>
+                <constraint firstItem="gpc-f2-uFR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KRf-hn-GCn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqf-RK-NZR" secondAttribute="trailing" constant="20" id="XkG-Wu-hYm"/>
+                <constraint firstItem="gpc-f2-uFR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="byB-Zl-3od"/>
+                <constraint firstAttribute="bottom" secondItem="zqf-RK-NZR" secondAttribute="bottom" constant="20" id="k29-JW-31K"/>
+                <constraint firstItem="gpc-f2-uFR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="smg-WM-DFh"/>
+                <constraint firstItem="zqf-RK-NZR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="wJi-pM-eWm"/>
             </constraints>
             <point key="canvasLocation" x="121.73913043478262" y="128.57142857142856"/>
         </view>

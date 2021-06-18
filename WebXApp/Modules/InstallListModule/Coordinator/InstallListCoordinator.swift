@@ -10,12 +10,14 @@ import UIKit
 protocol InstallListCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
     func dismissInstallList()
+    func openAddWebasyst()
 }
 
 class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
     
     private var navigationController: UINavigationController
     var childCoordinator: [Coordinator] = []
+    private var installListNavigationController = UINavigationController()
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -25,12 +27,17 @@ class InstallListCoordinator: Coordinator, InstallListCoordinatorProtocol {
         let installListViewModel = InstallListViewModel(coordinator: self)
         let installListViewController = InstallListViewController()
         installListViewController.viewModel = installListViewModel
-        let installListNavigationController = UINavigationController(rootViewController: installListViewController)
+        installListNavigationController = UINavigationController(rootViewController: installListViewController)
         self.navigationController.present(installListNavigationController, animated: true, completion: nil)
     }
     
     func dismissInstallList() {
         self.navigationController.dismiss(animated: true, completion: nil)
+    }
+    
+    func openAddWebasyst() {
+        let installWebasystCoordinator = InstallWebasystCoordinator(navigationController: self.installListNavigationController)
+        installWebasystCoordinator.start()
     }
     
 }

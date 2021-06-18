@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Vector-4.png",
+      "filename" : "open-source.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "open-source@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "open-source@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

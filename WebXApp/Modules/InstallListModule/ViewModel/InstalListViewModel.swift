@@ -19,6 +19,7 @@ protocol InstallListViewModelProtocol {
     func selectDomainUser(_ index: Int)
     func getUserData() -> Observable<ProfileData>
     func sinOutAccount()
+    func addWebasyst()
 }
 
 final class InstallListViewModel: InstallListViewModelProtocol {
@@ -77,6 +78,10 @@ final class InstallListViewModel: InstallListViewModelProtocol {
                 }
             }
         }
+    }
+    
+    func addWebasyst() {
+        self.coordinator.openAddWebasyst()
     }
     
 }

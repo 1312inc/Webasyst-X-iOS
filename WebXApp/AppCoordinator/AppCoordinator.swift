@@ -34,7 +34,7 @@ final class AppCoordinator: Coordinator {
                     let tabBarController = UITabBarController()
                     // Build Blog View Controller
                     let blogNavigationController = UINavigationController()
-                    blogNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("blogTitle", comment: ""), image: UIImage(systemName: "newspaper"), tag: 0)
+                    blogNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("blogTitle", comment: ""), image: UIImage(systemName: "pencil"), tag: 0)
                     let blogCoordinator = BlogCoordinator(blogNavigationController)
                     blogCoordinator.start()
                     //Build Site View Controller

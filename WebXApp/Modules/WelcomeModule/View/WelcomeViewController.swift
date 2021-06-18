@@ -30,6 +30,8 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         setupLayoutAndLocalized()
+        
+            scrollView.backgroundColor = .red
     }
     
     private func setupLayoutAndLocalized() {
@@ -64,15 +66,6 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
-        if Int(pageIndex) == slides.count - 1 {
-            UIView.animate(withDuration: 0.2) {
-                self.pageControl.alpha = 0
-            }
-        } else {
-            UIView.animate(withDuration: 0.2) {
-                self.pageControl.alpha = 1.0
-            }
-        }
     }
     
     func setupSlideScrollView(slides : [SliderViews]) {
@@ -83,7 +76,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
             case .slideView(view: let view):
                 scrollView.addSubview(view)
                 view.translatesAutoresizingMaskIntoConstraints = false
-                view.heightAnchor.constraint(equalTo: self.scrollView.heightAnchor).isActive = true
+                view.heightAnchor.constraint(equalTo: self.scrollView.safeAreaLayoutGuide.heightAnchor).isActive = true
                 view.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
                 view.delegate = self
                 if i != 0 {
@@ -104,6 +97,11 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         scrollView.showsHorizontalScrollIndicator = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     // Show navigation bar

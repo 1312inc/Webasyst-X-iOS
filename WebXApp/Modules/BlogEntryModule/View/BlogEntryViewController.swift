@@ -58,6 +58,7 @@ class BlogEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
+        self.setupLoadingView()
         self.setupData()
     }
     
@@ -66,8 +67,34 @@ class BlogEntryViewController: UIViewController {
         self.textView.scrollView.bounces = false
         let htmlStart = "<HTML><HEAD><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></HEAD><BODY>"
         let htmlEnd = "</BODY></HTML>"
-        let htmlString = "\(htmlStart)\(self.viewModel.blogEntry.text)\(htmlEnd)"
-        self.textView.loadHTMLString(htmlString, baseURL:  nil)
+        let text = self.viewModel.blogEntry.text.replacingOccurrences(of: " style=\"width: 970px;\"", with: "")
+        let fullHTML = "<!DOCTYPE html>" +
+            "<html lang=\"ja\">" +
+            "<head>" +
+            "<meta charset=\"UTF-8\">" +
+            "<style type=\"text/css\">" +
+            "html{margin:0;padding:0;}" +
+            "body {" +
+            "margin: 0;" +
+            "padding: 0;" +
+            "color: #363636;" +
+            "font-size: 90%;" +
+            "line-height: 1.6;" +
+            "}" +
+            "img{" +
+            "position: -webkit-sticky;" +
+            "top: 0;" +
+            "bottom: 0;" +
+            "left: 0;" +
+            "right: 0;" +
+            "max-width: 100%;" +
+            "max-height: 100%;" +
+            "}" +
+            "</style>" +
+            "</head>" +
+            "<body id=\"page\">" +
+            "\(text)</body></html>"
+        self.textView.loadHTMLString("\(htmlStart)\(fullHTML)\(htmlEnd)", baseURL:  nil)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let myDate = dateFormatter.date(from: self.viewModel.blogEntry.datetime)!
@@ -76,7 +103,17 @@ class BlogEntryViewController: UIViewController {
         self.dateLabel.text = somedateString
     }
     
-    private func setupLayout() {
+    private func setupLoadingView() {
+        self.view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            self.loadingView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            self.loadingView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
+            self.loadingView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.loadingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+        ])
+    }
+    
+    private func setupLayout(webViewHeight: CGFloat) {
         loadingView.removeFromSuperview()
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(containerView)
@@ -102,24 +139,30 @@ class BlogEntryViewController: UIViewController {
             self.textView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 10),
             self.textView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 15),
             self.textView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -15),
-            self.textView.heightAnchor.constraint(equalToConstant: self.webViewHeight),
+            self.textView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            self.textView.heightAnchor.constraint(equalToConstant: webViewHeight),
             self.textView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor)
         ])
     }
 }
 
+extension BlogEntryViewController: UIWebViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return nil
+    }
+}
+
 extension BlogEntryViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.view.addSubview(loadingView)
-        NSLayoutConstraint.activate([
-            loadingView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            loadingView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-            loadingView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            loadingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-        ])
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.webViewHeight = self.textView.scrollView.contentSize.height
-            self.setupLayout()
-        }
+        self.textView.evaluateJavaScript("document.readyState", completionHandler: { (complete, error) in
+            if complete != nil {
+                self.textView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (result, error) in
+                    if let height = result as? CGFloat {
+                        let heigthWebView = self.textView.frame.size.height + height
+                        self.setupLayout(webViewHeight: heigthWebView)
+                    }
+                })
+            }
+        })
     }
 }

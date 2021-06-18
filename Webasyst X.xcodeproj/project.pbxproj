@@ -20,6 +20,13 @@
 		FD0C1A3526720EC000FE41D0 /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */; };
 		FD0C1A3726720ECC00FE41D0 /* ConfirmCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */; };
 		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
+		FD31EEA0267B458E00FF234F /* InstallWebasystViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31EE9E267B458E00FF234F /* InstallWebasystViewController.swift */; };
+		FD31EEA1267B458E00FF234F /* InstallWebasystViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD31EE9F267B458E00FF234F /* InstallWebasystViewController.xib */; };
+		FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */; };
+		FD46B9AD267C447700A6597A /* InstallWebasystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */; };
+		FD46B9B3267C74A200A6597A /* WaidInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */; };
+		FD46B9B5267C76D500A6597A /* WaidInstructionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */; };
+		FD46B9B7267C770700A6597A /* WaidInstructionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */; };
 		FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E67FB2679AFC400A42283 /* AuthSlide.swift */; };
 		FD4E67FE2679AFCD00A42283 /* AuthSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */; };
 		FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68012679CED300A42283 /* InstallModuleView.swift */; };
@@ -112,6 +119,13 @@
 		FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeCoordinator.swift; sourceTree = "<group>"; };
 		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
+		FD31EE9E267B458E00FF234F /* InstallWebasystViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystViewController.swift; sourceTree = "<group>"; };
+		FD31EE9F267B458E00FF234F /* InstallWebasystViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallWebasystViewController.xib; sourceTree = "<group>"; };
+		FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystViewModel.swift; sourceTree = "<group>"; };
+		FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystCoordinator.swift; sourceTree = "<group>"; };
+		FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionViewController.swift; sourceTree = "<group>"; };
+		FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionViewModel.swift; sourceTree = "<group>"; };
+		FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionCoordinator.swift; sourceTree = "<group>"; };
 		FD4E67FB2679AFC400A42283 /* AuthSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
 		FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthSlide.xib; sourceTree = "<group>"; };
 		FD4E68012679CED300A42283 /* InstallModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModuleView.swift; sourceTree = "<group>"; };
@@ -314,6 +328,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FD31EE9A267B456600FF234F /* InstallWebasystModule */ = {
+			isa = PBXGroup;
+			children = (
+				FD31EE9D267B457700FF234F /* Coordinator */,
+				FD31EE9C267B457300FF234F /* ViewModel */,
+				FD31EE9B267B456F00FF234F /* View */,
+			);
+			path = InstallWebasystModule;
+			sourceTree = "<group>";
+		};
+		FD31EE9B267B456F00FF234F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD31EE9E267B458E00FF234F /* InstallWebasystViewController.swift */,
+				FD31EE9F267B458E00FF234F /* InstallWebasystViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD31EE9C267B457300FF234F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD31EE9D267B457700FF234F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		FD461FA325B692D800DB9B50 /* UserNetworkingService */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +373,40 @@
 				FD576DF92661005100F4D707 /* NetworkingManager.swift */,
 			);
 			path = UserNetworkingService;
+			sourceTree = "<group>";
+		};
+		FD46B9AE267C747800A6597A /* WaidInstructionModule */ = {
+			isa = PBXGroup;
+			children = (
+				FD46B9B1267C748C00A6597A /* Coordinator */,
+				FD46B9B0267C748700A6597A /* ViewModel */,
+				FD46B9AF267C748300A6597A /* View */,
+			);
+			path = WaidInstructionModule;
+			sourceTree = "<group>";
+		};
+		FD46B9AF267C748300A6597A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD46B9B0267C748700A6597A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD46B9B1267C748C00A6597A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		FD4E67FA2679AFB200A42283 /* AuthSlide */ = {
@@ -452,6 +535,8 @@
 		FDCF9CB425AE7F7A00EDFE69 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FD46B9AE267C747800A6597A /* WaidInstructionModule */,
+				FD31EE9A267B456600FF234F /* InstallWebasystModule */,
 				FD4E68062679F0E200A42283 /* LoadingModule */,
 				FD0C1A2E26720E8300FE41D0 /* ConfirmCodeModule */,
 				FD0C1A242671E1B200FE41D0 /* AuthModule */,
@@ -839,6 +924,7 @@
 				FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */,
 				FDCA6E992678955700922517 /* SlideView.xib in Resources */,
 				FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */,
+				FD31EEA1267B458E00FF234F /* InstallWebasystViewController.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,6 +1007,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD31EEA0267B458E00FF234F /* InstallWebasystViewController.swift in Sources */,
 				FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */,
 				FDD6E36E25B5441500F5CE24 /* ShopViewController.swift in Sources */,
 				FDD6E35B25B540DC00F5CE24 /* BlogViewModel.swift in Sources */,
@@ -946,7 +1033,9 @@
 				FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */,
 				FD576DFA2661005100F4D707 /* NetworkingManager.swift in Sources */,
 				FDD6E38925B552AE00F5CE24 /* InstallListCoordinator.swift in Sources */,
+				FD46B9B3267C74A200A6597A /* WaidInstructionViewController.swift in Sources */,
 				FD4E680F2679F61A00A42283 /* ErrorView.swift in Sources */,
+				FD46B9B5267C76D500A6597A /* WaidInstructionViewModel.swift in Sources */,
 				FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */,
 				FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */,
 				FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */,
@@ -966,6 +1055,9 @@
 				FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */,
 				FDD7E9D525C107FE00B4F869 /* ShopNetworkingService.swift in Sources */,
 				FD4E68052679E1DC00A42283 /* EmptyListView.swift in Sources */,
+				FD46B9AD267C447700A6597A /* InstallWebasystCoordinator.swift in Sources */,
+				FD46B9B7267C770700A6597A /* WaidInstructionCoordinator.swift in Sources */,
+				FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */,
 				FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -91,6 +91,7 @@ class InstallListViewController: UIViewController {
         button.imageView?.contentMode = .scaleAspectFit
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: -10)
         button.setTitle("      \(NSLocalizedString("addWebasystButton", comment: ""))", for: .normal)
+        button.addTarget(self, action: #selector(addWebasystTap), for: .touchDown)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -169,6 +170,10 @@ class InstallListViewController: UIViewController {
             addWebasystButton.topAnchor.constraint(equalTo: self.footerView.topAnchor, constant: 10),
             addWebasystButton.bottomAnchor.constraint(equalTo: self.footerView.bottomAnchor, constant: -10)
         ])
+    }
+    
+    @objc private func addWebasystTap() {
+        self.viewModel.addWebasyst()
     }
     
     @objc func signOutAccount() {

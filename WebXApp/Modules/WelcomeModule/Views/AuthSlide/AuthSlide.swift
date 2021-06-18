@@ -32,7 +32,7 @@ class AuthSlide: UIView {
         orLabel.text = NSLocalizedString("orLabel", comment: "")
         loginWebasystButton.setTitle(NSLocalizedString("loginButtonTitle", comment: ""), for: .normal)
         loginWebasystButton.layer.cornerRadius = 10
-        loginWebasystButton.layer.borderColor = UIColor.black.cgColor
+        loginWebasystButton.layer.borderColor = UIColor.systemGray3.cgColor
         loginWebasystButton.layer.borderWidth = 1
         loginPhoneNumberButton.layer.cornerRadius = 10
     }

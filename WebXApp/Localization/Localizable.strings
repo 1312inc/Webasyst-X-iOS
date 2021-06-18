@@ -92,3 +92,17 @@
 "installModule" = "The %@ app is not installed on this account";
 "installButton" = "Install module";
 "emptyList" = "No %@ have been added to this %@ yet";
+
+//Create new install
+"addInstallTitle" = "Adding a Webasyst installation";
+"anInstallTitle" = "I'm Using Webasyst Already";
+"anInstallDescription" = "If you don't see your existing Webasyst account (website) in this app, it is likely that the account simply isn't connected to your Webasyst ID. Head on to Webasyst backend on your domain using a web browser > go to Settings app > Webasyst ID > Enable Webasyst ID and link your personal account with just few clicks. Then simply restart this app.";
+"aboutConnectButton" = "How to link my Webasyst ID";
+"createInstallTitle" = "I'm a New User";
+"createInstallDescription" = "Either download Webasyst source code and install it on your own hosting (server) or create a new account instantly in the Webasyst Cloud with just a tap — right now.";
+"createInstallButton" = "Create Webasyst account";
+"freeTrialLabel" = "30 days free";
+
+//Waid instruction
+"titleWaidInstruction" = "Connecting the WAID";
+
