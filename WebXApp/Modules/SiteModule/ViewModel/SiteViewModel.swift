@@ -6,3 +6,23 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+protocol SiteViewModelProtocol {
+    func openInstallList()
+}
+
+final class SiteViewModel: SiteViewModelProtocol {
+    
+    var coordinator: SiteCoordinatorProtocol
+    
+    init(coordinator: SiteCoordinatorProtocol) {
+        self.coordinator = coordinator
+    }
+    
+    func openInstallList() {
+        self.coordinator.openInstallList()
+    }
+    
+}

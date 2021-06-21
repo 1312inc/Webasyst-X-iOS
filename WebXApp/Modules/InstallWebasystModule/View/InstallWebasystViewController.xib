@@ -83,6 +83,9 @@
                                     <state key="normal" title="Создать аккаунт в облаке">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="createNewAccountTap:" destination="-1" eventType="touchUpInside" id="TpX-3S-BGf"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="753" text="30 дней бесплатно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Uk-jv-BVo">
                                     <rect key="frame" x="20" y="505" width="374" height="16"/>

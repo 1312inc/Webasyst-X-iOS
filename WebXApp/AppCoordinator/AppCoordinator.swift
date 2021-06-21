@@ -63,16 +63,21 @@ final class AppCoordinator: Coordinator {
                     window.makeKeyAndVisible()
                     return
                 }
-            case .error(message: _):
+            case .error(message: let error):
+                print(error)
                 DispatchQueue.main.async {
-                    let navigationController = UINavigationController()
-                    let welcomeCoordinator = WelcomeCoordinator(navigationController)
-                    self.childCoordinator.append(welcomeCoordinator)
-                    welcomeCoordinator.start()
-                    guard let window = self.window else { return }
-                    window.rootViewController = navigationController
-                    window.makeKeyAndVisible()
-                    return
+                    self.webasyst.logOutUser { result in
+                        if result {
+                            let navigationController = UINavigationController()
+                            let welcomeCoordinator = WelcomeCoordinator(navigationController)
+                            self.childCoordinator.append(welcomeCoordinator)
+                            welcomeCoordinator.start()
+                            guard let window = self.window else { return }
+                            window.rootViewController = navigationController
+                            window.makeKeyAndVisible()
+                            return
+                        }
+                    }
                 }
             }
         }

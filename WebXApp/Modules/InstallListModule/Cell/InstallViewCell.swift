@@ -15,6 +15,7 @@ class InstallViewCell: UITableViewCell {
     @IBOutlet weak var checmarkImage: UIImageView!
     @IBOutlet weak var installmage: UIImageView!
     @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var companyLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,13 +27,23 @@ class InstallViewCell: UITableViewCell {
     
     public func configureCell(_ profileInstall: UserInstall) {
         backView.layer.cornerRadius = 10
-        installmage.layer.cornerRadius = 25
+        installmage.layer.cornerRadius = installmage.frame.width / 2
+        installmage.contentMode = .scaleAspectFit
         self.urlLabel?.text = profileInstall.name
         self.domainLabel?.text = profileInstall.url
         self.installmage.image = UIImage(data: profileInstall.image!)
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
         if profileInstall.id != selectDomain {
             self.checmarkImage?.removeFromSuperview()
+        }
+        if let logo = profileInstall.imageLogo {
+            if logo {
+                companyLabel?.removeFromSuperview()
+            } else {
+                companyLabel?.text = profileInstall.logoText
+            }
+        } else {
+            companyLabel?.removeFromSuperview()
         }
     }
     

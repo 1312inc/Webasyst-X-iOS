@@ -9,6 +9,7 @@ import UIKit
 
 protocol InstallWebasystCoordinatorProtocol {
     func openInstructionWaid()
+    func showAlert(title: String, message: String)
 }
 
 final class InstallWebasystCoordinator: Coordinator, InstallWebasystCoordinatorProtocol {
@@ -30,6 +31,14 @@ final class InstallWebasystCoordinator: Coordinator, InstallWebasystCoordinatorP
     func openInstructionWaid() {
         let coordinator = WaidInstructionCoordinator(self.navigationController)
         coordinator.start()
+    }
+    
+    func showAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.navigationController.present(alertController, animated: true, completion: nil)
+        }
     }
     
 }

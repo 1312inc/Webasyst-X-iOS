@@ -6,7 +6,7 @@ target 'WebXApp' do
   use_frameworks!
 
   # Pods for WebXApp
-  pod 'Alamofire'
+   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Webasyst'

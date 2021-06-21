@@ -12,6 +12,7 @@ import Webasyst
 
 class BlogViewController: UIViewController {
     
+    var webasyst = WebasystApp()
     var viewModel: BlogViewModelProtocol!
     let disposedBag = DisposeBag()
     
@@ -53,12 +54,50 @@ class BlogViewController: UIViewController {
         self.title = NSLocalizedString("blogTitle", comment: "")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .systemBackground
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
+        self.createRightNavigationBar()
         postTableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
         self.postTableView.layoutMargins = UIEdgeInsets.zero
         self.postTableView.separatorInset = UIEdgeInsets.zero
         self.setupLayoutTableView()
         self.fetchData()
+    }
+    
+    private func createRightNavigationBar() {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+        
+        guard let changeInstall = self.webasyst.getUserInstall(selectDomain) else {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: #selector(openSetupList))
+            return
+        }
+        
+        let imageView = UIImageView(image: UIImage(data: changeInstall.image!))
+        imageView.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+        imageView.contentMode = .scaleAspectFill
+        let textImage = changeInstall.logoText
+        
+        let textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        textLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(600))
+        textLabel.text = textImage
+        textLabel.textColor = .white
+        textLabel.textAlignment = .center
+        
+        imageView.center = view.center
+        textLabel.center = view.center
+        
+        imageView.layer.cornerRadius = view.frame.height / 2
+        imageView.layer.masksToBounds = true
+        
+        let button1 = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        button1.setTitle("", for: .normal)
+        button1.addTarget(self, action: #selector(self.openSetupList), for: .touchDown)
+        button1.center = view.center
+        
+        view.addSubview(imageView)
+        view.addSubview(textLabel)
+        view.addSubview(button1)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: view)
     }
     
     // Subscribe for model updates
@@ -104,6 +143,7 @@ class BlogViewController: UIViewController {
         self.postTableView.removeFromSuperview()
         self.setupLoadingView()
         self.viewModel.fetchBlogPosts()
+        self.createRightNavigationBar()
     }
     
     private func setupLayoutTableView() {
@@ -130,8 +170,8 @@ class BlogViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         self.errorView.removeFromSuperview()
-        emptyView.moduleName = "shop"
-        emptyView.entityName = "orders"
+        emptyView.moduleName = "blog"
+        emptyView.entityName = "posts"
         self.view.addSubview(emptyView)
         NSLayoutConstraint.activate([
             emptyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -181,7 +221,7 @@ class BlogViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         installView.delegate = self
-        installView.moduleName = "shop"
+        installView.moduleName = "blog"
         self.view.addSubview(installView)
         NSLayoutConstraint.activate([
             installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -224,3 +264,4 @@ extension BlogViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

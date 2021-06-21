@@ -30,8 +30,6 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         setupLayoutAndLocalized()
-        
-            scrollView.backgroundColor = .red
     }
     
     private func setupLayoutAndLocalized() {
@@ -69,8 +67,10 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func setupSlideScrollView(slides : [SliderViews]) {
-        scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: scrollView.frame.height)
         self.scrollView.contentSize.height = 1.0
+        if let window = UIApplication.shared.windows.last {
+            self.scrollView.contentSize.width = window.safeAreaLayoutGuide.layoutFrame.width * CGFloat(slides.count)
+        }
         for i in 0 ..< slides.count {
             switch slides[i].views {
             case .slideView(view: let view):

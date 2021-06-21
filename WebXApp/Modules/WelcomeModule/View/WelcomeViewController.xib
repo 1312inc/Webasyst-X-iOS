@@ -22,11 +22,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpc-f2-uFR">
-                    <rect key="frame" x="0.0" y="44" width="414" height="794.5"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpc-f2-uFR">
+                    <rect key="frame" x="0.0" y="44" width="414" height="795"/>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-RK-NZR">
-                    <rect key="frame" x="20" y="848.5" width="374" height="27.5"/>
+                    <rect key="frame" x="20" y="849" width="374" height="27"/>
                     <color key="pageIndicatorTintColor" systemColor="systemGray2Color"/>
                     <color key="currentPageIndicatorTintColor" name="AccentColor"/>
                 </pageControl>
