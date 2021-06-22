@@ -34,7 +34,7 @@ class InstallViewCell: UITableViewCell {
         self.installmage.image = UIImage(data: profileInstall.image!)
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
         if profileInstall.id != selectDomain {
-            self.checmarkImage?.removeFromSuperview()
+            self.checmarkImage?.isHidden = true
         }
         if let logo = profileInstall.imageLogo {
             if logo {

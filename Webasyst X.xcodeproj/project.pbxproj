@@ -12,7 +12,6 @@
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
 		D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */; };
-		DF30A8A02BDD5D4CE0EE1230 /* Pods_WebasystXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4865679886FF5E7B7BCF017A /* Pods_WebasystXTests.framework */; };
 		FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */; };
 		FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */; };
 		FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */; };
@@ -103,11 +102,8 @@
 
 /* Begin PBXFileReference section */
 		1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.debug.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.debug.xcconfig"; sourceTree = "<group>"; };
-		3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebasystXTests.release.xcconfig"; path = "Target Support Files/Pods-WebasystXTests/Pods-WebasystXTests.release.xcconfig"; sourceTree = "<group>"; };
-		4865679886FF5E7B7BCF017A /* Pods_WebasystXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebasystXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Webasyst_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.release.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.release.xcconfig"; sourceTree = "<group>"; };
-		8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebasystXTests.debug.xcconfig"; path = "Target Support Files/Pods-WebasystXTests/Pods-WebasystXTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECB255B0AED0091B045 /* Webasyst X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Webasyst X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECE255B0AED0091B045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,7 +192,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF30A8A02BDD5D4CE0EE1230 /* Pods_WebasystXTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +203,6 @@
 			children = (
 				1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */,
 				680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */,
-				8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */,
-				3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -254,7 +247,6 @@
 			children = (
 				BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */,
 				61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */,
-				4865679886FF5E7B7BCF017A /* Pods_WebasystXTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -875,7 +867,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD46C0962681991700A97894 /* Build configuration list for PBXNativeTarget "WebasystXTests" */;
 			buildPhases = (
-				4CA3A2AA54036A3B5B76D52B /* [CP] Check Pods Manifest.lock */,
 				FD46C0892681991700A97894 /* Sources */,
 				FD46C08A2681991700A97894 /* Frameworks */,
 				FD46C08B2681991700A97894 /* Resources */,
@@ -958,28 +949,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4CA3A2AA54036A3B5B76D52B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WebasystXTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		683E22C1F76D13B2E04B42DF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1274,7 +1243,6 @@
 		};
 		FD46C0942681991700A97894 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1296,7 +1264,6 @@
 		};
 		FD46C0952681991700A97894 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
