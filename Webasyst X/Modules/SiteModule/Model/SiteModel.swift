@@ -8,5 +8,16 @@
 import Foundation
 
 struct SiteList: Decodable {
-    let id: Int
+    var pages: [Pages]?
+}
+
+struct Pages: Decodable {
+    var id: String
+    var name: String
+    var title: String
+    var full_url: String
+    var url: String
+    var create_datetime: String
+    var update_datetime: String
+    var status: String
 }

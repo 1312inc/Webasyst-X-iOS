@@ -10,8 +10,8 @@ import RxSwift
 import RxCocoa
 
 protocol SiteViewModelProtocol {
-    var siteList: [SiteList] { get }
-    var dataSource: BehaviorRelay<Result<[SiteList]>> { get }
+    var siteList: [Pages] { get }
+    var dataSource: BehaviorRelay<Result<[Pages]>> { get }
     func openInstallList()
     func fetchSiteList()
 }
@@ -20,8 +20,8 @@ final class SiteViewModel: SiteViewModelProtocol {
     
     private let networkingService: SiteNetworkingServiceProtocol
     var coordinator: SiteCoordinatorProtocol
-    var siteList = [SiteList]()
-    var dataSource = BehaviorRelay(value: Result<[SiteList]>.Success([]))
+    var siteList = [Pages]()
+    var dataSource = BehaviorRelay(value: Result<[Pages]>.Success([]))
     
     init(coordinator: SiteCoordinatorProtocol, networkingService: SiteNetworkingServiceProtocol) {
         self.coordinator = coordinator

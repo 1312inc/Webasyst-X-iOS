@@ -55,7 +55,7 @@ class SiteViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
         self.createLeftNavigationBar()
-        siteTableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
+        siteTableView.register(UINib(nibName: "SiteViewCell", bundle: nil), forCellReuseIdentifier: SiteViewCell.identifier)
         self.siteTableView.layoutMargins = UIEdgeInsets.zero
         self.siteTableView.separatorInset = UIEdgeInsets.zero
         self.setupLayoutTableView()
@@ -170,7 +170,7 @@ class SiteViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         self.errorView.removeFromSuperview()
-        emptyView.moduleName = "blog"
+        emptyView.moduleName = "site"
         emptyView.entityName = "posts"
         self.view.addSubview(emptyView)
         NSLayoutConstraint.activate([
@@ -221,7 +221,7 @@ class SiteViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         installView.delegate = self
-        installView.moduleName = "blog"
+        installView.moduleName = "site"
         self.view.addSubview(installView)
         NSLayoutConstraint.activate([
             installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -251,11 +251,16 @@ extension SiteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SiteViewCell.identifier, for: indexPath) as! SiteViewCell
         
-        cell.textLabel?.text = "\(indexPath.row)"
+        let site = self.viewModel.siteList[indexPath.row]
+        cell.configure(siteData: site)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 67
     }
     
 }

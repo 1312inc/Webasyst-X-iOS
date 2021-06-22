@@ -56,6 +56,7 @@ class ShopViewController: UIViewController {
         self.title = self.viewModel.title
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
+        self.setupLoadingView()
         self.fetchData()
         self.createLeftNavigationBar()
     }

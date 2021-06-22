@@ -58,7 +58,7 @@ class BlogViewController: UIViewController {
         postTableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
         self.postTableView.layoutMargins = UIEdgeInsets.zero
         self.postTableView.separatorInset = UIEdgeInsets.zero
-        self.setupLayoutTableView()
+        self.setupLoadingView()
         self.fetchData()
     }
     

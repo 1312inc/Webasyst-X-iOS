@@ -43,6 +43,8 @@
 		FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD6D6CE1267099EC008340E0 /* WelcomeViewController.xib */; };
 		FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */; };
 		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
+		FD84BA6F2681E2E70049B7F9 /* SiteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD84BA6D2681E2E70049B7F9 /* SiteViewCell.swift */; };
+		FD84BA702681E2E70049B7F9 /* SiteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD84BA6E2681E2E70049B7F9 /* SiteViewCell.xib */; };
 		FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */; };
 		FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */; };
 		FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBB9F7A2679FA880027DD53 /* LoadingView.swift */; };
@@ -146,6 +148,8 @@
 		FD6D6CE1267099EC008340E0 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		FD83A42D25B7D00F00A55EBD /* BlogNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogNetworkingService.swift; sourceTree = "<group>"; };
 		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
+		FD84BA6D2681E2E70049B7F9 /* SiteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteViewCell.swift; sourceTree = "<group>"; };
+		FD84BA6E2681E2E70049B7F9 /* SiteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiteViewCell.xib; sourceTree = "<group>"; };
 		FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
 		FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallViewCell.xib; sourceTree = "<group>"; };
 		FDBB9F7A2679FA880027DD53 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -207,7 +211,6 @@
 				8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */,
 				3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -500,6 +503,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		FD84BA6C2681E2AD0049B7F9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FD84BA6D2681E2E70049B7F9 /* SiteViewCell.swift */,
+				FD84BA6E2681E2E70049B7F9 /* SiteViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		FD922BAA25C269F700559AB5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +633,7 @@
 		FDD6E36025B543CB00F5CE24 /* SiteModule */ = {
 			isa = PBXGroup;
 			children = (
+				FD84BA6C2681E2AD0049B7F9 /* Cell */,
 				FDD6E37925B544E800F5CE24 /* Coordinator */,
 				FDD7E9CF25C1055D00B4F869 /* Model */,
 				FDD6E36325B543E100F5CE24 /* ViewModel */,
@@ -928,6 +941,7 @@
 				FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */,
 				FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */,
 				FDCA6E992678955700922517 /* SlideView.xib in Resources */,
+				FD84BA702681E2E70049B7F9 /* SiteViewCell.xib in Resources */,
 				FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */,
 				FD31EEA1267B458E00FF234F /* InstallWebasystViewController.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
@@ -1064,6 +1078,7 @@
 				FD46B9B7267C770700A6597A /* WaidInstructionCoordinator.swift in Sources */,
 				FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */,
 				FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */,
+				FD84BA6F2681E2E70049B7F9 /* SiteViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

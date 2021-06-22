@@ -12,14 +12,14 @@ import RxCocoa
 import Webasyst
 
 protocol SiteNetworkingServiceProtocol: Any {
-    func getSiteList() -> Observable<Result<[SiteList]>>
+    func getSiteList() -> Observable<Result<[Pages]>>
 }
 
 class SiteNetwrokingService: UserNetworkingManager, SiteNetworkingServiceProtocol {
     
    private let webasyst = WebasystApp()
     
-    func getSiteList() -> Observable<Result<[SiteList]>> {
+    func getSiteList() -> Observable<Result<[Pages]>> {
         return Observable.create { (observer) -> Disposable in
             
             let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
@@ -30,13 +30,14 @@ class SiteNetwrokingService: UserNetworkingManager, SiteNetworkingServiceProtoco
             }
             
             let parameters: [String: String] = [
-                "access_token": "\(changeInstall.accessToken ?? "")"
+                "access_token": "\(changeInstall.accessToken ?? "")",
+                "domain_id": "1"
             ]
             
             
             let url = changeInstall.url
             
-            let request = AF.request("\(url)/api.php/site.domain.getList", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
+            let request = AF.request("\(url)/api.php/site.page.getList", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
                 switch response.result {
                 case .success(let data):
                     guard let statusCode = response.response?.statusCode else {
@@ -48,15 +49,20 @@ class SiteNetwrokingService: UserNetworkingManager, SiteNetworkingServiceProtoco
                     case 200...299:
                         if let data = data {
                             do {
-//                                let siteList = try JSONDecoder().decode(SiteList.self, from: data)
-//                                if siteList.orders.isEmpty {
-//                                    observer.onNext(Result.Failure(.notEntity))
-//                                } else {
-//                                    observer.onNext(Result.Success(siteList.orders))
-//                                }
-                                observer.onCompleted()
+                                let siteList = try JSONDecoder().decode(SiteList.self, from: data)
+                                if let pages = siteList.pages {
+                                    if !pages.isEmpty {
+                                        observer.onNext(Result.Success(pages))
+                                    } else {
+                                        observer.onNext(Result.Failure(.notEntity))
+                                    }
+                                } else {
+                                    observer.onNext(Result.Failure(.notEntity))
+                                    observer.onCompleted()
+                                }
                             } catch let error {
                                 print(error)
+                                observer.onNext(Result.Failure(.notEntity))
                                 observer.onCompleted()
                             }
                         }
