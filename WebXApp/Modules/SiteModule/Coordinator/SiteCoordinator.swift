@@ -9,7 +9,6 @@ import UIKit
 
 protocol SiteCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
-    func openInstallList()
 }
 
 class SiteCoordinator: Coordinator, SiteCoordinatorProtocol {
@@ -22,16 +21,7 @@ class SiteCoordinator: Coordinator, SiteCoordinatorProtocol {
 
     func start() {
         let siteViewController = SiteViewController()
-        let viewModel = SiteViewModel(coordinator: self)
-        siteViewController.viewModel = viewModel
         self.navigationController.setViewControllers([siteViewController], animated: true)
-    }
-    
-    //Opening install list
-    func openInstallList() {
-        let installListCoordinator = InstallListCoordinator(navigationController)
-        childCoordinator.append(installListCoordinator)
-        installListCoordinator.start()
     }
     
 }

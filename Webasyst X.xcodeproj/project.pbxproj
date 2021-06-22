@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		67953C587278199086B8CBDE /* Pods_WebXAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BAAA7CDEC53DF05F48077F /* Pods_WebXAppTests.framework */; };
-		686E47DFDF20921D246FAFCC /* Pods_WebXApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */; };
 		C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FECE255B0AED0091B045 /* AppDelegate.swift */; };
 		C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FED0255B0AED0091B045 /* SceneDelegate.swift */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
+		D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */; };
+		DF30A8A02BDD5D4CE0EE1230 /* Pods_WebasystXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4865679886FF5E7B7BCF017A /* Pods_WebasystXTests.framework */; };
 		FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */; };
 		FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */; };
 		FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */; };
@@ -27,6 +27,7 @@
 		FD46B9B3267C74A200A6597A /* WaidInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */; };
 		FD46B9B5267C76D500A6597A /* WaidInstructionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */; };
 		FD46B9B7267C770700A6597A /* WaidInstructionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */; };
+		FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46C08F2681991700A97894 /* WebasystXTests.swift */; };
 		FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E67FB2679AFC400A42283 /* AuthSlide.swift */; };
 		FD4E67FE2679AFCD00A42283 /* AuthSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */; };
 		FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68012679CED300A42283 /* InstallModuleView.swift */; };
@@ -48,7 +49,6 @@
 		FDCA6E972678954100922517 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCA6E962678954100922517 /* SlideView.swift */; };
 		FDCA6E992678955700922517 /* SlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDCA6E982678955700922517 /* SlideView.xib */; };
 		FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */; };
-		FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */; };
 		FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */; };
 		FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDCF9CE525AE98CC00EDFE69 /* ImageAssets.xcassets */; };
 		FDCF9CF625AEAEAC00EDFE69 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCF9CF525AEAEAC00EDFE69 /* WelcomeCoordinator.swift */; };
@@ -77,12 +77,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FDCF9CC625AE822200EDFE69 /* PBXContainerItemProxy */ = {
+		FD46C0922681991700A97894 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C341FEC3255B0AED0091B045 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C341FECA255B0AED0091B045;
-			remoteInfo = WebXApp;
+			remoteInfo = "Webasyst X";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -100,18 +100,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02BAAA7CDEC53DF05F48077F /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33B7AD4E41487C1E9E0E3169 /* Pods-WebXApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXApp.debug.xcconfig"; path = "Target Support Files/Pods-WebXApp/Pods-WebXApp.debug.xcconfig"; sourceTree = "<group>"; };
-		38A7F33B240698D1203ADD3F /* Pods-WebXApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXApp.release.xcconfig"; path = "Target Support Files/Pods-WebXApp/Pods-WebXApp.release.xcconfig"; sourceTree = "<group>"; };
-		5A9387A1ADD6BCE382CA0912 /* Pods-WebXAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXAppTests.release.xcconfig"; path = "Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		891F7FBDFB39A00661287E11 /* Pods-WebXAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebXAppTests.debug.xcconfig"; path = "Target Support Files/Pods-WebXAppTests/Pods-WebXAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C341FECB255B0AED0091B045 /* WebXApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebXApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.debug.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.debug.xcconfig"; sourceTree = "<group>"; };
+		3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebasystXTests.release.xcconfig"; path = "Target Support Files/Pods-WebasystXTests/Pods-WebasystXTests.release.xcconfig"; sourceTree = "<group>"; };
+		4865679886FF5E7B7BCF017A /* Pods_WebasystXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebasystXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Webasyst_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.release.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.release.xcconfig"; sourceTree = "<group>"; };
+		8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebasystXTests.debug.xcconfig"; path = "Target Support Files/Pods-WebasystXTests/Pods-WebasystXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C341FECB255B0AED0091B045 /* Webasyst X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Webasyst X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECE255B0AED0091B045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C341FED0255B0AED0091B045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C341FEDA255B0AF20091B045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -127,6 +128,9 @@
 		FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionViewController.swift; sourceTree = "<group>"; };
 		FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionViewModel.swift; sourceTree = "<group>"; };
 		FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionCoordinator.swift; sourceTree = "<group>"; };
+		FD46C08D2681991700A97894 /* WebasystXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebasystXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD46C08F2681991700A97894 /* WebasystXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystXTests.swift; sourceTree = "<group>"; };
+		FD46C0912681991700A97894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD4E67FB2679AFC400A42283 /* AuthSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
 		FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthSlide.xib; sourceTree = "<group>"; };
 		FD4E68012679CED300A42283 /* InstallModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModuleView.swift; sourceTree = "<group>"; };
@@ -148,9 +152,6 @@
 		FDCA6E962678954100922517 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		FDCA6E982678955700922517 /* SlideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideView.xib; sourceTree = "<group>"; };
 		FDCF9CB925AE80A100EDFE69 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
-		FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebXAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebXAppTests.swift; sourceTree = "<group>"; };
-		FDCF9CC525AE822200EDFE69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		FDCF9CE525AE98CC00EDFE69 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		FDCF9CF525AEAEAC00EDFE69 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
@@ -183,65 +184,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				686E47DFDF20921D246FAFCC /* Pods_WebXApp.framework in Frameworks */,
+				D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDCF9CBE25AE822200EDFE69 /* Frameworks */ = {
+		FD46C08A2681991700A97894 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67953C587278199086B8CBDE /* Pods_WebXAppTests.framework in Frameworks */,
+				DF30A8A02BDD5D4CE0EE1230 /* Pods_WebasystXTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62884CD50FF995722670062A /* Frameworks */ = {
+		1BEDA2B324DC9651A7392F40 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F8A20A2946E5FF12A2127515 /* Pods_WebXApp.framework */,
-				02BAAA7CDEC53DF05F48077F /* Pods_WebXAppTests.framework */,
+				1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */,
+				680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */,
+				8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */,
+				3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		67444B04B74142D163DBA96F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				33B7AD4E41487C1E9E0E3169 /* Pods-WebXApp.debug.xcconfig */,
-				38A7F33B240698D1203ADD3F /* Pods-WebXApp.release.xcconfig */,
-				891F7FBDFB39A00661287E11 /* Pods-WebXAppTests.debug.xcconfig */,
-				5A9387A1ADD6BCE382CA0912 /* Pods-WebXAppTests.release.xcconfig */,
-			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		C341FEC2255B0AED0091B045 = {
 			isa = PBXGroup;
 			children = (
-				C341FECD255B0AED0091B045 /* WebXApp */,
-				FDCF9CC225AE822200EDFE69 /* WebXAppTests */,
+				C341FECD255B0AED0091B045 /* Webasyst X */,
+				FD46C08E2681991700A97894 /* WebasystXTests */,
 				C341FECC255B0AED0091B045 /* Products */,
-				67444B04B74142D163DBA96F /* Pods */,
-				62884CD50FF995722670062A /* Frameworks */,
+				F6350A9EAF4E84E79C00D75E /* Frameworks */,
+				1BEDA2B324DC9651A7392F40 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		C341FECC255B0AED0091B045 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C341FECB255B0AED0091B045 /* WebXApp.app */,
-				FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */,
+				C341FECB255B0AED0091B045 /* Webasyst X.app */,
+				FD46C08D2681991700A97894 /* WebasystXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C341FECD255B0AED0091B045 /* WebXApp */ = {
+		C341FECD255B0AED0091B045 /* Webasyst X */ = {
 			isa = PBXGroup;
 			children = (
-				FD1A2B292680A95200BA7C68 /* WebXApp.entitlements */,
 				FD4E67FF2679CE7400A42283 /* Views */,
 				FDE6408125BFC547008082F3 /* Localization */,
 				FD576DF12660C08300F4D707 /* Models */,
@@ -251,7 +243,17 @@
 				FDCF9CB425AE7F7A00EDFE69 /* Modules */,
 				FDCF9CB625AE7F9E00EDFE69 /* NetworkingService */,
 			);
-			path = WebXApp;
+			path = "Webasyst X";
+			sourceTree = "<group>";
+		};
+		F6350A9EAF4E84E79C00D75E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */,
+				61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */,
+				4865679886FF5E7B7BCF017A /* Pods_WebasystXTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FD0C1A242671E1B200FE41D0 /* AuthModule */ = {
@@ -411,6 +413,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		FD46C08E2681991700A97894 /* WebasystXTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD46C08F2681991700A97894 /* WebasystXTests.swift */,
+				FD46C0912681991700A97894 /* Info.plist */,
+			);
+			path = WebasystXTests;
+			sourceTree = "<group>";
+		};
 		FD4E67FA2679AFB200A42283 /* AuthSlide */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +538,7 @@
 		FDCF9CB325AE7F6C00EDFE69 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FD1A2B292680A95200BA7C68 /* WebXApp.entitlements */,
 				C341FECE255B0AED0091B045 /* AppDelegate.swift */,
 				C341FED0255B0AED0091B045 /* SceneDelegate.swift */,
 				C341FEDF255B0AF20091B045 /* Info.plist */,
@@ -579,15 +591,6 @@
 				FDCF9CEB25AE99C600EDFE69 /* View */,
 			);
 			path = WelcomeModule;
-			sourceTree = "<group>";
-		};
-		FDCF9CC225AE822200EDFE69 /* WebXAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				FDCF9CC325AE822200EDFE69 /* WebXAppTests.swift */,
-				FDCF9CC525AE822200EDFE69 /* Info.plist */,
-			);
-			path = WebXAppTests;
 			sourceTree = "<group>";
 		};
 		FDCF9CDD25AE84A300EDFE69 /* AppCoordinator */ = {
@@ -835,43 +838,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C341FECA255B0AED0091B045 /* WebXApp */ = {
+		C341FECA255B0AED0091B045 /* Webasyst X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C341FEE2255B0AF20091B045 /* Build configuration list for PBXNativeTarget "WebXApp" */;
+			buildConfigurationList = C341FEE2255B0AF20091B045 /* Build configuration list for PBXNativeTarget "Webasyst X" */;
 			buildPhases = (
-				B63ED963BE7667E3CC6B9E59 /* [CP] Check Pods Manifest.lock */,
+				683E22C1F76D13B2E04B42DF /* [CP] Check Pods Manifest.lock */,
 				C341FEC7255B0AED0091B045 /* Sources */,
 				C341FEC8255B0AED0091B045 /* Frameworks */,
 				C341FEC9255B0AED0091B045 /* Resources */,
 				C341FF05255B0C7A0091B045 /* Embed Frameworks */,
-				231B0B46A4530FF4E08E470C /* [CP] Embed Pods Frameworks */,
+				DB9CA8810723FA06D56DC19F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = WebXApp;
+			name = "Webasyst X";
 			productName = WebXApp;
-			productReference = C341FECB255B0AED0091B045 /* WebXApp.app */;
+			productReference = C341FECB255B0AED0091B045 /* Webasyst X.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FDCF9CC025AE822200EDFE69 /* WebXAppTests */ = {
+		FD46C08C2681991700A97894 /* WebasystXTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FDCF9CC825AE822200EDFE69 /* Build configuration list for PBXNativeTarget "WebXAppTests" */;
+			buildConfigurationList = FD46C0962681991700A97894 /* Build configuration list for PBXNativeTarget "WebasystXTests" */;
 			buildPhases = (
-				4B450B010FC6D511E609E462 /* [CP] Check Pods Manifest.lock */,
-				FDCF9CBD25AE822200EDFE69 /* Sources */,
-				FDCF9CBE25AE822200EDFE69 /* Frameworks */,
-				FDCF9CBF25AE822200EDFE69 /* Resources */,
+				4CA3A2AA54036A3B5B76D52B /* [CP] Check Pods Manifest.lock */,
+				FD46C0892681991700A97894 /* Sources */,
+				FD46C08A2681991700A97894 /* Frameworks */,
+				FD46C08B2681991700A97894 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FDCF9CC725AE822200EDFE69 /* PBXTargetDependency */,
+				FD46C0932681991700A97894 /* PBXTargetDependency */,
 			);
-			name = WebXAppTests;
-			productName = WebXAppTests;
-			productReference = FDCF9CC125AE822200EDFE69 /* WebXAppTests.xctest */;
+			name = WebasystXTests;
+			productName = WebasystXTests;
+			productReference = FD46C08D2681991700A97894 /* WebasystXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -880,14 +883,14 @@
 		C341FEC3255B0AED0091B045 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					C341FECA255B0AED0091B045 = {
 						CreatedOnToolsVersion = 12.1;
 					};
-					FDCF9CC025AE822200EDFE69 = {
-						CreatedOnToolsVersion = 12.3;
+					FD46C08C2681991700A97894 = {
+						CreatedOnToolsVersion = 12.5;
 						TestTargetID = C341FECA255B0AED0091B045;
 					};
 				};
@@ -905,8 +908,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C341FECA255B0AED0091B045 /* WebXApp */,
-				FDCF9CC025AE822200EDFE69 /* WebXAppTests */,
+				C341FECA255B0AED0091B045 /* Webasyst X */,
+				FD46C08C2681991700A97894 /* WebasystXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -931,7 +934,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDCF9CBF25AE822200EDFE69 /* Resources */ = {
+		FD46C08B2681991700A97894 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -941,65 +944,65 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		231B0B46A4530FF4E08E470C /* [CP] Embed Pods Frameworks */ = {
+		4CA3A2AA54036A3B5B76D52B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WebXApp/Pods-WebXApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebasystXTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		683E22C1F76D13B2E04B42DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Webasyst X-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB9CA8810723FA06D56DC19F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Webasyst X/Pods-Webasyst X-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WebXApp/Pods-WebXApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Webasyst X/Pods-Webasyst X-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WebXApp/Pods-WebXApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4B450B010FC6D511E609E462 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WebXAppTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B63ED963BE7667E3CC6B9E59 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WebXApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Webasyst X/Pods-Webasyst X-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1064,21 +1067,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDCF9CBD25AE822200EDFE69 /* Sources */ = {
+		FD46C0892681991700A97894 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDCF9CC425AE822200EDFE69 /* WebXAppTests.swift in Sources */,
+				FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FDCF9CC725AE822200EDFE69 /* PBXTargetDependency */ = {
+		FD46C0932681991700A97894 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C341FECA255B0AED0091B045 /* WebXApp */;
-			targetProxy = FDCF9CC625AE822200EDFE69 /* PBXContainerItemProxy */;
+			target = C341FECA255B0AED0091B045 /* Webasyst X */;
+			targetProxy = FD46C0922681991700A97894 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1214,14 +1217,14 @@
 		};
 		C341FEE3255B0AF20091B045 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33B7AD4E41487C1E9E0E3169 /* Pods-WebXApp.debug.xcconfig */;
+			baseConfigurationReference = 1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WebXApp/WebXApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z73YGZ4UAM;
-				INFOPLIST_FILE = WebXApp/App/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Webasyst X/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1235,14 +1238,14 @@
 		};
 		C341FEE4255B0AF20091B045 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38A7F33B240698D1203ADD3F /* Pods-WebXApp.release.xcconfig */;
+			baseConfigurationReference = 680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WebXApp/WebXApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z73YGZ4UAM;
-				INFOPLIST_FILE = WebXApp/App/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Webasyst X/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1254,47 +1257,47 @@
 			};
 			name = Release;
 		};
-		FDCF9CC925AE822200EDFE69 /* Debug */ = {
+		FD46C0942681991700A97894 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 891F7FBDFB39A00661287E11 /* Pods-WebXAppTests.debug.xcconfig */;
+			baseConfigurationReference = 8EA0E1E2FDF6DF0B9144CE3C /* Pods-WebasystXTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
-				INFOPLIST_FILE = WebXAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				DEVELOPMENT_TEAM = Z73YGZ4UAM;
+				INFOPLIST_FILE = WebasystXTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.x.ios.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viktkobst.WebasystXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebXApp.app/WebXApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Webasyst X.app/Webasyst X";
 			};
 			name = Debug;
 		};
-		FDCF9CCA25AE822200EDFE69 /* Release */ = {
+		FD46C0952681991700A97894 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A9387A1ADD6BCE382CA0912 /* Pods-WebXAppTests.release.xcconfig */;
+			baseConfigurationReference = 3BF4F52B89E0CC5CFFDDFEDA /* Pods-WebasystXTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GCBUDGV556;
-				INFOPLIST_FILE = WebXAppTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				DEVELOPMENT_TEAM = Z73YGZ4UAM;
+				INFOPLIST_FILE = WebasystXTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.webasyst.x.ios.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viktkobst.WebasystXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebXApp.app/WebXApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Webasyst X.app/Webasyst X";
 			};
 			name = Release;
 		};
@@ -1310,7 +1313,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C341FEE2255B0AF20091B045 /* Build configuration list for PBXNativeTarget "WebXApp" */ = {
+		C341FEE2255B0AF20091B045 /* Build configuration list for PBXNativeTarget "Webasyst X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C341FEE3255B0AF20091B045 /* Debug */,
@@ -1319,11 +1322,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FDCF9CC825AE822200EDFE69 /* Build configuration list for PBXNativeTarget "WebXAppTests" */ = {
+		FD46C0962681991700A97894 /* Build configuration list for PBXNativeTarget "WebasystXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FDCF9CC925AE822200EDFE69 /* Debug */,
-				FDCF9CCA25AE822200EDFE69 /* Release */,
+				FD46C0942681991700A97894 /* Debug */,
+				FD46C0952681991700A97894 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

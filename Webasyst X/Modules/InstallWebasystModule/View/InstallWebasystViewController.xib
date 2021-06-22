@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstallWebasystViewController" customModule="WebXApp" customModuleProvider="target">
+            <connections>
+                <outlet property="aboutConnectButton" destination="El2-ik-jEO" id="1jF-To-vEv"/>
+                <outlet property="anInstallDescriptionLabel" destination="IUc-4n-Yin" id="jsj-u1-AQb"/>
+                <outlet property="anInstallLabel" destination="7kE-K6-oda" id="R63-Bc-5Ia"/>
+                <outlet property="createInstallButton" destination="yEG-Km-70S" id="8ln-aa-XfI"/>
+                <outlet property="createInstallDescriptionLabel" destination="v5u-lU-dQx" id="g7m-wa-kJa"/>
+                <outlet property="createInstallLabel" destination="nni-6X-5RY" id="zXS-0B-A6D"/>
+                <outlet property="titleLabel" destination="iS5-kg-DqH" id="5nT-cr-OiE"/>
+                <outlet property="trialPeriodLabel" destination="2Uk-jv-BVo" id="GnP-kI-rDu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypL-Bv-DHJ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cd-yT-bPq">
+                            <rect key="frame" x="0.0" y="9.5" width="414" height="789"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" verticalCompressionResistancePriority="754" text="Добавление установки Webasyst" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS5-kg-DqH">
+                                    <rect key="frame" x="20" y="10" width="374" height="81.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="У меня уже есть установка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kE-K6-oda">
+                                    <rect key="frame" x="20" y="131.5" width="374" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="753" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUc-4n-Yin">
+                                    <rect key="frame" x="20" y="160.5" width="374" height="101.5"/>
+                                    <string key="text">Если у вас уже есть установка Webasyst в облаке или на вашем сервере, зайдите в её бекенд и подключите Webasyst ID. После этого установка автоматически появится в приложении. </string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="У меня уже есть установка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nni-6X-5RY">
+                                    <rect key="frame" x="20" y="345" width="374" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Скачайте фреймворк с сайта webasyst.ru для своего сервера или создайте аккаунт в облаке здесь и сейчас:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5u-lU-dQx">
+                                    <rect key="frame" x="20" y="374" width="374" height="61"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El2-ik-jEO">
+                                    <rect key="frame" x="20" y="272" width="374" height="33"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <state key="normal" title="Подробнее о подключении "/>
+                                    <connections>
+                                        <action selector="aboutInConnection:" destination="-1" eventType="touchUpInside" id="sFy-6t-oXY"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEG-Km-70S">
+                                    <rect key="frame" x="20" y="445" width="374" height="50"/>
+                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="eqg-cm-lnd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <state key="normal" title="Создать аккаунт в облаке">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="createNewAccountTap:" destination="-1" eventType="touchUpInside" id="TpX-3S-BGf"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="753" text="30 дней бесплатно" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Uk-jv-BVo">
+                                    <rect key="frame" x="20" y="505" width="374" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" systemColor="systemGray2Color"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="backgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="nni-6X-5RY" firstAttribute="leading" secondItem="El2-ik-jEO" secondAttribute="leading" id="0tI-8R-SZ2"/>
+                                <constraint firstItem="nni-6X-5RY" firstAttribute="trailing" secondItem="v5u-lU-dQx" secondAttribute="trailing" id="1NE-s1-FiK"/>
+                                <constraint firstItem="nni-6X-5RY" firstAttribute="top" secondItem="El2-ik-jEO" secondAttribute="bottom" constant="40" id="4Bb-r2-DUx"/>
+                                <constraint firstItem="7kE-K6-oda" firstAttribute="leading" secondItem="9cd-yT-bPq" secondAttribute="leading" constant="20" id="4VC-nQ-EHe"/>
+                                <constraint firstAttribute="trailing" secondItem="IUc-4n-Yin" secondAttribute="trailing" constant="20" id="4gd-x5-O0T"/>
+                                <constraint firstItem="7kE-K6-oda" firstAttribute="top" secondItem="iS5-kg-DqH" secondAttribute="bottom" constant="40" id="4jU-vB-Tsa"/>
+                                <constraint firstAttribute="trailing" secondItem="El2-ik-jEO" secondAttribute="trailing" constant="20" id="81x-GM-yca"/>
+                                <constraint firstItem="yEG-Km-70S" firstAttribute="top" secondItem="v5u-lU-dQx" secondAttribute="bottom" constant="10" id="G67-Ld-7zY"/>
+                                <constraint firstAttribute="trailing" secondItem="iS5-kg-DqH" secondAttribute="trailing" constant="20" id="JT7-jO-hSz"/>
+                                <constraint firstItem="El2-ik-jEO" firstAttribute="leading" secondItem="9cd-yT-bPq" secondAttribute="leading" constant="20" id="Lel-qN-kzR"/>
+                                <constraint firstItem="v5u-lU-dQx" firstAttribute="leading" secondItem="yEG-Km-70S" secondAttribute="leading" id="Lgu-Ii-JEj"/>
+                                <constraint firstItem="El2-ik-jEO" firstAttribute="top" secondItem="IUc-4n-Yin" secondAttribute="bottom" constant="10" id="R7p-DJ-mb6"/>
+                                <constraint firstItem="IUc-4n-Yin" firstAttribute="top" secondItem="7kE-K6-oda" secondAttribute="bottom" constant="5" id="RSz-bM-tyb"/>
+                                <constraint firstItem="nni-6X-5RY" firstAttribute="leading" secondItem="v5u-lU-dQx" secondAttribute="leading" id="Rqt-CP-BO0"/>
+                                <constraint firstItem="v5u-lU-dQx" firstAttribute="trailing" secondItem="yEG-Km-70S" secondAttribute="trailing" id="Shy-y8-zwE"/>
+                                <constraint firstItem="nni-6X-5RY" firstAttribute="trailing" secondItem="El2-ik-jEO" secondAttribute="trailing" id="VTm-9x-BuO"/>
+                                <constraint firstItem="iS5-kg-DqH" firstAttribute="leading" secondItem="9cd-yT-bPq" secondAttribute="leading" constant="20" id="VXe-QU-COE"/>
+                                <constraint firstItem="v5u-lU-dQx" firstAttribute="top" secondItem="nni-6X-5RY" secondAttribute="bottom" constant="5" id="Vr2-vm-Vxu"/>
+                                <constraint firstItem="IUc-4n-Yin" firstAttribute="leading" secondItem="9cd-yT-bPq" secondAttribute="leading" constant="20" id="XqF-QO-AnE"/>
+                                <constraint firstItem="IUc-4n-Yin" firstAttribute="top" secondItem="7kE-K6-oda" secondAttribute="bottom" constant="5" id="YqH-Vl-Yb7"/>
+                                <constraint firstItem="2Uk-jv-BVo" firstAttribute="top" secondItem="yEG-Km-70S" secondAttribute="bottom" constant="10" id="dcg-n1-14B"/>
+                                <constraint firstItem="yEG-Km-70S" firstAttribute="leading" secondItem="2Uk-jv-BVo" secondAttribute="leading" id="gCP-eV-mak"/>
+                                <constraint firstItem="yEG-Km-70S" firstAttribute="trailing" secondItem="2Uk-jv-BVo" secondAttribute="trailing" id="gwj-CT-HbK"/>
+                                <constraint firstItem="iS5-kg-DqH" firstAttribute="top" secondItem="9cd-yT-bPq" secondAttribute="top" constant="10" id="hkb-96-Gwz"/>
+                                <constraint firstItem="El2-ik-jEO" firstAttribute="top" secondItem="IUc-4n-Yin" secondAttribute="bottom" constant="10" id="oLT-ua-48d"/>
+                                <constraint firstAttribute="trailing" secondItem="7kE-K6-oda" secondAttribute="trailing" constant="20" id="x05-hP-YYI"/>
+                                <constraint firstItem="7kE-K6-oda" firstAttribute="top" secondItem="iS5-kg-DqH" secondAttribute="bottom" constant="40" id="zV5-R6-vx1"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="backgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="9cd-yT-bPq" firstAttribute="height" secondItem="ypL-Bv-DHJ" secondAttribute="height" multiplier="0.975875" id="awa-ro-6wv"/>
+                        <constraint firstItem="9cd-yT-bPq" firstAttribute="width" secondItem="ypL-Bv-DHJ" secondAttribute="width" id="cTI-7G-oFg"/>
+                        <constraint firstItem="9cd-yT-bPq" firstAttribute="centerX" secondItem="ypL-Bv-DHJ" secondAttribute="centerX" id="chK-Ai-edD"/>
+                        <constraint firstAttribute="trailing" secondItem="9cd-yT-bPq" secondAttribute="trailing" id="soh-RZ-E9o"/>
+                        <constraint firstItem="9cd-yT-bPq" firstAttribute="centerY" secondItem="ypL-Bv-DHJ" secondAttribute="centerY" id="uOl-5J-RZV"/>
+                        <constraint firstAttribute="bottom" secondItem="9cd-yT-bPq" secondAttribute="bottom" constant="30.5" id="wKY-44-NOJ"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="B6h-Rg-4D7"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="eak-fU-sPm"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="backgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ypL-Bv-DHJ" secondAttribute="trailing" id="Jg7-I8-899"/>
+                <constraint firstItem="ypL-Bv-DHJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pe9-YZ-Pt2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ypL-Bv-DHJ" secondAttribute="bottom" id="Tda-vy-nwh"/>
+                <constraint firstItem="ypL-Bv-DHJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rHr-Zu-48T"/>
+            </constraints>
+            <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="121.73913043478262" y="84.375"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.94900000095367432" green="0.94999998807907104" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

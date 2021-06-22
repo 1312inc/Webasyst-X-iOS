@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C341FECA255B0AED0091B045"
-               BuildableName = "WebXApp.app"
-               BlueprintName = "WebXApp"
+               BuildableName = "Webasyst X.app"
+               BlueprintName = "Webasyst X"
                ReferencedContainer = "container:Webasyst X.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -53,8 +53,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDCF9CC025AE822200EDFE69"
-               BuildableName = "WebXAppTests.xctest"
-               BlueprintName = "WebXAppTests"
+               BuildableName = "Webasyst XTests.xctest"
+               BlueprintName = "Webasyst XTests"
                ReferencedContainer = "container:Webasyst X.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C341FECA255B0AED0091B045"
-            BuildableName = "WebXApp.app"
-            BlueprintName = "WebXApp"
+            BuildableName = "Webasyst X.app"
+            BlueprintName = "Webasyst X"
             ReferencedContainer = "container:Webasyst X.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -109,8 +109,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C341FECA255B0AED0091B045"
-            BuildableName = "WebXApp.app"
-            BlueprintName = "WebXApp"
+            BuildableName = "Webasyst X.app"
+            BlueprintName = "Webasyst X"
             ReferencedContainer = "container:Webasyst X.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -1,0 +1,111 @@
+"errorTitle" = "Error"; // Заголовок модального окна ошибки
+"permisionDenied" = "Access to this installation is prohibited"; // Доступ в установку запрещен
+"requestFailed" = "Something went wrong, try again later"; // Ошибка запроса
+"loading" = "Loading data"; // Лоадер на вкладках TabBar
+"installModuleButtonTitle" = "Install module"; // Модуль не установлен
+"connectionAlertMessage" = "You have no internet connection, check your connection and try again"; // Нет соединения с инетом
+"getStatusCodeError" = "#Error request";
+"okAlert" = "OK";
+"seconds" = "seconds";
+"successTitle" = "Success";
+
+"authError" = "Authorization error. Try again later."; // Ошибка авторизации через ВАИД
+
+//Loader screen
+"welcome" = "Welcome";
+"welcomeBack" = "Welcome back, ";
+"startMessageLoader" = "Taking the Falcon X from Ilon";
+"loaderComment" = "One minute, we upload your data for comfortable work";
+"refuelingMessage" = "Refueling...";
+"gettingReadyMessage" = "Getting ready to go";
+"loadingError" = "Error loading, try again later";
+"loadingInstallMessage" = "Loading";
+"errorInstallMessage" = "Loading error";
+"deleteInstallMessage" = "Deleting disabled settings";
+
+//Welcome screen
+"appName" = "Webasyst X";
+"appDescription" = "The app will connect to all your Webasyst accounts using a single Webasyst ID authorisation.";
+"loginButtonTitle" = " Login with Webasyst ID";
+"onGithub" = "Webasyst X on GitHub";
+"howItWorks" = "How it works";
+"slideTitle_0" = "Hello, World!";
+"slideText_0" = "Webasyst X is a simple demo app that helps developing native mobile client apps for Webasyst server-side apps. Quickly, easily, with all boring stuff handled out-of-the-box.";
+"slideTitle_1" = "REST API";
+"slideText_1" = "For demo purposes, this app connects to Blog, Site, and Shop-Script APIs. When switching this prototype to work with your custom app API, simply replace the logo and the API scope — and start working your app's custom flow right away!";
+"slideTitle_2" = "Open Source";
+"slideText_2" = "Webasyst X is an open source project (MIT license). Feel free to use it as a foundation for your custom Webasyst-powered mobile client app or project.";
+"nextButton" = "Next";
+"phoneLogin" = "Log in by phone number";
+"orLabel" = "or";
+
+//Phone authorization
+"titlePhone" = "Enter your telephone number";
+"descriptionPhone" = "We will send a confirmation code to this number";
+"nextButton" = "Next";
+"phoneError" = "Phone number entered incorrectly";
+"clientIdError" = "ClientID is incorrect";
+"codeChalengeError" = "Code challenge is incorrect or missing";
+"emailError" = "E-mail address is incorrect";
+"phoneError" = "The phone number is wrong";
+"requestTimeoutLimit" = "Repeat request sent before timeout expires for repeat request";
+"sentNotificationFail" = "The server was unable to send the code";
+"errorCode" = "The code is not entered correctly";
+
+//Confirm code screen
+"titleConfirmCode" = "Enter the code from the message";
+"descriptionConfirmCode" = "Confirmation code sent to ";
+"resendCodeLabel" = "No confirmation code arrived?";
+"resendCodeButton" = "Resend code";
+"codeSendLabel" = "Code sent";
+"timerText" = "You can send it again through";
+
+// Blog screen
+"blogTitle" = "Blog";
+"emptyBlog" = "No posts have been added to this blog yet";
+"blogEntryTitle" = "Blog entry";
+"notInstallBlog" = "The blog module is not installed on this account";
+
+// Shop screen
+"shopTitle" = "Shop";
+"emptyShop" = "No orders in this store yet";
+"notInstallShop" = "The store module is not installed on this account";
+"orderStatusTitle" = "Status";
+"orderSummTitle" = "Price";
+"orderNumberTitle" = "Order number";
+"newOrder" = "New";
+"shippedOrder" = "Shipped";
+"completedOrder" = "Completed";
+"refunedOrder" = "Refuned";
+"unknownOrder" = "Unknown";
+"productItem" = "Product";
+"serviceItem" = "Service";
+
+// Site screen
+"siteTitle" = "Site";
+
+// Install list screen
+"profileTitle" = "User profile";
+"exitAccountButtonTitle" = "Sign out of your account";
+"addWebasystButton" = "Add webasyst";
+
+//Adittional views
+"installModule" = "The %@ app is not installed on this account";
+"installButton" = "Install module";
+"emptyList" = "No %@ have been added to this %@ yet";
+
+//Create new install
+"addInstallTitle" = "Adding a Webasyst installation";
+"anInstallTitle" = "I'm Using Webasyst Already";
+"anInstallDescription" = "If you don't see your existing Webasyst account (website) in this app, it is likely that the account simply isn't connected to your Webasyst ID. Head on to Webasyst backend on your domain using a web browser > go to Settings app > Webasyst ID > Enable Webasyst ID and link your personal account with just few clicks. Then simply restart this app.";
+"aboutConnectButton" = "How to link my Webasyst ID";
+"createInstallTitle" = "I'm a New User";
+"createInstallDescription" = "Either download Webasyst source code and install it on your own hosting (server) or create a new account instantly in the Webasyst Cloud with just a tap — right now.";
+"createInstallButton" = "Create Webasyst account";
+"freeTrialLabel" = "30 days free";
+"successNewInstall" = "Your account %@ has been successfully created";
+"errorCreateNewInstall" = "Something went wrong when you created your account.\nTry again later";
+
+//Waid instruction
+"titleWaidInstruction" = "Connecting the WAID";
+

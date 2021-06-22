@@ -7,7 +7,6 @@
 "getStatusCodeError" = "#Error request";
 "okAlert" = "OK";
 "seconds" = "seconds";
-"successTitle" = "Success";
 
 "authError" = "Authorization error. Try again later."; // Ошибка авторизации через ВАИД
 
@@ -103,8 +102,6 @@
 "createInstallDescription" = "Either download Webasyst source code and install it on your own hosting (server) or create a new account instantly in the Webasyst Cloud with just a tap — right now.";
 "createInstallButton" = "Create Webasyst account";
 "freeTrialLabel" = "30 days free";
-"successNewInstall" = "Your account %@ has been successfully created";
-"errorCreateNewInstall" = "Something went wrong when you created your account.\nTry again later";
 
 //Waid instruction
 "titleWaidInstruction" = "Connecting the WAID";

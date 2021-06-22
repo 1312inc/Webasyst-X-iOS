@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class InstallWebasystViewController: UIViewController {
 
     var viewModel: InstallWebasystViewModelProtocol!
-    var disposeBag = DisposeBag()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var anInstallLabel: UILabel!
@@ -29,24 +26,6 @@ class InstallWebasystViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = UIColor(named: "backgroundColor")
         self.setupLayout()
         self.localized()
-        self.bindableViewModel()
-    }
-    
-    private func bindableViewModel() {
-        self.viewModel.buttonEnabled
-            .subscribe(onNext: { enabled in
-                if enabled {
-                    DispatchQueue.main.async {
-                        self.createInstallLabel.isUserInteractionEnabled = true
-                        self.createInstallButton.backgroundColor = UIColor.systemOrange
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.createInstallLabel.isUserInteractionEnabled = false
-                        self.createInstallButton.backgroundColor = UIColor.systemGray
-                    }
-                }
-            }).disposed(by: self.disposeBag)
     }
     
     private func setupLayout() {
@@ -69,7 +48,7 @@ class InstallWebasystViewController: UIViewController {
     }
     
     @IBAction func createNewAccountTap(_ sender: Any) {
-        self.viewModel.createNewWebasyst()
+        
     }
     
 }

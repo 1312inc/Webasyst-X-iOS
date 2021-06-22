@@ -40,7 +40,7 @@ class InstallViewCell: UITableViewCell {
             if logo {
                 companyLabel?.removeFromSuperview()
             } else {
-                companyLabel?.text = profileInstall.logoText
+                companyLabel?.text = String(profileInstall.name!.first!)
             }
         } else {
             companyLabel?.removeFromSuperview()
