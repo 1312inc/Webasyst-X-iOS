@@ -28,7 +28,7 @@ class InstallViewCell: UITableViewCell {
     public func configureCell(_ profileInstall: UserInstall) {
         backView.layer.cornerRadius = 10
         installmage.layer.cornerRadius = installmage.frame.width / 2
-        installmage.contentMode = .scaleAspectFit
+        installmage.contentMode = .scaleAspectFill
         self.urlLabel?.text = profileInstall.name
         self.domainLabel?.text = profileInstall.url
         self.installmage.image = UIImage(data: profileInstall.image!)

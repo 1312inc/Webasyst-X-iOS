@@ -19,6 +19,7 @@
 		FD0C1A3526720EC000FE41D0 /* ConfirmCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */; };
 		FD0C1A3726720ECC00FE41D0 /* ConfirmCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */; };
 		FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1062E825B96D0100E53A29 /* BlogModel.swift */; };
+		FD1620942683070D00B67E81 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1620932683070D00B67E81 /* AuthSlide.swift */; };
 		FD31EEA0267B458E00FF234F /* InstallWebasystViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD31EE9E267B458E00FF234F /* InstallWebasystViewController.swift */; };
 		FD31EEA1267B458E00FF234F /* InstallWebasystViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD31EE9F267B458E00FF234F /* InstallWebasystViewController.xib */; };
 		FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */; };
@@ -27,8 +28,6 @@
 		FD46B9B5267C76D500A6597A /* WaidInstructionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */; };
 		FD46B9B7267C770700A6597A /* WaidInstructionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */; };
 		FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46C08F2681991700A97894 /* WebasystXTests.swift */; };
-		FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E67FB2679AFC400A42283 /* AuthSlide.swift */; };
-		FD4E67FE2679AFCD00A42283 /* AuthSlide.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */; };
 		FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68012679CED300A42283 /* InstallModuleView.swift */; };
 		FD4E68052679E1DC00A42283 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68042679E1DC00A42283 /* EmptyListView.swift */; };
 		FD4E680B2679F13900A42283 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68092679F13900A42283 /* LoadingViewController.swift */; };
@@ -118,6 +117,7 @@
 		FD0C1A3426720EC000FE41D0 /* ConfirmCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A3626720ECC00FE41D0 /* ConfirmCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeCoordinator.swift; sourceTree = "<group>"; };
 		FD1062E825B96D0100E53A29 /* BlogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
+		FD1620932683070D00B67E81 /* AuthSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
 		FD1A2B292680A95200BA7C68 /* WebXApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebXApp.entitlements; sourceTree = "<group>"; };
 		FD31EE9E267B458E00FF234F /* InstallWebasystViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystViewController.swift; sourceTree = "<group>"; };
 		FD31EE9F267B458E00FF234F /* InstallWebasystViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallWebasystViewController.xib; sourceTree = "<group>"; };
@@ -129,8 +129,6 @@
 		FD46C08D2681991700A97894 /* WebasystXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebasystXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD46C08F2681991700A97894 /* WebasystXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystXTests.swift; sourceTree = "<group>"; };
 		FD46C0912681991700A97894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD4E67FB2679AFC400A42283 /* AuthSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
-		FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthSlide.xib; sourceTree = "<group>"; };
 		FD4E68012679CED300A42283 /* InstallModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModuleView.swift; sourceTree = "<group>"; };
 		FD4E68042679E1DC00A42283 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		FD4E68092679F13900A42283 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -420,8 +418,7 @@
 		FD4E67FA2679AFB200A42283 /* AuthSlide */ = {
 			isa = PBXGroup;
 			children = (
-				FD4E67FB2679AFC400A42283 /* AuthSlide.swift */,
-				FD4E67FD2679AFCD00A42283 /* AuthSlide.xib */,
+				FD1620932683070D00B67E81 /* AuthSlide.swift */,
 			);
 			path = AuthSlide;
 			sourceTree = "<group>";
@@ -926,7 +923,6 @@
 				FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */,
 				FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
-				FD4E67FE2679AFCD00A42283 /* AuthSlide.xib in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
 				FD4E680C2679F13900A42283 /* LoadingViewController.xib in Resources */,
 				FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */,
@@ -1025,7 +1021,6 @@
 				FD4E680F2679F61A00A42283 /* ErrorView.swift in Sources */,
 				FD46B9B5267C76D500A6597A /* WaidInstructionViewModel.swift in Sources */,
 				FD1062E925B96D0100E53A29 /* BlogModel.swift in Sources */,
-				FD4E67FC2679AFC400A42283 /* AuthSlide.swift in Sources */,
 				FD83A42E25B7D00F00A55EBD /* BlogNetworkingService.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
 				FDD6E35E25B540ED00F5CE24 /* BlogCoordinator.swift in Sources */,
@@ -1033,6 +1028,7 @@
 				FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */,
 				FD6D6CE2267099EC008340E0 /* WelcomeViewController.swift in Sources */,
 				FDD7E9D125C1057700B4F869 /* SiteModel.swift in Sources */,
+				FD1620942683070D00B67E81 /* AuthSlide.swift in Sources */,
 				FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */,
 				FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
@@ -1205,7 +1201,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WebXApp/WebXApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Webasyst X/App/WebXApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z73YGZ4UAM;
 				INFOPLIST_FILE = "$(SRCROOT)/Webasyst X/App/Info.plist";
@@ -1226,7 +1222,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WebXApp/WebXApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Webasyst X/App/WebXApp.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z73YGZ4UAM;
 				INFOPLIST_FILE = "$(SRCROOT)/Webasyst X/App/Info.plist";

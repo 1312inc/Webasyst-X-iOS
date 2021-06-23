@@ -53,7 +53,7 @@ class WelcomeViewController: UIViewController, UIScrollViewDelegate {
                 slide.descriptionLabel.text = data.text
                 slideViews.append(SliderViews(views: .slideView(view: slide)))
             case .auth:
-                let slide: AuthSlide = Bundle.main.loadNibNamed("AuthSlide", owner: self, options: nil)?.first as! AuthSlide
+                let slide: AuthSlide = AuthSlide()
                 slide.delegate = self
                 slideViews.append(SliderViews(views: .authView(view: slide)))
             }

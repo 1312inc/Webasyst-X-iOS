@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import Webasyst
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -29,19 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-      let tokenParts = deviceToken.map { data -> String in
-        return String(format: "%02.2hhx", data)
-      }
-      
-      let token = tokenParts.joined()
-      print("Device Token: \(token)")
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-      print("Failed to register: \(error)")
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {

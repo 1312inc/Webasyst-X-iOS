@@ -44,7 +44,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-vK-3er">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNi-vK-3er">
                                 <rect key="frame" x="8" y="8" width="51" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PNi-vK-3er" secondAttribute="height" multiplier="1:1" id="xAI-kf-TMJ"/>

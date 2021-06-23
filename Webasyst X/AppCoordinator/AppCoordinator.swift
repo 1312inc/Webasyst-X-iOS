@@ -63,8 +63,7 @@ final class AppCoordinator: Coordinator {
                     window.makeKeyAndVisible()
                     return
                 }
-            case .error(message: let error):
-                print(error)
+            case .error(message: _):
                 DispatchQueue.main.async {
                     self.webasyst.logOutUser { result in
                         if result {
