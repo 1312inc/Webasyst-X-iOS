@@ -75,7 +75,7 @@ class AuthSlide: UIView {
     private var loginWebasystButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.semibold)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.label, for: .normal)
         button.layer.cornerRadius = 10
         button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.systemGray3.cgColor

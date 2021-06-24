@@ -43,6 +43,7 @@
 		FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */; };
 		FD84BA6F2681E2E70049B7F9 /* SiteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD84BA6D2681E2E70049B7F9 /* SiteViewCell.swift */; };
 		FD84BA702681E2E70049B7F9 /* SiteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD84BA6E2681E2E70049B7F9 /* SiteViewCell.xib */; };
+		FD8A24FC26846CA4003D0E0F /* BlogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8A24FA26846CA4003D0E0F /* BlogEntryViewController.swift */; };
 		FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */; };
 		FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */; };
 		FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBB9F7A2679FA880027DD53 /* LoadingView.swift */; };
@@ -73,7 +74,6 @@
 		FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDE6409F25BFCA2B008082F3 /* Localizable.strings */; };
 		FDE640A825BFE327008082F3 /* BlogEntryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE640A725BFE327008082F3 /* BlogEntryCoordinator.swift */; };
 		FDE640AC25BFE45F008082F3 /* BlogEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE640AB25BFE45F008082F3 /* BlogEntryViewModel.swift */; };
-		FDE640AF25BFE4F9008082F3 /* BlogEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE640AE25BFE4F9008082F3 /* BlogEntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +144,7 @@
 		FD83A43025B7D09C00A55EBD /* UserNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkingManager.swift; sourceTree = "<group>"; };
 		FD84BA6D2681E2E70049B7F9 /* SiteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteViewCell.swift; sourceTree = "<group>"; };
 		FD84BA6E2681E2E70049B7F9 /* SiteViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SiteViewCell.xib; sourceTree = "<group>"; };
+		FD8A24FA26846CA4003D0E0F /* BlogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryViewController.swift; sourceTree = "<group>"; };
 		FD922BAB25C26A0B00559AB5 /* InstallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
 		FD922BAC25C26A0B00559AB5 /* InstallViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstallViewCell.xib; sourceTree = "<group>"; };
 		FDBB9F7A2679FA880027DD53 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -174,7 +175,6 @@
 		FDE6409F25BFCA2B008082F3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FDE640A725BFE327008082F3 /* BlogEntryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryCoordinator.swift; sourceTree = "<group>"; };
 		FDE640AB25BFE45F008082F3 /* BlogEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryViewModel.swift; sourceTree = "<group>"; };
-		FDE640AE25BFE4F9008082F3 /* BlogEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -788,7 +788,7 @@
 		FDE640A325BFE2A8008082F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FDE640AE25BFE4F9008082F3 /* BlogEntryViewController.swift */,
+				FD8A24FA26846CA4003D0E0F /* BlogEntryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -999,6 +999,7 @@
 				FD0C1A3526720EC000FE41D0 /* ConfirmCodeViewModel.swift in Sources */,
 				FD0C1A3726720ECC00FE41D0 /* ConfirmCodeCoordinator.swift in Sources */,
 				FD922BAD25C26A0B00559AB5 /* InstallViewCell.swift in Sources */,
+				FD8A24FC26846CA4003D0E0F /* BlogEntryViewController.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
 				FD83A43125B7D09C00A55EBD /* UserNetworkingManager.swift in Sources */,
@@ -1032,7 +1033,6 @@
 				FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */,
 				FD576DF72660FDC800F4D707 /* BlogTableViewCell.swift in Sources */,
 				FDD6E37B25B544F900F5CE24 /* SiteCoordinator.swift in Sources */,
-				FDE640AF25BFE4F9008082F3 /* BlogEntryViewController.swift in Sources */,
 				FDD6E38D25B552BD00F5CE24 /* InstalListViewModel.swift in Sources */,
 				FDE640AC25BFE45F008082F3 /* BlogEntryViewModel.swift in Sources */,
 				FDD6E38025B5471400F5CE24 /* ShopCoordinator.swift in Sources */,

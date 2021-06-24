@@ -54,15 +54,16 @@ class BlogViewController: UIViewController {
         self.title = NSLocalizedString("blogTitle", comment: "")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .systemBackground
-        self.createRightNavigationBar()
         postTableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
         self.postTableView.layoutMargins = UIEdgeInsets.zero
         self.postTableView.separatorInset = UIEdgeInsets.zero
         self.setupLoadingView()
         self.fetchData()
+        
+        self.createLeftNavigationBar()
     }
     
-    private func createRightNavigationBar() {
+    private func createLeftNavigationBar() {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
         
@@ -143,7 +144,7 @@ class BlogViewController: UIViewController {
         self.postTableView.removeFromSuperview()
         self.setupLoadingView()
         self.viewModel.fetchBlogPosts()
-        self.createRightNavigationBar()
+        self.createLeftNavigationBar()
     }
     
     private func setupLayoutTableView() {

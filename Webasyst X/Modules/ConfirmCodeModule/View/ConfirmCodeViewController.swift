@@ -242,7 +242,12 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
             confirmCode = String(confirmCode[confirmCode.startIndex ..< maxIndex])
         }
         
+        if string.count > 1 {
+            self.viewModel.sendCode(with: confirmCode)
+        }
+        
         confirmCodeField.text = confirmCode
+        
         return false
     }
 }
