@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
     <key>clientId</key>
-    <string>***</string>
+    <string>YOUR_WEBASYSTID_APP_CLIENT_ID_HERE</string>
     <key>host</key>
-    <string>***</string>
+    <string>www.webasyst.com</string>
     <key>scope</key>
-    <string>***</string>
+    <string>blog.site.shop.webasyst</string>
 </dict>
 </plist>
