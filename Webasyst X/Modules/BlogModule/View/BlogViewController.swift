@@ -114,7 +114,9 @@ class BlogViewController: UIViewController {
                 switch error {
                 case .permisionDenied:
                     DispatchQueue.main.async {
-                        self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
+                        let localizedString = NSLocalizedString("permisionDenied", comment: "")
+                        let replacedString = String(format: localizedString, "shop")
+                        self.setupServerError(with: replacedString)
                     }
                 case .requestFailed(let text):
                     DispatchQueue.main.async {
@@ -171,8 +173,8 @@ class BlogViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         self.errorView.removeFromSuperview()
-        emptyView.moduleName = "blog"
-        emptyView.entityName = "posts"
+        emptyView.moduleName = NSLocalizedString("blog", comment: "")
+        emptyView.entityName = NSLocalizedString("post", comment: "")
         self.view.addSubview(emptyView)
         NSLayoutConstraint.activate([
             emptyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -222,7 +224,7 @@ class BlogViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         installView.delegate = self
-        installView.moduleName = "blog"
+        installView.moduleName = NSLocalizedString("blogTitle", comment: "")
         self.view.addSubview(installView)
         NSLayoutConstraint.activate([
             installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),

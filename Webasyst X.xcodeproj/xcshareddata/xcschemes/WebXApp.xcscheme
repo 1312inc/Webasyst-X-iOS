@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C341FF7C255B1EC40091B045"
+               BlueprintIdentifier = "FD46C08C2681991700A97894"
                BuildableName = "WebasystXTests.xctest"
                BlueprintName = "WebasystXTests"
                ReferencedContainer = "container:Webasyst X.xcodeproj">

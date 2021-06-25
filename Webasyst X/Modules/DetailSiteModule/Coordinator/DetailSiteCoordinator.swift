@@ -35,7 +35,9 @@ final class DetailSiteCoordinator: Coordinator, DetailSiteCoordinatorProtocol {
         var errorText: String = ""
         switch error {
         case .permisionDenied:
-           errorText = NSLocalizedString("permisionDenied", comment: "")
+            let localizedString = NSLocalizedString("permisionDenied", comment: "")
+            let replacedString = String(format: localizedString, "site")
+           errorText = replacedString
         case .notEntity:
             errorText = NSLocalizedString("getStatusCodeError", comment: "")
         case .requestFailed(text: let text):

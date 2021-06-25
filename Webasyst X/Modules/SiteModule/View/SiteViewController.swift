@@ -81,7 +81,9 @@ class SiteViewController: UIViewController {
                 switch error {
                 case .permisionDenied:
                     DispatchQueue.main.async {
-                        self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
+                        let localizedString = NSLocalizedString("permisionDenied", comment: "")
+                        let replacedString = String(format: localizedString, "site")
+                        self.setupServerError(with: replacedString)
                     }
                 case .requestFailed(let text):
                     DispatchQueue.main.async {
@@ -170,8 +172,8 @@ class SiteViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         self.errorView.removeFromSuperview()
-        emptyView.moduleName = "site"
-        emptyView.entityName = "posts"
+        emptyView.moduleName = NSLocalizedString("site", comment: "")
+        emptyView.entityName = NSLocalizedString("order", comment: "")
         self.view.addSubview(emptyView)
         NSLayoutConstraint.activate([
             emptyView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -221,7 +223,7 @@ class SiteViewController: UIViewController {
         self.emptyView.removeFromSuperview()
         self.loadingView.removeFromSuperview()
         installView.delegate = self
-        installView.moduleName = "site"
+        installView.moduleName = NSLocalizedString("siteTitle", comment: "")
         self.view.addSubview(installView)
         NSLayoutConstraint.activate([
             installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),

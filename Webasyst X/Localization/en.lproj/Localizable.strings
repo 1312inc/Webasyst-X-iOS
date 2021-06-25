@@ -1,32 +1,27 @@
-"errorTitle" = "Error"; // Заголовок модального окна ошибки
-"permisionDenied" = "Access to this installation is prohibited"; // Доступ в установку запрещен
-"requestFailed" = "Something went wrong, try again later"; // Ошибка запроса
-"loading" = "Loading data"; // Лоадер на вкладках TabBar
-"installModuleButtonTitle" = "Install module"; // Модуль не установлен
-"connectionAlertMessage" = "You have no internet connection, check your connection and try again"; // Нет соединения с инетом
-"getStatusCodeError" = "#Error request";
+"errorTitle" = "Error"; 
+"permisionDenied" = "Looks like you don't have access to the %s app (API response: access_denied). Please contact the account owner to enable access for you.";
+"requestFailed" = "Something went wrong while communicating with the app (API response: invalid_request).";
+"loading" = "Loading...";
+"installModuleButtonTitle" = "Install Now";
+"connectionAlertMessage" = "No internet connection";
+"getStatusCodeError" = "Something went wrong while communicating with the app (API response: invalid_request).";
 "okAlert" = "OK";
 "seconds" = "seconds";
 "successTitle" = "Success";
 
-"authError" = "Authorization error. Try again later."; // Ошибка авторизации через ВАИД
+"blog" = "blog";
+"shop" = "shop";
+"site" = "site";
+"post" = "posts";
+"element" = "elements";
+"order" = "orders";
 
-//Loader screen
-"welcome" = "Welcome";
-"welcomeBack" = "Welcome back, ";
-"startMessageLoader" = "Taking the Falcon X from Ilon";
-"loaderComment" = "One minute, we upload your data for comfortable work";
-"refuelingMessage" = "Refueling...";
-"gettingReadyMessage" = "Getting ready to go";
-"loadingError" = "Error loading, try again later";
-"loadingInstallMessage" = "Loading";
-"errorInstallMessage" = "Loading error";
-"deleteInstallMessage" = "Deleting disabled settings";
+"authError" = "Authorization error. Try again later.";
 
 //Welcome screen
 "appName" = "Webasyst X";
-"appDescription" = "The app will connect to all your Webasyst accounts using a single Webasyst ID authorisation.";
-"loginButtonTitle" = " Login with Webasyst ID";
+"appDescription" = "To make this screen look great, simply replace the app icon and the app name above with your project credentials, and add an encouraging welcome message.";
+"loginButtonTitle" = " Sign in with Webasyst ID";
 "onGithub" = "Webasyst X on GitHub";
 "howItWorks" = "How it works";
 "slideTitle_0" = "Hello, World!";
@@ -54,7 +49,6 @@
 
 //Confirm code screen
 "titleConfirmCode" = "Enter the code from the message";
-"descriptionConfirmCode" = "Confirmation code sent to ";
 "resendCodeLabel" = "No confirmation code arrived?";
 "resendCodeButton" = "Resend code";
 "codeSendLabel" = "Code sent";
@@ -62,24 +56,15 @@
 
 // Blog screen
 "blogTitle" = "Blog";
-"emptyBlog" = "No posts have been added to this blog yet";
 "blogEntryTitle" = "Blog entry";
-"notInstallBlog" = "The blog module is not installed on this account";
 
 // Shop screen
 "shopTitle" = "Shop";
-"emptyShop" = "No orders in this store yet";
-"notInstallShop" = "The store module is not installed on this account";
-"orderStatusTitle" = "Status";
-"orderSummTitle" = "Price";
-"orderNumberTitle" = "Order number";
 "newOrder" = "New";
 "shippedOrder" = "Shipped";
 "completedOrder" = "Completed";
 "refunedOrder" = "Refuned";
 "unknownOrder" = "Unknown";
-"productItem" = "Product";
-"serviceItem" = "Service";
 
 // Site screen
 "siteTitle" = "Site";
@@ -87,15 +72,15 @@
 // Install list screen
 "profileTitle" = "User profile";
 "exitAccountButtonTitle" = "Sign out of your account";
-"addWebasystButton" = "Add webasyst";
+"addWebasystButton" = "Add Account";
 
 //Adittional views
 "installModule" = "The %@ app is not installed on this account";
-"installButton" = "Install module";
+"installButton" = "Install Now";
 "emptyList" = "No %@ have been added to this %@ yet";
 
 //Create new install
-"addInstallTitle" = "Adding a Webasyst installation";
+"addInstallTitle" = "Add Account";
 "anInstallTitle" = "I'm Using Webasyst Already";
 "anInstallDescription" = "If you don't see your existing Webasyst account (website) in this app, it is likely that the account simply isn't connected to your Webasyst ID. Head on to Webasyst backend on your domain using a web browser > go to Settings app > Webasyst ID > Enable Webasyst ID and link your personal account with just few clicks. Then simply restart this app.";
 "aboutConnectButton" = "How to link my Webasyst ID";
@@ -104,7 +89,7 @@
 "createInstallButton" = "Create Webasyst account";
 "freeTrialLabel" = "30 days free";
 "successNewInstall" = "Your account %@ has been successfully created";
-"errorCreateNewInstall" = "Something went wrong when you created your account.\nTry again later";
+"errorCreateNewInstall" = "Sorry, we cannot create another account for you at the moment. Most likely, a limit on the number of free Webasyst cloud accounts has been exceeded.";
 
 //Waid instruction
 "titleWaidInstruction" = "Connecting the WAID";

@@ -27,6 +27,8 @@
 		FD3BB9F8268586E50011259A /* DetailSiteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9F7268586E50011259A /* DetailSiteCoordinator.swift */; };
 		FD3BB9FB26858A290011259A /* DetailSiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9FA26858A290011259A /* DetailSiteModel.swift */; };
 		FD3BBA052685A7050011259A /* Webasyst.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA042685A7050011259A /* Webasyst.plist */; };
+		FD3BBA072685AC470011259A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA092685AC470011259A /* Localizable.strings */; };
+		FD3BBA0C2685BCB80011259A /* Webasyst.sample.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA0B2685BCB80011259A /* Webasyst.sample.plist */; };
 		FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */; };
 		FD46B9AD267C447700A6597A /* InstallWebasystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */; };
 		FD46B9B3267C74A200A6597A /* WaidInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */; };
@@ -76,7 +78,6 @@
 		FDD7E9D925C108B900B4F869 /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9D825C108B900B4F869 /* ShopModel.swift */; };
 		FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7E9DD25C12F9500B4F869 /* OrderViewCell.swift */; };
 		FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD7E9DE25C12F9500B4F869 /* OrderViewCell.xib */; };
-		FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDE6409F25BFCA2B008082F3 /* Localizable.strings */; };
 		FDE640A825BFE327008082F3 /* BlogEntryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE640A725BFE327008082F3 /* BlogEntryCoordinator.swift */; };
 		FDE640AC25BFE45F008082F3 /* BlogEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE640AB25BFE45F008082F3 /* BlogEntryViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -131,6 +132,9 @@
 		FD3BB9F7268586E50011259A /* DetailSiteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteCoordinator.swift; sourceTree = "<group>"; };
 		FD3BB9FA26858A290011259A /* DetailSiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteModel.swift; sourceTree = "<group>"; };
 		FD3BBA042685A7050011259A /* Webasyst.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Webasyst.plist; sourceTree = "<group>"; };
+		FD3BBA082685AC470011259A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD3BBA0A2685AC590011259A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD3BBA0B2685BCB80011259A /* Webasyst.sample.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Webasyst.sample.plist; sourceTree = "<group>"; };
 		FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystViewModel.swift; sourceTree = "<group>"; };
 		FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystCoordinator.swift; sourceTree = "<group>"; };
 		FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +186,6 @@
 		FDD7E9D825C108B900B4F869 /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		FDD7E9DD25C12F9500B4F869 /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
 		FDD7E9DE25C12F9500B4F869 /* OrderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewCell.xib; sourceTree = "<group>"; };
-		FDE6409F25BFCA2B008082F3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FDE640A725BFE327008082F3 /* BlogEntryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryCoordinator.swift; sourceTree = "<group>"; };
 		FDE640AB25BFE45F008082F3 /* BlogEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogEntryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				FD3BBA042685A7050011259A /* Webasyst.plist */,
+				FD3BBA0B2685BCB80011259A /* Webasyst.sample.plist */,
 				FD4E67FF2679CE7400A42283 /* Views */,
 				FDE6408125BFC547008082F3 /* Localization */,
 				FD576DF12660C08300F4D707 /* Models */,
@@ -825,7 +829,7 @@
 		FDE6408125BFC547008082F3 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				FDE6409F25BFCA2B008082F3 /* Localizable.strings */,
+				FD3BBA092685AC470011259A /* Localizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -958,6 +962,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = C341FEC2255B0AED0091B045;
 			productRefGroup = C341FECC255B0AED0091B045 /* Products */;
@@ -977,7 +982,7 @@
 			files = (
 				FD3BBA052685A7050011259A /* Webasyst.plist in Resources */,
 				FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */,
-				FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */,
+				FD3BBA072685AC470011259A /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
 				FD4E680C2679F13900A42283 /* LoadingViewController.xib in Resources */,
@@ -986,6 +991,7 @@
 				FDCA6E992678955700922517 /* SlideView.xib in Resources */,
 				FD84BA702681E2E70049B7F9 /* SiteViewCell.xib in Resources */,
 				FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */,
+				FD3BBA0C2685BCB80011259A /* Webasyst.sample.plist in Resources */,
 				FD31EEA1267B458E00FF234F /* InstallWebasystViewController.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
 			);
@@ -1132,6 +1138,15 @@
 				C341FEDD255B0AF20091B045 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FD3BBA092685AC470011259A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD3BBA082685AC470011259A /* en */,
+				FD3BBA0A2685AC590011259A /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

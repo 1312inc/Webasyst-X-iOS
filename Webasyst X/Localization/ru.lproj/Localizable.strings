@@ -1,0 +1,95 @@
+"errorTitle" = "Ошибка";
+"permisionDenied" = "Похоже, у вас недостаточно прав на доступ к %@ (ответ API: access_denied). Пожалуйста, свяжитесь с владельцем аккаунта и попросите его включить доступ.";
+"requestFailed" = "Что-то не так с запросом к серверу (ответ API: invalid_request).";
+"loading" = "Загрузка...";
+"installModuleButtonTitle" = "Установить";
+"connectionAlertMessage" = "Нет соединения с интернетом";
+"getStatusCodeError" = "Что-то не так с запросом к серверу (ответ API: invalid_request).";
+"okAlert" = "Понятно";
+"seconds" = "Секунд";
+"successTitle" = "Успешно";
+
+"blog" = "блогу";
+"shop" = "магазину";
+"site" = "сайту";
+"post" = "поста";
+"element" = "элемента";
+"order" = "заказа";
+
+"authError" = "Ошибка авторизации. Повторите попытку позже.";
+
+//Welcome screen
+"appName" = "Webasyst X";
+"appDescription" = "Чтобы эта страница была не такой скучной, подставьте иконку и название своего приложения и напишите какой-нибудь классный приветственный текст.";
+"loginButtonTitle" = " Войти с Webasyst ID";
+"onGithub" = "Webasyst X на GitHub";
+"howItWorks" = "How it works";
+"slideTitle_0" = "Hello, World!";
+"slideText_0" = "Webasyst X — это простое приложение-прототип, которое поможет разработать клиенсткое мобильное приложение для своего проекта на основе Webasyst. Быстро и просто.";
+"slideTitle_1" = "REST API";
+"slideText_1" = "Демо-приложение Webasyst X подключится к API приложений «Блог», «Сайт» и Shop-Script с целью показать, как все это работает. Вся скучная работа, связанная с подключением к API и авторизацией, уже решена в Webasyst X.";
+"slideTitle_2" = "Open Source";
+"slideText_2" = "Webasyst X — это проект с открытым кодом (лицензия MIT). Используйте его в качестве шаблона для собственных мобильных приложений и новых амбициозных проектов.";
+"nextButton" = "Далее";
+"phoneLogin" = "Вход по номеру телефона";
+"orLabel" = "или";
+
+//Phone authorization
+"titlePhone" = "Введите свой номер телефона";
+"descriptionPhone" = "Мы вышлем код подтверждения на этот номер";
+"nextButton" = "Далее";
+"phoneError" = "Неправильно введен номер телефона";
+"clientIdError" = "Идентификатор клиента неверен";
+"codeChalengeError" = "Код вызова неверен или отсутствует";
+"emailError" = "Неверный адрес электронной почты";
+"phoneError" = "Номер телефона неправильный";
+"requestTimeoutLimit" = "Повторный запрос отправлен до истечения тайм-аута для повторного запроса";
+"sentNotificationFail" = "Сервер не смог отправить код";
+"errorCode" = "Код введен неправильно";
+
+//Confirm code screen
+"titleConfirmCode" = "Введите код из письма";
+"resendCodeLabel" = "Код подтверждения не пришел?";
+"resendCodeButton" = "Отправить еще раз";
+"codeSendLabel" = "  отправлен";
+"timerText" = "Мы отправили код подтверждения на номер";
+
+// Blog screen
+"blogTitle" = "Блог";
+
+// Shop screen
+"shopTitle" = "Магазин";
+"newOrder" = "Новый";
+"shippedOrder" = "Отправлен";
+"completedOrder" = "Завершен";
+"refunedOrder" = "Обновлен";
+"unknownOrder" = "Неизвестно";
+
+// Site screen
+"siteTitle" = "Сайт";
+
+// Install list screen
+"profileTitle" = "Профиль";
+"exitAccountButtonTitle" = "Выйти из учетной записи";
+"addWebasystButton" = "Добавить аккаунт";
+
+//Adittional views
+"installModule" = "Модуль %@ еще не установлен";
+"installButton" = "Установить";
+"emptyList" = "К этому %@ еще не добавлено ни одного %@";
+
+//Create new install
+"addInstallTitle" = "Добавить аккаунт";
+"anInstallTitle" = "Я уже использую Webasyst";
+"anInstallDescription" = "Если вы не видите свой аккаунт (сайт) Webasyst в этом приложении, то скорее всего этот аккаунт просто не подключен к вашему Webasyst ID. Откройте бекенд Webasyst > приложение «Настройки» > Webasyst ID > и включите авторизацию по Webasyst ID для себя и коллег. Затем просто перезапустите это приложение.";
+"aboutConnectButton" = "Как подключить Webasyst ID";
+"createInstallTitle" = "Я новый пользователь";
+"createInstallDescription" = "Скачайте фреймворк с сайта webasyst.ru и установите на свой хостинг (сервер) или создайте аккаунт в облаке Webasyst одной кнопкой — прямо сейчас.";
+"createInstallButton" = "Создать аккаунт Webasyst";
+"freeTrialLabel" = "30 дней бесплатно";
+"successNewInstall" = "Ваша учетная запись %@ была успешно создана";
+"errorCreateNewInstall" = "Не удалось создать аккаунт Webasyst. Скорее всего, превышен лимит на количество бесплатных облачных аккаунтов.";
+
+//Waid instruction
+"titleWaidInstruction" = "Подключение WAID";
+
