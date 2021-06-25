@@ -9,6 +9,7 @@ import UIKit
 
 protocol InstallWebasystCoordinatorProtocol {
     func openInstructionWaid()
+    func startInModalSheet()
     func showAlert(title: String, message: String)
 }
 
@@ -26,6 +27,15 @@ final class InstallWebasystCoordinator: Coordinator, InstallWebasystCoordinatorP
         let viewModel = InstallWebasystViewModel(coordinator: self)
         viewController.viewModel = viewModel
         self.navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func startInModalSheet() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+            let viewController = InstallWebasystViewController()
+            let viewModel = InstallWebasystViewModel(coordinator: self)
+            viewController.viewModel = viewModel
+            self.navigationController.present(viewController, animated: true, completion: nil)
+        }
     }
     
     func openInstructionWaid() {

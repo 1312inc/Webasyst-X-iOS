@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstallWebasystViewController" customModule="WebXApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InstallWebasystViewController" customModule="Webasyst_X" customModuleProvider="target">
             <connections>
                 <outlet property="aboutConnectButton" destination="El2-ik-jEO" id="1jF-To-vEv"/>
                 <outlet property="anInstallDescriptionLabel" destination="IUc-4n-Yin" id="jsj-u1-AQb"/>

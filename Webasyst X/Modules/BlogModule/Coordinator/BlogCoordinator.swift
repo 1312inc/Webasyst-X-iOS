@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Webasyst
 
 protocol BlogCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
@@ -16,6 +17,7 @@ protocol BlogCoordinatorProtocol {
 class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
     
     private var navigationController: UINavigationController
+    private var webasyst = WebasystApp()
     var childCoordinator: [Coordinator] = []
     
     required init(_ navigationController: UINavigationController) {
@@ -29,6 +31,14 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
         let blogViewController = BlogViewController()
         blogViewController.viewModel = blogViewModel
         self.navigationController.setViewControllers([blogViewController], animated: true)
+        webasyst.getAllUserInstall({ userInstall in
+            if let installs = userInstall {
+                if installs.isEmpty {
+                    let installCoordinator = InstallWebasystCoordinator(navigationController: self.navigationController)
+                    installCoordinator.startInModalSheet()
+                }
+            }
+        })
     }
     
     //Opening install list
