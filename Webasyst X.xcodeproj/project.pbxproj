@@ -26,7 +26,7 @@
 		FD3BB9F6268586850011259A /* DetailSiteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9F5268586850011259A /* DetailSiteViewModel.swift */; };
 		FD3BB9F8268586E50011259A /* DetailSiteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9F7268586E50011259A /* DetailSiteCoordinator.swift */; };
 		FD3BB9FB26858A290011259A /* DetailSiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9FA26858A290011259A /* DetailSiteModel.swift */; };
-		FD3BBA032685A6B20011259A /* Webasyst.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA022685A6B20011259A /* Webasyst.plist */; };
+		FD3BBA052685A7050011259A /* Webasyst.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA042685A7050011259A /* Webasyst.plist */; };
 		FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */; };
 		FD46B9AD267C447700A6597A /* InstallWebasystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */; };
 		FD46B9B3267C74A200A6597A /* WaidInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */; };
@@ -130,7 +130,7 @@
 		FD3BB9F5268586850011259A /* DetailSiteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteViewModel.swift; sourceTree = "<group>"; };
 		FD3BB9F7268586E50011259A /* DetailSiteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteCoordinator.swift; sourceTree = "<group>"; };
 		FD3BB9FA26858A290011259A /* DetailSiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteModel.swift; sourceTree = "<group>"; };
-		FD3BBA022685A6B20011259A /* Webasyst.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Webasyst.plist; sourceTree = "<group>"; };
+		FD3BBA042685A7050011259A /* Webasyst.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Webasyst.plist; sourceTree = "<group>"; };
 		FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystViewModel.swift; sourceTree = "<group>"; };
 		FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystCoordinator.swift; sourceTree = "<group>"; };
 		FD46B9B2267C74A200A6597A /* WaidInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaidInstructionViewController.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		C341FECD255B0AED0091B045 /* Webasyst X */ = {
 			isa = PBXGroup;
 			children = (
-				FD3BBA022685A6B20011259A /* Webasyst.plist */,
+				FD3BBA042685A7050011259A /* Webasyst.plist */,
 				FD4E67FF2679CE7400A42283 /* Views */,
 				FDE6408125BFC547008082F3 /* Localization */,
 				FD576DF12660C08300F4D707 /* Models */,
@@ -975,7 +975,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD3BBA032685A6B20011259A /* Webasyst.plist in Resources */,
+				FD3BBA052685A7050011259A /* Webasyst.plist in Resources */,
 				FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */,
 				FDE640A025BFCA2B008082F3 /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
