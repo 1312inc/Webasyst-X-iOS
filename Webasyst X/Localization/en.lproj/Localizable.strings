@@ -1,5 +1,5 @@
 "errorTitle" = "Error"; 
-"permisionDenied" = "Looks like you don't have access to the %s app (API response: access_denied). Please contact the account owner to enable access for you.";
+"permisionDenied" = "Looks like you don't have access to the %@ app (API response: access_denied). Please contact the account owner to enable access for you.";
 "requestFailed" = "Something went wrong while communicating with the app (API response: invalid_request).";
 "loading" = "Loading...";
 "installModuleButtonTitle" = "Install Now";
