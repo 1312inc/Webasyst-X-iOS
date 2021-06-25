@@ -9,6 +9,7 @@ DerivedData/
 apns/
 Pods/
 Products/
+Webasyst.plist
 
 
 *.mode1
