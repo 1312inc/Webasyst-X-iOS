@@ -14,6 +14,7 @@ protocol SiteViewModelProtocol {
     var dataSource: BehaviorRelay<Result<[Pages]>> { get }
     func openInstallList()
     func fetchSiteList()
+    func openDetailSite(pagesId: String)
 }
 
 final class SiteViewModel: SiteViewModelProtocol {
@@ -43,6 +44,10 @@ final class SiteViewModel: SiteViewModelProtocol {
     
     func openInstallList() {
         self.coordinator.openInstallList()
+    }
+    
+    func openDetailSite(pagesId: String) {
+        self.coordinator.openDetail(pageId: pagesId)
     }
     
 }

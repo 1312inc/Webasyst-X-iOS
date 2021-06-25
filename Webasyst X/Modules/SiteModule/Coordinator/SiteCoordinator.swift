@@ -10,6 +10,7 @@ import UIKit
 protocol SiteCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
     func openInstallList()
+    func openDetail(pageId: String)
 }
 
 class SiteCoordinator: Coordinator, SiteCoordinatorProtocol {
@@ -33,6 +34,11 @@ class SiteCoordinator: Coordinator, SiteCoordinatorProtocol {
         let installListCoordinator = InstallListCoordinator(navigationController)
         childCoordinator.append(installListCoordinator)
         installListCoordinator.start()
+    }
+    
+    func openDetail(pageId: String) {
+        let coordinator = DetailSiteCoordinator(navigationController: self.navigationController, pageId: pageId)
+        coordinator.start()
     }
     
 }

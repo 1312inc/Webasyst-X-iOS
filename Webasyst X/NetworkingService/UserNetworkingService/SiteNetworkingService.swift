@@ -13,6 +13,7 @@ import Webasyst
 
 protocol SiteNetworkingServiceProtocol: Any {
     func getSiteList() -> Observable<Result<[Pages]>>
+    func getDetailSite(id: String) -> Observable<Result<DetailSite>>
 }
 
 class SiteNetwrokingService: UserNetworkingManager, SiteNetworkingServiceProtocol {
@@ -60,6 +61,67 @@ class SiteNetwrokingService: UserNetworkingManager, SiteNetworkingServiceProtoco
                                     observer.onNext(Result.Failure(.notEntity))
                                     observer.onCompleted()
                                 }
+                            } catch let error {
+                                print(error)
+                                observer.onNext(Result.Failure(.notEntity))
+                                observer.onCompleted()
+                            }
+                        }
+                    case 401:
+                        observer.onNext(Result.Failure(.permisionDenied))
+                        observer.onCompleted()
+                    case 400:
+                        observer.onNext(Result.Failure(.notInstall))
+                        observer.onCompleted()
+                    default:
+                        observer.onNext(Result.Failure(.permisionDenied))
+                    }
+                case .failure:
+                    observer.onNext(Result.Failure(.requestFailed(text: NSLocalizedString("getStatusCodeError", comment: ""))))
+                }
+            }
+            
+            request.resume()
+            
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
+    
+    func getDetailSite(id: String) -> Observable<Result<DetailSite>> {
+        return Observable.create { (observer) -> Disposable in
+            
+            let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+            
+            guard let changeInstall = self.webasyst.getUserInstall(selectDomain) else {
+                observer.onCompleted()
+                return Disposables.create { }
+            }
+            
+            let parameters: [String: String] = [
+                "access_token": "\(changeInstall.accessToken ?? "")",
+                "domain_id": "1",
+                "id": id
+            ]
+            
+            
+            let url = changeInstall.url
+            
+            let request = AF.request("\(url)/api.php/site.page.getInfo", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString)).response { response in
+                switch response.result {
+                case .success(let data):
+                    guard let statusCode = response.response?.statusCode else {
+                        observer.onNext(Result.Failure(.requestFailed(text: NSLocalizedString("getStatusCodeError", comment: ""))))
+                        observer.onCompleted()
+                        return
+                    }
+                    switch statusCode {
+                    case 200...299:
+                        if let data = data {
+                            do {
+                                let page = try JSONDecoder().decode(DetailSite.self, from: data)
+                                observer.onNext(Result.Success(page))
                             } catch let error {
                                 print(error)
                                 observer.onNext(Result.Failure(.notEntity))

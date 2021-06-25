@@ -263,4 +263,9 @@ extension SiteViewController: UITableViewDelegate, UITableViewDataSource {
         return 67
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pageid = self.viewModel.siteList[indexPath.row].id
+        self.viewModel.openDetailSite(pagesId: pageid)
+    }
+    
 }
