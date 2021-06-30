@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46906C21303AC6CB5C02AA96 /* MainTabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3B3D630AF58E44211C4B9 /* MainTabBarModel.swift */; };
+		70B263117BFDFD43244C2EAB /* MainTabBarViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467300A1C4601F61A5B289D /* MainTabBarViewConroller.swift */; };
+		80442A1AEB2D77511E188A09 /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809DA34F2DA294F1A93E26D /* MainTabBarRouter.swift */; };
 		C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FECE255B0AED0091B045 /* AppDelegate.swift */; };
 		C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FED0255B0AED0091B045 /* SceneDelegate.swift */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
 		D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */; };
+		E4757DAD9160C5C1988A272B /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533317F95755602147A3FA7 /* MainTabBarViewModel.swift */; };
 		FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */; };
 		FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */; };
 		FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */; };
@@ -105,9 +109,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1809DA34F2DA294F1A93E26D /* MainTabBarRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
 		1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.debug.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.debug.xcconfig"; sourceTree = "<group>"; };
+		5533317F95755602147A3FA7 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Webasyst_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.release.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.release.xcconfig"; sourceTree = "<group>"; };
+		9467300A1C4601F61A5B289D /* MainTabBarViewConroller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewConroller.swift; sourceTree = "<group>"; };
 		BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECB255B0AED0091B045 /* Webasyst X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Webasyst X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECE255B0AED0091B045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +122,7 @@
 		C341FEDA255B0AF20091B045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6C3B3D630AF58E44211C4B9 /* MainTabBarModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarModel.swift; sourceTree = "<group>"; };
 		FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -207,6 +215,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		097F4B5240782F6CE2331971 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1A14404A66D4B557C08BD792 /* View */,
+				6ABD34EE0F40D9D135A53902 /* ViewModel */,
+				0D3F96FF9BF2A8719470A4BD /* Model */,
+				1D3BF9C477301331E5D2603E /* Router */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		0D3F96FF9BF2A8719470A4BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6C3B3D630AF58E44211C4B9 /* MainTabBarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A14404A66D4B557C08BD792 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9467300A1C4601F61A5B289D /* MainTabBarViewConroller.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1BEDA2B324DC9651A7392F40 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +249,22 @@
 				680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		1D3BF9C477301331E5D2603E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1809DA34F2DA294F1A93E26D /* MainTabBarRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6ABD34EE0F40D9D135A53902 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5533317F95755602147A3FA7 /* MainTabBarViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C341FEC2255B0AED0091B045 = {
@@ -245,7 +296,7 @@
 				FD576DF12660C08300F4D707 /* Models */,
 				FDCF9CB325AE7F6C00EDFE69 /* App */,
 				FDCF9CB525AE7F8900EDFE69 /* Resources */,
-				FDCF9CDD25AE84A300EDFE69 /* AppCoordinator */,
+				FDCF9CDD25AE84A300EDFE69 /* AsemblyBuilder */,
 				FDCF9CB425AE7F7A00EDFE69 /* Modules */,
 				FDCF9CB625AE7F9E00EDFE69 /* NetworkingService */,
 			);
@@ -617,6 +668,7 @@
 				FDE8F5AB25B03FDF00B98933 /* BlogModule */,
 				FDE640A225BFE297008082F3 /* BlogEntryModule */,
 				FDCF9CB725AE807A00EDFE69 /* WelcomeModule */,
+				097F4B5240782F6CE2331971 /* MainTabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -650,12 +702,12 @@
 			path = WelcomeModule;
 			sourceTree = "<group>";
 		};
-		FDCF9CDD25AE84A300EDFE69 /* AppCoordinator */ = {
+		FDCF9CDD25AE84A300EDFE69 /* AsemblyBuilder */ = {
 			isa = PBXGroup;
 			children = (
 				FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */,
 			);
-			path = AppCoordinator;
+			path = AsemblyBuilder;
 			sourceTree = "<group>";
 		};
 		FDCF9CE925AE99BD00EDFE69 /* ViewModel */ = {
@@ -1114,6 +1166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */,
+				70B263117BFDFD43244C2EAB /* MainTabBarViewConroller.swift in Sources */,
+				E4757DAD9160C5C1988A272B /* MainTabBarViewModel.swift in Sources */,
+				46906C21303AC6CB5C02AA96 /* MainTabBarModel.swift in Sources */,
+				80442A1AEB2D77511E188A09 /* MainTabBarRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

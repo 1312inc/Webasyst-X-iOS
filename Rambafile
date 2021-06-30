@@ -1,0 +1,25 @@
+### Headers settings
+company: 1312 Inc.
+
+### Xcode project settings
+project_name: Webasyst-X-iOS
+xcodeproj_path: Webasyst X.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: Webasyst X
+
+# The file path for new modules
+project_file_path: Webasyst X/Modules
+
+# The Xcode group path to new modules
+project_group_path: Webasyst X/Modules
+
+### Dependencies settings section
+podfile_path: Podfile
+
+### Templates
+templates:
+- {name: WebasystModule, local: './WebasystModule'}
+
+

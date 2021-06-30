@@ -41,10 +41,10 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
         })
     }
     
+    
     //Opening install list
     func openInstallList() {
         let installListCoordinator = InstallListCoordinator(navigationController)
-        childCoordinator.append(installListCoordinator)
         installListCoordinator.start()
     }
     

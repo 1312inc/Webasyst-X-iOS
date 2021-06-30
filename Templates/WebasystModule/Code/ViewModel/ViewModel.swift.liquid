@@ -1,0 +1,40 @@
+//
+//  {{ module_info.name }} module - {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+
+//MARK: ViewModel input properties
+protocol {{ module_info.name }}ViewModelInput {
+    //ViewModel inputs properties
+}
+
+//MARK: ViewModel output properties
+protocol {{ module_info.name }}ViewModelOutput {
+    //ViewModel output properties
+}
+
+//MARK: {{ module_info.name }}ViewModelType
+protocol {{ module_info.name }}ViewModelType {
+    var input: {{ module_info.name }}ViewModelInput { get }
+    var output: {{ module_info.name }}ViewModelOutput { get }
+}
+
+//MARK: {{ module_info.name }}ViewModel
+final class {{ module_info.name }}ViewModel: {{ module_info.name }}ViewModelInput, {{ module_info.name }}ViewModelOutput, {{ module_info.name }}ViewModelType {
+    
+    var model: {{ module_info.name }}ModelType
+    var input: {{ module_info.name }}ViewModelInput { return self }
+    var output: {{ module_info.name }}ViewModelOutput { return self }
+    
+    init(model: {{ module_info.name }}ModelType) {
+        self.model = model
+    }
+    
+}

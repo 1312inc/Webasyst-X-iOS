@@ -1,8 +1,9 @@
 //
-//  InstalListViewModel.swift
-//  WebXApp
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
 //
-//  Created by Виктор Кобыхно on 1/18/21.
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
 import Foundation

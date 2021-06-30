@@ -1,0 +1,34 @@
+//
+//  {{ module_info.name }} module - {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+//MARK: {{ module_info.name }}RouterType
+protocol {{ module_info.name }}RouterType {
+    var navigationController: UINavigationController { get }
+    var asembly: AsemblyBuilderProtocol { get }
+    init(navigationController: UINavigationController, asembly: AsemblyBuilderProtocol)
+    func initialViewController()
+}
+
+//MARK {{ module_info.name }}Router
+final class {{ module_info.name }}Router: {{ module_info.name }}RouterType {
+    
+    var navigationController: UINavigationController
+    var asembly: AsemblyBuilderProtocol
+    
+    init(navigationController: UINavigationController, asembly: AsemblyBuilderProtocol) {
+    
+    }
+    
+    //MARK: Initial ViewController
+    func initialViewController() {
+    
+    }
+    
+}
