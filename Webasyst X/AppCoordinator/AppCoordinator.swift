@@ -76,7 +76,5 @@ final class AppCoordinator: Coordinator {
                 }
             }
         }
-        
     }
-    
 }

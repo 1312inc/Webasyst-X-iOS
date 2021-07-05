@@ -7,15 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46906C21303AC6CB5C02AA96 /* MainTabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3B3D630AF58E44211C4B9 /* MainTabBarModel.swift */; };
-		70B263117BFDFD43244C2EAB /* MainTabBarViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9467300A1C4601F61A5B289D /* MainTabBarViewConroller.swift */; };
-		80442A1AEB2D77511E188A09 /* MainTabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1809DA34F2DA294F1A93E26D /* MainTabBarRouter.swift */; };
 		C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FECE255B0AED0091B045 /* AppDelegate.swift */; };
 		C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C341FED0255B0AED0091B045 /* SceneDelegate.swift */; };
 		C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDA255B0AF20091B045 /* Assets.xcassets */; };
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
 		D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */; };
-		E4757DAD9160C5C1988A272B /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533317F95755602147A3FA7 /* MainTabBarViewModel.swift */; };
 		FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */; };
 		FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */; };
 		FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */; };
@@ -30,7 +26,6 @@
 		FD3BB9F6268586850011259A /* DetailSiteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9F5268586850011259A /* DetailSiteViewModel.swift */; };
 		FD3BB9F8268586E50011259A /* DetailSiteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9F7268586E50011259A /* DetailSiteCoordinator.swift */; };
 		FD3BB9FB26858A290011259A /* DetailSiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BB9FA26858A290011259A /* DetailSiteModel.swift */; };
-		FD3BBA052685A7050011259A /* Webasyst.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA042685A7050011259A /* Webasyst.plist */; };
 		FD3BBA072685AC470011259A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA092685AC470011259A /* Localizable.strings */; };
 		FD46B9AB267C424000A6597A /* InstallWebasystViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */; };
 		FD46B9AD267C447700A6597A /* InstallWebasystCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9AC267C447700A6597A /* InstallWebasystCoordinator.swift */; };
@@ -38,6 +33,9 @@
 		FD46B9B5267C76D500A6597A /* WaidInstructionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B4267C76D500A6597A /* WaidInstructionViewModel.swift */; };
 		FD46B9B7267C770700A6597A /* WaidInstructionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46B9B6267C770700A6597A /* WaidInstructionCoordinator.swift */; };
 		FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46C08F2681991700A97894 /* WebasystXTests.swift */; };
+		FD4CD0F52692CEBA00F5A3DE /* Webasyst.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD0F42692CEBA00F5A3DE /* Webasyst.plist */; };
+		FD4CD0F82692E12800F5A3DE /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD0F72692E12800F5A3DE /* UIViewController.swift */; };
+		FD4CD0FA2693073F00F5A3DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD0F92693073F00F5A3DE /* README.md */; };
 		FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68012679CED300A42283 /* InstallModuleView.swift */; };
 		FD4E68052679E1DC00A42283 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68042679E1DC00A42283 /* EmptyListView.swift */; };
 		FD4E680B2679F13900A42283 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4E68092679F13900A42283 /* LoadingViewController.swift */; };
@@ -109,12 +107,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1809DA34F2DA294F1A93E26D /* MainTabBarRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarRouter.swift; sourceTree = "<group>"; };
 		1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.debug.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.debug.xcconfig"; sourceTree = "<group>"; };
-		5533317F95755602147A3FA7 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Webasyst_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.release.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.release.xcconfig"; sourceTree = "<group>"; };
-		9467300A1C4601F61A5B289D /* MainTabBarViewConroller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarViewConroller.swift; sourceTree = "<group>"; };
 		BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECB255B0AED0091B045 /* Webasyst X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Webasyst X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECE255B0AED0091B045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +117,6 @@
 		C341FEDA255B0AF20091B045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F6C3B3D630AF58E44211C4B9 /* MainTabBarModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarModel.swift; sourceTree = "<group>"; };
 		FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -138,7 +132,6 @@
 		FD3BB9F5268586850011259A /* DetailSiteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteViewModel.swift; sourceTree = "<group>"; };
 		FD3BB9F7268586E50011259A /* DetailSiteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteCoordinator.swift; sourceTree = "<group>"; };
 		FD3BB9FA26858A290011259A /* DetailSiteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSiteModel.swift; sourceTree = "<group>"; };
-		FD3BBA042685A7050011259A /* Webasyst.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Webasyst.plist; sourceTree = "<group>"; };
 		FD3BBA082685AC470011259A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD3BBA0A2685AC590011259A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD46B9AA267C424000A6597A /* InstallWebasystViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallWebasystViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +142,9 @@
 		FD46C08D2681991700A97894 /* WebasystXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebasystXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD46C08F2681991700A97894 /* WebasystXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystXTests.swift; sourceTree = "<group>"; };
 		FD46C0912681991700A97894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD4CD0F42692CEBA00F5A3DE /* Webasyst.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Webasyst.plist; sourceTree = "<group>"; };
+		FD4CD0F72692E12800F5A3DE /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		FD4CD0F92693073F00F5A3DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		FD4E68012679CED300A42283 /* InstallModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallModuleView.swift; sourceTree = "<group>"; };
 		FD4E68042679E1DC00A42283 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		FD4E68092679F13900A42283 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -215,33 +211,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		097F4B5240782F6CE2331971 /* MainTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				1A14404A66D4B557C08BD792 /* View */,
-				6ABD34EE0F40D9D135A53902 /* ViewModel */,
-				0D3F96FF9BF2A8719470A4BD /* Model */,
-				1D3BF9C477301331E5D2603E /* Router */,
-			);
-			path = MainTabBar;
-			sourceTree = "<group>";
-		};
-		0D3F96FF9BF2A8719470A4BD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F6C3B3D630AF58E44211C4B9 /* MainTabBarModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1A14404A66D4B557C08BD792 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9467300A1C4601F61A5B289D /* MainTabBarViewConroller.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1BEDA2B324DC9651A7392F40 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,22 +218,6 @@
 				680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		1D3BF9C477301331E5D2603E /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				1809DA34F2DA294F1A93E26D /* MainTabBarRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		6ABD34EE0F40D9D135A53902 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				5533317F95755602147A3FA7 /* MainTabBarViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C341FEC2255B0AED0091B045 = {
@@ -290,13 +243,15 @@
 		C341FECD255B0AED0091B045 /* Webasyst X */ = {
 			isa = PBXGroup;
 			children = (
-				FD3BBA042685A7050011259A /* Webasyst.plist */,
+				FD4CD0F92693073F00F5A3DE /* README.md */,
+				FD4CD0F42692CEBA00F5A3DE /* Webasyst.plist */,
 				FD4E67FF2679CE7400A42283 /* Views */,
 				FDE6408125BFC547008082F3 /* Localization */,
 				FD576DF12660C08300F4D707 /* Models */,
 				FDCF9CB325AE7F6C00EDFE69 /* App */,
 				FDCF9CB525AE7F8900EDFE69 /* Resources */,
-				FDCF9CDD25AE84A300EDFE69 /* AsemblyBuilder */,
+				FDCF9CDD25AE84A300EDFE69 /* AppCoordinator */,
+				FD4CD0F62692E10F00F5A3DE /* Extensions */,
 				FDCF9CB425AE7F7A00EDFE69 /* Modules */,
 				FDCF9CB625AE7F9E00EDFE69 /* NetworkingService */,
 			);
@@ -521,6 +476,14 @@
 			path = WebasystXTests;
 			sourceTree = "<group>";
 		};
+		FD4CD0F62692E10F00F5A3DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FD4CD0F72692E12800F5A3DE /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FD4E67FA2679AFB200A42283 /* AuthSlide */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,7 +631,6 @@
 				FDE8F5AB25B03FDF00B98933 /* BlogModule */,
 				FDE640A225BFE297008082F3 /* BlogEntryModule */,
 				FDCF9CB725AE807A00EDFE69 /* WelcomeModule */,
-				097F4B5240782F6CE2331971 /* MainTabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -702,12 +664,12 @@
 			path = WelcomeModule;
 			sourceTree = "<group>";
 		};
-		FDCF9CDD25AE84A300EDFE69 /* AsemblyBuilder */ = {
+		FDCF9CDD25AE84A300EDFE69 /* AppCoordinator */ = {
 			isa = PBXGroup;
 			children = (
 				FDCF9CDE25AE84BA00EDFE69 /* AppCoordinator.swift */,
 			);
-			path = AsemblyBuilder;
+			path = AppCoordinator;
 			sourceTree = "<group>";
 		};
 		FDCF9CE925AE99BD00EDFE69 /* ViewModel */ = {
@@ -1029,7 +991,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD3BBA052685A7050011259A /* Webasyst.plist in Resources */,
+				FD4CD0F52692CEBA00F5A3DE /* Webasyst.plist in Resources */,
 				FD576DF82660FDC800F4D707 /* BlogTableViewCell.xib in Resources */,
 				FD3BBA072685AC470011259A /* Localizable.strings in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
@@ -1039,6 +1001,7 @@
 				FD6D6CE3267099EC008340E0 /* WelcomeViewController.xib in Resources */,
 				FDCA6E992678955700922517 /* SlideView.xib in Resources */,
 				FD84BA702681E2E70049B7F9 /* SiteViewCell.xib in Resources */,
+				FD4CD0FA2693073F00F5A3DE /* README.md in Resources */,
 				FD922BAE25C26A0B00559AB5 /* InstallViewCell.xib in Resources */,
 				FD31EEA1267B458E00FF234F /* InstallWebasystViewController.xib in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
@@ -1101,6 +1064,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD4CD0F82692E12800F5A3DE /* UIViewController.swift in Sources */,
 				FD31EEA0267B458E00FF234F /* InstallWebasystViewController.swift in Sources */,
 				FDCF9CBA25AE80A100EDFE69 /* WelcomeViewModel.swift in Sources */,
 				FDD6E36E25B5441500F5CE24 /* ShopViewController.swift in Sources */,
@@ -1166,10 +1130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */,
-				70B263117BFDFD43244C2EAB /* MainTabBarViewConroller.swift in Sources */,
-				E4757DAD9160C5C1988A272B /* MainTabBarViewModel.swift in Sources */,
-				46906C21303AC6CB5C02AA96 /* MainTabBarModel.swift in Sources */,
-				80442A1AEB2D77511E188A09 /* MainTabBarRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

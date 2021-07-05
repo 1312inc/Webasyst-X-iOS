@@ -72,16 +72,6 @@ class BlogEntryViewController: UIViewController, WKUIDelegate {
         self.textView.loadHTMLString("\(htmlStart)\(fullHTML)\(htmlEnd)", baseURL:  nil)
     }
     
-    private func setupLoadingView() {
-        self.view.addSubview(loadingView)
-        NSLayoutConstraint.activate([
-            self.loadingView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
-            self.loadingView.heightAnchor.constraint(equalTo: self.view.heightAnchor),
-            self.loadingView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            self.loadingView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-        ])
-    }
-    
     private func setupLayout() {
         loadingView.removeFromSuperview()
         textView.backgroundColor = UIColor(named: "backgroundColor")
