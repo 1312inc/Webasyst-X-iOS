@@ -54,7 +54,7 @@ To configure the library, create a file Webasyst.plist, in the root folder of th
 
 *[a File example](https://github.com/1312inc/Webasyst-X-iOS/blob/master/Webasyst%20X/Webasyst.plist.example.plist)*
 
-***Note*** For more documentation on Webasyst you can get [here](https://github.com/1312inc/Webasyst-X-iOS-Pod)
+***Note*** More documentation on Webasyst you can get [here](https://github.com/1312inc/Webasyst-X-iOS-Pod)
 
 **Running the example app with Xcode**
 To run the app project:
