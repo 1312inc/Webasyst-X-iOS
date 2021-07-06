@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Moya
 
 protocol DetailSiteCoordinatorProtocol {
-    func showAlert(error: ServerError)
+    
 }
 
 final class DetailSiteCoordinator: Coordinator, DetailSiteCoordinatorProtocol {
@@ -25,32 +26,10 @@ final class DetailSiteCoordinator: Coordinator, DetailSiteCoordinatorProtocol {
     
     func start() {
         let viewController = DetailSiteViewController()
-        let networkingService = SiteNetwrokingService()
-        let viewModel = DetailSiteViewModel(networkingService: networkingService, coordinator: self, pageId: self.pageId)
+        let moyaProvider = MoyaProvider<NetworkingService>()
+        let viewModel = DetailSiteViewModel(moyaProvider: moyaProvider, pageId: self.pageId)
         viewController.viewModel = viewModel
         self.navigationController.pushViewController(viewController, animated: true)
     }
-    
-    func showAlert(error: ServerError) {
-        var errorText: String = ""
-        switch error {
-        case .permisionDenied:
-            let localizedString = NSLocalizedString("permisionDenied", comment: "")
-            let replacedString = String(format: localizedString, "site")
-           errorText = replacedString
-        case .notEntity:
-            errorText = NSLocalizedString("getStatusCodeError", comment: "")
-        case .requestFailed(text: let text):
-            errorText = text
-        case .notInstall:
-            errorText = NSLocalizedString("installModuleButtonTitle", comment: "")
-        }
-        let alert = UIAlertController(title: NSLocalizedString("errorTitle", comment: ""), message: errorText, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
-        self.navigationController.present(alert, animated: true) {
-            self.navigationController.popViewController(animated: true)
-        }
-    }
-    
     
 }

@@ -14,16 +14,16 @@ class BlogViewController: UIViewController {
     
     var webasyst = WebasystApp()
     var viewModel: BlogViewModelProtocol!
+    var coordinator: BlogCoordinatorProtocol!
     let disposedBag = DisposeBag()
     
     //MARK: Inteface element variables
     lazy var postTableView: UITableView = {
         let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
-        tableView.register(UINib(nibName: "BlogTableViewCell", bundle: nil), forCellReuseIdentifier: BlogTableViewCell.identifier)
+        tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -33,86 +33,85 @@ class BlogViewController: UIViewController {
         self.title = NSLocalizedString("blogTitle", comment: "")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .systemBackground
+        self.setupLayoutTableView(tables: self.postTableView)
         self.fetchData()
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
-        self.setupLoadingView()
     }
     
     // Subscribe for model updates
     private func fetchData() {
-        self.viewModel.dataSource.bind { result in
-            switch result {
-            case .Success(_):
-                DispatchQueue.main.async {
+        self.viewModel.blogListSubject
+            .map({ posts -> [PostList] in
+                if posts.isEmpty {
+                    self.setupEmptyView(moduleName: NSLocalizedString("blog", comment: ""), entityName: NSLocalizedString("post", comment: ""))
+                    return []
+                } else {
                     self.setupLayoutTableView(tables: self.postTableView)
-                    self.postTableView.reloadData()
+                    return posts
                 }
-            case .Failure(let error):
-                switch error {
+            })
+            .bind(to: postTableView.rx.items(cellIdentifier: BlogTableViewCell.identifier, cellType: BlogTableViewCell.self)) { count, post, cell in
+                cell.configure(post)
+            }.disposed(by: disposedBag)
+        
+        postTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                if let self = self {
+                    let cell = self.postTableView.cellForRow(at: indexPath) as? BlogTableViewCell
+                    guard let news = cell?.postList else { return }
+                    self.coordinator.openDetailBlogEntry(news)
+                }
+            }).disposed(by: disposedBag)
+        
+        self.viewModel.isLoadingSubject
+            .subscribe(onNext: { loading in
+                if loading {
+                    self.setupLoadingView()
+                }
+            }).disposed(by: disposedBag)
+        
+        self.viewModel.errorRequestSubject
+            .subscribe (onNext: { errors in
+                switch errors {
                 case .permisionDenied:
-                    DispatchQueue.main.async {
-                        let localizedString = NSLocalizedString("permisionDenied", comment: "")
-                        let replacedString = String(format: localizedString, "shop")
-                        self.setupServerError(with: replacedString)
-                    }
-                case .requestFailed(let text):
-                    DispatchQueue.main.async {
-                        self.setupServerError(with: "\(NSLocalizedString("requestFailed", comment: ""))\n\(text)")
-                    }
+                    self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                 case .notEntity:
-                    DispatchQueue.main.async {
-                        self.setupEmptyView()
-                    }
+                    self.setupEmptyView(moduleName: NSLocalizedString("blog", comment: ""), entityName: NSLocalizedString("post", comment: ""))
+                case .requestFailed(text: let text):
+                    self.setupServerError(with: text)
                 case .notInstall:
-                    DispatchQueue.main.async {
-                        self.setupInstallView(viewController: self)
-                    }
+                    self.setupInstallView(moduleName: NSLocalizedString("blog", comment: ""), viewController: self)
                 }
-            }
-        }.disposed(by: disposedBag)
+            }).disposed(by: disposedBag)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateData), name: Notification.Name("ChangedSelectDomain"), object: nil)
-        self.viewModel.fetchBlogPosts()
     }
     
     @objc func updateData() {
-        self.viewModel.fetchBlogPosts()
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
-        self.setupLoadingView()
+        let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+        if let activeDomain = webasyst.getUserInstall(selectDomain) {
+            self.viewModel.changeUserDomain(activeDomain.id)
+        }
     }
     
     @objc func openSetupList() {
-        self.viewModel.openInstallList()
+        self.coordinator.openInstallList()
     }
     
 }
 
 extension BlogViewController: InstallModuleViewDelegate {
+    
     func installModuleTap() {
-        print("install module tap ")
-    }
-}
-
-extension BlogViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.blogPosts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BlogTableViewCell.identifier, for: indexPath) as! BlogTableViewCell
-        
-        let post = self.viewModel.blogPosts[indexPath.row]
-        cell.configure(post)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.openBlogEntry(indexPath.row)
+        let alertController = UIAlertController(title: "Install module", message: "Tap in install module button", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(action)
+        self.navigationController?.present(alertController, animated: true, completion: nil)
     }
     
 }

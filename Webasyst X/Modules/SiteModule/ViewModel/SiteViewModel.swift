@@ -8,46 +8,82 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Moya
 
 protocol SiteViewModelProtocol {
-    var siteList: [Pages] { get }
-    var dataSource: BehaviorRelay<Result<[Pages]>> { get }
-    func openInstallList()
-    func fetchSiteList()
-    func openDetailSite(pagesId: String)
+    var isLoadingSubject: BehaviorSubject<Bool> { get }
+    var siteListSubject: BehaviorSubject<[Pages]> { get }
+    var errorRequestSubject: PublishSubject<ServerError> { get }
+    init(moyaProvider: MoyaProvider<NetworkingService>)
+    func changeUserDomain(_ domain: String)
 }
 
 final class SiteViewModel: SiteViewModelProtocol {
     
-    private let networkingService: SiteNetworkingServiceProtocol
-    var coordinator: SiteCoordinatorProtocol
-    var siteList = [Pages]()
-    var dataSource = BehaviorRelay(value: Result<[Pages]>.Success([]))
+    var isLoadingSubject = BehaviorSubject<Bool>(value: true)
+    var siteListSubject = BehaviorSubject<[Pages]>(value: [])
+    var errorRequestSubject = PublishSubject<ServerError>()
     
-    init(coordinator: SiteCoordinatorProtocol, networkingService: SiteNetworkingServiceProtocol) {
-        self.coordinator = coordinator
-        self.networkingService = networkingService
+    private var activeDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+    private var moyaProvider: MoyaProvider<NetworkingService>
+    private var disposeBag = DisposeBag()
+    
+    init(moyaProvider: MoyaProvider<NetworkingService>) {
+        self.moyaProvider = moyaProvider
+        self.fetchSiteList()
     }
     
     // Retrieving installation blog entries
     func fetchSiteList() {
-        _ = self.networkingService.getSiteList().bind(onNext: { (result) in
-            switch result {
-            case .Success(let site):
-                self.siteList = site
-                self.dataSource.accept(Result.Success(site))
-            case .Failure(let error):
-                self.dataSource.accept(Result.Failure(error))
-            }
-        })
+        self.isLoadingSubject.onNext(true)
+        moyaProvider.rx.request(.requestSiteList)
+            .subscribe { response in
+                guard let statusCode = response.response?.statusCode else {
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.requestFailed(text: "Failed to get server reply status code"))
+                    return
+                }
+                switch statusCode {
+                case 200...299:
+                    do {
+                        let siteData = try JSONDecoder().decode(SiteList.self, from: response.data)
+                        if let sites = siteData.pages {
+                            if !sites.isEmpty {
+                                self.isLoadingSubject.onNext(false)
+                                self.siteListSubject.onNext(sites)
+                            } else {
+                                self.isLoadingSubject.onNext(false)
+                                self.errorRequestSubject.onNext(.notEntity)
+                            }
+                        } else {
+                            self.isLoadingSubject.onNext(false)
+                            self.errorRequestSubject.onNext(.notEntity)
+                        }
+                    } catch let error {
+                        self.isLoadingSubject.onNext(false)
+                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                    }
+                case 401:
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.permisionDenied)
+                case 400:
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.notInstall)
+                default:
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.permisionDenied)
+                }
+            } onError: { error in
+                self.isLoadingSubject.onNext(false)
+                self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+            }.disposed(by: disposeBag)
     }
     
-    func openInstallList() {
-        self.coordinator.openInstallList()
-    }
-    
-    func openDetailSite(pagesId: String) {
-        self.coordinator.openDetail(pageId: pagesId)
+    func changeUserDomain(_ domain: String) {
+        if domain != self.activeDomain {
+            self.activeDomain = domain
+            self.fetchSiteList()
+        }
     }
     
 }

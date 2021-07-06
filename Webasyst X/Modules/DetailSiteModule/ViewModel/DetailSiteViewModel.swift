@@ -8,36 +8,65 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import Moya
 
 protocol DetailSiteViewModelProtocol {
-    var siteData: BehaviorSubject<DetailSite> { get }
-    func loadData()
+    var isLoadingSubject: BehaviorSubject<Bool> { get }
+    var siteDetailSubject: BehaviorSubject<DetailSite> { get }
+    var errorRequestSubject: PublishSubject<ServerError> { get }
+    init(moyaProvider: MoyaProvider<NetworkingService>, pageId: String)
 }
 
 final class DetailSiteViewModel: DetailSiteViewModelProtocol {
     
-    private var disposedBag = DisposeBag()
-    private var networkingService: SiteNetwrokingService
-    private var coordinator: DetailSiteCoordinatorProtocol
-    private var pageId: String
-    var siteData: BehaviorSubject<DetailSite> = BehaviorSubject<DetailSite>(value: DetailSite(id: "", name: "", title: "", content: "", update_datetime: ""))
+    var isLoadingSubject = BehaviorSubject<Bool>(value: true)
+    var siteDetailSubject = BehaviorSubject<DetailSite>(value: DetailSite(id: "", name: "", title: "", content: "", update_datetime: ""))
+    var errorRequestSubject = PublishSubject<ServerError>()
     
-    internal init(networkingService: SiteNetwrokingService, coordinator: DetailSiteCoordinatorProtocol, pageId: String) {
-        self.networkingService = networkingService
-        self.coordinator = coordinator
+    private var moyaProvider: MoyaProvider<NetworkingService>
+    private var disposeBag = DisposeBag()
+    private var pageId: String
+    
+    init(moyaProvider: MoyaProvider<NetworkingService>, pageId: String) {
+        self.moyaProvider = moyaProvider
         self.pageId = pageId
+        self.loadData()
     }
     
     func loadData() {
-        self.networkingService.getDetailSite(id: self.pageId)
-            .subscribe(onNext: { result in
-                switch result {
-                case .Success(let data):
-                    self.siteData.onNext(data)
-                case .Failure(let error):
-                    self.coordinator.showAlert(error: error)
+        isLoadingSubject.onNext(true)
+        moyaProvider.rx.request(.requestSiteDetail(id: self.pageId))
+            .debug()
+            .subscribe { response in
+                guard let statusCode = response.response?.statusCode else {
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.requestFailed(text: "Failed to get server reply status code"))
+                    return
                 }
-            }).disposed(by: self.disposedBag)
+                switch statusCode {
+                case 200...299:
+                    do {
+                        let siteData = try JSONDecoder().decode(DetailSite.self, from: response.data)
+                        self.isLoadingSubject.onNext(false)
+                        self.siteDetailSubject.onNext(siteData)
+                    } catch let error {
+                        self.isLoadingSubject.onNext(false)
+                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                    }
+                case 401:
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.permisionDenied)
+                case 400:
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.notInstall)
+                default:
+                    self.isLoadingSubject.onNext(false)
+                    self.errorRequestSubject.onNext(.permisionDenied)
+                }
+            } onError: { error in
+                self.isLoadingSubject.onNext(false)
+                self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+            }.disposed(by: disposeBag)
     }
     
 }

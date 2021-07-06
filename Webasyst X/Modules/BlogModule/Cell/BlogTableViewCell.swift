@@ -14,6 +14,7 @@ class BlogTableViewCell: UITableViewCell {
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorName: UILabel!
+    var postList: PostList?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,7 @@ class BlogTableViewCell: UITableViewCell {
     }
     
     public func configure(_ news: PostList) {
+        self.postList = news
         self.titleLabel?.text = news.title
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

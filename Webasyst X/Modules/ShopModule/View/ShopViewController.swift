@@ -14,101 +14,84 @@ class ShopViewController: UIViewController {
 
     let webasyst = WebasystApp()
     var viewModel: ShopViewModelProtocol!
+    var coordinator: ShopCoordinatorProtocol!
+    
+    private var disposedBag = DisposeBag()
     
     //MARK: Inteface element variables
     lazy var ordersTableView: UITableView = {
         let tableView = UITableView()
         let uiNib = UINib(nibName: "OrderViewCell", bundle: nil)
         tableView.register(uiNib, forCellReuseIdentifier: "orderCell")
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
+        tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupLoadingView()
-        self.title = self.viewModel.title
+        self.title = NSLocalizedString("shopTitle", comment: "")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
         self.fetchData()
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
-        self.setupLoadingView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateData), name: Notification.Name("ChangedSelectDomain"), object: nil)
-        self.viewModel.fetchOrderList()
     }
     
     @objc func updateData() {
-        self.ordersTableView.removeFromSuperview()
-        self.viewModel.fetchOrderList()
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
-        self.setupLoadingView()
-    }
-    
-    private func fetchData() {
-        _ = self.viewModel.dataSource.bind { result in
-            switch result {
-            case .Success:
-                DispatchQueue.main.async {
-                    self.setupLayoutTableView(tables: self.ordersTableView)
-                    self.ordersTableView.reloadData()
-                }
-            case .Failure(let error):
-                switch error {
-                case .permisionDenied:
-                    DispatchQueue.main.async {
-                        let localizedString = NSLocalizedString("permisionDenied", comment: "")
-                        let replacedString = String(format: localizedString, "shop")
-                        self.setupServerError(with: replacedString)
-                    }
-                case .requestFailed(let text):
-                    DispatchQueue.main.async {
-                        self.setupServerError(with: "\(NSLocalizedString("requestFailed", comment: ""))\n\(text)")
-                    }
-                case .notEntity:
-                    DispatchQueue.main.async {
-                        self.setupEmptyView()
-                    }
-                case .notInstall:
-                    DispatchQueue.main.async {
-                        self.setupInstallView(viewController: self)
-                    }
-                }
-            }
+        let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+        if let activeDomain = webasyst.getUserInstall(selectDomain) {
+            self.viewModel.changeUserDomain(activeDomain.id)
         }
     }
     
+    private func fetchData() {
+        self.viewModel.shopListSubject
+            .map({ orders -> [Orders] in
+                if orders.isEmpty {
+                    self.setupEmptyView(moduleName: NSLocalizedString("shop", comment: ""), entityName: NSLocalizedString("order", comment: ""))
+                    return []
+                } else {
+                    self.setupLayoutTableView(tables: self.ordersTableView)
+                    return orders
+                }
+            })
+            .bind(to: ordersTableView.rx.items(cellIdentifier: OrderViewCell.identifier, cellType: OrderViewCell.self)) { _, order, cell in
+                cell.configureCell(order)
+            }.disposed(by: disposedBag)
+        
+        self.viewModel.isLoadingSubject
+            .subscribe(onNext: { loading in
+                if loading {
+                    self.setupLoadingView()
+                }
+            }).disposed(by: disposedBag)
+        
+        self.viewModel.errorRequestSubject
+            .subscribe (onNext: { errors in
+                switch errors {
+                case .permisionDenied:
+                    self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
+                case .notEntity:
+                    self.setupEmptyView(moduleName: NSLocalizedString("shop", comment: ""), entityName: NSLocalizedString("order", comment: ""))
+                case .requestFailed(text: let text):
+                    self.setupServerError(with: text)
+                case .notInstall:
+                    self.setupInstallView(moduleName: NSLocalizedString("shop", comment: ""), viewController: self)
+                }
+            }).disposed(by: disposedBag)
+    }
+    
     @objc func openSetupList() {
-        self.viewModel.openInstallList()
+        self.coordinator.openInstallList()
     }
-}
-
-extension ShopViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.orderList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderViewCell
-        
-        let order = self.viewModel.orderList[indexPath.row]
-        cell.configureCell(order)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
 }
 
 extension ShopViewController: InstallModuleViewDelegate {

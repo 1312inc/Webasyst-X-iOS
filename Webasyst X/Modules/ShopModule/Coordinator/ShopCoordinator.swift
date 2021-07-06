@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 protocol ShopCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
@@ -21,10 +22,11 @@ class ShopCoordinator: Coordinator, ShopCoordinatorProtocol {
     }
 
     func start() {
-        let shopNetworkingService = ShopNetworkingService()
-        let shopViewModel = ShopViewModel(shopNetworkingService, coordinator: self)
+        let moyaProvider = MoyaProvider<NetworkingService>()
+        let shopViewModel = ShopViewModel(moyaProvider: moyaProvider)
         let shopViewController = ShopViewController()
         shopViewController.viewModel = shopViewModel
+        shopViewController.coordinator = self
         self.navigationController.setViewControllers([shopViewController], animated: true)
     }
     

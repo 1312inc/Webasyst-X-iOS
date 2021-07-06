@@ -30,9 +30,8 @@ class DetailSiteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupLayout()
+        view.backgroundColor = .systemBackground
         self.bindableViewModel()
-        self.viewModel.loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,13 +49,33 @@ class DetailSiteViewController: UIViewController {
     }
     
     private func bindableViewModel() {
-        self.viewModel.siteData
+        self.viewModel.siteDetailSubject
             .subscribe(onNext: { result in
                 self.setupData(site: result)
+            }).disposed(by: disposeBag)
+        
+        self.viewModel.isLoadingSubject
+            .subscribe(onNext: { loading in
+                if loading {
+                    self.setupLoadingView()
+                }
+            }).disposed(by: disposeBag)
+        
+        self.viewModel.errorRequestSubject
+            .subscribe (onNext: { errors in
+                switch errors {
+                case .permisionDenied:
+                    self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
+                case .requestFailed(text: let text):
+                    self.setupServerError(with: text)
+                default:
+                    self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
+                }
             }).disposed(by: disposeBag)
     }
     
     private func setupData(site: DetailSite) {
+        view.subviews.forEach({ $0.removeFromSuperview() })
         self.textView.scrollView.bounces = false
         let htmlStart = "<HTML><HEAD><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></HEAD><BODY style=\"background-color: \(UIColor.systemBackground.htmlRGB)\">"
         let htmlEnd = "</BODY></HTML>"
@@ -81,6 +100,7 @@ class DetailSiteViewController: UIViewController {
             "<span style=\"color: \(UIColor.label.htmlRGB)\">" + somedateString + "</span>" +
             "\(replacedText)</body></html>"
         self.textView.loadHTMLString("\(htmlStart)\(fullHTML.replacingOccurrences(of: "<h2>", with: "<h2 style=\"color: \(UIColor.label.htmlRGB)\">"))\(htmlEnd)", baseURL:  nil)
+        setupLayout()
     }
     
     private func setupLayout() {

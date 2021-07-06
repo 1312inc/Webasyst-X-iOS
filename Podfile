@@ -6,9 +6,10 @@ target 'Webasyst X' do
   use_frameworks!
 
   # Pods for Webasyst X
-  pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Webasyst'
+  pod 'Moya'
+  pod 'Moya/RxSwift'
 
 end

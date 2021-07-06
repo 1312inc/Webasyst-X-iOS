@@ -7,6 +7,7 @@
 
 import UIKit
 import Webasyst
+import Moya
 
 protocol BlogCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
@@ -25,22 +26,13 @@ class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
     }
     
     func start() {
-        let blogCoordinator = BlogCoordinator(self.navigationController)
-        let blogNetworkingService = BlogNetworkingService()
-        let blogViewModel = BlogViewModel(coordinator: blogCoordinator, blogNetworkingService: blogNetworkingService)
+        let moyaProvider = MoyaProvider<NetworkingService>()
+        let blogViewModel = BlogViewModel(moyaProvider: moyaProvider)
         let blogViewController = BlogViewController()
         blogViewController.viewModel = blogViewModel
+        blogViewController.coordinator = self
         self.navigationController.setViewControllers([blogViewController], animated: true)
-        webasyst.getAllUserInstall({ userInstall in
-            if let installs = userInstall {
-                if installs.isEmpty {
-                    let installCoordinator = InstallWebasystCoordinator(navigationController: self.navigationController)
-                    installCoordinator.startInModalSheet()
-                }
-            }
-        })
     }
-    
     
     //Opening install list
     func openInstallList() {

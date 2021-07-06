@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 protocol SiteCoordinatorProtocol {
     init(_ navigationController: UINavigationController)
@@ -23,9 +24,10 @@ class SiteCoordinator: Coordinator, SiteCoordinatorProtocol {
 
     func start() {
         let siteViewController = SiteViewController()
-        let networkingService = SiteNetwrokingService()
-        let viewModel = SiteViewModel(coordinator: self, networkingService: networkingService)
+        let moyaProvider = MoyaProvider<NetworkingService>()
+        let viewModel = SiteViewModel(moyaProvider: moyaProvider)
         siteViewController.viewModel = viewModel
+        siteViewController.coordinator = self
         self.navigationController.setViewControllers([siteViewController], animated: true)
     }
     

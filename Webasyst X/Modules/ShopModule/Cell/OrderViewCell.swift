@@ -9,6 +9,7 @@ import UIKit
 
 class OrderViewCell: UITableViewCell {
 
+    public static var identifier = "orderCell"
     @IBOutlet weak var numberOrderLabel: UILabel!
     @IBOutlet weak var statusOrderLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

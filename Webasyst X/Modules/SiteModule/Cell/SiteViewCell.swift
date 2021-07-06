@@ -12,6 +12,7 @@ class SiteViewCell: UITableViewCell {
     static var identifier = "siteCell"
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    var page: Pages?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,7 @@ class SiteViewCell: UITableViewCell {
     }
     
     func configure(siteData: Pages) {
+        self.page = siteData
         self.titleLabel?.text = siteData.name
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

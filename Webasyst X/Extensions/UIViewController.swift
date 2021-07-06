@@ -60,12 +60,12 @@ extension UIViewController {
         ])
     }
     
-    func setupEmptyView() {
+    func setupEmptyView(moduleName: String, entityName: String) {
         view.subviews.forEach({ $0.removeFromSuperview() })
         let emptyView = EmptyListView()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
-        emptyView.moduleName = NSLocalizedString("shop", comment: "")
-        emptyView.entityName = NSLocalizedString("order", comment: "")
+        emptyView.moduleName = moduleName
+        emptyView.entityName = entityName
         view.addSubview(emptyView)
         NSLayoutConstraint.activate([
             emptyView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -102,13 +102,16 @@ extension UIViewController {
         ])
     }
     
-    func setupInstallView(viewController: InstallModuleViewDelegate) {
+    func setupInstallView(moduleName: String, viewController: InstallModuleViewDelegate?) {
+        guard let viewController = viewController else {
+            return
+        }
         view.subviews.forEach({ $0.removeFromSuperview() })
         let installView = InstallModuleView()
         installView.translatesAutoresizingMaskIntoConstraints = false
         installView.delegate = viewController
-        installView.moduleName = NSLocalizedString("shopTitle", comment: "")
-        view.addSubview(installView)
+        installView.moduleName = moduleName
+        self.view.addSubview(installView)
         NSLayoutConstraint.activate([
             installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             installView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
