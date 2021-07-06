@@ -2,7 +2,7 @@
 
 ![webasyst-x-ios-ru-v1-showcase-dev](https://user-images.githubusercontent.com/889083/123943659-0d3f1000-d9a5-11eb-88d2-10eb1aa661cc.jpg)
 
-Simple native iOS apps that authenticates users via Webasyst ID and enables direct access to all linked Webasyst accounts APIs.
+Simple native iOS app that authenticates users via Webasyst ID and enables direct access to all linked Webasyst accounts APIs.
 
 **Usage**
 
@@ -14,7 +14,7 @@ You can use the terminal command ``diff +***generamba gen [Module Name] Webasyst
 To fix or edit a code generation template, use the template at the path */Templates/WebasystModule/Code
 
 **External Dependencies**
-The following libraries are required for the application
+The following libraries are required for the application:
 
 ```
 - pod RxSwift
@@ -27,7 +27,7 @@ The following libraries are required for the application
 **Extensions**
 The following are methods that are added as extensions to the UIViewController. 
 
-*createLeftNavigationButton* - method for creating a button to open settings list, sets either the logo of the user's active installation, if there are no settings - puts a sandwich.
+*createLeftNavigationButton* - method for creation of a button to open settings list. It sets either the logo of the user's active installation or if there are no settings - puts a sandwich.
 
 *setupLayoutTableView* - Sets the table with the output results. You must pass a UITableView with cells to work.
 
@@ -42,9 +42,9 @@ The following are methods that are added as extensions to the UIViewController.
 **Creating a new application from scratch**
 To create an application based on the Webasyst library, add ``pod webasyst`` to your pod-file and run pod install. After that, execute pod install in the terminal. 
 
-To import it into your application's controller, you must write ``import Webasyst`` in the controller's import list. 
+To import it into your application's controller, write ``import Webasyst`` in the controller's import list. 
 
-To configure the bibliotech, you must create a file Webasyst.plist, in the root folder of the project, with the following content
+To configure the library, create a file Webasyst.plist, in the root folder of the project, with the following content:
 
 ```
 "clientId": String // *clientId of your application. Example: "72at75391ea785412a24f4568528ed49"*
@@ -59,8 +59,8 @@ To configure the bibliotech, you must create a file Webasyst.plist, in the root 
 **Running the example app with Xcode**
 To run the app project:
 1. Clone file `Webasyst X/Webasyst.plist.example.plist` -> `Webasyst X/Webasyst.plist`
-2. Obtain your Webasyst ID client Id from Webasyst and save into this new .plist file.
+2. Obtain your Webasyst ID client Id from Webasyst and save it into this new .plist file.
 3. Run pod install in the terminal
 4. Launch Xcode.
 5. Open `WebasystX.xcworkspace`.
-6. Launch the application!
+6. Launch the app!
