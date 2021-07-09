@@ -35,7 +35,8 @@ class ShopViewController: UIViewController {
         self.title = NSLocalizedString("shopTitle", comment: "")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
-        self.fetchData()
+        self.viewModel.fetchOrderList()
+        self.bindableViewModel()
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
     }
     
@@ -52,7 +53,7 @@ class ShopViewController: UIViewController {
         }
     }
     
-    private func fetchData() {
+    private func bindableViewModel() {
         self.viewModel.shopListSubject
             .map({ orders -> [Orders] in
                 if orders.isEmpty {

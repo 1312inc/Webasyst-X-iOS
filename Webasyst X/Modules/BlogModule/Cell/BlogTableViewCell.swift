@@ -30,15 +30,18 @@ class BlogTableViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let myDate = dateFormatter.date(from: news.datetime)!
-        
         dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
         let somedateString = dateFormatter.string(from: myDate)
         self.authorName?.text = "\(news.user?.name ?? ""), \(somedateString)"
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
         let install = WebasystApp().getUserInstall(selectDomain)
         NetworkingManager().downloadImage("\(install?.url ?? "")\(news.user?.photo_url_20 ?? "")") { image in
-            self.userAvatar?.image = UIImage(data: image)
-            self.userAvatar.layer.cornerRadius = 15
+            if image.isEmpty {
+                self.userAvatar?.image = UIImage(named: "no-avatar")
+            } else {
+                self.userAvatar?.image = UIImage(data: image)
+            }
+            self.userAvatar.layer.cornerRadius = 10
         }
     }
     

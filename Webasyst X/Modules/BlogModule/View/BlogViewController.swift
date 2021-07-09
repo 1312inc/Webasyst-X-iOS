@@ -34,12 +34,13 @@ class BlogViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = .systemBackground
         self.setupLayoutTableView(tables: self.postTableView)
-        self.fetchData()
+        self.viewModel.fetchBlogPosts()
+        self.bindableViewModel()
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
     }
     
     // Subscribe for model updates
-    private func fetchData() {
+    private func bindableViewModel() {
         self.viewModel.blogListSubject
             .map({ posts -> [PostList] in
                 if posts.isEmpty {

@@ -34,7 +34,8 @@ class SiteViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
         self.createLeftNavigationButton(action: #selector(self.openSetupList))
-        self.fetchData()
+        self.viewModel.fetchSiteList()
+        self.bindableViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +44,7 @@ class SiteViewController: UIViewController {
     }
     
     // Subscribe for model updates
-    private func fetchData() {
+    private func bindableViewModel() {
         
         self.viewModel.siteListSubject
             .map({ pages -> [Pages] in

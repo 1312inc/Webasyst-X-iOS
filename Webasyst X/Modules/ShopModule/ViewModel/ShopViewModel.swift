@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Moya
+import Webasyst
 
 protocol ShopViewModelProtocol: AnyObject {
     var isLoadingSubject: BehaviorSubject<Bool> { get }
@@ -16,6 +17,7 @@ protocol ShopViewModelProtocol: AnyObject {
     var errorRequestSubject: PublishSubject<ServerError> { get }
     init(moyaProvider: MoyaProvider<NetworkingService>)
     func changeUserDomain(_ domain: String)
+    func fetchOrderList()
 }
 
 class ShopViewModel: ShopViewModelProtocol {
@@ -30,7 +32,6 @@ class ShopViewModel: ShopViewModelProtocol {
     
     required init(moyaProvider: MoyaProvider<NetworkingService>) {
         self.moyaProvider = moyaProvider
-        fetchOrderList()
     }
     
     func fetchOrderList() {
@@ -59,13 +60,35 @@ class ShopViewModel: ShopViewModelProtocol {
                     }
                 case 401:
                     self.isLoadingSubject.onNext(false)
-                    self.errorRequestSubject.onNext(.permisionDenied)
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
+                        if let error = json?["error"] {
+                            if error == "invalid_client" {
+                                let localizedString = NSLocalizedString("invalidClientError", comment: "")
+                                let webasyst = WebasystApp()
+                                let activeInstall = webasyst.getUserInstall(self.activeDomain)
+                                let replacedString = String(format: localizedString, activeInstall?.url ?? "", String(data: response.data, encoding: String.Encoding.utf8)!)
+                                self.errorRequestSubject.onNext(.requestFailed(text: replacedString))
+                            } else {
+                                self.errorRequestSubject.onNext(.requestFailed(text: json?["error_description"] ?? ""))
+                            }
+                        } else {
+                            self.errorRequestSubject.onNext(.permisionDenied)
+                        }
+                    } catch let error {
+                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                    }
                 case 400:
                     self.isLoadingSubject.onNext(false)
                     self.errorRequestSubject.onNext(.notInstall)
                 default:
                     self.isLoadingSubject.onNext(false)
-                    self.errorRequestSubject.onNext(.permisionDenied)
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
+                        self.errorRequestSubject.onNext(.requestFailed(text: "\(json?["error_description"] ?? "")"))
+                    } catch let error {
+                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                    }
                 }
             } onError: { error in
                 self.isLoadingSubject.onNext(false)

@@ -25,7 +25,13 @@ class NetworkingManager {
         getData(from: URL(string: imagePath)!) { data, response, error in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() {
-                completion(data)
+                guard let response = response as? HTTPURLResponse else { return }
+                if response.statusCode != 200 {
+                    completion(Data())
+                } else {
+                    completion(data)
+                }
+                
             }
         }
     }

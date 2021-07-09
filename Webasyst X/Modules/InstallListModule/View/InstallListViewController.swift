@@ -76,7 +76,7 @@ class InstallListViewController: UIViewController {
     }()
     
     lazy var footerView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 150))
         return view
     }()
     
@@ -138,8 +138,8 @@ class InstallListViewController: UIViewController {
         self.profileView.addSubview(profileImage)
         self.profileView.addSubview(userName)
         self.profileView.addSubview(userEmail)
-        self.profileView.addSubview(signOutButton)
         self.profileView.addSubview(myInstallLabel)
+        self.footerView.addSubview(signOutButton)
         self.footerView.addSubview(addWebasystButton)
         self.tableView.tableHeaderView = profileView
         self.tableView.tableFooterView = footerView
@@ -158,17 +158,20 @@ class InstallListViewController: UIViewController {
             userName.centerXAnchor.constraint(equalTo: self.profileView.centerXAnchor),
             userEmail.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 5),
             userEmail.centerXAnchor.constraint(equalTo: self.profileView.centerXAnchor),
-            signOutButton.topAnchor.constraint(equalTo: self.userEmail.bottomAnchor, constant: 10),
-            signOutButton.leadingAnchor.constraint(equalTo: self.profileView.leadingAnchor, constant: 20),
-            signOutButton.trailingAnchor.constraint(equalTo: self.profileView.trailingAnchor, constant: -20),
             myInstallLabel.leadingAnchor.constraint(equalTo: self.profileView.leadingAnchor, constant: 20),
             myInstallLabel.trailingAnchor.constraint(equalTo: self.profileView.trailingAnchor, constant: -20),
-            myInstallLabel.topAnchor.constraint(equalTo: self.signOutButton.bottomAnchor, constant: 30),
+            myInstallLabel.topAnchor.constraint(equalTo: self.userEmail.bottomAnchor, constant: 30),
             myInstallLabel.bottomAnchor.constraint(equalTo: self.profileView.bottomAnchor, constant: -5),
-            addWebasystButton.leadingAnchor.constraint(equalTo: self.footerView.leadingAnchor, constant: 20),
-            addWebasystButton.trailingAnchor.constraint(equalTo: self.footerView.trailingAnchor, constant: -20),
+            footerView.widthAnchor.constraint(equalTo: self.tableView.widthAnchor),
+            footerView.bottomAnchor.constraint(equalTo: self.tableView.bottomAnchor),
+            addWebasystButton.widthAnchor.constraint(equalTo: self.footerView.widthAnchor, constant: -40),
+            addWebasystButton.centerXAnchor.constraint(equalTo: self.footerView.centerXAnchor),
             addWebasystButton.topAnchor.constraint(equalTo: self.footerView.topAnchor, constant: 10),
-            addWebasystButton.bottomAnchor.constraint(equalTo: self.footerView.bottomAnchor, constant: -10)
+            addWebasystButton.heightAnchor.constraint(equalToConstant: 40),
+            signOutButton.widthAnchor.constraint(equalTo: self.footerView.widthAnchor, constant: -40),
+            signOutButton.centerXAnchor.constraint(equalTo: self.footerView.centerXAnchor),
+            signOutButton.topAnchor.constraint(equalTo: self.addWebasystButton.bottomAnchor, constant: 10),
+            signOutButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -203,6 +206,10 @@ extension InstallListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 77
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

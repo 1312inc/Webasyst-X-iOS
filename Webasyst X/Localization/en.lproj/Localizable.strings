@@ -9,6 +9,8 @@
 "seconds" = "seconds";
 "successTitle" = "Success";
 
+"invalidClientError" = "Failed to fetch data.\nFailed to obtain access token: Client request (%@) invalid: 401 Unauthorized. Text: %@";
+
 "blog" = "blog";
 "shop" = "shop";
 "site" = "site";

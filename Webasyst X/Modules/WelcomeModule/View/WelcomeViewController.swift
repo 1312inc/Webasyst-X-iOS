@@ -116,7 +116,7 @@ extension WelcomeViewController: SlideViewDelegate {
     
     //MARK: Next button tap
     func nextButtonTap() {
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.2) {
             self.scrollView.contentOffset.x += self.view.frame.width
         }
     }

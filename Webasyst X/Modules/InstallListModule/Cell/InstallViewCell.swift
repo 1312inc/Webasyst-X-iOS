@@ -30,7 +30,7 @@ class InstallViewCell: UITableViewCell {
         installmage.layer.cornerRadius = installmage.frame.width / 2
         installmage.contentMode = .scaleAspectFill
         self.urlLabel?.text = profileInstall.name
-        self.domainLabel?.text = profileInstall.url
+        self.domainLabel?.text = profileInstall.cloudExpireDate != nil ? profileInstall.cloudExpireDate : profileInstall.url
         self.installmage.image = UIImage(data: profileInstall.image!)
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
         if profileInstall.id != selectDomain {
