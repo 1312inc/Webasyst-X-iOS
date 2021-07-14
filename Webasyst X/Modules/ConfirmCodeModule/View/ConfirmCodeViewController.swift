@@ -253,7 +253,7 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
             navigationItem.rightBarButtonItem?.tintColor = UIColor.systemGray
         }
         
-        if string.count >= 6 {
+        if string.count >= 6 && string.count <= 20 {
             self.viewModel.sendCode(with: confirmCode)
         }
         
