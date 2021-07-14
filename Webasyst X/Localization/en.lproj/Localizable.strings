@@ -3,20 +3,22 @@
 "requestFailed" = "Something went wrong while communicating with the app (API response: invalid_request).";
 "loading" = "Loading...";
 "installModuleButtonTitle" = "Install Now";
-"connectionAlertMessage" = "No internet connection";
+"connectionAlertMessage" = "No connection to the Internet. Check your connection and try again.";
 "getStatusCodeError" = "Something went wrong while communicating with the app (API response: invalid_request).";
 "okAlert" = "OK";
 "seconds" = "seconds";
 "successTitle" = "Success";
 
 "invalidClientError" = "Failed to fetch data.\nFailed to obtain access token: Client request (%@) invalid: 401 Unauthorized. Text: %@";
+"disabledErrorText" = "API functionality is disabled in this Webasyst account. Please contact your Webasyst admin (provider) for details.";
+"notSecureConnection" = "Connection is not secure";
 
 "blog" = "blog";
-"shop" = "shop";
+"shop" = "store";
 "site" = "site";
-"post" = "posts";
-"element" = "elements";
-"order" = "orders";
+"post" = "Posts";
+"element" = "Pages";
+"order" = "Orders";
 
 "authError" = "Authorization error. Try again later.";
 
@@ -37,10 +39,10 @@
 "orLabel" = "or";
 
 //Phone authorization
-"titlePhone" = "Enter your telephone number";
+"titlePhone" = "Enter your phone number";
 "descriptionPhone" = "We will send a confirmation code to this number";
 "nextButton" = "Next";
-"phoneError" = "Phone number entered incorrectly";
+"phoneError" = "Incorrect phone number.";
 "clientIdError" = "ClientID is incorrect";
 "codeChalengeError" = "Code challenge is incorrect or missing";
 "emailError" = "E-mail address is incorrect";
@@ -51,17 +53,17 @@
 
 //Confirm code screen
 "titleConfirmCode" = "Enter the code from the message";
-"resendCodeLabel" = "No confirmation code arrived?";
+"resendCodeLabel" = "It didn't come?";
 "resendCodeButton" = "Resend code";
 "codeSendLabel" = "Code sent";
-"timerText" = "You can send it again through";
+"timerText" = "A confirmation code was sent to the number";
 
 // Blog screen
 "blogTitle" = "Blog";
 "blogEntryTitle" = "Blog entry";
 
 // Shop screen
-"shopTitle" = "Shop";
+"shopTitle" = "Store";
 "newOrder" = "New";
 "shippedOrder" = "Shipped";
 "completedOrder" = "Completed";
@@ -73,13 +75,14 @@
 
 // Install list screen
 "profileTitle" = "User profile";
-"exitAccountButtonTitle" = "Sign out of your account";
+"exitAccountButtonTitle" = "Sign Out";
 "addWebasystButton" = "Add Account";
 
 //Adittional views
-"installModule" = "The %@ app is not installed on this account";
+"installModule" = "The %@ is not installed on %@ yet";
 "installButton" = "Install Now";
-"emptyList" = "No %@ have been added to this %@ yet";
+"installDescription" = "Installer will automatically download and install %@ in this account. For paid apps, a time-limited free trial license will be automatically issued.";
+"emptyList" = "No %@";
 
 //Create new install
 "addInstallTitle" = "Add Account";
@@ -95,4 +98,5 @@
 
 //Waid instruction
 "titleWaidInstruction" = "Connecting the WAID";
+"myInstallWebasyst" = "My WEBASYST installations";
 

@@ -49,7 +49,7 @@ class SiteViewController: UIViewController {
         self.viewModel.siteListSubject
             .map({ pages -> [Pages] in
                 if pages.isEmpty {
-                    self.setupEmptyView(moduleName: NSLocalizedString("site", comment: ""), entityName: NSLocalizedString("element", comment: ""))
+                    self.setupEmptyView(entityName: NSLocalizedString("element", comment: ""))
                     return []
                 } else {
                     self.setupLayoutTableView(tables: self.siteTableView)
@@ -82,11 +82,16 @@ class SiteViewController: UIViewController {
                 case .permisionDenied:
                     self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                 case .notEntity:
-                    self.setupEmptyView(moduleName: NSLocalizedString("site", comment: ""), entityName: NSLocalizedString("element", comment: ""))
+                    self.setupEmptyView(entityName: NSLocalizedString("element", comment: ""))
                 case .requestFailed(text: let text):
                     self.setupServerError(with: text)
                 case .notInstall:
-                    self.setupInstallView(moduleName: NSLocalizedString("site", comment: ""), viewController: self)
+                    guard let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") else { return }
+                    if let install = self.webasyst.getUserInstall(selectInstall) {
+                        self.setupInstallView(moduleName: NSLocalizedString("shop", comment: ""), installName: install.name ?? "", viewController: self)
+                    }
+                case .notConnection:
+                    self.setupNotConnectionError()
                 }
             }).disposed(by: disposedBag)
         

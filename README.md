@@ -39,6 +39,8 @@ The following are methods that are added as extensions to the UIViewController.
 
 *setupInstallView* - Displays a message about the need to install the module in Webasyst. Requires the *InstallModuleViewDelegate* protocol to be passed to the ViewController comform method.
 
+*setupNotConnectionError* - Displaying an error about a missing Internet connection
+
 **Creating a new application from scratch**
 To create an application based on the Webasyst library, add ``pod webasyst`` to your pod-file and run pod install. After that, execute pod install in the terminal. 
 

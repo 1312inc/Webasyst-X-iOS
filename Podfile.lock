@@ -13,7 +13,7 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.2)
-  - Webasyst (1.2.7)
+  - Webasyst (1.2.8)
 
 DEPENDENCIES:
   - Moya
@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
-  Webasyst: 2537a608773382a196aa4f7df24f9344bcf6c018
+  Webasyst: 6886729923aad9c3f3c224898c15e99232833331
 
 PODFILE CHECKSUM: 36c8112388eb09cfa7157681462612fa571a98e2
 

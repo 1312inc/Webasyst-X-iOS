@@ -57,7 +57,7 @@ class ShopViewController: UIViewController {
         self.viewModel.shopListSubject
             .map({ orders -> [Orders] in
                 if orders.isEmpty {
-                    self.setupEmptyView(moduleName: NSLocalizedString("shop", comment: ""), entityName: NSLocalizedString("order", comment: ""))
+                    self.setupEmptyView(entityName: NSLocalizedString("order", comment: ""))
                     return []
                 } else {
                     self.setupLayoutTableView(tables: self.ordersTableView)
@@ -81,11 +81,16 @@ class ShopViewController: UIViewController {
                 case .permisionDenied:
                     self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                 case .notEntity:
-                    self.setupEmptyView(moduleName: NSLocalizedString("shop", comment: ""), entityName: NSLocalizedString("order", comment: ""))
+                    self.setupEmptyView(entityName: NSLocalizedString("order", comment: ""))
                 case .requestFailed(text: let text):
                     self.setupServerError(with: text)
                 case .notInstall:
-                    self.setupInstallView(moduleName: NSLocalizedString("shop", comment: ""), viewController: self)
+                    guard let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") else { return }
+                    if let install = self.webasyst.getUserInstall(selectInstall) {
+                        self.setupInstallView(moduleName: NSLocalizedString("shop", comment: ""), installName: install.name ?? "", viewController: self)
+                    }
+                case .notConnection:
+                    self.setupNotConnectionError()
                 }
             }).disposed(by: disposedBag)
     }

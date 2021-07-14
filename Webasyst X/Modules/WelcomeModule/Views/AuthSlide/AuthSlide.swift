@@ -83,7 +83,7 @@ class AuthSlide: UIView {
         let icon = UIImage(named: "magic-wand-small")!
         button.setImage(icon, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         button.addTarget(self, action: #selector(loginWebasystIDTap), for: .touchDown)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

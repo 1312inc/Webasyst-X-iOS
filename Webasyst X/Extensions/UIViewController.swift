@@ -60,11 +60,10 @@ extension UIViewController {
         ])
     }
     
-    func setupEmptyView(moduleName: String, entityName: String) {
+    func setupEmptyView(entityName: String) {
         view.subviews.forEach({ $0.removeFromSuperview() })
         let emptyView = EmptyListView()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
-        emptyView.moduleName = moduleName
         emptyView.entityName = entityName
         view.addSubview(emptyView)
         NSLayoutConstraint.activate([
@@ -89,6 +88,19 @@ extension UIViewController {
         ])
     }
     
+    func setupNotConnectionError() {
+        view.subviews.forEach({ $0.removeFromSuperview() })
+        let errorView = NotConnection()
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(errorView)
+        NSLayoutConstraint.activate([
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+    }
+    
     func setupLoadingView() {
         view.subviews.forEach({ $0.removeFromSuperview() })
         let loadingView = LoadingView()
@@ -102,7 +114,7 @@ extension UIViewController {
         ])
     }
     
-    func setupInstallView(moduleName: String, viewController: InstallModuleViewDelegate?) {
+    func setupInstallView(moduleName: String, installName: String, viewController: InstallModuleViewDelegate?) {
         guard let viewController = viewController else {
             return
         }
@@ -111,6 +123,7 @@ extension UIViewController {
         installView.translatesAutoresizingMaskIntoConstraints = false
         installView.delegate = viewController
         installView.moduleName = moduleName
+        installView.installName = installName
         self.view.addSubview(installView)
         NSLayoutConstraint.activate([
             installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),

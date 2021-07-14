@@ -16,6 +16,8 @@ class InstallViewCell: UITableViewCell {
     @IBOutlet weak var installmage: UIImageView!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var troubleLabel: UILabel!
+    @IBOutlet weak var troubleImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +31,12 @@ class InstallViewCell: UITableViewCell {
         backView.layer.cornerRadius = 10
         installmage.layer.cornerRadius = installmage.frame.width / 2
         installmage.contentMode = .scaleAspectFill
+        if profileInstall.url.contains("https://") {
+            troubleLabel?.removeFromSuperview()
+            troubleImage?.removeFromSuperview()
+        } else {
+            troubleLabel?.text = NSLocalizedString("notSecureConnection", comment: "")
+        }
         self.urlLabel?.text = profileInstall.name
         self.domainLabel?.text = profileInstall.cloudExpireDate != nil ? profileInstall.cloudExpireDate : profileInstall.url
         self.installmage.image = UIImage(data: profileInstall.image!)

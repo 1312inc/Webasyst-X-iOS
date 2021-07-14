@@ -68,7 +68,7 @@ class InstallListViewController: UIViewController {
     
     var myInstallLabel: UILabel = {
         var label = UILabel()
-        label.text = "мои установки WEBASYST".uppercased()
+        label.text = NSLocalizedString("myInstallWebasyst", comment: "").uppercased()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.gray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -205,7 +205,11 @@ extension InstallListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 77
+        if self.viewModel.installList[indexPath.row].url.contains("https://") {
+            return 77
+        } else {
+            return 94
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

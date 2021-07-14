@@ -17,4 +17,5 @@ enum ServerError {
     case notEntity
     case requestFailed(text: String)
     case notInstall
+    case notConnection
 }

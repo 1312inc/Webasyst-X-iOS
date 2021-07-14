@@ -1,19 +1,19 @@
 //
-//  EmptyListView.swift
-//  WebXApp
+//  NotConnection.swift
+//  Webasyst X
 //
-//  Created by Виктор Кобыхно on 16.06.2021.
+//  Created by Виктор Кобыхно on 14.07.2021.
 //
 
 import UIKit
 
-class EmptyListView: UIView {
+class NotConnection: UIView {
 
-    var entityName: String!
+    var errorText: String!
     
     private var icon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "emptyImage")
+        imageView.image = UIImage(named: "notConnection")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -21,10 +21,8 @@ class EmptyListView: UIView {
     
     private lazy var emptyListLabel: UILabel = {
         let label = UILabel()
-        let localizedString = NSLocalizedString("emptyList", comment: "")
-        let replacedString = String(format: localizedString, entityName)
         label.textColor = UIColor.systemGray2
-        label.text = replacedString
+        label.text = NSLocalizedString("connectionAlertMessage", comment: "")
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

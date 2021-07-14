@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Frame 62@3x-1.png",
+      "filename" : "slash-cloud-ios.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Frame 62@3x@2x.png",
+      "filename" : "slash-cloud-ios@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Frame 62@3x@3x.png",
+      "filename" : "slash-cloud-ios@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

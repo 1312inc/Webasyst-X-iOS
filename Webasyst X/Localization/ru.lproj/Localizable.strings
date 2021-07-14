@@ -3,18 +3,22 @@
 "requestFailed" = "Что-то не так с запросом к серверу (ответ API: invalid_request).";
 "loading" = "Загрузка...";
 "installModuleButtonTitle" = "Установить";
-"connectionAlertMessage" = "Нет соединения с интернетом";
+"connectionAlertMessage" = "Нет соединения с интернетом. Проверьте ваше соединение и повторите попытку.";
 "getStatusCodeError" = "Что-то не так с запросом к серверу (ответ API: invalid_request).";
 "okAlert" = "Понятно";
 "seconds" = "Секунд";
 "successTitle" = "Успешно";
 
+"invalidClientError" = "Failed to fetch data.\nFailed to obtain access token: Client request (%@) invalid: 401 Unauthorized. Text: %@";
+"disabledErrorText" = "Функциональность API отключена в этом аккаунте Webasyst. Обратитесь к администратору (провайдеру) аккаунта.";
+"notSecureConnection" = "Небезопасное соединение";
+
 "blog" = "блогу";
 "shop" = "магазину";
 "site" = "сайту";
-"post" = "поста";
-"element" = "элемента";
-"order" = "заказа";
+"post" = "записей";
+"element" = "страниц";
+"order" = "аказов";
 
 "authError" = "Ошибка авторизации. Повторите попытку позже.";
 
@@ -35,10 +39,10 @@
 "orLabel" = "или";
 
 //Phone authorization
-"titlePhone" = "Введите свой номер телефона";
-"descriptionPhone" = "Мы вышлем код подтверждения на этот номер";
+"titlePhone" = "Введите ваш номер телефона";
+"descriptionPhone" = "На этот номер мы отправим код подтверждения";
 "nextButton" = "Далее";
-"phoneError" = "Неправильно введен номер телефона";
+"phoneError" = "Неверно указан номер телефона.";
 "clientIdError" = "Идентификатор клиента неверен";
 "codeChalengeError" = "Код вызова неверен или отсутствует";
 "emailError" = "Неверный адрес электронной почты";
@@ -48,11 +52,11 @@
 "errorCode" = "Код введен неправильно";
 
 //Confirm code screen
-"titleConfirmCode" = "Введите код из письма";
-"resendCodeLabel" = "Код подтверждения не пришел?";
+"titleConfirmCode" = "Введите код из сообщения";
+"resendCodeLabel" = "Не пришло?";
 "resendCodeButton" = "Отправить еще раз";
 "codeSendLabel" = "  отправлен";
-"timerText" = "Мы отправили код подтверждения на номер";
+"timerText" = "Код подтверждения отправлен на номер";
 
 // Blog screen
 "blogTitle" = "Блог";
@@ -70,13 +74,14 @@
 
 // Install list screen
 "profileTitle" = "Профиль";
-"exitAccountButtonTitle" = "Выйти из учетной записи";
+"exitAccountButtonTitle" = "Выйти";
 "addWebasystButton" = "Добавить аккаунт";
 
 //Adittional views
-"installModule" = "Модуль %@ еще не установлен";
+"installModule" = "Модуль %@ еще не установлен на %@";
 "installButton" = "Установить";
-"emptyList" = "К этому %@ еще не добавлено ни одного %@";
+"installDescription" = "Инсталлер автоматически скачает и установит %@ в этом аккаунте. Для платных приложений будет выписана временная пробная лицензия.";
+"emptyList" = "Нет %@";
 
 //Create new install
 "addInstallTitle" = "Добавить аккаунт";
@@ -92,4 +97,4 @@
 
 //Waid instruction
 "titleWaidInstruction" = "Подключение WAID";
-
+"myInstallWebasyst" = "Мои установки WEBASYST";

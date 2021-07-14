@@ -37,69 +37,91 @@ class BlogViewModel: BlogViewModelProtocol {
     // Retrieving installation blog entries
     func fetchBlogPosts() {
         isLoadingSubject.onNext(true)
-        moyaProvider.rx.request(.requestBlogList)
-            .subscribe { response in
-                guard let statusCode = response.response?.statusCode else {
-                    self.isLoadingSubject.onNext(false)
-                    self.errorRequestSubject.onNext(.requestFailed(text: "Failed to get server reply status code"))
-                    return
-                }
-                switch statusCode {
-                case 200...299:
-                    do {
-                        let postData = try JSONDecoder().decode(PostsBlog.self, from: response.data)
-                        if let posts = postData.posts {
-                            if !posts.isEmpty {
-                                self.isLoadingSubject.onNext(false)
-                                self.blogListSubject.onNext(posts)
+        if Reachability.isConnectedToNetwork() {
+            moyaProvider.rx.request(.requestBlogList)
+                .subscribe { response in
+                    guard let statusCode = response.response?.statusCode else {
+                        self.isLoadingSubject.onNext(false)
+                        self.errorRequestSubject.onNext(.requestFailed(text: "Failed to get server reply status code"))
+                        return
+                    }
+                    switch statusCode {
+                    case 200...299:
+                        do {
+                            let postData = try JSONDecoder().decode(PostsBlog.self, from: response.data)
+                            if let posts = postData.posts {
+                                if !posts.isEmpty {
+                                    self.isLoadingSubject.onNext(false)
+                                    self.blogListSubject.onNext(posts)
+                                } else {
+                                    self.isLoadingSubject.onNext(false)
+                                    self.errorRequestSubject.onNext(.notEntity)
+                                }
                             } else {
                                 self.isLoadingSubject.onNext(false)
                                 self.errorRequestSubject.onNext(.notEntity)
                             }
-                        } else {
+                        } catch let error {
                             self.isLoadingSubject.onNext(false)
-                            self.errorRequestSubject.onNext(.notEntity)
+                            self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                         }
-                    } catch let error {
+                    case 401:
                         self.isLoadingSubject.onNext(false)
-                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
-                    }
-                case 401:
-                    self.isLoadingSubject.onNext(false)
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
-                        if let error = json?["error"] {
-                            if error == "invalid_client" {
-                                let localizedString = NSLocalizedString("invalidClientError", comment: "")
-                                let webasyst = WebasystApp()
-                                let activeInstall = webasyst.getUserInstall(self.activeDomain)
-                                let replacedString = String(format: localizedString, activeInstall?.url ?? "", String(data: response.data, encoding: String.Encoding.utf8)!)
-                                self.errorRequestSubject.onNext(.requestFailed(text: replacedString))
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
+                            if let error = json?["error"] {
+                                if error == "invalid_client" {
+                                    let localizedString = NSLocalizedString("invalidClientError", comment: "")
+                                    let webasyst = WebasystApp()
+                                    let activeInstall = webasyst.getUserInstall(self.activeDomain)
+                                    let replacedString = String(format: localizedString, activeInstall?.url ?? "", String(data: response.data, encoding: String.Encoding.utf8)!)
+                                    self.errorRequestSubject.onNext(.requestFailed(text: replacedString))
+                                } else if error == "disabled" {
+                                    let localizedString = NSLocalizedString("disabledErrorText", comment: "")
+                                    self.errorRequestSubject.onNext(.requestFailed(text: localizedString))
+                                } else {
+                                    self.errorRequestSubject.onNext(.requestFailed(text: json?["error_description"] ?? ""))
+                                }
                             } else {
-                                self.errorRequestSubject.onNext(.requestFailed(text: json?["error_description"] ?? ""))
+                                self.errorRequestSubject.onNext(.permisionDenied)
                             }
-                        } else {
-                            self.errorRequestSubject.onNext(.permisionDenied)
+                        } catch let error {
+                            self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                         }
-                    } catch let error {
-                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                    case 400:
+                        self.isLoadingSubject.onNext(false)
+                        self.errorRequestSubject.onNext(.notInstall)
+                    case 404:
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
+                            if let error = json?["error"] {
+                                if error == "disabled" {
+                                    let localizedString = NSLocalizedString("disabledErrorText", comment: "")
+                                    self.errorRequestSubject.onNext(.requestFailed(text: localizedString))
+                                } else {
+                                    self.errorRequestSubject.onNext(.permisionDenied)
+                                }
+                            }
+                        } catch let error {
+                            self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                        }
+                    default:
+                        self.isLoadingSubject.onNext(false)
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
+                            self.errorRequestSubject.onNext(.requestFailed(text: "\(json?["error_description"] ?? "")"))
+                        } catch let error {
+                            self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                        }
                     }
-                case 400:
+                } onError: { error in
                     self.isLoadingSubject.onNext(false)
-                    self.errorRequestSubject.onNext(.notInstall)
-                default:
-                    self.isLoadingSubject.onNext(false)
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
-                        self.errorRequestSubject.onNext(.requestFailed(text: "\(json?["error_description"] ?? "")"))
-                    } catch let error {
-                        self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
-                    }
-                }
-            } onError: { error in
-                self.isLoadingSubject.onNext(false)
-                self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
-            }.disposed(by: disposeBag)
+                    self.errorRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
+                }.disposed(by: disposeBag)
+        } else {
+            self.errorRequestSubject.onNext(.notConnection)
+        }
+        
     }
     
     func changeUserDomain(_ domain: String) {

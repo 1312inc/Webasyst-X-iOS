@@ -13,6 +13,8 @@
 		C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C341FEDC255B0AF20091B045 /* LaunchScreen.storyboard */; };
 		D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */; };
 		FD068D7B2694239C0008F4AD /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD068D7A2694239C0008F4AD /* NetworkingService.swift */; };
+		FD0A5012269EAC8700AE1B0D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A5011269EAC8700AE1B0D /* Reachability.swift */; };
+		FD0A5015269EACC700AE1B0D /* NotConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A5014269EACC700AE1B0D /* NotConnection.swift */; };
 		FD0C1A292671E1E400FE41D0 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */; };
 		FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */; };
 		FD0C1A2D2671E1FF00FE41D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */; };
@@ -115,6 +117,8 @@
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD068D7A2694239C0008F4AD /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		FD0A5011269EAC8700AE1B0D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FD0A5014269EACC700AE1B0D /* NotConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotConnection.swift; sourceTree = "<group>"; };
 		FD0C1A282671E1E400FE41D0 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		FD0C1A2A2671E1EF00FE41D0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FD0C1A2C2671E1FF00FE41D0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -259,6 +263,14 @@
 				61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD0A5013269EACA300AE1B0D /* NotConnectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FD0A5014269EACC700AE1B0D /* NotConnection.swift */,
+			);
+			path = NotConnectionView;
 			sourceTree = "<group>";
 		};
 		FD0C1A242671E1B200FE41D0 /* AuthModule */ = {
@@ -477,6 +489,7 @@
 		FD4E67FF2679CE7400A42283 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD0A5013269EACA300AE1B0D /* NotConnectionView */,
 				FDBB9F792679FA780027DD53 /* LoadingView */,
 				FD4E680D2679F60800A42283 /* ErrorView */,
 				FD4E68032679E1CD00A42283 /* EmptyListView */,
@@ -632,6 +645,7 @@
 			children = (
 				FD068D7A2694239C0008F4AD /* NetworkingService.swift */,
 				FD576DF92661005100F4D707 /* NetworkingManager.swift */,
+				FD0A5011269EAC8700AE1B0D /* Reachability.swift */,
 			);
 			path = NetworkingService;
 			sourceTree = "<group>";
@@ -1060,7 +1074,9 @@
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
 				FDCF9CDF25AE84BA00EDFE69 /* AppCoordinator.swift in Sources */,
 				FDD6E39025B552D000F5CE24 /* InstallListViewController.swift in Sources */,
+				FD0A5015269EACC700AE1B0D /* NotConnection.swift in Sources */,
 				FD0C1A3326720EB500FE41D0 /* ConfirmCodeViewController.swift in Sources */,
+				FD0A5012269EAC8700AE1B0D /* Reachability.swift in Sources */,
 				FD0C1A2B2671E1EF00FE41D0 /* AuthViewModel.swift in Sources */,
 				FDCA6E972678954100922517 /* SlideView.swift in Sources */,
 				FD576DF32660C08300F4D707 /* Result.swift in Sources */,

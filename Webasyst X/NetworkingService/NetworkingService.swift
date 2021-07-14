@@ -21,8 +21,8 @@ extension NetworkingService: TargetType {
     var baseURL: URL {
         let webasyst = WebasystApp()
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
-        let changeInstall = webasyst.getUserInstall(selectDomain)
-        return URL(string: changeInstall?.url ?? "")!
+        guard let changeInstall = webasyst.getUserInstall(selectDomain) else { return URL(string: "")! }
+        return URL(string: changeInstall.url)!
     }
     
     var path: String {
