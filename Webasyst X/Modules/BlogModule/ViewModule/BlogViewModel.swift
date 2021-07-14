@@ -95,11 +95,17 @@ class BlogViewModel: BlogViewModelProtocol {
                         do {
                             let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: String]
                             if let error = json?["error"] {
-                                if error == "disabled" {
+                                if error == "invalid_client" {
+                                    let localizedString = NSLocalizedString("invalidClientError", comment: "")
+                                    let webasyst = WebasystApp()
+                                    let activeInstall = webasyst.getUserInstall(self.activeDomain)
+                                    let replacedString = String(format: localizedString, activeInstall?.url ?? "", String(data: response.data, encoding: String.Encoding.utf8)!)
+                                    self.errorRequestSubject.onNext(.requestFailed(text: replacedString))
+                                } else if error == "disabled" {
                                     let localizedString = NSLocalizedString("disabledErrorText", comment: "")
                                     self.errorRequestSubject.onNext(.requestFailed(text: localizedString))
                                 } else {
-                                    self.errorRequestSubject.onNext(.permisionDenied)
+                                    self.errorRequestSubject.onNext(.requestFailed(text: json?["error_description"] ?? ""))
                                 }
                             }
                         } catch let error {
