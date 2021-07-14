@@ -38,7 +38,29 @@ class InstallViewCell: UITableViewCell {
             troubleLabel?.text = NSLocalizedString("notSecureConnection", comment: "")
         }
         self.urlLabel?.text = profileInstall.name
-        self.domainLabel?.text = profileInstall.cloudExpireDate != nil ? profileInstall.cloudExpireDate : profileInstall.url
+        if let expiredDate = profileInstall.cloudExpireDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let expired = dateFormatter.date(from: expiredDate)!
+            let todayDate = Date()
+            if expired >= todayDate {
+                dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
+                let somedateString = dateFormatter.string(from: expired)
+                let localizedString = NSLocalizedString("expiresOn", comment: "")
+                let replacedString = String(format: localizedString, somedateString)
+                self.domainLabel?.text = replacedString
+            } else {
+                dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
+                let somedateString = dateFormatter.string(from: expired)
+                let localizedString = NSLocalizedString("expiredOn", comment: "")
+                let replacedString = String(format: localizedString, somedateString)
+                self.domainLabel?.text = replacedString
+                self.domainLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+                self.domainLabel?.textColor = .red
+            }
+        } else {
+            self.domainLabel?.text = profileInstall.url
+        }
         self.installmage.image = UIImage(data: profileInstall.image!)
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
         if profileInstall.id != selectDomain {

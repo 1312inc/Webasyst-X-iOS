@@ -98,3 +98,6 @@
 //Waid instruction
 "titleWaidInstruction" = "Подключение WAID";
 "myInstallWebasyst" = "Мои установки WEBASYST";
+"expiresOn" = "Истекает %@";
+"expiredOn" = "Истек %@";
+

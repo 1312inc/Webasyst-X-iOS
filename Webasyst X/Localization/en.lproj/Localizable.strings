@@ -99,4 +99,6 @@
 //Waid instruction
 "titleWaidInstruction" = "Connecting the WAID";
 "myInstallWebasyst" = "My WEBASYST installations";
+"expiresOn" = "Expires on %@";
+"expiredOn" = "Expired on %@";
 
