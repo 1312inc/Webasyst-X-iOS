@@ -68,6 +68,10 @@ class ShopViewController: UIViewController {
                 cell.configureCell(order)
             }.disposed(by: disposedBag)
         
+        ordersTableView
+            .rx.setDelegate(self)
+            .disposed(by: disposedBag)
+        
         self.viewModel.isLoadingSubject
             .subscribe(onNext: { loading in
                 if loading {
@@ -107,6 +111,14 @@ extension ShopViewController: InstallModuleViewDelegate {
         let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alertController.addAction(action)
         self.navigationController?.present(alertController, animated: true, completion: nil)
+    }
+    
+}
+
+extension ShopViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 79
     }
     
 }
