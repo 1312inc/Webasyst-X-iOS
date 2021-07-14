@@ -31,6 +31,7 @@ class InstallViewCell: UITableViewCell {
         backView.layer.cornerRadius = 10
         installmage.layer.cornerRadius = installmage.frame.width / 2
         installmage.contentMode = .scaleAspectFill
+        
         if profileInstall.url.contains("https://") {
             troubleLabel?.removeFromSuperview()
             troubleImage?.removeFromSuperview()
@@ -38,19 +39,20 @@ class InstallViewCell: UITableViewCell {
             troubleLabel?.text = NSLocalizedString("notSecureConnection", comment: "")
         }
         self.urlLabel?.text = profileInstall.name
+    
         if let expiredDate = profileInstall.cloudExpireDate {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            dateFormatter.dateFormat = "yyyy-MM-dd"
             let expired = dateFormatter.date(from: expiredDate)!
             let todayDate = Date()
             if expired >= todayDate {
-                dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
+                dateFormatter.dateFormat = "dd MMM YYYY"
                 let somedateString = dateFormatter.string(from: expired)
                 let localizedString = NSLocalizedString("expiresOn", comment: "")
                 let replacedString = String(format: localizedString, somedateString)
                 self.domainLabel?.text = replacedString
             } else {
-                dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
+                dateFormatter.dateFormat = "dd MMM YYYY"
                 let somedateString = dateFormatter.string(from: expired)
                 let localizedString = NSLocalizedString("expiredOn", comment: "")
                 let replacedString = String(format: localizedString, somedateString)
@@ -61,11 +63,14 @@ class InstallViewCell: UITableViewCell {
         } else {
             self.domainLabel?.text = profileInstall.url
         }
+        
         self.installmage.image = UIImage(data: profileInstall.image!)
         let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+        
         if profileInstall.id != selectDomain {
             self.checmarkImage?.isHidden = true
         }
+        
         if let logo = profileInstall.imageLogo {
             if logo {
                 companyLabel?.removeFromSuperview()
