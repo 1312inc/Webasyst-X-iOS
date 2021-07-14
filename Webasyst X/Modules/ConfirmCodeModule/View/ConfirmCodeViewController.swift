@@ -162,6 +162,16 @@ class ConfirmCodeViewController: UIViewController {
                     }
                 }
             }).disposed(by: disposeBag)
+        
+        confirmCodeField.rx.controlEvent(.editingChanged)
+            .subscribe(onNext: { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+                    if self.confirmCodeField.text?.count ?? 0 >= 6 {
+                        print("больше 6")
+                        self.viewModel.sendCode(with: self.confirmCodeField.text ?? "")
+                    }
+                }
+            }).disposed(by: disposeBag)
     }
     
     private func setupLayout() {
@@ -229,6 +239,12 @@ class ConfirmCodeViewController: UIViewController {
 extension ConfirmCodeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var confirmCode = (textField.text ?? "") + string
+        
+        if range.length == 1 {
+            let maxIndex = confirmCode.index(confirmCode.startIndex, offsetBy: confirmCode.count - 1)
+            confirmCode = String(confirmCode[confirmCode.startIndex ..< maxIndex])
+        }
+        
         if confirmCode.count >= 6 {
             navigationItem.rightBarButtonItem?.isEnabled = true
             navigationItem.rightBarButtonItem?.tintColor = UIColor.systemBlue
@@ -237,12 +253,7 @@ extension ConfirmCodeViewController: UITextFieldDelegate {
             navigationItem.rightBarButtonItem?.tintColor = UIColor.systemGray
         }
         
-        if range.length == 1 {
-            let maxIndex = confirmCode.index(confirmCode.startIndex, offsetBy: confirmCode.count - 1)
-            confirmCode = String(confirmCode[confirmCode.startIndex ..< maxIndex])
-        }
-        
-        if string.count > 1 {
+        if string.count >= 6 {
             self.viewModel.sendCode(with: confirmCode)
         }
         
