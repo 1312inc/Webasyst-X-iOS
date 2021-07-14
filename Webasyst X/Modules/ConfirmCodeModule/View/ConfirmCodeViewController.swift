@@ -166,7 +166,7 @@ class ConfirmCodeViewController: UIViewController {
         confirmCodeField.rx.controlEvent(.editingChanged)
             .subscribe(onNext: { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                    if self.confirmCodeField.text?.count ?? 0 >= 6 {
+                    if self.confirmCodeField.text?.count ?? 0 >= 6 && self.confirmCodeField.text?.count ?? 0 <= 20 {
                         print("больше 6")
                         self.viewModel.sendCode(with: self.confirmCodeField.text ?? "")
                     }
