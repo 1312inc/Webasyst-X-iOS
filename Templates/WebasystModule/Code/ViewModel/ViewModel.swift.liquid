@@ -10,31 +10,45 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-//MARK: ViewModel input properties
-protocol {{ module_info.name }}ViewModelInput {
-    //ViewModel inputs properties
-}
-
-//MARK: ViewModel output properties
-protocol {{ module_info.name }}ViewModelOutput {
-    //ViewModel output properties
-}
-
-//MARK: {{ module_info.name }}ViewModelType
+//MARK: {{ module_info.name }}ViewModel
 protocol {{ module_info.name }}ViewModelType {
-    var input: {{ module_info.name }}ViewModelInput { get }
-    var output: {{ module_info.name }}ViewModelOutput { get }
+    associatedtype Input
+    associatedtype Output
+    var input: Input { get }
+    var output: Output { get }
 }
 
 //MARK: {{ module_info.name }}ViewModel
-final class {{ module_info.name }}ViewModel: {{ module_info.name }}ViewModelInput, {{ module_info.name }}ViewModelOutput, {{ module_info.name }}ViewModelType {
+final class {{ module_info.name }}ViewModel: {{ module_info.name }}ViewModelType {
+
+    struct Input {
+       //...
+    }
     
-    var model: {{ module_info.name }}ModelType
-    var input: {{ module_info.name }}ViewModelInput { return self }
-    var output: {{ module_info.name }}ViewModelOutput { return self }
+    let input: Input
     
-    init(model: {{ module_info.name }}ModelType) {
-        self.model = model
+    struct Output {
+       //...
+    }
+    
+    let output: Output
+    
+    private var disposeBag = DisposeBag()
+            
+    //MARK: Input Objects
+    
+    //MARK: Output Objects
+
+    init() {
+        //Init input property
+        self.input = Input(
+            //...
+        )
+
+        //Init output property
+        self.output = Output(
+            //...
+        )
     }
     
 }

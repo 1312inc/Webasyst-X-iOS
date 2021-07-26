@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Result<Value> {
-    case Success(Value)
+enum Result {
+    case Success
     case Failure(ServerError)
 }
 

@@ -1,40 +1,37 @@
 //
-//  ShopCoordinator.swift
-//  WebXApp
+//  Shop module - ShopCoordinator.swift
+//  Webasyst-X-iOS
 //
-//  Created by Виктор Кобыхно on 1/18/21.
+//  Created by viktkobst on 26/07/2021.
+//  Copyright © 2021 1312 Inc.. All rights reserved.
 //
 
 import UIKit
-import Moya
 
-protocol ShopCoordinatorProtocol {
-    init(_ navigationController: UINavigationController)
-    func openInstallList()
-}
-
-class ShopCoordinator: Coordinator, ShopCoordinatorProtocol {
-    private var navigationController: UINavigationController
-    var childCoordinator: [Coordinator] = []
+//MARK ShopCoordinator
+final class ShopCoordinator {
     
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    var presenter: UINavigationController
+    var screens: ScreensBuilder
+    
+    init(presenter: UINavigationController, screens: ScreensBuilder) {
+        self.presenter = presenter
+        self.screens = screens
     }
-
+    
     func start() {
-        let moyaProvider = MoyaProvider<NetworkingService>()
-        let shopViewModel = ShopViewModel(moyaProvider: moyaProvider)
-        let shopViewController = ShopViewController()
-        shopViewController.viewModel = shopViewModel
-        shopViewController.coordinator = self
-        self.navigationController.setViewControllers([shopViewController], animated: true)
+        self.initialViewController()
     }
     
-    //Opening install list
-    func openInstallList() {
-        let installListCoordinator = InstallListCoordinator(navigationController)
-        childCoordinator.append(installListCoordinator)
-        installListCoordinator.start()
+    //MARK: Initial ViewController
+    private func initialViewController() {
+        let viewController = screens.createShopViewController(coordinator: self)
+        presenter.viewControllers = [viewController]
+    }
+    
+    func openSettingsList() {
+        let settingsListCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
+        settingsListCoordinator.start()
     }
     
 }

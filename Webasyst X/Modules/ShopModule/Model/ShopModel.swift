@@ -1,11 +1,14 @@
 //
-//  ShopModel.swift
-//  WebXApp
+//  Shop module - ShopModel.swift
+//  Webasyst-X-iOS
 //
-//  Created by Виктор Кобыхно on 1/27/21.
+//  Created by viktkobst on 26/07/2021.
+//  Copyright © 2021 1312 Inc.. All rights reserved.
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct OrderList: Decodable {
     let orders: [Orders]

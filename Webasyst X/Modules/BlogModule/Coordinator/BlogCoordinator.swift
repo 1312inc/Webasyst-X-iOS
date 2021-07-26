@@ -1,49 +1,42 @@
 //
-//  BlogCoordinator.swift
-//  WebXApp
+//  NewBlog module - NewBlogCoordinator.swift
+//  Webasyst-X-iOS
 //
-//  Created by Виктор Кобыхно on 1/18/21.
+//  Created by viktkobst on 26/07/2021.
+//  Copyright © 2021 1312 Inc.. All rights reserved.
 //
 
 import UIKit
-import Webasyst
-import Moya
 
-protocol BlogCoordinatorProtocol {
-    init(_ navigationController: UINavigationController)
-    func openInstallList()
-    func openDetailBlogEntry(_ blogEntry: PostList)
-}
-
-class BlogCoordinator: Coordinator, BlogCoordinatorProtocol {
+//MARK NewBlogCoordinator
+final class BlogCoordinator {
     
-    private var navigationController: UINavigationController
-    private var webasyst = WebasystApp()
-    var childCoordinator: [Coordinator] = []
+    var presenter: UINavigationController
+    var screens: ScreensBuilder
     
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(presenter: UINavigationController, screens: ScreensBuilder) {
+        self.presenter = presenter
+        self.screens = screens
     }
     
     func start() {
-        let moyaProvider = MoyaProvider<NetworkingService>()
-        let blogViewModel = BlogViewModel(moyaProvider: moyaProvider)
-        let blogViewController = BlogViewController()
-        blogViewController.viewModel = blogViewModel
-        blogViewController.coordinator = self
-        self.navigationController.setViewControllers([blogViewController], animated: true)
+        self.initialViewController()
     }
     
-    //Opening install list
-    func openInstallList() {
-        let installListCoordinator = InstallListCoordinator(navigationController)
-        installListCoordinator.start()
+    //MARK: Initial ViewController
+    private func initialViewController() {
+        let viewController = screens.createNewBlogViewController(coordinator: self)
+        presenter.viewControllers = [viewController]
     }
     
-    //Opening detail blog entry
-    func openDetailBlogEntry(_ blogEntry: PostList) {
-        let blogEntryCoordinator = BlogEntryCoordinator(self.navigationController, blogEntry: blogEntry)
-        childCoordinator.append(blogEntryCoordinator)
-        blogEntryCoordinator.start()
+    func openSettingsList() {
+        let settingsCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
+        settingsCoordinator.start()
     }
+    
+    func openBlogEntryScreen(post: PostList) {
+        let blogDetailCoordinator = BlogDetailCoordinator(presenter: self.presenter, screens: self.screens)
+        blogDetailCoordinator.start(post: post)
+    }
+    
 }

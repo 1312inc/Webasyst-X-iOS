@@ -1,60 +1,71 @@
 //
-//  WelcomeViewModel.swift
-//  WebXApp
+//  Welcome module - WelcomeViewModel.swift
+//  Teamwork
 //
-//  Created by Виктор Кобыхно on 1/13/21.
+//  Created by viktkobst on 19/07/2021.
+//  Copyright © 2021 1312 Inc.. All rights reserved.
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-enum SlidesType {
-    case slide(data: Slide)
-    case auth
+//MARK: WelcomeViewModel
+protocol WelcomeViewModelType {
+    associatedtype Input
+    associatedtype Output
+    var input: Input { get }
+    var output: Output { get }
 }
 
-struct WelcomeSlides {
-    let title: String
-    let type: SlidesType
-}
+//MARK: WelcomeViewModel
+final class WelcomeViewModel: WelcomeViewModelType {
 
-struct Slide {
-    let text: String
-    let image: String
-    
-    internal init(text: String, image: String) {
-        self.text = text
-        self.image = image
-    }
-}
-
-protocol WelcomeViewModelProtocol: AnyObject {
-    var slides: [WelcomeSlides] { get }
-    init(coordinator: WelcomeCoordinatorProtocol)
-    func tappedLoginButton()
-    func openPhoneAuth() 
-}
-
-final class WelcomeViewModel: WelcomeViewModelProtocol {
-    
-    var slides: [WelcomeSlides] = [
-        WelcomeSlides(title: NSLocalizedString("slideTitle_0", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_0", comment: ""), image: "slide-1"))),
-        WelcomeSlides(title: NSLocalizedString("slideTitle_1", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_1", comment: ""), image: "slide-2"))),
-        WelcomeSlides(title: NSLocalizedString("slideTitle_2", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_2", comment: ""), image: "slide-3"))),
-        WelcomeSlides(title: "Webasyst X", type: .auth)
-    ]
-    
-    var coordinator: WelcomeCoordinatorProtocol
-    
-    init(coordinator: WelcomeCoordinatorProtocol) {
-        self.coordinator = coordinator
+    struct Input {
+        var generateSlides: AnyObserver<Void>
     }
     
-    public func tappedLoginButton() {
-        coordinator.showWebAuthModal()
+    let input: Input
+    
+    struct Output {
+        var slides: BehaviorSubject<[WelcomeSlides]>
     }
     
-    public func openPhoneAuth() {
-        coordinator.openPhoneAuth()
+    let output: Output
+    
+    private var disposeBag = DisposeBag()
+            
+    //MARK: Input Objects
+    private var generateSlidesSubject = PublishSubject<Void>()
+    
+    //MARK: Output Objects
+    private var slidesSubject = BehaviorSubject<[WelcomeSlides]>(value: [])
+
+    init() {
+        //Init input property
+        self.input = Input(
+            generateSlides: generateSlidesSubject.asObserver()
+        )
+
+        //Init output property
+        self.output = Output(
+            slides: self.slidesSubject
+        )
+        
+        self.generateSides()
+    }
+    
+    func generateSides() {
+        
+        let slides: [WelcomeSlides] = [
+            WelcomeSlides(title: NSLocalizedString("slideTitle_0", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_0", comment: ""), image: "slide-1"))),
+            WelcomeSlides(title: NSLocalizedString("slideTitle_1", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_1", comment: ""), image: "slide-2"))),
+            WelcomeSlides(title: NSLocalizedString("slideTitle_2", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_2", comment: ""), image: "slide-3"))),
+            WelcomeSlides(title: "Webasyst X", type: .auth)
+        ]
+        
+        self.slidesSubject.onNext(slides)
+        
     }
     
 }

@@ -1,46 +1,42 @@
 //
-//  SiteCoordinator.swift
-//  WebXApp
+//  Site module - SiteCoordinator.swift
+//  Webasyst-X-iOS
 //
-//  Created by Виктор Кобыхно on 1/18/21.
+//  Created by viktkobst on 26/07/2021.
+//  Copyright © 2021 1312 Inc.. All rights reserved.
 //
 
 import UIKit
-import Moya
 
-protocol SiteCoordinatorProtocol {
-    init(_ navigationController: UINavigationController)
-    func openInstallList()
-    func openDetail(pageId: String)
-}
-
-class SiteCoordinator: Coordinator, SiteCoordinatorProtocol {
-    private var navigationController: UINavigationController
-    var childCoordinator: [Coordinator] = []
+//MARK SiteCoordinator
+final class SiteCoordinator {
     
-    required init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    var presenter: UINavigationController
+    var screens: ScreensBuilder
+    
+    init(presenter: UINavigationController, screens: ScreensBuilder) {
+        self.presenter = presenter
+        self.screens = screens
     }
-
+    
     func start() {
-        let siteViewController = SiteViewController()
-        let moyaProvider = MoyaProvider<NetworkingService>()
-        let viewModel = SiteViewModel(moyaProvider: moyaProvider)
-        siteViewController.viewModel = viewModel
-        siteViewController.coordinator = self
-        self.navigationController.setViewControllers([siteViewController], animated: true)
+        self.initialViewController()
     }
     
-    //Opening install list
-    func openInstallList() {
-        let installListCoordinator = InstallListCoordinator(navigationController)
-        childCoordinator.append(installListCoordinator)
-        installListCoordinator.start()
+    //MARK: Initial ViewController
+    private func initialViewController() {
+        let viewController = screens.createSiteViewController(coordinator: self)
+        presenter.viewControllers = [viewController]
     }
     
-    func openDetail(pageId: String) {
-        let coordinator = DetailSiteCoordinator(navigationController: self.navigationController, pageId: pageId)
-        coordinator.start()
+    func openDetailSiteScreen(page: String) {
+        let siteDetailCoordinator = SiteDetailCoordinator(presenter: self.presenter, screens: self.screens)
+        siteDetailCoordinator.start(page: page)
+    }
+    
+    func openSettingsList() {
+        let settingsListCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
+        settingsListCoordinator.start()
     }
     
 }

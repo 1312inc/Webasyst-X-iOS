@@ -7,6 +7,7 @@
 
 import UIKit
 import Webasyst
+import SnapKit
 
 extension UIViewController {
     
@@ -52,12 +53,13 @@ extension UIViewController {
     func setupLayoutTableView(tables: UITableView) {
         view.subviews.forEach({ $0.removeFromSuperview() })
         view.addSubview(tables)
-        NSLayoutConstraint.activate([
-            tables.topAnchor.constraint(equalTo: view.topAnchor),
-            tables.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tables.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tables.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        ])
+        
+        tables.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
     }
     
     func setupEmptyView(entityName: String) {
@@ -66,12 +68,13 @@ extension UIViewController {
         emptyView.translatesAutoresizingMaskIntoConstraints = false
         emptyView.entityName = entityName
         view.addSubview(emptyView)
-        NSLayoutConstraint.activate([
-            emptyView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            emptyView.heightAnchor.constraint(equalTo: view.heightAnchor),
-            emptyView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emptyView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        
+        emptyView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
     }
     
     func setupServerError(with: String) {
@@ -80,12 +83,13 @@ extension UIViewController {
         errorView.translatesAutoresizingMaskIntoConstraints = false
         errorView.errorText = with
         view.addSubview(errorView)
-        NSLayoutConstraint.activate([
-            errorView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        ])
+        
+        errorView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
     }
     
     func setupNotConnectionError() {
@@ -93,12 +97,13 @@ extension UIViewController {
         let errorView = NotConnection()
         errorView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(errorView)
-        NSLayoutConstraint.activate([
-            errorView.topAnchor.constraint(equalTo: view.topAnchor),
-            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        ])
+        
+        errorView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
     }
     
     func setupLoadingView() {
@@ -106,12 +111,12 @@ extension UIViewController {
         let loadingView = LoadingView()
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loadingView)
-        NSLayoutConstraint.activate([
-            loadingView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            loadingView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-        ])
+        loadingView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
     }
     
     func setupInstallView(moduleName: String, installName: String, viewController: InstallModuleViewDelegate?) {
@@ -125,11 +130,12 @@ extension UIViewController {
         installView.moduleName = moduleName
         installView.installName = installName
         self.view.addSubview(installView)
-        NSLayoutConstraint.activate([
-            installView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            installView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            installView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            installView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-        ])
+        
+        installView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
     }
 }

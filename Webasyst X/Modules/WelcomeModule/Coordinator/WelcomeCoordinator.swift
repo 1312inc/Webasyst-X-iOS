@@ -1,83 +1,56 @@
 //
-//  AuthCoordinator.swift
-//  WebXApp
+//  Welcome module - WelcomeCoordinator.swift
+//  Teamwork
 //
-//  Created by Виктор Кобыхно on 1/13/21.
+//  Created by viktkobst on 19/07/2021.
+//  Copyright © 2021 1312 Inc.. All rights reserved.
 //
 
 import UIKit
 import Webasyst
 
-protocol WelcomeCoordinatorProtocol: AnyObject {
-    init(_ navigationController: UINavigationController)
-    func showWebAuthModal()
-    func showConnectionAlert()
-    func openPhoneAuth()
-}
-
-final class WelcomeCoordinator: Coordinator, WelcomeCoordinatorProtocol {
+//MARK WelcomeCoordinator
+final class WelcomeCoordinator {
     
-    private(set) var childCoordinator: [Coordinator] = []
-    private var navigationController: UINavigationController
-    private let webasyst = WebasystApp()
+    var presenter: UINavigationController
+    var screens: ScreensBuilder
     
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(presenter: UINavigationController, screens: ScreensBuilder) {
+        self.presenter = presenter
+        self.screens = screens
     }
     
     func start() {
-        let welcomeViewController = WelcomeViewController()
-        let welcomeCoordinator = WelcomeCoordinator(navigationController)
-        let welcomeViewModel = WelcomeViewModel(coordinator: welcomeCoordinator)
-        welcomeViewController.viewModel = welcomeViewModel
-        self.navigationController.setViewControllers([welcomeViewController], animated: true)
+        self.initialViewController()
     }
     
-    func showWebAuthModal() {
-        webasyst.oAuthLogin(navigationController: self.navigationController) { result in
-            switch result {
+    //MARK: Initial ViewController
+    private func initialViewController() {
+        let viewController = screens.createWelcomeViewComtroller(coordinator: self)
+        presenter.viewControllers = [viewController]
+    }
+    
+    func openPhoneLogin() {
+        let coordinator = PhoneAuthCoordinator(presenter: self.presenter, screens: screens)
+        coordinator.start()
+    }
+    
+    func webasystIDLogin() {
+        let webasyst = WebasystApp()
+        webasyst.oAuthLogin(navigationController: self.presenter) { serverAnswer in
+            switch serverAnswer {
             case .success:
                 DispatchQueue.main.async {
-                    let window = UIApplication.shared.windows.first ?? UIWindow()
-                    let tabBarController = UITabBarController()
-                    // Build Blog View Controller
-                    let blogNavigationController = UINavigationController()
-                    blogNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("blogTitle", comment: ""), image: UIImage(systemName: "pencil"), tag: 0)
-                    let blogCoordinator = BlogCoordinator(blogNavigationController)
-                    blogCoordinator.start()
-                    //Build Site View Controller
-                    let siteNavigationController = UINavigationController()
-                    siteNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("siteTitle", comment: ""), image: UIImage(systemName: "doc.text"), tag: 1)
-                    let siteCoordinator = SiteCoordinator(siteNavigationController)
-                    siteCoordinator.start()
-                    //Build Shop View Controller
-                    let shopNavigationController = UINavigationController()
-                    shopNavigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("shopTitle", comment: ""), image: UIImage(systemName: "cart"), tag: 2)
-                    let shopCoordinator = ShopCoordinator(shopNavigationController)
-                    shopCoordinator.start()
-                    tabBarController.setViewControllers([blogNavigationController, siteNavigationController, shopNavigationController], animated: true)
-                    window.rootViewController = tabBarController
-                    window.makeKeyAndVisible()
+                    let scene = UIApplication.shared.connectedScenes.first
+                    if let sceneDelegate = scene?.delegate as? SceneDelegate {
+                        let appCoordinator = AppCoordinator(sceneDelegate: sceneDelegate)
+                        appCoordinator.authUser()
+                    }
                 }
             case .error(error: let error):
-                DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: NSLocalizedString("errorTitle", comment: ""), message: error, preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
-                    self.navigationController.present(alertController, animated: true, completion: nil)
-                }
+                print(error)
             }
         }
-    }
-    
-    func openPhoneAuth() {
-        let authCoordinator = AuthCoordinator(self.navigationController)
-        authCoordinator.start()
-    }
-    
-    func showConnectionAlert() {
-        let alertController = UIAlertController(title: NSLocalizedString("errorTitle", comment: ""), message: NSLocalizedString("connectionAlertMessage", comment: ""), preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ок", style: .cancel, handler: nil))
-        self.navigationController.present(alertController, animated: true, completion: nil)
     }
     
 }

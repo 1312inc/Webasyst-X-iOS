@@ -4,7 +4,6 @@
 //
 //  Created by Виктор Кобыхно on 16.06.2021.
 //
-
 import UIKit
 
 protocol AuthViewDelegate {
@@ -138,7 +137,7 @@ class AuthSlide: UIView {
             loginWebasystButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             loginWebasystButton.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -40),
             loginWebasystButton.heightAnchor.constraint(equalToConstant: 50),
-            loginWebasystButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            loginWebasystButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 

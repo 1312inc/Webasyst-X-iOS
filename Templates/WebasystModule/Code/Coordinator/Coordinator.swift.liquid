@@ -1,0 +1,32 @@
+//
+//  {{ module_info.name }} module - {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+//MARK {{ module_info.name }}Coordinator
+final class {{ module_info.name }}Coordinator {
+    
+    var presenter: UINavigationController
+    var screens: ScreensBuilder
+    
+    init(presenter: UINavigationController, screens: ScreensBuilder) {
+        self.presenter = presenter
+        self.screens = screens
+    }
+    
+    func start() {
+        self.initialViewController()
+    }
+    
+    //MARK: Initial ViewController
+    private func initialViewController() {
+        let viewController = screens.create{{ module_info.name }}ViewController(coordinator: self)
+        presenter.viewControllers = [viewController]
+    }
+    
+}

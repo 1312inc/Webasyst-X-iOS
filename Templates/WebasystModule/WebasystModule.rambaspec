@@ -10,7 +10,7 @@ code_files:
 - {name: View/ViewConroller.swift, path: Code/View/ViewController.swift.liquid}
 - {name: ViewModel/ViewModel.swift, path: Code/ViewModel/ViewModel.swift.liquid}
 - {name: Model/Model.swift, path: Code/Model/Model.swift.liquid}
-- {name: Router/Router.swift, path: Code/Router/Router.swift.liquid}
+- {name: Coordinator/Coordinator.swift, path: Code/Coordinator/Coordinator.swift.liquid}
 
 # Template dependencies
 dependencies:

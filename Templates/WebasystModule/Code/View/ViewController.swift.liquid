@@ -13,7 +13,12 @@ import RxCocoa
 final class {{ module_info.name }}ViewController: UIViewController {
 
     //MARK: ViewModel property
-    let viewModel: {{ module_info.name }}ViewModelType!
+    var viewModel: {{ module_info.name }}ViewModel?
+    var coordinator: {{ module_info.name }}Coordinator?
+    
+    private var disposeBag = DisposeBag()
+    
+    //MARK: Interface elements property
     
     override func viewDidLoad() {
         super.viewDidLoad()

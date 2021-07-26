@@ -11,5 +11,6 @@ target 'Webasyst X' do
   pod 'Webasyst'
   pod 'Moya'
   pod 'Moya/RxSwift'
-
+  pod 'SnapKit', '~> 4.0'
+  
 end
