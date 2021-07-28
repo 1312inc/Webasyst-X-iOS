@@ -6,19 +6,23 @@
 "connectionAlertMessage" = "Нет соединения с интернетом. Проверьте ваше соединение и повторите попытку.";
 "getStatusCodeError" = "Что-то не так с запросом к серверу (ответ API: invalid_request).";
 "okAlert" = "Понятно";
-"seconds" = "Секунд";
+"seconds" = "секунд";
 "successTitle" = "Успешно";
 
-"invalidClientError" = "Failed to fetch data.\nFailed to obtain access token: Client request (%@) invalid: 401 Unauthorized. Text: %@";
+"invalidClientError" = "Ошибка получения данных.\nНе удалось получить access token. Client request (%@) invalid: 401 Unauthorized. Ответ: %@";
 "disabledErrorText" = "Функциональность API отключена в этом аккаунте Webasyst. Обратитесь к администратору (провайдеру) аккаунта.";
 "notSecureConnection" = "Небезопасное соединение";
 
-"blog" = "блогу";
-"shop" = "магазину";
-"site" = "сайту";
+//Webasyst app names
+"blog" = "Блог";
+"shop" = "Shop-Script";
+"site" = "Сайт";
+
+//empty 'No ...' titles
 "post" = "записей";
 "element" = "страниц";
-"order" = "аказов";
+"order" = "заказов";
+"emptyList" = "Нет %@";
 
 "authError" = "Ошибка авторизации. Повторите попытку позже.";
 
@@ -35,28 +39,28 @@
 "slideTitle_2" = "Open Source";
 "slideText_2" = "Webasyst X — это проект с открытым кодом (лицензия MIT). Используйте его в качестве шаблона для собственных мобильных приложений и новых амбициозных проектов.";
 "nextButton" = "Далее";
-"phoneLogin" = "Вход по номеру телефона";
+"phoneLogin" = "Войти по номеру телефона";
 "orLabel" = "или";
 
 //Phone authorization
-"titlePhone" = "Введите ваш номер телефона";
-"descriptionPhone" = "На этот номер мы отправим код подтверждения";
+"titlePhone" = "Введите свой номер телефона";
+"descriptionPhone" = "На указанный номер будет отправлен код подтверждения";
 "nextButton" = "Далее";
-"phoneError" = "Неверно указан номер телефона.";
-"clientIdError" = "Идентификатор клиента неверен";
-"codeChalengeError" = "Код вызова неверен или отсутствует";
+"phoneError" = "Неверный номер телефона";
+"clientIdError" = "Что-то не так с идентификатором client_id. Пожалуйста, сообщите об этом разработчику приложения.";
+"codeChalengeError" = "Код вызова code_challenge неверный или отсутствует. Пожалуйста, сообщите об этом разработчику приложения.";
 "emailError" = "Неверный адрес электронной почты";
-"phoneError" = "Номер телефона неправильный";
-"requestTimeoutLimit" = "Повторный запрос отправлен до истечения тайм-аута для повторного запроса";
-"sentNotificationFail" = "Сервер не смог отправить код";
-"errorCode" = "Код введен неправильно";
+"phoneError" = "Неверный номер телефона";
+"requestTimeoutLimit" = "Попробуйте повторить попытку отправки кода еще раз через минуту";
+"sentNotificationFail" = "Сервер Webasyst ID не смог отправить код на указанный номер";
+"errorCode" = "Неверный код";
 
 //Confirm code screen
 "titleConfirmCode" = "Введите код из сообщения";
 "resendCodeLabel" = "Не пришло?";
 "resendCodeButton" = "Отправить еще раз";
-"codeSendLabel" = "  отправлен";
-"timerText" = "Код подтверждения отправлен на номер";
+"codeSendLabel" = "Код отправлен";
+"timerText" = "Новый код можно запросить через";
 
 // Blog screen
 "blogTitle" = "Блог";
@@ -65,9 +69,9 @@
 "shopTitle" = "Магазин";
 "newOrder" = "Новый";
 "shippedOrder" = "Отправлен";
-"completedOrder" = "Завершен";
-"refunedOrder" = "Обновлен";
-"unknownOrder" = "Неизвестно";
+"completedOrder" = "Выполнен";
+"refunedOrder" = "Возврат";
+"unknownOrder" = "Неизвестный статус";
 
 // Site screen
 "siteTitle" = "Сайт";
@@ -78,10 +82,9 @@
 "addWebasystButton" = "Добавить аккаунт";
 
 //Adittional views
-"installModule" = "Модуль %@ еще не установлен на %@";
+"installModule" = "%@ не установлен на %@";
 "installButton" = "Установить";
-"installDescription" = "Инсталлер автоматически скачает и установит %@ в этом аккаунте. Для платных приложений будет выписана временная пробная лицензия.";
-"emptyList" = "Нет %@";
+"installDescription" = "Webasyst может автоматически скачать и установить %@ в этом аккаунте. Для платных приложений будет выписана временная пробная лицензия.";
 
 //Create new install
 "addInstallTitle" = "Добавить аккаунт";
@@ -96,8 +99,8 @@
 "errorCreateNewInstall" = "Не удалось создать аккаунт Webasyst. Скорее всего, превышен лимит на количество бесплатных облачных аккаунтов.";
 
 //Waid instruction
-"titleWaidInstruction" = "Подключение WAID";
-"myInstallWebasyst" = "Мои установки WEBASYST";
+"titleWaidInstruction" = "Подключение к Webasyst ID";
+"myInstallWebasyst" = "Мои аккаунты Webasyst";
 "expiresOn" = "Истекает %@";
 "expiredOn" = "Истек %@";
 

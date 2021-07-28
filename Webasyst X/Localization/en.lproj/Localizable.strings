@@ -13,12 +13,16 @@
 "disabledErrorText" = "API functionality is disabled in this Webasyst account. Please contact your Webasyst admin (provider) for details.";
 "notSecureConnection" = "Connection is not secure";
 
-"blog" = "blog";
-"shop" = "store";
-"site" = "site";
+//Webasyst app names
+"blog" = "Blog";
+"shop" = "Shop-Script";
+"site" = "Site";
+
+//empty 'No ...' titles
 "post" = "Posts";
 "element" = "Pages";
 "order" = "Orders";
+"emptyList" = "No %@";
 
 "authError" = "Authorization error. Try again later.";
 
@@ -35,40 +39,39 @@
 "slideTitle_2" = "Open Source";
 "slideText_2" = "Webasyst X is an open source project (MIT license). Feel free to use it as a foundation for your custom Webasyst-powered mobile client app or project.";
 "nextButton" = "Next";
-"phoneLogin" = "Log in by phone number";
+"phoneLogin" = "Sign in with a phone number";
 "orLabel" = "or";
 
 //Phone authorization
 "titlePhone" = "Enter your phone number";
-"descriptionPhone" = "We will send a confirmation code to this number";
+"descriptionPhone" = "We’ll send you an authorization code via SMS";
 "nextButton" = "Next";
-"phoneError" = "Incorrect phone number.";
-"clientIdError" = "ClientID is incorrect";
-"codeChalengeError" = "Code challenge is incorrect or missing";
-"emailError" = "E-mail address is incorrect";
-"phoneError" = "The phone number is wrong";
-"requestTimeoutLimit" = "Repeat request sent before timeout expires for repeat request";
-"sentNotificationFail" = "The server was unable to send the code";
-"errorCode" = "The code is not entered correctly";
+"phoneError" = "Invalid phone number";
+"clientIdError" = "Something went wrong with the app client_id identifier. Please send this error report to the app developer.";
+"codeChalengeError" = "Looks like the code_challenge is incorrect or missing. Please send this error report to the app developer.";
+"emailError" = "Invalid email address";
+"requestTimeoutLimit" = "Please repeat the code resend request in a minute";
+"sentNotificationFail" = "The Webasyst server failed to send the code on the specified phone number";
+"errorCode" = "Invalid code";
 
 //Confirm code screen
 "titleConfirmCode" = "Enter the code from the message";
-"resendCodeLabel" = "It didn't come?";
-"resendCodeButton" = "Resend code";
-"codeSendLabel" = "Code sent";
-"timerText" = "A confirmation code was sent to the number";
+"resendCodeLabel" = "No message received?";
+"resendCodeButton" = "Send Again";
+"codeSendLabel" = "The code has been sent";
+"timerText" = "New code can be requested in";
 
 // Blog screen
 "blogTitle" = "Blog";
-"blogEntryTitle" = "Blog entry";
+"blogEntryTitle" = "Blog Post";
 
 // Shop screen
 "shopTitle" = "Store";
 "newOrder" = "New";
 "shippedOrder" = "Shipped";
 "completedOrder" = "Completed";
-"refunedOrder" = "Refuned";
-"unknownOrder" = "Unknown";
+"refunedOrder" = "Refunded";
+"unknownOrder" = "Unknown status";
 
 // Site screen
 "siteTitle" = "Site";
@@ -79,17 +82,16 @@
 "addWebasystButton" = "Add Account";
 
 //Adittional views
-"installModule" = "The %@ is not installed on %@ yet";
-"installButton" = "Install Now";
-"installDescription" = "Installer will automatically download and install %@ in this account. For paid apps, a time-limited free trial license will be automatically issued.";
-"emptyList" = "No %@";
+"installModule" = "%@ is not installed on %@";
+"installButton" = "Install now";
+"installDescription" = "Webasyst can automatically download and install %@ in this account. For paid apps, a time-limited free trial license will be automatically issued.";
 
 //Create new install
 "addInstallTitle" = "Add Account";
-"anInstallTitle" = "I'm Using Webasyst Already";
+"anInstallTitle" = "I'm using Webasyst already";
 "anInstallDescription" = "If you don't see your existing Webasyst account (website) in this app, it is likely that the account simply isn't connected to your Webasyst ID. Head on to Webasyst backend on your domain using a web browser > go to Settings app > Webasyst ID > Enable Webasyst ID and link your personal account with just few clicks. Then simply restart this app.";
 "aboutConnectButton" = "How to link my Webasyst ID";
-"createInstallTitle" = "I'm a New User";
+"createInstallTitle" = "I'm a new user";
 "createInstallDescription" = "Either download Webasyst source code and install it on your own hosting (server) or create a new account instantly in the Webasyst Cloud with just a tap — right now.";
 "createInstallButton" = "Create Webasyst account";
 "freeTrialLabel" = "30 days free";
@@ -97,8 +99,8 @@
 "errorCreateNewInstall" = "Sorry, we cannot create another account for you at the moment. Most likely, a limit on the number of free Webasyst cloud accounts has been exceeded.";
 
 //Waid instruction
-"titleWaidInstruction" = "Connecting the WAID";
-"myInstallWebasyst" = "My WEBASYST installations";
+"titleWaidInstruction" = "Connecting to Webasyst ID";
+"myInstallWebasyst" = "My Webasyst accounts";
 "expiresOn" = "Expires on %@";
 "expiredOn" = "Expired on %@";
 
