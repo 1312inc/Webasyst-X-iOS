@@ -64,7 +64,7 @@ final class PhoneAuthViewModel: PhoneAuthViewModelType {
         )
         
         phoneNumberSubject
-            .map { $0.count >= 17 }
+            .map { $0.count >= 10 }
             .subscribe(onNext: { [weak self] validate in
                 guard let self = self else { return }
                 self.submitButtonEnabledSubject.onNext(validate)

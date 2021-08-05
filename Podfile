@@ -12,5 +12,6 @@ target 'Webasyst X' do
   pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'SnapKit', '~> 4.0'
+  pod "JMMaskTextField-Swift"
   
 end

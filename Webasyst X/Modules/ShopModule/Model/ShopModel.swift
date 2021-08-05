@@ -16,18 +16,15 @@ struct OrderList: Decodable {
 
 struct Orders: Decodable {
     let id: String
-    let createDateTime: String
     let stateId: StatusOrder
     let total: String
     let currency: String
     let shipping: String
-//    let items: [ItemsOrder]?
     let params: ParamOrder
     let idEncoded: String
     
     private enum CodingKeys: String, CodingKey {
         case id, total, currency, params, shipping
-        case createDateTime = "create_datetime"
         case stateId = "state_id"
         case idEncoded = "id_encoded"
     }
@@ -79,7 +76,7 @@ enum TypeItems: Decodable {
 }
 
 struct ParamOrder: Decodable {
-    let shippingId: String
+    let shippingId: String?
     let shipingAddressCountry: String?
     let shippingAddressCity: String?
     let shippingAddress: String?

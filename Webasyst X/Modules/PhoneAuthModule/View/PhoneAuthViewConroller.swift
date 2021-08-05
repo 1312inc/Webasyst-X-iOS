@@ -38,11 +38,12 @@ final class PhoneAuthViewController: UIViewController {
         return label
     }()
     
-    private lazy var phoneField: UITextField = {
-        let textField = UITextField()
+    private lazy var phoneField: JMMaskTextField = {
+        let textField = JMMaskTextField()
         textField.keyboardType = .phonePad
+        textField.placeholder = "+7 (777) 777-77-77"
+        textField.maskString = "+0 (000) 000-00-00"
         textField.delegate = self
-        textField.placeholder = "+7 777 777-77-77"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -60,7 +61,7 @@ final class PhoneAuthViewController: UIViewController {
         button.setTitleColor(UIColor.systemBlue, for: .normal)
         return button
     }()
-    
+        
     private var regex = try! NSRegularExpression(pattern: "[\\+\\s-\\(\\)]", options: .caseInsensitive)
     
     override func viewDidLoad() {
@@ -152,6 +153,7 @@ final class PhoneAuthViewController: UIViewController {
                     coordinator.showErrorAlert(with: error)
                 }
             }).disposed(by: disposeBag)
+        
     }
     
     private func setupLayout() {
@@ -185,58 +187,31 @@ final class PhoneAuthViewController: UIViewController {
             make.width.equalToSuperview().offset(-40)
         }
     }
-    
-    private func format(_ phoneNumber: String, shouldRemoveLastDigit: Bool) -> String {
-        
-        guard !(shouldRemoveLastDigit && phoneNumber.count <= 2) else {
-            return "+"
-        }
-        
-        let range = NSString(string: phoneNumber).range(of: phoneNumber)
-        var number = regex.stringByReplacingMatches(in: phoneNumber, options: [], range: range, withTemplate: "")
-        
-        if number.count > 15 {
-            let maxIndex = number.index(number.startIndex, offsetBy: 15)
-            number = String(number[number.startIndex ..< maxIndex])
-        }
-        
-        if shouldRemoveLastDigit {
-            let maxIndex = number.index(number.startIndex, offsetBy: number.count - 1)
-            number = String(number[number.startIndex ..< maxIndex])
-        }
-        
-        let maxIndex = number.index(number.startIndex, offsetBy: number.count)
-        let regRange = number.startIndex ..< maxIndex
-        
-        if number.count < 7 {
-            let pattern = "(\\d)(\\d{3})(\\d+)"
-            number = number.replacingOccurrences(of: pattern, with: "$1 ($2) $3", options: .regularExpression, range: regRange)
-        } else {
-            let pattern = "(\\d)(\\d{3})(\\d{3})(\\d{2})(\\d+)"
-            number = number.replacingOccurrences(of: pattern, with: "$1 ($2) $3-$4-$5", options: .regularExpression, range: regRange)
-        }
-        
-        return "+\(number)"
-    }
-
 }
 
 extension PhoneAuthViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let fullString = (textField.text ?? "") + string
-        phoneField.text = format(fullString, shouldRemoveLastDigit: range.length == 1)
         
-        //Input модели происходит отсюда что бы валидировать кол-во после ввода каждого символа
-        if let viewModel = self.viewModel {
-            viewModel.input.phoneNumber.onNext(fullString)
+        guard let text = textField.text as NSString? else { return true }
+        let newText = text.replacingCharacters(in: range, with: string)
+        
+        let maskTextField = textField as! JMMaskTextField
+        guard let unmaskedText = maskTextField.stringMask?.unmask(string: newText) else { return true }
+        
+        if unmaskedText.count >= 11 {
+            maskTextField.maskString = "+0 (000) 000-00-00"
+        } else {
+            maskTextField.maskString = "+0 (000) 000-00-00"
         }
-    
-        return false
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        phoneField.text = "+7"
+        
+        guard let viewModel = self.viewModel else {
+            return true
+        }
+        
+        viewModel.input.phoneNumber.onNext(unmaskedText)
+        
+        return true
     }
     
 }

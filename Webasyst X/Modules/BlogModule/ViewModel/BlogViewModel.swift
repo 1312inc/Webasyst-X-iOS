@@ -84,6 +84,7 @@ final class BlogViewModel: BlogViewModelType {
         showLoadingHubSubject.onNext(true)
         if Reachability.isConnectedToNetwork() {
             networkingService.rx.request(.requestBlogList)
+                .debug()
                 .subscribe { response in
                     guard let statusCode = response.response?.statusCode else {
                         self.showLoadingHubSubject.onNext(false)

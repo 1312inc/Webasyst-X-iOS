@@ -196,6 +196,32 @@ final class ConfirmPhoneViewController: UIViewController {
                 }
             }).disposed(by: disposeBag)
         
+        viewModel.output.resendCodeStatus
+            .subscribe(onNext: { status in
+                switch status {
+                case .success:
+                    print("success")
+                case .no_channels:
+                    coordinator.showErrorAlert(with: NSLocalizedString("phoneError", comment: ""))
+                case .invalid_client:
+                    coordinator.showErrorAlert(with: NSLocalizedString("clientIdError", comment: ""))
+                case .require_code_challenge:
+                    coordinator.showErrorAlert(with: NSLocalizedString("codeChalengeError", comment: ""))
+                case .invalid_email:
+                    coordinator.showErrorAlert(with: NSLocalizedString("emailError", comment: ""))
+                case .invalid_phone:
+                    coordinator.showErrorAlert(with: NSLocalizedString("phoneError", comment: ""))
+                case .request_timeout_limit:
+                    coordinator.showErrorAlert(with: NSLocalizedString("requestTimeoutLimit", comment: ""))
+                case .sent_notification_fail:
+                    coordinator.showErrorAlert(with: NSLocalizedString("sentNotificationFail", comment: ""))
+                case .server_error:
+                    coordinator.showErrorAlert(with: NSLocalizedString("sentNotificationFail", comment: ""))
+                case .undefined(error: let error):
+                    coordinator.showErrorAlert(with: error)
+                }
+            }).disposed(by: disposeBag)
+        
         viewModel.output.serverStatus
             .subscribe(onNext: { status in
                 switch status {

@@ -36,6 +36,7 @@ final class ConfirmPhoneViewModel: ConfirmPhoneViewModelType {
         var resendButtonEnabled: BehaviorSubject<Bool>
         var showLoadingHub: BehaviorSubject<Bool>
         var serverStatus: PublishSubject<AuthResult>
+        var resendCodeStatus: PublishSubject<AuthResult>
     }
     
     let output: Output
@@ -56,6 +57,7 @@ final class ConfirmPhoneViewModel: ConfirmPhoneViewModelType {
     private var resendButtonEnabledSubject = BehaviorSubject<Bool>(value: false)
     private var showLoadingHubSubject = BehaviorSubject<Bool>(value: false)
     private var serverStatusSubject = PublishSubject<AuthResult>()
+    private var resendCodeStatusSubject = PublishSubject<AuthResult>()
 
     init() {
         //Init input property
@@ -71,7 +73,8 @@ final class ConfirmPhoneViewModel: ConfirmPhoneViewModelType {
             submitButtonEnabled: submitButtonEnabledSubject.asObserver(),
             resendButtonEnabled: resendButtonEnabledSubject.asObserver(),
             showLoadingHub: showLoadingHubSubject.asObserver(),
-            serverStatus: serverStatusSubject.asObserver()
+            serverStatus: serverStatusSubject.asObserver(),
+            resendCodeStatus: resendCodeStatusSubject.asObserver()
         )
         
         verificationCodeSubject
@@ -79,6 +82,9 @@ final class ConfirmPhoneViewModel: ConfirmPhoneViewModelType {
             .subscribe(onNext: { [weak self] valid in
                 guard let self = self else { return }
                 self.submitButtonEnabledSubject.onNext(valid)
+                if valid {
+                    self.submitVerificationCode()
+                }
             }).disposed(by: disposeBag)
         
         resendButtonTapSubject
@@ -102,7 +108,7 @@ final class ConfirmPhoneViewModel: ConfirmPhoneViewModelType {
         if let phoneNumber = self.phoneNumber {
             webasyst.getAuthCode(phoneNumber, type: .phone) { [weak self] result in
                 guard let self = self else { return }
-                self.serverStatusSubject.onNext(result)
+                self.resendCodeStatusSubject.onNext(result)
                 self.resendButtonEnabledSubject.onNext(false)
                 //Перезапускаем таймер resend
                 Timer.scheduledTimer(timeInterval: 90.0, target: self, selector: #selector(self.resendButtonEnabledTimer), userInfo: nil, repeats: false)

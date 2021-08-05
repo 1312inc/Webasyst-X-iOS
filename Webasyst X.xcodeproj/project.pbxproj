@@ -79,6 +79,8 @@
 		FD2A57D326AE988800BA8262 /* SiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A57D226AE988800BA8262 /* SiteViewController.swift */; };
 		FD3BBA072685AC470011259A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD3BBA092685AC470011259A /* Localizable.strings */; };
 		FD46C0902681991700A97894 /* WebasystXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD46C08F2681991700A97894 /* WebasystXTests.swift */; };
+		FD4BB44526BBD33100EA3284 /* JMMaskTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BB44426BBD33100EA3284 /* JMMaskTextField.swift */; };
+		FD4BB44726BBD35C00EA3284 /* JMStringMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4BB44626BBD35C00EA3284 /* JMStringMask.swift */; };
 		FD4CD0F52692CEBA00F5A3DE /* Webasyst.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD0F42692CEBA00F5A3DE /* Webasyst.plist */; };
 		FD4CD0F82692E12800F5A3DE /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4CD0F72692E12800F5A3DE /* UIViewController.swift */; };
 		FD4CD0FA2693073F00F5A3DE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD4CD0F92693073F00F5A3DE /* README.md */; };
@@ -200,6 +202,8 @@
 		FD46C08D2681991700A97894 /* WebasystXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebasystXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD46C08F2681991700A97894 /* WebasystXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebasystXTests.swift; sourceTree = "<group>"; };
 		FD46C0912681991700A97894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD4BB44426BBD33100EA3284 /* JMMaskTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMMaskTextField.swift; sourceTree = "<group>"; };
+		FD4BB44626BBD35C00EA3284 /* JMStringMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMStringMask.swift; sourceTree = "<group>"; };
 		FD4CD0F42692CEBA00F5A3DE /* Webasyst.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Webasyst.plist; sourceTree = "<group>"; };
 		FD4CD0F72692E12800F5A3DE /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FD4CD0F92693073F00F5A3DE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -872,6 +876,8 @@
 		FD4CD0F62692E10F00F5A3DE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FD4BB44626BBD35C00EA3284 /* JMStringMask.swift */,
+				FD4BB44426BBD33100EA3284 /* JMMaskTextField.swift */,
 				FD4CD0F72692E12800F5A3DE /* UIViewController.swift */,
 				FD2A57CE26AE91D900BA8262 /* UIColor.swift */,
 				FD2A57D026AE934C00BA8262 /* UIImageView.swift */,
@@ -1183,6 +1189,7 @@
 				FD2A57C826AE7CF400BA8262 /* LoadingViewController.swift in Sources */,
 				FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */,
 				FD2A57AF26AE7CF400BA8262 /* PhoneAuthViewConroller.swift in Sources */,
+				FD4BB44526BBD33100EA3284 /* JMMaskTextField.swift in Sources */,
 				FD2A57C226AE7CF400BA8262 /* ProfileView.swift in Sources */,
 				FD2A57AE26AE7CF400BA8262 /* PhoneAuthModel.swift in Sources */,
 				FD2A57A926AE7CF400BA8262 /* AddAccoutModel.swift in Sources */,
@@ -1218,6 +1225,7 @@
 				48193BFF1FE6E8B9CA31DFBB /* BlogViewConroller.swift in Sources */,
 				81833D945486887F1ED5FF4F /* BlogViewModel.swift in Sources */,
 				CD0902ED1BDD7C706B0B4313 /* BlogModel.swift in Sources */,
+				FD4BB44726BBD35C00EA3284 /* JMStringMask.swift in Sources */,
 				1DDC1C7FFACF6E5A6D1F3D88 /* BlogCoordinator.swift in Sources */,
 				1FACACDBCA53306395202BBE /* BlogDetailViewConroller.swift in Sources */,
 				8B834D9A25D818433FF2AB63 /* BlogDetailViewModel.swift in Sources */,

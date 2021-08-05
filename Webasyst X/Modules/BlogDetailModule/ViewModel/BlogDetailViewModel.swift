@@ -38,7 +38,7 @@ final class BlogDetailViewModel: BlogDetailViewModelType {
     //MARK: Input Objects
     
     //MARK: Output Objects
-    private var postDataSubject = BehaviorSubject<PostList>(value: PostList(id: "", blog_id: "", datetime: "", title: "", text: "", comment_count: 0, icon: "", user: nil))
+    private var postDataSubject = BehaviorSubject<PostList>(value: PostList(id: "", blogID: "", datetime: "", title: "", text: "", icon: "", user: nil))
 
     init(post: PostList) {
         //Init input property

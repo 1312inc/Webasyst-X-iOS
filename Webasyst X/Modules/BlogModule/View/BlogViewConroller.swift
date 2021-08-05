@@ -75,14 +75,16 @@ final class BlogViewController: UIViewController {
             }).disposed(by: disposeBag)
         
         viewModel.output.showLoadingHub
-            .subscribe(onNext: { loading in
+            .subscribe(onNext: { [weak self] loading in
                 if loading {
+                    guard let self = self else { return }
                     self.setupLoadingView()
                 }
             }).disposed(by: disposeBag)
         
         viewModel.output.errorServerRequest
-            .subscribe (onNext: { errors in
+            .subscribe (onNext: { [weak self] errors in
+                guard let self = self else { return }
                 switch errors {
                 case .permisionDenied:
                     self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))

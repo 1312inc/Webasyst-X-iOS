@@ -10,22 +10,36 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-struct PostsBlog: Codable, Equatable {
+// MARK: - BlogPost
+struct PostsBlog: Codable {
+    let count, offset, limit: Int
     let posts: [PostList]?
 }
 
-struct PostList: Codable, Equatable {
-    let id: String
-    let blog_id: String
-    let datetime: String
-    let title: String
+// MARK: - Post
+struct PostList: Codable {
+    let id, blogID: String?
+    let datetime, title: String
     let text: String
-    let comment_count: Int
-    let icon: String
+    let icon: String?
     let user: PostAuthor?
+
+    enum CodingKeys: String, CodingKey {
+        case id, icon
+        case blogID = "blog_id"
+        case datetime, title, text
+        case user
+    }
 }
 
-struct PostAuthor: Codable, Equatable {
-    let name: String
-    let photo_url_20: String
+// MARK: - User
+struct PostAuthor: Codable {
+    let id: String?
+    let name: String?
+    let firstname: String?
+    let middlename: String?
+    let lastname: String?
+    let isCompany, photo: String?
+    let postsLink: String?
+    let photo_url_20: String?
 }
