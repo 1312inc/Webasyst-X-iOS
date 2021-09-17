@@ -30,7 +30,7 @@ final class ShopViewModel: ShopViewModelType {
     let input: Input
     
     struct Output {
-        var ordersList: PublishSubject<[Orders]>
+        var ordersList: BehaviorSubject<[Orders]>
         var showLoadingHub: BehaviorSubject<Bool>
         var errorServerRequest: PublishSubject<ServerError>
         var updateActiveSetting: PublishSubject<Bool>
@@ -44,7 +44,7 @@ final class ShopViewModel: ShopViewModelType {
     //MARK: Input Objects
     
     //MARK: Output Objects
-    private var ordersListSubject = PublishSubject<[Orders]>()
+    private var ordersListSubject = BehaviorSubject<[Orders]>(value: [])
     private var showLoadingHubSubject = BehaviorSubject<Bool>(value: false)
     private var errorServerRequestSubject = PublishSubject<ServerError>()
     private var updateActiveSettingSubject = PublishSubject<Bool>()
@@ -113,7 +113,7 @@ final class ShopViewModel: ShopViewModelType {
                                 if error == "invalid_client" {
                                     let localizedString = NSLocalizedString("invalidClientError", comment: "")
                                     let webasyst = WebasystApp()
-                                    var activeDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
+                                    let activeDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
                                     let activeInstall = webasyst.getUserInstall(activeDomain)
                                     let replacedString = String(format: localizedString, activeInstall?.url ?? "", String(data: response.data, encoding: String.Encoding.utf8)!)
                                     self.errorServerRequestSubject.onNext(.requestFailed(text: replacedString))
@@ -152,7 +152,7 @@ final class ShopViewModel: ShopViewModelType {
                             self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                         }
                     }
-                } onError: { error in
+                } onFailure: { error in
                     self.showLoadingHubSubject.onNext(false)
                     self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                 }.disposed(by: disposeBag)
