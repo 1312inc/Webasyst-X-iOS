@@ -12,7 +12,7 @@ import RxCocoa
 
 // MARK: - BlogPost
 struct PostsBlog: Codable {
-    let count, offset, limit: Int
+    let count, offset, limit: Int?
     let posts: [PostList]?
 }
 

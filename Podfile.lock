@@ -1,21 +1,21 @@
 PODS:
   - Alamofire (5.4.3)
   - JMMaskTextField-Swift (0.1.3)
-  - Moya (14.0.0):
-    - Moya/Core (= 14.0.0)
-  - Moya/Core (14.0.0):
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
-  - Moya/RxSwift (14.0.0):
+  - Moya/RxSwift (15.0.0):
     - Moya/Core
-    - RxSwift (~> 5.0)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.2)
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
   - SnapKit (4.2.0)
-  - Webasyst (1.2.8)
+  - Webasyst (1.3.1)
 
 DEPENDENCIES:
   - JMMaskTextField-Swift
@@ -40,12 +40,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   JMMaskTextField-Swift: 16aa552605b121285e6c2f0817ab31cea5f4704b
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  Webasyst: 6886729923aad9c3f3c224898c15e99232833331
+  Webasyst: f4d43e49ec8e929b8780ebcb0944e471497b9b77
 
 PODFILE CHECKSUM: 0f708a6282b71f48269678314e67d9bbd4f4aeb0
 

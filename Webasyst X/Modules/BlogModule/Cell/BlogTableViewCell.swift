@@ -29,7 +29,7 @@ class BlogTableViewCell: UITableViewCell {
         self.titleLabel?.text = news.title
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let myDate = dateFormatter.date(from: news.datetime)!
+        let myDate = dateFormatter.date(from: news.datetime ?? "\(Date())")!
         dateFormatter.dateFormat = "dd MMM YYYY HH:mm"
         let somedateString = dateFormatter.string(from: myDate)
         self.authorName?.text = "\(news.user?.name ?? ""), \(somedateString)"
