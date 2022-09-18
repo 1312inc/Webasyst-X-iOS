@@ -76,6 +76,9 @@
 // Site screen
 "siteTitle" = "Сайт";
 
+// Photo title
+"photoTitle" = "Фото"
+
 // Install list screen
 "profileTitle" = "Профиль";
 "exitAccountButtonTitle" = "Выйти";

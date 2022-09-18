@@ -45,6 +45,14 @@ final class MainTabBarCoordinator: NSObject {
                 self.showWelcomeScreen()
             case .error(message: _):
                 self.showWelcomeScreen()
+            case .authorizedButProfileIsEmpty:
+                break
+            case .authorizedButNoneInstalls:
+                break
+            case .authorizedButNoneInstallsAndProfileIsEmpty:
+                break
+            case .networkError(_):
+                break
             }
         }
     }

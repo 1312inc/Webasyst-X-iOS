@@ -39,7 +39,7 @@ final class WelcomeCoordinator {
         let webasyst = WebasystApp()
         webasyst.oAuthLogin(navigationController: self.presenter) { serverAnswer in
             switch serverAnswer {
-            case .success:
+            case .authorized, .authorizedButNoneInstalls, .authorizedButProfileIsEmpty, .authorizedButNoneInstallsAndProfileIsEmpty:
                 DispatchQueue.main.async {
                     let scene = UIApplication.shared.connectedScenes.first
                     if let sceneDelegate = scene?.delegate as? SceneDelegate {
@@ -47,8 +47,12 @@ final class WelcomeCoordinator {
                         appCoordinator.authUser()
                     }
                 }
-            case .error(error: let error):
+            case .error(message: let error):
                 print(error)
+            case .nonAuthorized:
+                break
+            case .networkError(_):
+                break
             }
         }
     }

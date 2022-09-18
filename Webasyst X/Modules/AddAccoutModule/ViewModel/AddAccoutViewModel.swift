@@ -68,7 +68,7 @@ final class AddAccoutViewModel: AddAccoutViewModelType {
         let queue = DispatchQueue.init(label: "\(Bundle.main.bundleIdentifier ?? "").createNewWebasyst", qos: .background, attributes: .concurrent)
         let webasyst = WebasystApp()
         queue.async {
-            webasyst.createWebasystAccount { [weak self] success, url in
+            webasyst.createWebasystAccount { [weak self] success, _, url in
                 guard let self = self else { return }
                 if success {
                     self.newAccountButtonEnabledSubject.onNext(true)
