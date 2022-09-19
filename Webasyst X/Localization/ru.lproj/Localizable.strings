@@ -16,12 +16,14 @@
 //Webasyst app names
 "blog" = "Блог";
 "shop" = "Shop-Script";
+"photoName" = "Фото";
 "site" = "Сайт";
 
 //empty 'No ...' titles
 "post" = "записей";
 "element" = "страниц";
 "order" = "заказов";
+"photo" = "фото";
 "emptyList" = "Нет %@";
 
 "authError" = "Ошибка авторизации. Повторите попытку позже.";
@@ -76,8 +78,8 @@
 // Site screen
 "siteTitle" = "Сайт";
 
-// Photo title
-"photoTitle" = "Фото"
+// Photo screen
+"photoTitle" = "Фото";
 
 // Install list screen
 "profileTitle" = "Профиль";

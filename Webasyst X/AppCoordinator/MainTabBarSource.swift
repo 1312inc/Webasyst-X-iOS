@@ -11,6 +11,7 @@ enum ViewControllerItem: Int {
     case blog = 0
     case site = 1
     case shop = 2
+    case photo = 3
 }
 
 protocol MainTabBarSourceType {
@@ -20,6 +21,7 @@ protocol MainTabBarSourceType {
 final class MainTabBarSource: MainTabBarSourceType {
     
     var items: [UINavigationController] = [
+        UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
@@ -32,6 +34,8 @@ final class MainTabBarSource: MainTabBarSourceType {
         self[.site].tabBarItem = UITabBarItem(title: NSLocalizedString("siteTitle", comment: ""), image: siteIcon, selectedImage: siteIcon)
         let shopIcon = UIImage(systemName: "cart")
         self[.shop].tabBarItem = UITabBarItem(title: NSLocalizedString("shopTitle", comment: ""), image: shopIcon, selectedImage: shopIcon)
+        let photoIcon = UIImage(systemName: "photo")
+        self[.photo].tabBarItem = UITabBarItem(title: NSLocalizedString("photoTitle", comment: ""), image: photoIcon, selectedImage: photoIcon)
     }
     
 }

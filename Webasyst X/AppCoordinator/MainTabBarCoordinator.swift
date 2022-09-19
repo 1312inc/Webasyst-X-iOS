@@ -17,6 +17,7 @@ final class MainTabBarCoordinator: NSObject {
     private var blogCoordinator: BlogCoordinator?
     private var siteCoordinator: SiteCoordinator?
     private var shopCoordinator: ShopCoordinator?
+    private var photoCoordinator: PhotoCoordinator?
     private var welcomeCoordinator: WelcomeCoordinator?
     private var source: MainTabBarSource = MainTabBarSource()
     
@@ -39,18 +40,12 @@ final class MainTabBarCoordinator: NSObject {
         webasyst.checkUserAuth { [weak self] userStatus in
             guard let self = self else { return }
             switch userStatus {
-            case .authorized:
+            case .authorized, .authorizedButNoneInstalls, .authorizedButProfileIsEmpty, .authorizedButNoneInstallsAndProfileIsEmpty:
                 self.showTabBar()
             case .nonAuthorized:
                 self.showWelcomeScreen()
             case .error(message: _):
                 self.showWelcomeScreen()
-            case .authorizedButProfileIsEmpty:
-                break
-            case .authorizedButNoneInstalls:
-                break
-            case .authorizedButNoneInstallsAndProfileIsEmpty:
-                break
             case .networkError(_):
                 break
             }
@@ -63,6 +58,7 @@ final class MainTabBarCoordinator: NSObject {
             self.showBlogTab()
             self.showSiteTab()
             self.showShopTab()
+            self.showPhotoTab()
         }
     }
     
@@ -86,6 +82,8 @@ extension MainTabBarCoordinator: UITabBarControllerDelegate {
             showSiteTab()
         case .shop:
             showShopTab()
+        case .photo:
+            showPhotoTab()
         }
     }
     
@@ -121,6 +119,11 @@ extension MainTabBarCoordinator {
     private func showShopTab() {
         shopCoordinator = ShopCoordinator(presenter: source[.shop], screens: self.screens)
         shopCoordinator?.start()
+    }
+    
+    private func showPhotoTab() {
+        photoCoordinator = PhotoCoordinator(presenter: source[.photo], screens: self.screens)
+        photoCoordinator?.start()
     }
     
     private func showWelcomeTab() {

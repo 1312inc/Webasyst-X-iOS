@@ -10,6 +10,7 @@ import Moya
 import Webasyst
 
 enum NetworkingService {
+    case requestPhotoList
     case requestShopList
     case requestBlogList
     case requestSiteList
@@ -33,6 +34,8 @@ extension NetworkingService: TargetType {
             return "/api.php/shop.order.search"
         case .requestSiteList:
             return "/api.php/site.page.getList"
+        case .requestPhotoList:
+            return "/api.php/photos.photo.getList"
         case .requestSiteDetail(id: _):
             return "/api.php/site.page.getInfo"
         }
@@ -45,6 +48,8 @@ extension NetworkingService: TargetType {
         case .requestShopList:
             return .get
         case .requestSiteList:
+            return .get
+        case .requestPhotoList:
             return .get
         case .requestSiteDetail(id: _):
             return .get
@@ -64,6 +69,12 @@ extension NetworkingService: TargetType {
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .requestShopList:
+            let parameters: [String: Any] = [
+                "limit": "10",
+                "access_token": "\(changeInstall?.accessToken ?? "")"
+            ]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+        case .requestPhotoList:
             let parameters: [String: Any] = [
                 "limit": "10",
                 "access_token": "\(changeInstall?.accessToken ?? "")"
@@ -90,6 +101,8 @@ extension NetworkingService: TargetType {
         case .requestBlogList:
             return Data()
         case .requestShopList:
+            return Data()
+        case .requestPhotoList:
             return Data()
         case .requestSiteList:
             return Data()
