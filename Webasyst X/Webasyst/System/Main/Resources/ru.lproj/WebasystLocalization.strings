@@ -1,0 +1,76 @@
+/* 
+  WebasystLocalization.strings
+  Shop-Script
+
+  Created by Леонид Лукашевич on 05.04.2023.
+  
+*/
+
+// MARK: - Main module
+
+"appName" = "Задачи";
+
+// MARK: - Passcode
+
+/* Enter Passcode State */
+"PasscodeLockEnterTitle" = "Введите код-пароль";
+"PasscodeLockEnterDescription" = "Введите свой код-пароль, чтобы войти.";
+"PasscodeLockRemoveTitle" = "Введите код-пароль";
+"PasscodeLockRemoveDescription" = "Введите свой код-пароль, чтобы выключить его.";
+
+/* Set Passcode State */
+"PasscodeLockSetTitle" = "Введите код-пароль";
+"PasscodeLockSetDescription" = "Задайте новый код-пароль.";
+
+/* Confirm Passcode State */
+"PasscodeLockConfirmTitle" = "Подтвердите код-пароль";
+"PasscodeLockConfirmDescription" = "Введите код-пароль еще раз.";
+
+/* Change Passcode State */
+"PasscodeLockChangeTitle" = "Введите старый код-пароль";
+"PasscodeLockChangeDescription" = "Необходимо для смены кода-пароля на новый.";
+
+/* Passcode Mismatch State */
+"PasscodeLockMismatchTitle" = "Попробуйте еще раз";
+"PasscodeLockMismatchDescription" = "Коды не совпали.";
+
+/* Biometric Auth Reason */
+"PasscodeLockTouchIDReason" = "Для продолжения необходим Touch ID";
+"PasscodeLockFaceIDReason" = "Для продолжения необходим Face ID";
+"PasscodeLockBiometricAuthReason" = "Для продолжения необходима аутентификация";
+
+/* Biometric Auth Fallback Button */
+"PasscodeLockBiometricAuthButton" = "Введите код-пароль";
+
+// MARK: - Install onboarding screen
+
+"installTitle" = "Новый аккаунт";
+"installDescription" = "В облаке Webasyst будет создан новый аккаунт. Вы сможете управлять товарам, обрабатывать заказы, отслеживать статистику по продажам.";
+"installNamePlaceholder" = "Введите название...";
+"crateWebasystAccount" = "Создать аккаунт Webasyst";
+"30DaysFreeAccount" = "30 дней бесплатно";
+"installBottomTitle" = "Войти в существующий аккаунт?";
+"installBottomDescription" = "Не видите свои учетные записи и данные Webasyst? Исправить это просто — войдите в систему классическим способом с помощью пароля, и все учетные записи, связанные с вашим идентификатором Webasyst, будут подключены к этому мобильному приложению.";
+
+// MARK: - Webasyst override localization
+
+// ---------------- Types of alert --------------------
+
+// Add account alert
+
+"shopNameErrorDescription" = "Возникла ошибка при считывании домена.";
+
+// ------------------------------------
+
+// MARK: - Screens
+
+// MARK: - Auth screen
+
+"viewDemoAccount" = "Демо";
+
+// MARK: - Create new install screen
+
+"createInstallTitleOfStoreConnect" = "Подключить аккаунт";
+"createNewShopTitle" = "Новая команда";
+"createNewShopDescription" = "В облаке Webasyst будет создан новый приватный аккаунт для вашей команды. Вы сможете приглашать коллег, ставить задачи, работать над общими проектами.";
+

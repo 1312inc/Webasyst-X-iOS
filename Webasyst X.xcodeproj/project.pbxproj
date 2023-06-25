@@ -30,6 +30,110 @@
 		C6F68C6E6184945115288B16 /* SiteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3643854FC07E06E7221118E1 /* SiteDetailViewModel.swift */; };
 		CB58E4FA8653A598EB1D5084 /* SiteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05806CB941D7790B34036 /* SiteViewModel.swift */; };
 		CD0902ED1BDD7C706B0B4313 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A93FF367C71169D63D005 /* BlogModel.swift */; };
+		E046EC1A2A486229002C4737 /* WebasystNetworkingParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB6A2A486228002C4737 /* WebasystNetworkingParameters.swift */; };
+		E046EC1B2A486229002C4737 /* WebasystSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB6C2A486228002C4737 /* WebasystSceneDelegate.swift */; };
+		E046EC1C2A486229002C4737 /* PasscodeActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB6D2A486228002C4737 /* PasscodeActionDelegate.swift */; };
+		E046EC1D2A486229002C4737 /* WebasystAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB6E2A486228002C4737 /* WebasystAppDelegate.swift */; };
+		E046EC1E2A486229002C4737 /* WebasystScreenNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB6F2A486228002C4737 /* WebasystScreenNavigation.swift */; };
+		E046EC1F2A486229002C4737 /* PasscodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB712A486228002C4737 /* PasscodeManager.swift */; };
+		E046EC202A486229002C4737 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB722A486228002C4737 /* AppStateManager.swift */; };
+		E046EC212A486229002C4737 /* WebasystScreensBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB742A486228002C4737 /* WebasystScreensBuilder.swift */; };
+		E046EC222A486229002C4737 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E046EB762A486228002C4737 /* Colors.xcassets */; };
+		E046EC232A486229002C4737 /* WebasystLocalization.strings in Resources */ = {isa = PBXBuildFile; fileRef = E046EB772A486228002C4737 /* WebasystLocalization.strings */; };
+		E046EC242A486229002C4737 /* mask.json in Resources */ = {isa = PBXBuildFile; fileRef = E046EB792A486228002C4737 /* mask.json */; };
+		E046EC252A486229002C4737 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E046EB7A2A486228002C4737 /* Images.xcassets */; };
+		E046EC262A486229002C4737 /* NetworkingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB7E2A486228002C4737 /* NetworkingResult.swift */; };
+		E046EC272A486229002C4737 /* UpdateNeeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB7F2A486228002C4737 /* UpdateNeeded.swift */; };
+		E046EC282A486229002C4737 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB802A486228002C4737 /* ServerError.swift */; };
+		E046EC292A486229002C4737 /* RedactorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB852A486228002C4737 /* RedactorViewModel.swift */; };
+		E046EC2A2A486229002C4737 /* RedactorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB872A486228002C4737 /* RedactorCoordinator.swift */; };
+		E046EC2B2A486229002C4737 /* RedactorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB892A486228002C4737 /* RedactorModel.swift */; };
+		E046EC2C2A486229002C4737 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB8B2A486228002C4737 /* ProfileImageView.swift */; };
+		E046EC2D2A486229002C4737 /* RedactorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB8C2A486228002C4737 /* RedactorViewController.swift */; };
+		E046EC2E2A486229002C4737 /* RedactorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB8D2A486228002C4737 /* RedactorView.swift */; };
+		E046EC2F2A486229002C4737 /* InstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB8F2A486228002C4737 /* InstallView.swift */; };
+		E046EC302A486229002C4737 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB922A486228002C4737 /* AddAccountViewModel.swift */; };
+		E046EC312A486229002C4737 /* AddAccountNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB932A486228002C4737 /* AddAccountNetworking.swift */; };
+		E046EC322A486229002C4737 /* AddAccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB952A486228002C4737 /* AddAccountCoordinator.swift */; };
+		E046EC332A486229002C4737 /* AddAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB972A486228002C4737 /* AddAccountModel.swift */; };
+		E046EC342A486229002C4737 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB992A486228002C4737 /* AddAccountViewController.swift */; };
+		E046EC352A486229002C4737 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB9A2A486228002C4737 /* AddAccountView.swift */; };
+		E046EC362A486229002C4737 /* SettingsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB9D2A486228002C4737 /* SettingsListViewModel.swift */; };
+		E046EC372A486229002C4737 /* SettingsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EB9F2A486228002C4737 /* SettingsListCoordinator.swift */; };
+		E046EC382A486229002C4737 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA12A486228002C4737 /* Delegate.swift */; };
+		E046EC392A486229002C4737 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA32A486228002C4737 /* InstallViewCell.swift */; };
+		E046EC3A2A486229002C4737 /* InstallViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E046EBA42A486228002C4737 /* InstallViewCell.xib */; };
+		E046EC3B2A486229002C4737 /* SettingsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA62A486228002C4737 /* SettingsListViewController.swift */; };
+		E046EC3C2A486229002C4737 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA82A486228002C4737 /* FooterView.swift */; };
+		E046EC3D2A486229002C4737 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA92A486228002C4737 /* ProfileView.swift */; };
+		E046EC3E2A486229002C4737 /* StoreKitObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBAC2A486228002C4737 /* StoreKitObject.swift */; };
+		E046EC3F2A486229002C4737 /* PayWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBAD2A486228002C4737 /* PayWallViewModel.swift */; };
+		E046EC402A486229002C4737 /* PayWallCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBAF2A486228002C4737 /* PayWallCoordinator.swift */; };
+		E046EC412A486229002C4737 /* PayWallStaticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB12A486228002C4737 /* PayWallStaticCell.swift */; };
+		E046EC422A486229002C4737 /* PayWallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB32A486228002C4737 /* PayWallModel.swift */; };
+		E046EC432A486229002C4737 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB52A486228002C4737 /* PayWallView.swift */; };
+		E046EC442A486229002C4737 /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB72A486228002C4737 /* PayWallViewController.swift */; };
+		E046EC452A486229002C4737 /* EmailConfirmationAppleIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBBA2A486228002C4737 /* EmailConfirmationAppleIDViewController.swift */; };
+		E046EC462A486229002C4737 /* AuthorizationAppleIDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBBB2A486228002C4737 /* AuthorizationAppleIDController.swift */; };
+		E046EC472A486229002C4737 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBBE2A486228002C4737 /* AuthViewModel.swift */; };
+		E046EC482A486229002C4737 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBC02A486228002C4737 /* AuthCoordinator.swift */; };
+		E046EC492A486229002C4737 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBC22A486228002C4737 /* AuthModel.swift */; };
+		E046EC4A2A486229002C4737 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBC42A486228002C4737 /* AuthViewController.swift */; };
+		E046EC4B2A486229002C4737 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBC62A486228002C4737 /* AuthSlide.swift */; };
+		E046EC4C2A486229002C4737 /* QRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBC92A486228002C4737 /* QRViewModel.swift */; };
+		E046EC4D2A486229002C4737 /* QRCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBCB2A486228002C4737 /* QRCoordinator.swift */; };
+		E046EC4E2A486229002C4737 /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBCD2A486228002C4737 /* QRModel.swift */; };
+		E046EC4F2A486229002C4737 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBCF2A486228002C4737 /* QRViewController.swift */; };
+		E046EC502A486229002C4737 /* ConfirmPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBD22A486228002C4737 /* ConfirmPhoneViewModel.swift */; };
+		E046EC512A486229002C4737 /* ConfirmPhoneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBD42A486228002C4737 /* ConfirmPhoneCoordinator.swift */; };
+		E046EC522A486229002C4737 /* ConfirmPhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBD62A486228002C4737 /* ConfirmPhoneModel.swift */; };
+		E046EC532A486229002C4737 /* ConfirmPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBD82A486228002C4737 /* ConfirmPhoneViewController.swift */; };
+		E046EC542A486229002C4737 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = E046EBDB2A486228002C4737 /* PasscodeLock.strings */; };
+		E046EC552A486229002C4737 /* ConfirmPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBDE2A486228002C4737 /* ConfirmPasscodeState.swift */; };
+		E046EC562A486229002C4737 /* ChangePasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBDF2A486228002C4737 /* ChangePasscodeState.swift */; };
+		E046EC572A486229002C4737 /* SetPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBE02A486228002C4737 /* SetPasscodeState.swift */; };
+		E046EC582A486229002C4737 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBE12A486228002C4737 /* PasscodeLock.swift */; };
+		E046EC592A486229002C4737 /* EnterPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBE22A486228002C4737 /* EnterPasscodeState.swift */; };
+		E046EC5A2A486229002C4737 /* PasscodeLockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E046EBE52A486228002C4737 /* PasscodeLockView.xib */; };
+		E046EC5B2A486229002C4737 /* PasscodeSignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBE62A486228002C4737 /* PasscodeSignButton.swift */; };
+		E046EC5C2A486229002C4737 /* PasscodeSignPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBE72A486228002C4737 /* PasscodeSignPlaceholderView.swift */; };
+		E046EC5D2A486229002C4737 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBE92A486228002C4737 /* PasscodeLockType.swift */; };
+		E046EC5E2A486229002C4737 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBEA2A486228002C4737 /* PasscodeLockConfigurationType.swift */; };
+		E046EC5F2A486229002C4737 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBEB2A486228002C4737 /* PasscodeRepositoryType.swift */; };
+		E046EC602A486229002C4737 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBEC2A486228002C4737 /* PasscodeLockStateType.swift */; };
+		E046EC612A486229002C4737 /* PasscodeLockPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBED2A486228002C4737 /* PasscodeLockPresenter.swift */; };
+		E046EC622A486229002C4737 /* PasscodeLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBEF2A486228002C4737 /* PasscodeLockViewController.swift */; };
+		E046EC632A486229002C4737 /* UserDefaultsPasscodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBF12A486228002C4737 /* UserDefaultsPasscodeRepository.swift */; };
+		E046EC642A486229002C4737 /* PasscodeLockConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBF22A486228002C4737 /* PasscodeLockConfiguration.swift */; };
+		E046EC652A486229002C4737 /* PasscodeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBF32A486228002C4737 /* PasscodeSettingsViewController.swift */; };
+		E046EC662A486229002C4737 /* WebasystViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBF52A486228002C4737 /* WebasystViewModelType.swift */; };
+		E046EC672A486229002C4737 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBF72A486228002C4737 /* Service.swift */; };
+		E046EC682A486229002C4737 /* AnalyticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBF92A486228002C4737 /* AnalyticsModel.swift */; };
+		E046EC692A486229002C4737 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBFA2A486228002C4737 /* AnalyticsManager.swift */; };
+		E046EC6A2A486229002C4737 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBFB2A486228002C4737 /* Functions.swift */; };
+		E046EC6B2A486229002C4737 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBFD2A486228002C4737 /* ImagePickerManager.swift */; };
+		E046EC6C2A486229002C4737 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBFF2A486228002C4737 /* CurrentUser.swift */; };
+		E046EC6D2A486229002C4737 /* TemporaryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC002A486228002C4737 /* TemporaryStorage.swift */; };
+		E046EC6E2A486229002C4737 /* Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC012A486228002C4737 /* Vibration.swift */; };
+		E046EC6F2A486229002C4737 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC022A486228002C4737 /* CustomTimer.swift */; };
+		E046EC702A486229002C4737 /* ArraySlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC052A486228002C4737 /* ArraySlice.swift */; };
+		E046EC712A486229002C4737 /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC062A486228002C4737 /* FloatingPoint.swift */; };
+		E046EC722A486229002C4737 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC072A486228002C4737 /* String.swift */; };
+		E046EC732A486229002C4737 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC092A486228002C4737 /* NSLayoutConstraint.swift */; };
+		E046EC742A486229002C4737 /* NSNotification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC0A2A486228002C4737 /* NSNotification.Name.swift */; };
+		E046EC752A486229002C4737 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC0B2A486228002C4737 /* NotificationCenter.swift */; };
+		E046EC762A486229002C4737 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC0C2A486228002C4737 /* UserDefaults.swift */; };
+		E046EC772A486229002C4737 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC0E2A486228002C4737 /* UIView.swift */; };
+		E046EC782A486229002C4737 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC0F2A486228002C4737 /* UIColor.swift */; };
+		E046EC792A486229002C4737 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC102A486228002C4737 /* UIImage.swift */; };
+		E046EC7A2A486229002C4737 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC112A486228002C4737 /* UIViewController.swift */; };
+		E046EC7B2A486229002C4737 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC122A486228002C4737 /* UIFont.swift */; };
+		E046EC7C2A486229002C4737 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC132A486228002C4737 /* UILabel.swift */; };
+		E046EC7D2A486229002C4737 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC142A486228002C4737 /* UIApplication.swift */; };
+		E046EC7E2A486229002C4737 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC152A486228002C4737 /* UIColorHex.swift */; };
+		E046EC7F2A486229002C4737 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC162A486228002C4737 /* UINavigationController.swift */; };
+		E046EC802A486229002C4737 /* UIDeviceShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC172A486228002C4737 /* UIDeviceShared.swift */; };
+		E046EC812A486229002C4737 /* BlurryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC192A486228002C4737 /* BlurryView.swift */; };
 		F38DEA0183E1F6FC33F4A7EB /* SiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B968064F3255BC783E80BCFF /* SiteModel.swift */; };
 		FD068D7B2694239C0008F4AD /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD068D7A2694239C0008F4AD /* NetworkingService.swift */; };
 		FD0A5012269EAC8700AE1B0D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A5011269EAC8700AE1B0D /* Reachability.swift */; };
@@ -148,6 +252,113 @@
 		C341FEDD255B0AF20091B045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C341FEDF255B0AF20091B045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBE05806CB941D7790B34036 /* SiteViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteViewModel.swift; sourceTree = "<group>"; };
+		E046EB6A2A486228002C4737 /* WebasystNetworkingParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebasystNetworkingParameters.swift; sourceTree = "<group>"; };
+		E046EB6C2A486228002C4737 /* WebasystSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebasystSceneDelegate.swift; sourceTree = "<group>"; };
+		E046EB6D2A486228002C4737 /* PasscodeActionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeActionDelegate.swift; sourceTree = "<group>"; };
+		E046EB6E2A486228002C4737 /* WebasystAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebasystAppDelegate.swift; sourceTree = "<group>"; };
+		E046EB6F2A486228002C4737 /* WebasystScreenNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebasystScreenNavigation.swift; sourceTree = "<group>"; };
+		E046EB712A486228002C4737 /* PasscodeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeManager.swift; sourceTree = "<group>"; };
+		E046EB722A486228002C4737 /* AppStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
+		E046EB742A486228002C4737 /* WebasystScreensBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebasystScreensBuilder.swift; sourceTree = "<group>"; };
+		E046EB762A486228002C4737 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E046EB782A486228002C4737 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WebasystLocalization.strings; sourceTree = "<group>"; };
+		E046EB792A486228002C4737 /* mask.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mask.json; sourceTree = "<group>"; };
+		E046EB7A2A486228002C4737 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E046EB7B2A486228002C4737 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WebasystLocalization.strings; sourceTree = "<group>"; };
+		E046EB7E2A486228002C4737 /* NetworkingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingResult.swift; sourceTree = "<group>"; };
+		E046EB7F2A486228002C4737 /* UpdateNeeded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateNeeded.swift; sourceTree = "<group>"; };
+		E046EB802A486228002C4737 /* ServerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		E046EB852A486228002C4737 /* RedactorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedactorViewModel.swift; sourceTree = "<group>"; };
+		E046EB872A486228002C4737 /* RedactorCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedactorCoordinator.swift; sourceTree = "<group>"; };
+		E046EB892A486228002C4737 /* RedactorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedactorModel.swift; sourceTree = "<group>"; };
+		E046EB8B2A486228002C4737 /* ProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		E046EB8C2A486228002C4737 /* RedactorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedactorViewController.swift; sourceTree = "<group>"; };
+		E046EB8D2A486228002C4737 /* RedactorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedactorView.swift; sourceTree = "<group>"; };
+		E046EB8F2A486228002C4737 /* InstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallView.swift; sourceTree = "<group>"; };
+		E046EB922A486228002C4737 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
+		E046EB932A486228002C4737 /* AddAccountNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountNetworking.swift; sourceTree = "<group>"; };
+		E046EB952A486228002C4737 /* AddAccountCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountCoordinator.swift; sourceTree = "<group>"; };
+		E046EB972A486228002C4737 /* AddAccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountModel.swift; sourceTree = "<group>"; };
+		E046EB992A486228002C4737 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
+		E046EB9A2A486228002C4737 /* AddAccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
+		E046EB9D2A486228002C4737 /* SettingsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListViewModel.swift; sourceTree = "<group>"; };
+		E046EB9F2A486228002C4737 /* SettingsListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListCoordinator.swift; sourceTree = "<group>"; };
+		E046EBA12A486228002C4737 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		E046EBA32A486228002C4737 /* InstallViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
+		E046EBA42A486228002C4737 /* InstallViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InstallViewCell.xib; sourceTree = "<group>"; };
+		E046EBA62A486228002C4737 /* SettingsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListViewController.swift; sourceTree = "<group>"; };
+		E046EBA82A486228002C4737 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		E046EBA92A486228002C4737 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E046EBAC2A486228002C4737 /* StoreKitObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreKitObject.swift; sourceTree = "<group>"; };
+		E046EBAD2A486228002C4737 /* PayWallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallViewModel.swift; sourceTree = "<group>"; };
+		E046EBAF2A486228002C4737 /* PayWallCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallCoordinator.swift; sourceTree = "<group>"; };
+		E046EBB12A486228002C4737 /* PayWallStaticCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallStaticCell.swift; sourceTree = "<group>"; };
+		E046EBB32A486228002C4737 /* PayWallModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallModel.swift; sourceTree = "<group>"; };
+		E046EBB52A486228002C4737 /* PayWallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
+		E046EBB72A486228002C4737 /* PayWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
+		E046EBBA2A486228002C4737 /* EmailConfirmationAppleIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConfirmationAppleIDViewController.swift; sourceTree = "<group>"; };
+		E046EBBB2A486228002C4737 /* AuthorizationAppleIDController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAppleIDController.swift; sourceTree = "<group>"; };
+		E046EBBE2A486228002C4737 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		E046EBC02A486228002C4737 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		E046EBC22A486228002C4737 /* AuthModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		E046EBC42A486228002C4737 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		E046EBC62A486228002C4737 /* AuthSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
+		E046EBC92A486228002C4737 /* QRViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewModel.swift; sourceTree = "<group>"; };
+		E046EBCB2A486228002C4737 /* QRCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCoordinator.swift; sourceTree = "<group>"; };
+		E046EBCD2A486228002C4737 /* QRModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
+		E046EBCF2A486228002C4737 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		E046EBD22A486228002C4737 /* ConfirmPhoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneViewModel.swift; sourceTree = "<group>"; };
+		E046EBD42A486228002C4737 /* ConfirmPhoneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneCoordinator.swift; sourceTree = "<group>"; };
+		E046EBD62A486228002C4737 /* ConfirmPhoneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneModel.swift; sourceTree = "<group>"; };
+		E046EBD82A486228002C4737 /* ConfirmPhoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPhoneViewController.swift; sourceTree = "<group>"; };
+		E046EBDC2A486228002C4737 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
+		E046EBDE2A486228002C4737 /* ConfirmPasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPasscodeState.swift; sourceTree = "<group>"; };
+		E046EBDF2A486228002C4737 /* ChangePasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasscodeState.swift; sourceTree = "<group>"; };
+		E046EBE02A486228002C4737 /* SetPasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPasscodeState.swift; sourceTree = "<group>"; };
+		E046EBE12A486228002C4737 /* PasscodeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLock.swift; sourceTree = "<group>"; };
+		E046EBE22A486228002C4737 /* EnterPasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasscodeState.swift; sourceTree = "<group>"; };
+		E046EBE32A486228002C4737 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
+		E046EBE52A486228002C4737 /* PasscodeLockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasscodeLockView.xib; sourceTree = "<group>"; };
+		E046EBE62A486228002C4737 /* PasscodeSignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeSignButton.swift; sourceTree = "<group>"; };
+		E046EBE72A486228002C4737 /* PasscodeSignPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeSignPlaceholderView.swift; sourceTree = "<group>"; };
+		E046EBE92A486228002C4737 /* PasscodeLockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockType.swift; sourceTree = "<group>"; };
+		E046EBEA2A486228002C4737 /* PasscodeLockConfigurationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfigurationType.swift; sourceTree = "<group>"; };
+		E046EBEB2A486228002C4737 /* PasscodeRepositoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeRepositoryType.swift; sourceTree = "<group>"; };
+		E046EBEC2A486228002C4737 /* PasscodeLockStateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockStateType.swift; sourceTree = "<group>"; };
+		E046EBED2A486228002C4737 /* PasscodeLockPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockPresenter.swift; sourceTree = "<group>"; };
+		E046EBEE2A486228002C4737 /* PasscodeLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeLock.h; sourceTree = "<group>"; };
+		E046EBEF2A486228002C4737 /* PasscodeLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockViewController.swift; sourceTree = "<group>"; };
+		E046EBF12A486228002C4737 /* UserDefaultsPasscodeRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsPasscodeRepository.swift; sourceTree = "<group>"; };
+		E046EBF22A486228002C4737 /* PasscodeLockConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfiguration.swift; sourceTree = "<group>"; };
+		E046EBF32A486228002C4737 /* PasscodeSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeSettingsViewController.swift; sourceTree = "<group>"; };
+		E046EBF52A486228002C4737 /* WebasystViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebasystViewModelType.swift; sourceTree = "<group>"; };
+		E046EBF72A486228002C4737 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E046EBF92A486228002C4737 /* AnalyticsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsModel.swift; sourceTree = "<group>"; };
+		E046EBFA2A486228002C4737 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		E046EBFB2A486228002C4737 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		E046EBFD2A486228002C4737 /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		E046EBFF2A486228002C4737 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		E046EC002A486228002C4737 /* TemporaryStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryStorage.swift; sourceTree = "<group>"; };
+		E046EC012A486228002C4737 /* Vibration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vibration.swift; sourceTree = "<group>"; };
+		E046EC022A486228002C4737 /* CustomTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
+		E046EC052A486228002C4737 /* ArraySlice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySlice.swift; sourceTree = "<group>"; };
+		E046EC062A486228002C4737 /* FloatingPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
+		E046EC072A486228002C4737 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		E046EC092A486228002C4737 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		E046EC0A2A486228002C4737 /* NSNotification.Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotification.Name.swift; sourceTree = "<group>"; };
+		E046EC0B2A486228002C4737 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		E046EC0C2A486228002C4737 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		E046EC0E2A486228002C4737 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		E046EC0F2A486228002C4737 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E046EC102A486228002C4737 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		E046EC112A486228002C4737 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E046EC122A486228002C4737 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		E046EC132A486228002C4737 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		E046EC142A486228002C4737 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		E046EC152A486228002C4737 /* UIColorHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
+		E046EC162A486228002C4737 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		E046EC172A486228002C4737 /* UIDeviceShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceShared.swift; sourceTree = "<group>"; };
+		E046EC192A486228002C4737 /* BlurryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurryView.swift; sourceTree = "<group>"; };
 		F51ACE1771F5E2DB1364E113 /* BlogCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogCoordinator.swift; sourceTree = "<group>"; };
 		FD068D7A2694239C0008F4AD /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		FD0A5011269EAC8700AE1B0D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -474,6 +685,7 @@
 			children = (
 				FD4CD0F92693073F00F5A3DE /* README.md */,
 				FD4CD0F42692CEBA00F5A3DE /* Webasyst.plist */,
+				E046EB682A486228002C4737 /* Webasyst */,
 				FD4E67FF2679CE7400A42283 /* Views */,
 				FDE6408125BFC547008082F3 /* Localization */,
 				FD576DF12660C08300F4D707 /* Models */,
@@ -501,6 +713,662 @@
 				1010A0F23C88A7DB775F4942 /* BlogDetailViewConroller.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E046EB682A486228002C4737 /* Webasyst */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB692A486228002C4737 /* Requirements */,
+				E046EB702A486228002C4737 /* System */,
+			);
+			path = Webasyst;
+			sourceTree = "<group>";
+		};
+		E046EB692A486228002C4737 /* Requirements */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB6B2A486228002C4737 /* Delegates */,
+				E046EB6A2A486228002C4737 /* WebasystNetworkingParameters.swift */,
+				E046EB6F2A486228002C4737 /* WebasystScreenNavigation.swift */,
+			);
+			path = Requirements;
+			sourceTree = "<group>";
+		};
+		E046EB6B2A486228002C4737 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB6C2A486228002C4737 /* WebasystSceneDelegate.swift */,
+				E046EB6D2A486228002C4737 /* PasscodeActionDelegate.swift */,
+				E046EB6E2A486228002C4737 /* WebasystAppDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		E046EB702A486228002C4737 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB712A486228002C4737 /* PasscodeManager.swift */,
+				E046EB722A486228002C4737 /* AppStateManager.swift */,
+				E046EB732A486228002C4737 /* Main */,
+				E046EC182A486228002C4737 /* Views */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		E046EB732A486228002C4737 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB742A486228002C4737 /* WebasystScreensBuilder.swift */,
+				E046EB752A486228002C4737 /* Resources */,
+				E046EB7C2A486228002C4737 /* Screens */,
+				E046EBF62A486228002C4737 /* Support */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E046EB752A486228002C4737 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB762A486228002C4737 /* Colors.xcassets */,
+				E046EB772A486228002C4737 /* WebasystLocalization.strings */,
+				E046EB792A486228002C4737 /* mask.json */,
+				E046EB7A2A486228002C4737 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E046EB7C2A486228002C4737 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB7D2A486228002C4737 /* Models */,
+				E046EB812A486228002C4737 /* Modules */,
+				E046EBF42A486228002C4737 /* Protocols */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E046EB7D2A486228002C4737 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB7E2A486228002C4737 /* NetworkingResult.swift */,
+				E046EB7F2A486228002C4737 /* UpdateNeeded.swift */,
+				E046EB802A486228002C4737 /* ServerError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E046EB812A486228002C4737 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB822A486228002C4737 /* Profile */,
+				E046EBAA2A486228002C4737 /* PayWallModule */,
+				E046EBB82A486228002C4737 /* Authorization */,
+				E046EBD92A486228002C4737 /* PasscodeModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E046EB822A486228002C4737 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB832A486228002C4737 /* Redactor */,
+				E046EB8E2A486228002C4737 /* NotInstall */,
+				E046EB902A486228002C4737 /* AddAccount */,
+				E046EB9B2A486228002C4737 /* SettingsList */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E046EB832A486228002C4737 /* Redactor */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB842A486228002C4737 /* ViewModel */,
+				E046EB862A486228002C4737 /* Coordinator */,
+				E046EB882A486228002C4737 /* Model */,
+				E046EB8A2A486228002C4737 /* View */,
+			);
+			path = Redactor;
+			sourceTree = "<group>";
+		};
+		E046EB842A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB852A486228002C4737 /* RedactorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EB862A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB872A486228002C4737 /* RedactorCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EB882A486228002C4737 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB892A486228002C4737 /* RedactorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E046EB8A2A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB8B2A486228002C4737 /* ProfileImageView.swift */,
+				E046EB8C2A486228002C4737 /* RedactorViewController.swift */,
+				E046EB8D2A486228002C4737 /* RedactorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EB8E2A486228002C4737 /* NotInstall */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB8F2A486228002C4737 /* InstallView.swift */,
+			);
+			path = NotInstall;
+			sourceTree = "<group>";
+		};
+		E046EB902A486228002C4737 /* AddAccount */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB912A486228002C4737 /* ViewModel */,
+				E046EB942A486228002C4737 /* Coordinator */,
+				E046EB962A486228002C4737 /* Model */,
+				E046EB982A486228002C4737 /* View */,
+			);
+			path = AddAccount;
+			sourceTree = "<group>";
+		};
+		E046EB912A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB922A486228002C4737 /* AddAccountViewModel.swift */,
+				E046EB932A486228002C4737 /* AddAccountNetworking.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EB942A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB952A486228002C4737 /* AddAccountCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EB962A486228002C4737 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB972A486228002C4737 /* AddAccountModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E046EB982A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB992A486228002C4737 /* AddAccountViewController.swift */,
+				E046EB9A2A486228002C4737 /* AddAccountView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EB9B2A486228002C4737 /* SettingsList */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB9C2A486228002C4737 /* ViewModel */,
+				E046EB9E2A486228002C4737 /* Coordinator */,
+				E046EBA02A486228002C4737 /* Protocol */,
+				E046EBA22A486228002C4737 /* Cell */,
+				E046EBA52A486228002C4737 /* View */,
+				E046EBA72A486228002C4737 /* Views */,
+			);
+			path = SettingsList;
+			sourceTree = "<group>";
+		};
+		E046EB9C2A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB9D2A486228002C4737 /* SettingsListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EB9E2A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EB9F2A486228002C4737 /* SettingsListCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EBA02A486228002C4737 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBA12A486228002C4737 /* Delegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E046EBA22A486228002C4737 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBA32A486228002C4737 /* InstallViewCell.swift */,
+				E046EBA42A486228002C4737 /* InstallViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E046EBA52A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBA62A486228002C4737 /* SettingsListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EBA72A486228002C4737 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBA82A486228002C4737 /* FooterView.swift */,
+				E046EBA92A486228002C4737 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E046EBAA2A486228002C4737 /* PayWallModule */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBAB2A486228002C4737 /* ViewModel */,
+				E046EBAE2A486228002C4737 /* Coordinator */,
+				E046EBB02A486228002C4737 /* Cell */,
+				E046EBB22A486228002C4737 /* Model */,
+				E046EBB42A486228002C4737 /* View */,
+				E046EBB62A486228002C4737 /* ViewController */,
+			);
+			path = PayWallModule;
+			sourceTree = "<group>";
+		};
+		E046EBAB2A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBAC2A486228002C4737 /* StoreKitObject.swift */,
+				E046EBAD2A486228002C4737 /* PayWallViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EBAE2A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBAF2A486228002C4737 /* PayWallCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EBB02A486228002C4737 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBB12A486228002C4737 /* PayWallStaticCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E046EBB22A486228002C4737 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBB32A486228002C4737 /* PayWallModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E046EBB42A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBB52A486228002C4737 /* PayWallView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EBB62A486228002C4737 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBB72A486228002C4737 /* PayWallViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E046EBB82A486228002C4737 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBB92A486228002C4737 /* AppleID */,
+				E046EBBC2A486228002C4737 /* Auth */,
+				E046EBC72A486228002C4737 /* QR */,
+				E046EBD02A486228002C4737 /* ConfirmPhone */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		E046EBB92A486228002C4737 /* AppleID */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBBA2A486228002C4737 /* EmailConfirmationAppleIDViewController.swift */,
+				E046EBBB2A486228002C4737 /* AuthorizationAppleIDController.swift */,
+			);
+			path = AppleID;
+			sourceTree = "<group>";
+		};
+		E046EBBC2A486228002C4737 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBBD2A486228002C4737 /* ViewModel */,
+				E046EBBF2A486228002C4737 /* Coordinator */,
+				E046EBC12A486228002C4737 /* Model */,
+				E046EBC32A486228002C4737 /* View */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E046EBBD2A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBBE2A486228002C4737 /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EBBF2A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBC02A486228002C4737 /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EBC12A486228002C4737 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBC22A486228002C4737 /* AuthModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E046EBC32A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBC42A486228002C4737 /* AuthViewController.swift */,
+				E046EBC52A486228002C4737 /* AuthSlide */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EBC52A486228002C4737 /* AuthSlide */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBC62A486228002C4737 /* AuthSlide.swift */,
+			);
+			path = AuthSlide;
+			sourceTree = "<group>";
+		};
+		E046EBC72A486228002C4737 /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBC82A486228002C4737 /* ViewModel */,
+				E046EBCA2A486228002C4737 /* Coordinator */,
+				E046EBCC2A486228002C4737 /* Model */,
+				E046EBCE2A486228002C4737 /* View */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		E046EBC82A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBC92A486228002C4737 /* QRViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EBCA2A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBCB2A486228002C4737 /* QRCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EBCC2A486228002C4737 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBCD2A486228002C4737 /* QRModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E046EBCE2A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBCF2A486228002C4737 /* QRViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EBD02A486228002C4737 /* ConfirmPhone */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBD12A486228002C4737 /* ViewModel */,
+				E046EBD32A486228002C4737 /* Coordinator */,
+				E046EBD52A486228002C4737 /* Model */,
+				E046EBD72A486228002C4737 /* View */,
+			);
+			path = ConfirmPhone;
+			sourceTree = "<group>";
+		};
+		E046EBD12A486228002C4737 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBD22A486228002C4737 /* ConfirmPhoneViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E046EBD32A486228002C4737 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBD42A486228002C4737 /* ConfirmPhoneCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E046EBD52A486228002C4737 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBD62A486228002C4737 /* ConfirmPhoneModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E046EBD72A486228002C4737 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBD82A486228002C4737 /* ConfirmPhoneViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E046EBD92A486228002C4737 /* PasscodeModule */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBDA2A486228002C4737 /* PasscodeLockFramework */,
+				E046EBF02A486228002C4737 /* PasscodeLock */,
+			);
+			path = PasscodeModule;
+			sourceTree = "<group>";
+		};
+		E046EBDA2A486228002C4737 /* PasscodeLockFramework */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBDB2A486228002C4737 /* PasscodeLock.strings */,
+				E046EBDD2A486228002C4737 /* PasscodeLock */,
+				E046EBE42A486228002C4737 /* Views */,
+				E046EBE82A486228002C4737 /* Protocols */,
+				E046EBED2A486228002C4737 /* PasscodeLockPresenter.swift */,
+				E046EBEE2A486228002C4737 /* PasscodeLock.h */,
+				E046EBEF2A486228002C4737 /* PasscodeLockViewController.swift */,
+			);
+			path = PasscodeLockFramework;
+			sourceTree = "<group>";
+		};
+		E046EBDD2A486228002C4737 /* PasscodeLock */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBDE2A486228002C4737 /* ConfirmPasscodeState.swift */,
+				E046EBDF2A486228002C4737 /* ChangePasscodeState.swift */,
+				E046EBE02A486228002C4737 /* SetPasscodeState.swift */,
+				E046EBE12A486228002C4737 /* PasscodeLock.swift */,
+				E046EBE22A486228002C4737 /* EnterPasscodeState.swift */,
+			);
+			path = PasscodeLock;
+			sourceTree = "<group>";
+		};
+		E046EBE42A486228002C4737 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBE52A486228002C4737 /* PasscodeLockView.xib */,
+				E046EBE62A486228002C4737 /* PasscodeSignButton.swift */,
+				E046EBE72A486228002C4737 /* PasscodeSignPlaceholderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E046EBE82A486228002C4737 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBE92A486228002C4737 /* PasscodeLockType.swift */,
+				E046EBEA2A486228002C4737 /* PasscodeLockConfigurationType.swift */,
+				E046EBEB2A486228002C4737 /* PasscodeRepositoryType.swift */,
+				E046EBEC2A486228002C4737 /* PasscodeLockStateType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E046EBF02A486228002C4737 /* PasscodeLock */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBF12A486228002C4737 /* UserDefaultsPasscodeRepository.swift */,
+				E046EBF22A486228002C4737 /* PasscodeLockConfiguration.swift */,
+				E046EBF32A486228002C4737 /* PasscodeSettingsViewController.swift */,
+			);
+			path = PasscodeLock;
+			sourceTree = "<group>";
+		};
+		E046EBF42A486228002C4737 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBF52A486228002C4737 /* WebasystViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E046EBF62A486228002C4737 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBF72A486228002C4737 /* Service.swift */,
+				E046EBF82A486228002C4737 /* AnalyticsManager */,
+				E046EBFB2A486228002C4737 /* Functions.swift */,
+				E046EBFC2A486228002C4737 /* Managers */,
+				E046EC032A486228002C4737 /* Extensions */,
+				E046EC172A486228002C4737 /* UIDeviceShared.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		E046EBF82A486228002C4737 /* AnalyticsManager */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBF92A486228002C4737 /* AnalyticsModel.swift */,
+				E046EBFA2A486228002C4737 /* AnalyticsManager.swift */,
+			);
+			path = AnalyticsManager;
+			sourceTree = "<group>";
+		};
+		E046EBFC2A486228002C4737 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBFD2A486228002C4737 /* ImagePickerManager.swift */,
+				E046EBFE2A486228002C4737 /* User */,
+				E046EC012A486228002C4737 /* Vibration.swift */,
+				E046EC022A486228002C4737 /* CustomTimer.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E046EBFE2A486228002C4737 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E046EBFF2A486228002C4737 /* CurrentUser.swift */,
+				E046EC002A486228002C4737 /* TemporaryStorage.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		E046EC032A486228002C4737 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E046EC042A486228002C4737 /* Swift */,
+				E046EC082A486228002C4737 /* Main */,
+				E046EC0D2A486228002C4737 /* User Interface */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E046EC042A486228002C4737 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				E046EC052A486228002C4737 /* ArraySlice.swift */,
+				E046EC062A486228002C4737 /* FloatingPoint.swift */,
+				E046EC072A486228002C4737 /* String.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		E046EC082A486228002C4737 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E046EC092A486228002C4737 /* NSLayoutConstraint.swift */,
+				E046EC0A2A486228002C4737 /* NSNotification.Name.swift */,
+				E046EC0B2A486228002C4737 /* NotificationCenter.swift */,
+				E046EC0C2A486228002C4737 /* UserDefaults.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E046EC0D2A486228002C4737 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E046EC0E2A486228002C4737 /* UIView.swift */,
+				E046EC0F2A486228002C4737 /* UIColor.swift */,
+				E046EC102A486228002C4737 /* UIImage.swift */,
+				E046EC112A486228002C4737 /* UIViewController.swift */,
+				E046EC122A486228002C4737 /* UIFont.swift */,
+				E046EC132A486228002C4737 /* UILabel.swift */,
+				E046EC142A486228002C4737 /* UIApplication.swift */,
+				E046EC152A486228002C4737 /* UIColorHex.swift */,
+				E046EC162A486228002C4737 /* UINavigationController.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		E046EC182A486228002C4737 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E046EC192A486228002C4737 /* BlurryView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F60864466D80EB8282F90527 /* Model */ = {
@@ -1101,13 +1969,20 @@
 				FD2A57CD26AE8D2300BA8262 /* BlogTableViewCell.xib in Resources */,
 				C341FEDE255B0AF20091B045 /* LaunchScreen.storyboard in Resources */,
 				C341FEDB255B0AF20091B045 /* Assets.xcassets in Resources */,
+				E046EC232A486229002C4737 /* WebasystLocalization.strings in Resources */,
+				E046EC5A2A486229002C4737 /* PasscodeLockView.xib in Resources */,
 				FD2A57AA26AE7CF400BA8262 /* AddAccoutViewController.xib in Resources */,
 				FDD7E9E025C12F9500B4F869 /* OrderViewCell.xib in Resources */,
 				FD84BA702681E2E70049B7F9 /* SiteViewCell.xib in Resources */,
 				FD4CD0FA2693073F00F5A3DE /* README.md in Resources */,
+				E046EC252A486229002C4737 /* Images.xcassets in Resources */,
 				FD2A57BE26AE7CF400BA8262 /* InstallViewCell.xib in Resources */,
 				FD2A57C726AE7CF400BA8262 /* LoadingViewController.xib in Resources */,
+				E046EC242A486229002C4737 /* mask.json in Resources */,
 				FDCF9CE625AE98CD00EDFE69 /* ImageAssets.xcassets in Resources */,
+				E046EC3A2A486229002C4737 /* InstallViewCell.xib in Resources */,
+				E046EC542A486229002C4737 /* PasscodeLock.strings in Resources */,
+				E046EC222A486229002C4737 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1167,45 +2042,92 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E046EC772A486229002C4737 /* UIView.swift in Sources */,
+				E046EC6F2A486229002C4737 /* CustomTimer.swift in Sources */,
 				FD2A575E26AE7CE200BA8262 /* ScreensBuilder.swift in Sources */,
 				FD2A57CC26AE8D2300BA8262 /* BlogTableViewCell.swift in Sources */,
+				E046EC2A2A486229002C4737 /* RedactorCoordinator.swift in Sources */,
+				E046EC262A486229002C4737 /* NetworkingResult.swift in Sources */,
 				FD4CD0F82692E12800F5A3DE /* UIViewController.swift in Sources */,
+				E046EC4D2A486229002C4737 /* QRCoordinator.swift in Sources */,
 				FD2A57B726AE7CF400BA8262 /* WelcomeViewControler.swift in Sources */,
+				E046EC1B2A486229002C4737 /* WebasystSceneDelegate.swift in Sources */,
+				E046EC5C2A486229002C4737 /* PasscodeSignPlaceholderView.swift in Sources */,
 				FD2A57B526AE7CF400BA8262 /* WelcomeCoordinator.swift in Sources */,
+				E046EC642A486229002C4737 /* PasscodeLockConfiguration.swift in Sources */,
 				FD2A57A726AE7CF400BA8262 /* AddAccoutViewModel.swift in Sources */,
+				E046EC802A486229002C4737 /* UIDeviceShared.swift in Sources */,
+				E046EC7A2A486229002C4737 /* UIViewController.swift in Sources */,
 				FD2A57B026AE7CF400BA8262 /* ConfirmPhoneViewModel.swift in Sources */,
+				E046EC482A486229002C4737 /* AuthCoordinator.swift in Sources */,
 				FD2A57C426AE7CF400BA8262 /* InstructionWaidCoordinator.swift in Sources */,
+				E046EC7D2A486229002C4737 /* UIApplication.swift in Sources */,
 				C341FECF255B0AED0091B045 /* AppDelegate.swift in Sources */,
+				E046EC682A486229002C4737 /* AnalyticsModel.swift in Sources */,
 				FD2A575F26AE7CE200BA8262 /* MainTabBarCoordinator.swift in Sources */,
 				FD2A57A826AE7CF400BA8262 /* AddAccoutCoordinator.swift in Sources */,
+				E046EC3C2A486229002C4737 /* FooterView.swift in Sources */,
 				FD0A5015269EACC700AE1B0D /* NotConnection.swift in Sources */,
 				FD0A5012269EAC8700AE1B0D /* Reachability.swift in Sources */,
+				E046EC7C2A486229002C4737 /* UILabel.swift in Sources */,
+				E046EC632A486229002C4737 /* UserDefaultsPasscodeRepository.swift in Sources */,
+				E046EC382A486229002C4737 /* Delegate.swift in Sources */,
+				E046EC2C2A486229002C4737 /* ProfileImageView.swift in Sources */,
 				FD2A57D326AE988800BA8262 /* SiteViewController.swift in Sources */,
+				E046EC592A486229002C4737 /* EnterPasscodeState.swift in Sources */,
+				E046EC1D2A486229002C4737 /* WebasystAppDelegate.swift in Sources */,
 				FD2A57C126AE7CF400BA8262 /* FooterView.swift in Sources */,
 				FD2A57C626AE7CF400BA8262 /* InstructionWaidViewConroller.swift in Sources */,
+				E046EC2B2A486229002C4737 /* RedactorModel.swift in Sources */,
+				E046EC792A486229002C4737 /* UIImage.swift in Sources */,
+				E046EC602A486229002C4737 /* PasscodeLockStateType.swift in Sources */,
 				FD576DF32660C08300F4D707 /* Result.swift in Sources */,
+				E046EC1C2A486229002C4737 /* PasscodeActionDelegate.swift in Sources */,
 				FD2A57C826AE7CF400BA8262 /* LoadingViewController.swift in Sources */,
+				E046EC332A486229002C4737 /* AddAccountModel.swift in Sources */,
 				FDD7E9DF25C12F9500B4F869 /* OrderViewCell.swift in Sources */,
+				E046EC302A486229002C4737 /* AddAccountViewModel.swift in Sources */,
 				FD2A57AF26AE7CF400BA8262 /* PhoneAuthViewConroller.swift in Sources */,
 				FD4BB44526BBD33100EA3284 /* JMMaskTextField.swift in Sources */,
 				FD2A57C226AE7CF400BA8262 /* ProfileView.swift in Sources */,
+				E046EC4A2A486229002C4737 /* AuthViewController.swift in Sources */,
+				E046EC672A486229002C4737 /* Service.swift in Sources */,
+				E046EC6D2A486229002C4737 /* TemporaryStorage.swift in Sources */,
+				E046EC6E2A486229002C4737 /* Vibration.swift in Sources */,
+				E046EC712A486229002C4737 /* FloatingPoint.swift in Sources */,
+				E046EC582A486229002C4737 /* PasscodeLock.swift in Sources */,
+				E046EC7E2A486229002C4737 /* UIColorHex.swift in Sources */,
 				FD2A57AE26AE7CF400BA8262 /* PhoneAuthModel.swift in Sources */,
 				FD2A57A926AE7CF400BA8262 /* AddAccoutModel.swift in Sources */,
 				FD2A575D26AE7CE200BA8262 /* MainTabBarSource.swift in Sources */,
 				FD576DFA2661005100F4D707 /* NetworkingManager.swift in Sources */,
+				E046EC462A486229002C4737 /* AuthorizationAppleIDController.swift in Sources */,
+				E046EC202A486229002C4737 /* AppStateManager.swift in Sources */,
 				FD4E680F2679F61A00A42283 /* ErrorView.swift in Sources */,
+				E046EC732A486229002C4737 /* NSLayoutConstraint.swift in Sources */,
+				E046EC622A486229002C4737 /* PasscodeLockViewController.swift in Sources */,
 				FD2A57B426AE7CF400BA8262 /* WelcomeViewModel.swift in Sources */,
+				E046EC3D2A486229002C4737 /* ProfileView.swift in Sources */,
 				FD2A57BF26AE7CF400BA8262 /* SettingsListModel.swift in Sources */,
 				FD2A57CF26AE91D900BA8262 /* UIColor.swift in Sources */,
+				E046EC472A486229002C4737 /* AuthViewModel.swift in Sources */,
+				E046EC3F2A486229002C4737 /* PayWallViewModel.swift in Sources */,
 				FD2A57AC26AE7CF400BA8262 /* PhoneAuthViewModel.swift in Sources */,
 				FD2A57BB26AE7CF400BA8262 /* SettingsListViewModel.swift in Sources */,
+				E046EC292A486229002C4737 /* RedactorViewModel.swift in Sources */,
 				C341FED1255B0AED0091B045 /* SceneDelegate.swift in Sources */,
 				FD2A57B926AE7CF400BA8262 /* SlideView.swift in Sources */,
+				E046EC572A486229002C4737 /* SetPasscodeState.swift in Sources */,
+				E046EC2F2A486229002C4737 /* InstallView.swift in Sources */,
+				E046EC342A486229002C4737 /* AddAccountViewController.swift in Sources */,
 				FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */,
 				FD2A57D126AE934C00BA8262 /* UIImageView.swift in Sources */,
+				E046EC282A486229002C4737 /* ServerError.swift in Sources */,
 				FD2A57BA26AE7CF400BA8262 /* AuthSlide.swift in Sources */,
+				E046EC3B2A486229002C4737 /* SettingsListViewController.swift in Sources */,
 				FD2A57C026AE7CF400BA8262 /* SettingsListViewConroller.swift in Sources */,
 				FD2A57C326AE7CF400BA8262 /* InstructionWaidViewModel.swift in Sources */,
+				E046EC492A486229002C4737 /* AuthModel.swift in Sources */,
 				FD2A57BC26AE7CF400BA8262 /* SettingsListCoordinator.swift in Sources */,
 				FD2A57C526AE7CF400BA8262 /* InstructionWaidModel.swift in Sources */,
 				FD2A57B226AE7CF400BA8262 /* ConfirmPhoneModel.swift in Sources */,
@@ -1213,33 +2135,83 @@
 				FD2A57AB26AE7CF400BA8262 /* AddAccoutViewConroller.swift in Sources */,
 				FD068D7B2694239C0008F4AD /* NetworkingService.swift in Sources */,
 				FD2A575C26AE7CE200BA8262 /* AppCoordinator.swift in Sources */,
+				E046EC762A486229002C4737 /* UserDefaults.swift in Sources */,
+				E046EC4F2A486229002C4737 /* QRViewController.swift in Sources */,
 				FD2A57B326AE7CF400BA8262 /* ConfirmPhoneViewConroller.swift in Sources */,
+				E046EC502A486229002C4737 /* ConfirmPhoneViewModel.swift in Sources */,
+				E046EC752A486229002C4737 /* NotificationCenter.swift in Sources */,
 				FD4E68052679E1DC00A42283 /* EmptyListView.swift in Sources */,
 				FD2A57AD26AE7CF400BA8262 /* PhoneAuthCoordinator.swift in Sources */,
 				FD2A57B626AE7CF400BA8262 /* WelcomeModel.swift in Sources */,
 				FD2A57BD26AE7CF400BA8262 /* InstallViewCell.swift in Sources */,
+				E046EC812A486229002C4737 /* BlurryView.swift in Sources */,
+				E046EC5E2A486229002C4737 /* PasscodeLockConfigurationType.swift in Sources */,
+				E046EC652A486229002C4737 /* PasscodeSettingsViewController.swift in Sources */,
+				E046EC7B2A486229002C4737 /* UIFont.swift in Sources */,
+				E046EC6C2A486229002C4737 /* CurrentUser.swift in Sources */,
+				E046EC1A2A486229002C4737 /* WebasystNetworkingParameters.swift in Sources */,
+				E046EC322A486229002C4737 /* AddAccountCoordinator.swift in Sources */,
+				E046EC722A486229002C4737 /* String.swift in Sources */,
+				E046EC522A486229002C4737 /* ConfirmPhoneModel.swift in Sources */,
+				E046EC742A486229002C4737 /* NSNotification.Name.swift in Sources */,
+				E046EC1F2A486229002C4737 /* PasscodeManager.swift in Sources */,
 				FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */,
 				FD84BA6F2681E2E70049B7F9 /* SiteViewCell.swift in Sources */,
 				48193BFF1FE6E8B9CA31DFBB /* BlogViewConroller.swift in Sources */,
+				E046EC412A486229002C4737 /* PayWallStaticCell.swift in Sources */,
+				E046EC422A486229002C4737 /* PayWallModel.swift in Sources */,
 				81833D945486887F1ED5FF4F /* BlogViewModel.swift in Sources */,
 				CD0902ED1BDD7C706B0B4313 /* BlogModel.swift in Sources */,
+				E046EC6A2A486229002C4737 /* Functions.swift in Sources */,
 				FD4BB44726BBD35C00EA3284 /* JMStringMask.swift in Sources */,
+				E046EC662A486229002C4737 /* WebasystViewModelType.swift in Sources */,
 				1DDC1C7FFACF6E5A6D1F3D88 /* BlogCoordinator.swift in Sources */,
+				E046EC612A486229002C4737 /* PasscodeLockPresenter.swift in Sources */,
 				1FACACDBCA53306395202BBE /* BlogDetailViewConroller.swift in Sources */,
+				E046EC552A486229002C4737 /* ConfirmPasscodeState.swift in Sources */,
+				E046EC2D2A486229002C4737 /* RedactorViewController.swift in Sources */,
+				E046EC5F2A486229002C4737 /* PasscodeRepositoryType.swift in Sources */,
+				E046EC5D2A486229002C4737 /* PasscodeLockType.swift in Sources */,
+				E046EC6B2A486229002C4737 /* ImagePickerManager.swift in Sources */,
 				8B834D9A25D818433FF2AB63 /* BlogDetailViewModel.swift in Sources */,
 				9FC9C6058022EB1AF4395A17 /* BlogDetailModel.swift in Sources */,
+				E046EC352A486229002C4737 /* AddAccountView.swift in Sources */,
+				E046EC432A486229002C4737 /* PayWallView.swift in Sources */,
+				E046EC4B2A486229002C4737 /* AuthSlide.swift in Sources */,
+				E046EC5B2A486229002C4737 /* PasscodeSignButton.swift in Sources */,
 				6BC8E263375BC1330BFC88B1 /* BlogDetailCoordinator.swift in Sources */,
+				E046EC212A486229002C4737 /* WebasystScreensBuilder.swift in Sources */,
+				E046EC3E2A486229002C4737 /* StoreKitObject.swift in Sources */,
+				E046EC512A486229002C4737 /* ConfirmPhoneCoordinator.swift in Sources */,
+				E046EC692A486229002C4737 /* AnalyticsManager.swift in Sources */,
+				E046EC2E2A486229002C4737 /* RedactorView.swift in Sources */,
 				CB58E4FA8653A598EB1D5084 /* SiteViewModel.swift in Sources */,
+				E046EC532A486229002C4737 /* ConfirmPhoneViewController.swift in Sources */,
 				F38DEA0183E1F6FC33F4A7EB /* SiteModel.swift in Sources */,
+				E046EC362A486229002C4737 /* SettingsListViewModel.swift in Sources */,
+				E046EC702A486229002C4737 /* ArraySlice.swift in Sources */,
+				E046EC402A486229002C4737 /* PayWallCoordinator.swift in Sources */,
+				E046EC562A486229002C4737 /* ChangePasscodeState.swift in Sources */,
+				E046EC442A486229002C4737 /* PayWallViewController.swift in Sources */,
 				0FDB6FB48FF1E86585A7F4DE /* SiteCoordinator.swift in Sources */,
+				E046EC372A486229002C4737 /* SettingsListCoordinator.swift in Sources */,
 				B7A701490C142B9158B73BCF /* SiteDetailViewConroller.swift in Sources */,
+				E046EC392A486229002C4737 /* InstallViewCell.swift in Sources */,
+				E046EC7F2A486229002C4737 /* UINavigationController.swift in Sources */,
 				C6F68C6E6184945115288B16 /* SiteDetailViewModel.swift in Sources */,
+				E046EC782A486229002C4737 /* UIColor.swift in Sources */,
+				E046EC452A486229002C4737 /* EmailConfirmationAppleIDViewController.swift in Sources */,
 				2D76C654DD39F84814FF5DAB /* SiteDetailModel.swift in Sources */,
 				9956D54A7D5D4633CA39E653 /* SiteDetailCoordinator.swift in Sources */,
+				E046EC4E2A486229002C4737 /* QRModel.swift in Sources */,
 				8E895D158F81697CEA907F8C /* ShopViewConroller.swift in Sources */,
 				5AB720F40EB12DE1FFE6A153 /* ShopViewModel.swift in Sources */,
+				E046EC4C2A486229002C4737 /* QRViewModel.swift in Sources */,
 				7F8ADB48763F45274FDE297E /* ShopModel.swift in Sources */,
+				E046EC312A486229002C4737 /* AddAccountNetworking.swift in Sources */,
 				51E83F5998519C6B24B7CE45 /* ShopCoordinator.swift in Sources */,
+				E046EC1E2A486229002C4737 /* WebasystScreenNavigation.swift in Sources */,
+				E046EC272A486229002C4737 /* UpdateNeeded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1268,6 +2240,24 @@
 				C341FEDD255B0AF20091B045 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E046EB772A486228002C4737 /* WebasystLocalization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E046EB782A486228002C4737 /* en */,
+				E046EB7B2A486228002C4737 /* ru */,
+			);
+			name = WebasystLocalization.strings;
+			sourceTree = "<group>";
+		};
+		E046EBDB2A486228002C4737 /* PasscodeLock.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E046EBDC2A486228002C4737 /* en */,
+				E046EBE32A486228002C4737 /* ru */,
+			);
+			name = PasscodeLock.strings;
 			sourceTree = "<group>";
 		};
 		FD3BBA092685AC470011259A /* Localizable.strings */ = {

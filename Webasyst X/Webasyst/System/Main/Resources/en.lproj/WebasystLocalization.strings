@@ -1,0 +1,75 @@
+/* 
+  WebasystLocalization.strings
+  Shop-Script
+
+  Created by Леонид Лукашевич on 05.04.2023.
+  
+*/
+
+// MARK: - Main module
+
+"appName" = "Tasks";
+
+// MARK: - Passcode
+
+/* Enter Passcode State */
+"PasscodeLockEnterTitle" = "Enter Passcode";
+"PasscodeLockEnterDescription" = "Enter your passcode to proceed.";
+"PasscodeLockRemoveTitle" = "Enter Passcode";
+"PasscodeLockRemoveDescription" = "Enter your passcode to disable it.";
+
+/* Set Passcode State */
+"PasscodeLockSetTitle" = "Enter a Passcode";
+"PasscodeLockSetDescription" = "Choose your passcode.";
+
+/* Confirm Passcode State */
+"PasscodeLockConfirmTitle" = "Confirm Passcode";
+"PasscodeLockConfirmDescription" = "Enter the passcode again to confirm it.";
+
+/* Change Passcode State */
+"PasscodeLockChangeTitle" = "Enter Old Passcode";
+"PasscodeLockChangeDescription" = "Enter your old passcode to continue.";
+
+/* Passcode Mismatch State */
+"PasscodeLockMismatchTitle" = "Try again";
+"PasscodeLockMismatchDescription" = "Passcodes didn\'t match.";
+
+/* Biometric Auth Reason */
+"PasscodeLockTouchIDReason" = "Authentication required to proceed";
+"PasscodeLockFaceIDReason" = "Authentication required to proceed";
+"PasscodeLockBiometricAuthReason" = "Authentication required to proceed";
+
+/* Biometric Auth Fallback Button */
+"PasscodeLockBiometricAuthButton" = "Enter Passcode";
+
+// MARK: - Install onboarding screen
+
+"installTitle" = "New account";
+"installDescription" = "A new account will be created in the Webasyst cloud. You will be able to manage products, process orders, and track sales statistics.";
+"installNamePlaceholder" = "Enter name...";
+"crateWebasystAccount" = "Create Webasyst Account";
+"30DaysFreeAccount" = "30 days free";
+"installBottomTitle" = "Join existing account?";
+"installBottomDescription" = "Don’t see your existing Webasyst accounts and data? Fixing is easy — simply sign in the classic way with a password, and all accounts linked with your Webasyst ID will be linked into this mobile app.";
+
+// MARK: - Webasyst override localization
+
+// ---------------- Types of alert --------------------
+
+// Add account alert
+
+"shopNameErrorDescription" = "An error occurred when reading the domain.";
+
+// ------------------------------------
+
+// MARK: - Screens
+
+// MARK: - Auth screen
+
+"viewDemoAccount" = "Demo";
+
+// MARK: - Create new install screen
+
+"createInstallTitleOfStoreConnect" = "Link an existing account";
+"createNewShopTitle" = "New Team";
+"createNewShopDescription" = "New private cloud workspace will be created where you and your teammates will be able to collaborate and send tasks to each other.";
