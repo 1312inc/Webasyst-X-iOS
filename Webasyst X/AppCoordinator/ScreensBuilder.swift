@@ -11,7 +11,7 @@ import Moya
 final class ScreensBuilder: WebasystScreensBuilder {
     
     func createNewBlogViewController(coordinator: BlogCoordinator) -> UIViewController {
-        let viewController = BlogViewController()
+        let viewController = BlogViewController(baseCoordinator: coordinator)
         let moyaProvider = MoyaProvider<NetworkingService>()
         let viewModel = BlogViewModel(networkingService: moyaProvider)
         viewController.viewModel = viewModel
@@ -28,7 +28,7 @@ final class ScreensBuilder: WebasystScreensBuilder {
     }
     
     func createSiteViewController(coordinator: SiteCoordinator) -> UIViewController {
-        let viewController = SiteViewController()
+        let viewController = SiteViewController(baseCoordinator: coordinator)
         let moyaProvider = MoyaProvider<NetworkingService>()
         let viewModel = SiteViewModel(moyaProvider: moyaProvider)
         viewController.viewModel = viewModel
@@ -46,7 +46,7 @@ final class ScreensBuilder: WebasystScreensBuilder {
     }
     
     func createShopViewController(coordinator: ShopCoordinator) -> UIViewController {
-        let viewController = ShopViewController()
+        let viewController = ShopViewController(baseCoordinator: coordinator)
         let moyaProvider = MoyaProvider<NetworkingService>()
         let viewModel = ShopViewModel(moyaProvider: moyaProvider)
         viewController.viewModel = viewModel

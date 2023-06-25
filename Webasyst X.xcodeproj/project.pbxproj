@@ -132,6 +132,7 @@
 		E046EC8C2A488C3F002C4737 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC872A488C3E002C4737 /* LoadingView.swift */; };
 		E046EC8D2A488C3F002C4737 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC882A488C3E002C4737 /* ErrorView.swift */; };
 		E046EC922A48A8A5002C4737 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC912A48A8A5002C4737 /* BaseViewController.swift */; };
+		E046EC962A48B939002C4737 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EC952A48B939002C4737 /* BaseCoordinator.swift */; };
 		F38DEA0183E1F6FC33F4A7EB /* SiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B968064F3255BC783E80BCFF /* SiteModel.swift */; };
 		FD068D7B2694239C0008F4AD /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD068D7A2694239C0008F4AD /* NetworkingService.swift */; };
 		FD0A5012269EAC8700AE1B0D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A5011269EAC8700AE1B0D /* Reachability.swift */; };
@@ -324,6 +325,7 @@
 		E046EC872A488C3E002C4737 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E046EC882A488C3E002C4737 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E046EC912A48A8A5002C4737 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E046EC952A48B939002C4737 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		F51ACE1771F5E2DB1364E113 /* BlogCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogCoordinator.swift; sourceTree = "<group>"; };
 		FD068D7A2694239C0008F4AD /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		FD0A5011269EAC8700AE1B0D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -1264,6 +1266,7 @@
 		E046EC902A48A891002C4737 /* BaseModule */ = {
 			isa = PBXGroup;
 			children = (
+				E046EC952A48B939002C4737 /* BaseCoordinator.swift */,
 				E046EC912A48A8A5002C4737 /* BaseViewController.swift */,
 			);
 			path = BaseModule;
@@ -1740,6 +1743,7 @@
 				E046EC892A488C3E002C4737 /* Protocols.swift in Sources */,
 				E046EC662A486229002C4737 /* WebasystViewModelType.swift in Sources */,
 				1DDC1C7FFACF6E5A6D1F3D88 /* BlogCoordinator.swift in Sources */,
+				E046EC962A48B939002C4737 /* BaseCoordinator.swift in Sources */,
 				E046EC612A486229002C4737 /* PasscodeLockPresenter.swift in Sources */,
 				1FACACDBCA53306395202BBE /* BlogDetailViewConroller.swift in Sources */,
 				E046EC552A486229002C4737 /* ConfirmPasscodeState.swift in Sources */,

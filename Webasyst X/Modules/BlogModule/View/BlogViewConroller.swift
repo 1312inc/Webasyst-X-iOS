@@ -37,7 +37,7 @@ final class BlogViewController: BaseViewController {
         self.view.backgroundColor = .systemBackground
         self.setupLayoutTableView(tables: self.postTableView)
         self.bindableViewModel()
-        self.createLeftNavigationButton(action: #selector(self.openSetupList))
+        self.createLeftNavigationButton(action: #selector(openSettingsList))
     }
     
     // Subscribe for model updates
@@ -110,17 +110,8 @@ final class BlogViewController: BaseViewController {
         viewModel.output.updateActiveSetting
             .subscribe(onNext: { [weak self] update in
                 guard let self = self else { return }
-                self.createLeftNavigationButton(action: #selector(self.openSetupList))
+                self.createLeftNavigationButton(action: #selector(openSettingsList))
             }).disposed(by: disposeBag)
 
     }
-    
-    @objc func openSetupList() {
-        guard let coordinator = self.coordinator else { return }
-        coordinator.openSettingsList { [weak self] in
-            guard let self = self else { return }
-            reloadViewControllers()
-        }
-    }
-
 }
