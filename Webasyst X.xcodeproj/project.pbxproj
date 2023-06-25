@@ -66,13 +66,6 @@
 		E046EC3B2A486229002C4737 /* SettingsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA62A486228002C4737 /* SettingsListViewController.swift */; };
 		E046EC3C2A486229002C4737 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA82A486228002C4737 /* FooterView.swift */; };
 		E046EC3D2A486229002C4737 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBA92A486228002C4737 /* ProfileView.swift */; };
-		E046EC3E2A486229002C4737 /* StoreKitObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBAC2A486228002C4737 /* StoreKitObject.swift */; };
-		E046EC3F2A486229002C4737 /* PayWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBAD2A486228002C4737 /* PayWallViewModel.swift */; };
-		E046EC402A486229002C4737 /* PayWallCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBAF2A486228002C4737 /* PayWallCoordinator.swift */; };
-		E046EC412A486229002C4737 /* PayWallStaticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB12A486228002C4737 /* PayWallStaticCell.swift */; };
-		E046EC422A486229002C4737 /* PayWallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB32A486228002C4737 /* PayWallModel.swift */; };
-		E046EC432A486229002C4737 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB52A486228002C4737 /* PayWallView.swift */; };
-		E046EC442A486229002C4737 /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBB72A486228002C4737 /* PayWallViewController.swift */; };
 		E046EC452A486229002C4737 /* EmailConfirmationAppleIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBBA2A486228002C4737 /* EmailConfirmationAppleIDViewController.swift */; };
 		E046EC462A486229002C4737 /* AuthorizationAppleIDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBBB2A486228002C4737 /* AuthorizationAppleIDController.swift */; };
 		E046EC472A486229002C4737 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E046EBBE2A486228002C4737 /* AuthViewModel.swift */; };
@@ -161,7 +154,6 @@
 		FD2A57B726AE7CF400BA8262 /* WelcomeViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A578426AE7CF400BA8262 /* WelcomeViewControler.swift */; };
 		FD2A57B826AE7CF400BA8262 /* SlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2A578726AE7CF400BA8262 /* SlideView.xib */; };
 		FD2A57B926AE7CF400BA8262 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A578826AE7CF400BA8262 /* SlideView.swift */; };
-		FD2A57BA26AE7CF400BA8262 /* AuthSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A578A26AE7CF400BA8262 /* AuthSlide.swift */; };
 		FD2A57BB26AE7CF400BA8262 /* SettingsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A578D26AE7CF400BA8262 /* SettingsListViewModel.swift */; };
 		FD2A57BC26AE7CF400BA8262 /* SettingsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A578F26AE7CF400BA8262 /* SettingsListCoordinator.swift */; };
 		FD2A57BD26AE7CF400BA8262 /* InstallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2A579126AE7CF400BA8262 /* InstallViewCell.swift */; };
@@ -289,13 +281,6 @@
 		E046EBA62A486228002C4737 /* SettingsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListViewController.swift; sourceTree = "<group>"; };
 		E046EBA82A486228002C4737 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		E046EBA92A486228002C4737 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		E046EBAC2A486228002C4737 /* StoreKitObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreKitObject.swift; sourceTree = "<group>"; };
-		E046EBAD2A486228002C4737 /* PayWallViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallViewModel.swift; sourceTree = "<group>"; };
-		E046EBAF2A486228002C4737 /* PayWallCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallCoordinator.swift; sourceTree = "<group>"; };
-		E046EBB12A486228002C4737 /* PayWallStaticCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallStaticCell.swift; sourceTree = "<group>"; };
-		E046EBB32A486228002C4737 /* PayWallModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallModel.swift; sourceTree = "<group>"; };
-		E046EBB52A486228002C4737 /* PayWallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
-		E046EBB72A486228002C4737 /* PayWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		E046EBBA2A486228002C4737 /* EmailConfirmationAppleIDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConfirmationAppleIDViewController.swift; sourceTree = "<group>"; };
 		E046EBBB2A486228002C4737 /* AuthorizationAppleIDController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAppleIDController.swift; sourceTree = "<group>"; };
 		E046EBBE2A486228002C4737 /* AuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -387,7 +372,6 @@
 		FD2A578426AE7CF400BA8262 /* WelcomeViewControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewControler.swift; sourceTree = "<group>"; };
 		FD2A578726AE7CF400BA8262 /* SlideView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideView.xib; sourceTree = "<group>"; };
 		FD2A578826AE7CF400BA8262 /* SlideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
-		FD2A578A26AE7CF400BA8262 /* AuthSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSlide.swift; sourceTree = "<group>"; };
 		FD2A578D26AE7CF400BA8262 /* SettingsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListViewModel.swift; sourceTree = "<group>"; };
 		FD2A578F26AE7CF400BA8262 /* SettingsListCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListCoordinator.swift; sourceTree = "<group>"; };
 		FD2A579126AE7CF400BA8262 /* InstallViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallViewCell.swift; sourceTree = "<group>"; };
@@ -769,10 +753,10 @@
 		E046EB752A486228002C4737 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E046EB7A2A486228002C4737 /* Images.xcassets */,
 				E046EB762A486228002C4737 /* Colors.xcassets */,
 				E046EB772A486228002C4737 /* WebasystLocalization.strings */,
 				E046EB792A486228002C4737 /* mask.json */,
-				E046EB7A2A486228002C4737 /* Images.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -801,7 +785,6 @@
 			isa = PBXGroup;
 			children = (
 				E046EB822A486228002C4737 /* Profile */,
-				E046EBAA2A486228002C4737 /* PayWallModule */,
 				E046EBB82A486228002C4737 /* Authorization */,
 				E046EBD92A486228002C4737 /* PasscodeModule */,
 			);
@@ -978,68 +961,6 @@
 				E046EBA92A486228002C4737 /* ProfileView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E046EBAA2A486228002C4737 /* PayWallModule */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBAB2A486228002C4737 /* ViewModel */,
-				E046EBAE2A486228002C4737 /* Coordinator */,
-				E046EBB02A486228002C4737 /* Cell */,
-				E046EBB22A486228002C4737 /* Model */,
-				E046EBB42A486228002C4737 /* View */,
-				E046EBB62A486228002C4737 /* ViewController */,
-			);
-			path = PayWallModule;
-			sourceTree = "<group>";
-		};
-		E046EBAB2A486228002C4737 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBAC2A486228002C4737 /* StoreKitObject.swift */,
-				E046EBAD2A486228002C4737 /* PayWallViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E046EBAE2A486228002C4737 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBAF2A486228002C4737 /* PayWallCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		E046EBB02A486228002C4737 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBB12A486228002C4737 /* PayWallStaticCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		E046EBB22A486228002C4737 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBB32A486228002C4737 /* PayWallModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E046EBB42A486228002C4737 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBB52A486228002C4737 /* PayWallView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E046EBB62A486228002C4737 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E046EBB72A486228002C4737 /* PayWallViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		E046EBB82A486228002C4737 /* Authorization */ = {
@@ -1278,8 +1199,8 @@
 			isa = PBXGroup;
 			children = (
 				E046EBF72A486228002C4737 /* Service.swift */,
-				E046EBF82A486228002C4737 /* AnalyticsManager */,
 				E046EBFB2A486228002C4737 /* Functions.swift */,
+				E046EBF82A486228002C4737 /* AnalyticsManager */,
 				E046EBFC2A486228002C4737 /* Managers */,
 				E046EC032A486228002C4737 /* Extensions */,
 				E046EC172A486228002C4737 /* UIDeviceShared.swift */,
@@ -1576,7 +1497,6 @@
 			isa = PBXGroup;
 			children = (
 				FD2A578626AE7CF400BA8262 /* SlideView */,
-				FD2A578926AE7CF400BA8262 /* AuthSlide */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1588,14 +1508,6 @@
 				FD2A578826AE7CF400BA8262 /* SlideView.swift */,
 			);
 			path = SlideView;
-			sourceTree = "<group>";
-		};
-		FD2A578926AE7CF400BA8262 /* AuthSlide */ = {
-			isa = PBXGroup;
-			children = (
-				FD2A578A26AE7CF400BA8262 /* AuthSlide.swift */,
-			);
-			path = AuthSlide;
 			sourceTree = "<group>";
 		};
 		FD2A578B26AE7CF400BA8262 /* SettingsListModule */ = {
@@ -2111,7 +2023,6 @@
 				FD2A57BF26AE7CF400BA8262 /* SettingsListModel.swift in Sources */,
 				FD2A57CF26AE91D900BA8262 /* UIColor.swift in Sources */,
 				E046EC472A486229002C4737 /* AuthViewModel.swift in Sources */,
-				E046EC3F2A486229002C4737 /* PayWallViewModel.swift in Sources */,
 				FD2A57AC26AE7CF400BA8262 /* PhoneAuthViewModel.swift in Sources */,
 				FD2A57BB26AE7CF400BA8262 /* SettingsListViewModel.swift in Sources */,
 				E046EC292A486229002C4737 /* RedactorViewModel.swift in Sources */,
@@ -2123,7 +2034,6 @@
 				FD4E68022679CED300A42283 /* InstallModuleView.swift in Sources */,
 				FD2A57D126AE934C00BA8262 /* UIImageView.swift in Sources */,
 				E046EC282A486229002C4737 /* ServerError.swift in Sources */,
-				FD2A57BA26AE7CF400BA8262 /* AuthSlide.swift in Sources */,
 				E046EC3B2A486229002C4737 /* SettingsListViewController.swift in Sources */,
 				FD2A57C026AE7CF400BA8262 /* SettingsListViewConroller.swift in Sources */,
 				FD2A57C326AE7CF400BA8262 /* InstructionWaidViewModel.swift in Sources */,
@@ -2158,8 +2068,6 @@
 				FDBB9F7B2679FA880027DD53 /* LoadingView.swift in Sources */,
 				FD84BA6F2681E2E70049B7F9 /* SiteViewCell.swift in Sources */,
 				48193BFF1FE6E8B9CA31DFBB /* BlogViewConroller.swift in Sources */,
-				E046EC412A486229002C4737 /* PayWallStaticCell.swift in Sources */,
-				E046EC422A486229002C4737 /* PayWallModel.swift in Sources */,
 				81833D945486887F1ED5FF4F /* BlogViewModel.swift in Sources */,
 				CD0902ED1BDD7C706B0B4313 /* BlogModel.swift in Sources */,
 				E046EC6A2A486229002C4737 /* Functions.swift in Sources */,
@@ -2176,12 +2084,10 @@
 				8B834D9A25D818433FF2AB63 /* BlogDetailViewModel.swift in Sources */,
 				9FC9C6058022EB1AF4395A17 /* BlogDetailModel.swift in Sources */,
 				E046EC352A486229002C4737 /* AddAccountView.swift in Sources */,
-				E046EC432A486229002C4737 /* PayWallView.swift in Sources */,
 				E046EC4B2A486229002C4737 /* AuthSlide.swift in Sources */,
 				E046EC5B2A486229002C4737 /* PasscodeSignButton.swift in Sources */,
 				6BC8E263375BC1330BFC88B1 /* BlogDetailCoordinator.swift in Sources */,
 				E046EC212A486229002C4737 /* WebasystScreensBuilder.swift in Sources */,
-				E046EC3E2A486229002C4737 /* StoreKitObject.swift in Sources */,
 				E046EC512A486229002C4737 /* ConfirmPhoneCoordinator.swift in Sources */,
 				E046EC692A486229002C4737 /* AnalyticsManager.swift in Sources */,
 				E046EC2E2A486229002C4737 /* RedactorView.swift in Sources */,
@@ -2190,9 +2096,7 @@
 				F38DEA0183E1F6FC33F4A7EB /* SiteModel.swift in Sources */,
 				E046EC362A486229002C4737 /* SettingsListViewModel.swift in Sources */,
 				E046EC702A486229002C4737 /* ArraySlice.swift in Sources */,
-				E046EC402A486229002C4737 /* PayWallCoordinator.swift in Sources */,
 				E046EC562A486229002C4737 /* ChangePasscodeState.swift in Sources */,
-				E046EC442A486229002C4737 /* PayWallViewController.swift in Sources */,
 				0FDB6FB48FF1E86585A7F4DE /* SiteCoordinator.swift in Sources */,
 				E046EC372A486229002C4737 /* SettingsListCoordinator.swift in Sources */,
 				B7A701490C142B9158B73BCF /* SiteDetailViewConroller.swift in Sources */,

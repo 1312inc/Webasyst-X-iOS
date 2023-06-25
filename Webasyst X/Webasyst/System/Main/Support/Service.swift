@@ -10,35 +10,6 @@ import Webasyst
 
 enum Service {
     
-    enum Assistance {
-        
-        static func load(domain: String?, id: String?, completion: @escaping () -> ()) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            if let domain = domain,
-               let id = id,
-               let url = URL(string: "\(domain)/api.php/tasks.statuses.getList?access_token=\(id)") {
-                URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                        completion()
-                        })
-                    }).resume()
-            } else {
-                completion()
-            }
-            })
-        }
-                
-        static func extendCurrentDate(value: Int) -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let increasedDate = Calendar.current.date(byAdding: .month, value: value, to: .init())
-            if let date = increasedDate {
-                return dateFormatter.string(from: date)
-            } else { return .init() }
-        }
-        
-    }
-    
     enum Notify {
         
         static var accountSwitched: Notification.Name {
