@@ -8,7 +8,7 @@
 import UIKit
 import Moya
 
-final class ScreensBuilder {
+final class ScreensBuilder: WebasystScreensBuilder {
     
     func createNewBlogViewController(coordinator: BlogCoordinator) -> UIViewController {
         let viewController = BlogViewController()
@@ -66,45 +66,4 @@ extension ScreensBuilder {
         viewController.coordinator = coordinator
         return viewController
     }
-    
-    func createPhoneAuthViewComtroller(coordinator: PhoneAuthCoordinator) -> UIViewController {
-        let viewController = PhoneAuthViewController()
-        let viewModel = PhoneAuthViewModel()
-        viewController.viewModel = viewModel
-        viewController.coordinator = coordinator
-        return viewController
-    }
-    
-    func createConfirmPhoneViewController(coordinator: ConfirmPhoneCoordinator, phoneNumber: String) -> UIViewController {
-        let viewController = ConfirmPhoneViewController()
-        let viewModel = ConfirmPhoneViewModel()
-        viewModel.phoneNumber = phoneNumber
-        viewController.viewModel = viewModel
-        viewController.coordinator = coordinator
-        return viewController
-    }
-    func createSettingsListViewController(coordinator: SettingsListCoordinator) -> UIViewController {
-        let viewController = SettingsListViewController()
-        let viewModel = SettingsListViewModel()
-        viewController.viewModel = viewModel
-        viewController.coordinator = coordinator
-        return viewController
-    }
-    
-    func createAddAccountViewController(coordinator: AddAccoutCoordinator) -> UIViewController {
-        let viewController = AddAccoutViewController()
-        let viewModel = AddAccoutViewModel()
-        viewController.viewModel = viewModel
-        viewController.coordinator = coordinator
-        return viewController
-    }
-    
-    func createInstructionWaidViewController(coordinator: InstructionWaidCoordinator) -> UIViewController {
-        let viewController = InstructionWaidViewController()
-        let viewModel = InstructionWaidViewModel()
-        viewController.viewModel = viewModel
-        viewController.coordinator = coordinator
-        return viewController
-    }
-    
 }
