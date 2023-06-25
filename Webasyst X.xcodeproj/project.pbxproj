@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FDB6FB48FF1E86585A7F4DE /* SiteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C70177C56ADCBDFAF637ECD /* SiteCoordinator.swift */; };
+		19E46EA8701B4E92BB1F3857 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 190FF909F2333B620C1EC1C0 /* Pods_Webasyst_X.framework */; };
 		1DDC1C7FFACF6E5A6D1F3D88 /* BlogCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51ACE1771F5E2DB1364E113 /* BlogCoordinator.swift */; };
 		1FACACDBCA53306395202BBE /* BlogDetailViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010A0F23C88A7DB775F4942 /* BlogDetailViewConroller.swift */; };
 		2D76C654DD39F84814FF5DAB /* SiteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB61AAFFF6FF9AF40F10D2B /* SiteDetailModel.swift */; };
@@ -29,7 +30,6 @@
 		C6F68C6E6184945115288B16 /* SiteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3643854FC07E06E7221118E1 /* SiteDetailViewModel.swift */; };
 		CB58E4FA8653A598EB1D5084 /* SiteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE05806CB941D7790B34036 /* SiteViewModel.swift */; };
 		CD0902ED1BDD7C706B0B4313 /* BlogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A93FF367C71169D63D005 /* BlogModel.swift */; };
-		D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */; };
 		F38DEA0183E1F6FC33F4A7EB /* SiteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B968064F3255BC783E80BCFF /* SiteModel.swift */; };
 		FD068D7B2694239C0008F4AD /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD068D7A2694239C0008F4AD /* NetworkingService.swift */; };
 		FD0A5012269EAC8700AE1B0D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A5011269EAC8700AE1B0D /* Reachability.swift */; };
@@ -123,25 +123,24 @@
 /* Begin PBXFileReference section */
 		00146DCD473B326320FA40EA /* BlogDetailViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogDetailViewModel.swift; sourceTree = "<group>"; };
 		1010A0F23C88A7DB775F4942 /* BlogDetailViewConroller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogDetailViewConroller.swift; sourceTree = "<group>"; };
-		1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.debug.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.debug.xcconfig"; sourceTree = "<group>"; };
+		190FF909F2333B620C1EC1C0 /* Pods_Webasyst_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Webasyst_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		206F8C94345FB1780910A270 /* ShopModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		2A9B2C450DEFF887939F160A /* SiteDetailViewConroller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteDetailViewConroller.swift; sourceTree = "<group>"; };
 		3643854FC07E06E7221118E1 /* SiteDetailViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteDetailViewModel.swift; sourceTree = "<group>"; };
 		4EB61AAFFF6FF9AF40F10D2B /* SiteDetailModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteDetailModel.swift; sourceTree = "<group>"; };
 		5C70177C56ADCBDFAF637ECD /* SiteCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteCoordinator.swift; sourceTree = "<group>"; };
-		61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Webasyst_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.release.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.release.xcconfig"; sourceTree = "<group>"; };
 		72DC31D0C1D521D9FA1AC855 /* ShopViewConroller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShopViewConroller.swift; sourceTree = "<group>"; };
 		768998324CFA943A7ECD11C3 /* BlogDetailModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogDetailModel.swift; sourceTree = "<group>"; };
 		841085BBA137DDD98C18DEDE /* BlogViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
 		956B1CBBB3CF945327ACA353 /* BlogViewConroller.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogViewConroller.swift; sourceTree = "<group>"; };
+		967FBF31EA1EF27BECBFB765 /* Pods-Webasyst X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.release.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.release.xcconfig"; sourceTree = "<group>"; };
 		A3BEBF2483432B2F310DCF62 /* ShopCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShopCoordinator.swift; sourceTree = "<group>"; };
 		A75447097FB9DD513EFE9FF0 /* ShopViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		A7DD2EB5BE0FDF47A7D5AFAF /* BlogDetailCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogDetailCoordinator.swift; sourceTree = "<group>"; };
 		A91A93FF367C71169D63D005 /* BlogModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlogModel.swift; sourceTree = "<group>"; };
 		B968064F3255BC783E80BCFF /* SiteModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteModel.swift; sourceTree = "<group>"; };
-		BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebXAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C06A5571F3FEB1C7F98A9B91 /* SiteDetailCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SiteDetailCoordinator.swift; sourceTree = "<group>"; };
+		C280E445F91500BA196EA776 /* Pods-Webasyst X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webasyst X.debug.xcconfig"; path = "Target Support Files/Pods-Webasyst X/Pods-Webasyst X.debug.xcconfig"; sourceTree = "<group>"; };
 		C341FECB255B0AED0091B045 /* Webasyst X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Webasyst X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FECE255B0AED0091B045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C341FED0255B0AED0091B045 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,7 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D02E90D1E1507B87442EB602 /* Pods_Webasyst_X.framework in Frameworks */,
+				19E46EA8701B4E92BB1F3857 /* Pods_Webasyst_X.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +265,8 @@
 		1BEDA2B324DC9651A7392F40 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */,
-				680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */,
+				C280E445F91500BA196EA776 /* Pods-Webasyst X.debug.xcconfig */,
+				967FBF31EA1EF27BECBFB765 /* Pods-Webasyst X.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -350,6 +349,14 @@
 				1EF0F4F5EA3A5C417C049175 /* Coordinator */,
 			);
 			path = ShopModule;
+			sourceTree = "<group>";
+		};
+		52DB0509EFE76D154458AE43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				190FF909F2333B620C1EC1C0 /* Pods_Webasyst_X.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5577551E260E823481853C2F /* SiteDetailModule */ = {
@@ -448,8 +455,8 @@
 				C341FECD255B0AED0091B045 /* Webasyst X */,
 				FD46C08E2681991700A97894 /* WebasystXTests */,
 				C341FECC255B0AED0091B045 /* Products */,
-				F6350A9EAF4E84E79C00D75E /* Frameworks */,
 				1BEDA2B324DC9651A7392F40 /* Pods */,
+				52DB0509EFE76D154458AE43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -502,15 +509,6 @@
 				206F8C94345FB1780910A270 /* ShopModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F6350A9EAF4E84E79C00D75E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BA953B6EABD49E83C3D9A114 /* Pods_WebXAppTests.framework */,
-				61B58F456F55811364D6E55B /* Pods_Webasyst_X.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FD0A5013269EACA300AE1B0D /* NotConnectionView */ = {
@@ -1020,12 +1018,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C341FEE2255B0AF20091B045 /* Build configuration list for PBXNativeTarget "Webasyst X" */;
 			buildPhases = (
-				683E22C1F76D13B2E04B42DF /* [CP] Check Pods Manifest.lock */,
+				23A14AE1FCEDD09C70EE65FC /* [CP] Check Pods Manifest.lock */,
 				C341FEC7255B0AED0091B045 /* Sources */,
 				C341FEC8255B0AED0091B045 /* Frameworks */,
 				C341FEC9255B0AED0091B045 /* Resources */,
 				C341FF05255B0C7A0091B045 /* Embed Frameworks */,
-				DB9CA8810723FA06D56DC19F /* [CP] Embed Pods Frameworks */,
+				8E5BDF4EB9C1B743F6B9D041 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1123,7 +1121,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		683E22C1F76D13B2E04B42DF /* [CP] Check Pods Manifest.lock */ = {
+		23A14AE1FCEDD09C70EE65FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1145,7 +1143,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB9CA8810723FA06D56DC19F /* [CP] Embed Pods Frameworks */ = {
+		8E5BDF4EB9C1B743F6B9D041 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1404,7 +1402,7 @@
 		};
 		C341FEE3255B0AF20091B045 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B18B6892FE6529090964A9C /* Pods-Webasyst X.debug.xcconfig */;
+			baseConfigurationReference = C280E445F91500BA196EA776 /* Pods-Webasyst X.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1425,7 +1423,7 @@
 		};
 		C341FEE4255B0AF20091B045 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 680B2B3CCB1018D054E7B24E /* Pods-Webasyst X.release.xcconfig */;
+			baseConfigurationReference = 967FBF31EA1EF27BECBFB765 /* Pods-Webasyst X.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
