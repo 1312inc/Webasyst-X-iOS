@@ -50,6 +50,34 @@ final class MainTabBarCoordinator: PasscodeActionDelegate {
     
 }
 
+// MARK: - TabBarControllers navigation
+
+extension MainTabBarCoordinator {
+    
+    public func getViewController(of type: ScreenType) -> BaseViewController? {
+        
+        let navigationController = tabBarController.viewControllers?.first(where: { controller in
+            let nc = controller as? UINavigationController
+            switch type {
+            case .blog:
+                return nc?.topViewController is BlogViewController
+            case .site:
+                return nc?.topViewController is SiteViewController
+            case .shop:
+                return nc?.topViewController is ShopViewController
+            }
+        }) as? UINavigationController
+        
+        return navigationController?.topViewController as? BaseViewController
+    }
+    
+    enum ScreenType {
+        case blog
+        case site
+        case shop
+    }
+}
+
 // MARK: - Start & Auth coordination
 
 extension MainTabBarCoordinator {
@@ -115,7 +143,7 @@ extension MainTabBarCoordinator {
 
 extension MainTabBarCoordinator {
  
-    private func showTabBar(_ animationNeeds: Bool = false) {
+    func showTabBar(_ animationNeeds: Bool = false) {
 
         DispatchQueue.main.async {
             
@@ -230,9 +258,9 @@ extension MainTabBarCoordinator {
     
     fileprivate func configureCoordinators() {
         guard let source = source else { return }
-        blogCoordinator = BlogCoordinator(presenter: source[.contacts], screens: screens)
-        siteCoordinator = SiteCoordinator(presenter: source[.transactions], screens: screens)
-        shopCoordinator = shopCoordinator(presenter: source[.reminders], screens: screens)
+        blogCoordinator = BlogCoordinator(presenter: source[.blog], screens: screens)
+        siteCoordinator = SiteCoordinator(presenter: source[.site], screens: screens)
+        shopCoordinator = ShopCoordinator(presenter: source[.shop], screens: screens)
     }
     
 }

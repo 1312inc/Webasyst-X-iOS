@@ -15,4 +15,5 @@ enum ServerError: Error, Equatable {
     case notInstall
     case withoutInstalls
     case accessDenied
+    case notConnection
 }

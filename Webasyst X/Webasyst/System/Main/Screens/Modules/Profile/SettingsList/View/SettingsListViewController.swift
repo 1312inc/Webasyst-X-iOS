@@ -70,7 +70,7 @@ final class SettingsListViewController: UIViewController {
             }.disposed(by: disposeBag)
 
         viewModel.output.userProfileData
-            .observeOn(MainScheduler.asyncInstance)
+            .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] profile in
                 self?.profileView.configureData(profile: profile)
             }).disposed(by: disposeBag)
@@ -102,7 +102,6 @@ final class SettingsListViewController: UIViewController {
 
         viewModel.input.callCoordinatorComplition.subscribe { [weak self] value in
             guard let self = self else { return }
-            self.coordinator?.removeAll()
             if value {
                 self.coordinator?.closure()
             }

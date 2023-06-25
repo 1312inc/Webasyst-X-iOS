@@ -24,24 +24,19 @@ class PasscodeActionDelegate: NSObject {
     
     func showPasscodeLockView() {
             
-        if !((UIApplication.shared.delegate as? AppDelegate)?.isOpenNotification ?? false) {
+        let repo = UserDefaultsPasscodeRepository()
+        let config = PasscodeLockConfiguration(repository: repo)
+        
+        if config.repository.hasPasscode, !(presenter.rootViewController is PasscodeLockViewController) {
             
-            let repo = UserDefaultsPasscodeRepository()
-            let config = PasscodeLockConfiguration(repository: repo)
+            let passcodeLock = PasscodeLockViewController(state: .EnterPasscode, configuration: config)
             
-            if config.repository.hasPasscode, !(presenter.rootViewController is PasscodeLockViewController) {
-                
-                let passcodeLock = PasscodeLockViewController(state: .EnterPasscode, configuration: config)
-                
-                presenter.rootViewController = passcodeLock
-                presenter.backgroundColor = .reverseLabel
-                NotificationCenter.default.addObserver(self, selector: #selector(passcodeSuccess), name: .passcodeLockDidSucceed, object: nil)
-            } else {
-                UserDefaults.standard.set(true, forKey: UserDefaults.passcodeIsSuccessed)
-                passcodeSkiped?()
-            }
+            presenter.rootViewController = passcodeLock
+            presenter.backgroundColor = .reverseLabel
+            NotificationCenter.default.addObserver(self, selector: #selector(passcodeSuccess), name: .passcodeLockDidSucceed, object: nil)
         } else {
-            NotificationCenter.default.removeObserver(self, name: .passcodeLockDidSucceed, object: nil)
+            UserDefaults.standard.set(true, forKey: UserDefaults.passcodeIsSuccessed)
+            passcodeSkiped?()
         }
     }
     

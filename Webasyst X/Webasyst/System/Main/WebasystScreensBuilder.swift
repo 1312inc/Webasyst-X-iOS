@@ -58,11 +58,4 @@ class WebasystScreensBuilder {
         let viewController = AddAccountViewController(viewModel: viewModel, coordinator: coordinator, bottomBlock: true)
         return viewController
     }
-    
-    // MARK: - Paywall
-    
-    func createPayWallViewController(delegate: StoreKitPaywallSuccessful, coordinator: PayWallCoordinator) -> PayWallViewController {
-        let viewModel = PayWallViewModel()
-        return PayWallViewController(viewModel: viewModel, coordinator: coordinator, delegate: delegate)
-    }
 }

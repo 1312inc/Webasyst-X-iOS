@@ -72,14 +72,7 @@ extension SettingsListCoordinator {
     @objc func logout() {
         if let navigation = settingsListNavigationControler {
             CustomTimer.shared.stopTimer()
-            webasyst.getAllUserInstall { [weak self] installs in
-                if let installs = installs {
-                    for install in installs {
-                        PushNotificationNetworkManger.shared.changeStatus(to: false, install.accessToken)
-                    }
-                }
-                self?.signOut(with: false, navigationController: navigation, style: .indirect)
-            }
+            signOut(with: false, navigationController: navigation, style: .indirect)
         }
     }
     

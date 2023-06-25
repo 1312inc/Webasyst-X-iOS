@@ -124,7 +124,6 @@ class AppStateManager {
     
     @objc
     func appWillTerminate() {
-        Purchases.standard.stopObserving()
         self.closeClosure()
     }
     

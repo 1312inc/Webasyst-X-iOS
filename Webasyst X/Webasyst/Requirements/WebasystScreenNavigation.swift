@@ -54,55 +54,7 @@ class WebasystScreenNavigation: CurrentUser {
     // MARK: - Profile
     
     func resetViewControllers(withLoading: Bool = false) {
-//        for navigationController in parent.presenter.tabBarController?.viewControllers ?? [] {
-//            for controller in navigationController.children where controller is BaseViewController {
-//                
-//                if withLoading {
-//                    (controller as? BaseViewController)?.acquireLoading.accept(true)
-//                }
-//                
-//                if let orderViewController = controller as? OrdersViewController {
-//                    
-//                    orderViewController.mainDataBinding?.dispose()
-//                    orderViewController.viewModel.disposeAllDisposable()
-//
-//                    orderViewController.viewModel.output.allDataSource.accept(nil)
-//                    orderViewController.viewModel.output.inWorkDataSource.accept(nil)
-//                    
-//                    orderViewController.viewModel.output.tableViewDataSource.accept([])
-//
-//                    if orderViewController.mainDataBinding != nil {
-//                        orderViewController.bindDataSource()
-//                    }
-//                } else if let productsViewController = controller as? ProductsViewController {
-//
-//                    productsViewController.mainDataBinding?.dispose()
-//                    productsViewController.viewModel.disposeAllDisposable()
-//                    
-//                    productsViewController.viewModel.output.dataSource.accept(nil)
-//                    
-//                    productsViewController.viewModel.output.tableViewDataSource.accept([])
-//
-//                    if productsViewController.mainDataBinding != nil {
-//                        productsViewController.bindDataSource()
-//                    }
-//                } else if let salesViewController = controller as? SalesViewController {
-//                    if salesViewController.profitWebViewController?.webView != nil {
-//                        salesViewController.profitWebViewController?.webView.loadHTMLString("", baseURL: nil)
-//                    }
-//                    if salesViewController.buyersWebViewController?.webView != nil {
-//                        salesViewController.buyersWebViewController?.webView.loadHTMLString("", baseURL: nil)
-//                    }
-//                    if salesViewController.bestsellersWebViewController?.webView != nil {
-//                        salesViewController.bestsellersWebViewController?.webView.loadHTMLString("", baseURL: nil)
-//                    }
-//                } else if let shopViewController = controller as? WebViewViewController {
-//                    if shopViewController.webView != nil {
-//                        shopViewController.webView.loadHTMLString("", baseURL: nil)
-//                    }
-//                }
-//            }
-//        }
+        
     }
     
     func reloadViewControllers() {

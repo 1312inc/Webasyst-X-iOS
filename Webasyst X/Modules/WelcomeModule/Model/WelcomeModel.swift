@@ -12,7 +12,6 @@ import RxCocoa
 
 enum SlidesType {
     case slide(data: Slide)
-    case auth
 }
 
 struct WelcomeSlides {
@@ -32,7 +31,6 @@ struct Slide {
 
 enum SlideViewType {
     case slideView(view: SlideView)
-    case authView(view: AuthSlide)
 }
 
 struct SliderViews {

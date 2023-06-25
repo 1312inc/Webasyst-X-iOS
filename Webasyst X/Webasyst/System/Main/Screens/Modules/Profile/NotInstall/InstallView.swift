@@ -9,10 +9,9 @@ import UIKit
 import Webasyst
 
 protocol InstallDelegate: UIViewController {
-    func install(_ closure: @escaping (InstallView.InstallResult) -> ())
+//    func install(_ closure: @escaping (InstallView.InstallResult) -> ())
+    func installModuleTap()
 }
-
-@objc protocol InstallProtocol: ViewProtocol {}
 
 class InstallView: UIView, InstallProtocol, UIDeviceShared {
     
@@ -299,42 +298,45 @@ class InstallView: UIView, InstallProtocol, UIDeviceShared {
     }
     
     @objc func installer() {
-        startInstall()
-        delegate?.install { [weak self] resultValue in
-            guard let self = self else { return }
-            switch resultValue {
-            case .checkLicense(let result):
-                switch result {
-                case .success:
-                    if progressView.progress < 0.2 {
-                        self.fastProgressBlock = { [weak self] in
-                            guard let self = self else { return }
-                            if self.progressView.progress >= 0.2 {
-                                self.fastProgressBlock = nil
-                            }
-                        }
-                    }
-                case .error:
-                    self.failedOnboarding()
-                }
-            case .checkInstallApp(let result):
-                switch result {
-                case .success:
-                    if progressView.progress < 0.5 {
-                        self.fastProgressBlock = { [weak self] in
-                            guard let self = self else { return }
-                            if self.progressView.progress >= 0.5 {
-                                self.fastProgressBlock = nil
-                            }
-                        }
-                    }
-                case .error:
-                    self.failedOnboarding()
-                }
-            case .completed:
-                self.doneProgressTimer()
-            }
-        }
+        
+        delegate?.installModuleTap()
+        
+//        startInstall()
+//        delegate?.install { [weak self] resultValue in
+//            guard let self = self else { return }
+//            switch resultValue {
+//            case .checkLicense(let result):
+//                switch result {
+//                case .success:
+//                    if progressView.progress < 0.2 {
+//                        self.fastProgressBlock = { [weak self] in
+//                            guard let self = self else { return }
+//                            if self.progressView.progress >= 0.2 {
+//                                self.fastProgressBlock = nil
+//                            }
+//                        }
+//                    }
+//                case .error:
+//                    self.failedOnboarding()
+//                }
+//            case .checkInstallApp(let result):
+//                switch result {
+//                case .success:
+//                    if progressView.progress < 0.5 {
+//                        self.fastProgressBlock = { [weak self] in
+//                            guard let self = self else { return }
+//                            if self.progressView.progress >= 0.5 {
+//                                self.fastProgressBlock = nil
+//                            }
+//                        }
+//                    }
+//                case .error:
+//                    self.failedOnboarding()
+//                }
+//            case .completed:
+//                self.doneProgressTimer()
+//            }
+//        }
     }
 }
 

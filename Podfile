@@ -13,6 +13,8 @@ target 'Webasyst X' do
     pod 'Moya/RxSwift'
     pod 'SnapKit', '~> 4.0'
     pod "JMMaskTextField-Swift"
+    pod 'libPhoneNumber-iOS', '~> 0.9.15'
+    pod 'DropDown', '~> 2.3.13'
     
     # Build settings configuration
     post_install do |installer|

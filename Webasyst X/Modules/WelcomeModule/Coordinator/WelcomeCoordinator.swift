@@ -26,7 +26,7 @@ final class WelcomeCoordinator {
     
     //MARK: Initial ViewController
     private func initialViewController() {
-        let viewController = screens.createWelcomeViewComtroller(coordinator: self)
+        let viewController = screens.createWelcomeViewController(coordinator: self)
         presenter.viewControllers = [viewController]
     }
     

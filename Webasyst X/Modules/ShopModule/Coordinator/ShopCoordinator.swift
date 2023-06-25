@@ -29,9 +29,10 @@ final class ShopCoordinator {
         presenter.viewControllers = [viewController]
     }
     
-    func openSettingsList() {
-        let settingsListCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
-        settingsListCoordinator.start()
+    func openSettingsList(closure: @escaping () -> ()) {
+        let settingListCoordinator = SettingsListCoordinator(presenter: presenter,
+                                                             screens: screens,
+                                                             block: closure)
+        settingListCoordinator.start()
     }
-    
 }

@@ -126,7 +126,7 @@ final class SiteViewModel: SiteViewModelType {
                                     self.errorServerRequestSubject.onNext(.requestFailed(text: json?["error_description"] ?? ""))
                                 }
                             } else {
-                                self.errorServerRequestSubject.onNext(.permisionDenied)
+                                self.errorServerRequestSubject.onNext(.accessDenied)
                             }
                         } catch let error {
                             self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
@@ -142,7 +142,7 @@ final class SiteViewModel: SiteViewModelType {
                                     let localizedString = NSLocalizedString("disabledErrorText", comment: "")
                                     self.errorServerRequestSubject.onNext(.requestFailed(text: localizedString))
                                 } else {
-                                    self.errorServerRequestSubject.onNext(.permisionDenied)
+                                    self.errorServerRequestSubject.onNext(.accessDenied)
                                 }
                             }
                         } catch let error {
@@ -155,14 +155,14 @@ final class SiteViewModel: SiteViewModelType {
                             if let error = json?["error_description"] {
                                 self.errorServerRequestSubject.onNext(.requestFailed(text: error))
                             } else {
-                                self.errorServerRequestSubject.onNext(.permisionDenied)
+                                self.errorServerRequestSubject.onNext(.accessDenied)
                             }
                             
                         } catch let error {
                             self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                         }
                     }
-                } onError: { error in
+                } onFailure: { error in
                     self.showLoadingHubSubject.onNext(false)
                     self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                 }.disposed(by: disposeBag)

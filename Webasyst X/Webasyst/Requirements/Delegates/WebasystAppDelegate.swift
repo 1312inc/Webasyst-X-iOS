@@ -25,8 +25,6 @@ class WebasystAppManager: AppStateDelegate {
         
         DispatchQueue.global().async {
             self.webasyst.configure()
-            Purchases.standard.initialize()
-            Purchases.standard.startObserving()
         }
         
         startUserInstallUpdatingTimer()
@@ -40,7 +38,7 @@ class WebasystAppManager: AppStateDelegate {
     }
     
     func checkUserInstalls() {
-        self.currentInstall = !((UIApplication.shared.delegate as? AppDelegate)?.isOpenNotification ?? false) ? .currentInstall : nil
+        self.currentInstall = .currentInstall
         webasyst.updateUserInstalls { [weak self] installs in
             guard let self = self else { return }
             if let installs = installs {

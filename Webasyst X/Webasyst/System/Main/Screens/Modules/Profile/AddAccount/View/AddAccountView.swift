@@ -417,15 +417,6 @@ class AddAccountView: UIView, UIDeviceShared {
         parentViewController?.navigationController?.navigationBar.prefersLargeTitles = false
         parentViewController?.navigationController?.appearanceColor(color: .reverseLabel)
         
-        let delegate = delegate as? BaseViewController
-        delegate?.navigationItem.largeTitleDisplayMode = .never
-        delegate?.navigationController?.navigationBar.prefersLargeTitles = false
-        delegate?.navigationController?.appearanceColor(color: .reverseLabel)
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = .reverseLabel
-        delegate?.navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
         addSubview(scrollView)
         
         scrollView.addSubview(contentView)

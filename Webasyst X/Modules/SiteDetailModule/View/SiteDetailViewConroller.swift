@@ -73,7 +73,7 @@ final class SiteDetailViewController: UIViewController {
         viewModel.output.errorServerRequest
             .subscribe (onNext: { errors in
                 switch errors {
-                case .permisionDenied:
+                case .accessDenied:
                     self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                 case .requestFailed(text: let text):
                     self.setupServerError(with: text)

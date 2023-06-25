@@ -5,7 +5,8 @@
 //  Created by Виктор Кобыхно on 14.07.2021.
 //
 
-import Foundation
+import UIKit
+import Webasyst
 
 final class AppCoordinator {
     
@@ -16,6 +17,10 @@ final class AppCoordinator {
     unowned var sceneDelegate: SceneDelegate!
     
     var tabBarCoordinator: MainTabBarCoordinator!
+    
+    func getViewController(of type: MainTabBarCoordinator.ScreenType) -> BaseViewController? {
+        return tabBarCoordinator.getViewController(of: type)
+    }
     
     func configure(sceneDelegate: SceneDelegate, navigationController: UINavigationController) {
         self.sceneDelegate = sceneDelegate

@@ -34,9 +34,10 @@ final class SiteCoordinator {
         siteDetailCoordinator.start(page: page)
     }
     
-    func openSettingsList() {
-        let settingsListCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
-        settingsListCoordinator.start()
+    func openSettingsList(closure: @escaping () -> ()) {
+        let settingListCoordinator = SettingsListCoordinator(presenter: presenter,
+                                                             screens: screens,
+                                                             block: closure)
+        settingListCoordinator.start()
     }
-    
 }

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Webasyst
 
-final class BlogViewController: UIViewController {
+final class BlogViewController: BaseViewController {
 
     //MARK: ViewModel property
     var viewModel: BlogViewModel?
@@ -86,20 +86,24 @@ final class BlogViewController: UIViewController {
             .subscribe (onNext: { [weak self] errors in
                 guard let self = self else { return }
                 switch errors {
-                case .permisionDenied:
+                case .accessDenied:
                     self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                 case .notEntity:
                     self.setupEmptyView(entityName: NSLocalizedString("post", comment: ""))
-                case .requestFailed(text: let text):
+                case .requestFailed(text: let text), .missingToken(text: let text):
                     self.setupServerError(with: text)
+                case .withoutInstalls:
+                   break
                 case .notInstall:
                     guard let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") else { return }
                     let webasyst = WebasystApp()
                     if let install = webasyst.getUserInstall(selectInstall) {
-                        self.setupInstallView(moduleName: NSLocalizedString("shop", comment: ""), installName: install.name ?? "", viewController: self)
+                        self.setupInstallView(install: install, viewController: self)
                     }
                 case .notConnection:
                     self.setupNotConnectionError()
+                case .withoutError:
+                    break
                 }
             }).disposed(by: disposeBag)
         
@@ -113,18 +117,10 @@ final class BlogViewController: UIViewController {
     
     @objc func openSetupList() {
         guard let coordinator = self.coordinator else { return }
-        coordinator.openSettingsList()
+        coordinator.openSettingsList { [weak self] in
+            guard let self = self else { return }
+            reloadViewControllers()
+        }
     }
 
-}
-
-extension BlogViewController: InstallModuleViewDelegate {
-    
-    func installModuleTap() {
-        let alertController = UIAlertController(title: "Install module", message: "Tap in install module button", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alertController.addAction(action)
-        self.navigationController?.present(alertController, animated: true, completion: nil)
-    }
-    
 }

@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WebasystAppDelegate {
     var webasystAppManager: WebasystAppManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         webasystAppManager = WebasystAppManager()
+        
+        UserDefaults.standard.set(true, forKey: "appLaunch")
+        
         return true
     }
 }

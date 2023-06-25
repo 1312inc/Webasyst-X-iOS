@@ -10,7 +10,7 @@ import Webasyst
 
 class StorageCleaner: Codable {}
 
-class CurrentUser: TemporaryStorage<StorageCleaner> {
+class CurrentUser {
     
     lazy var webasyst = WebasystApp()
     
@@ -27,7 +27,6 @@ class CurrentUser: TemporaryStorage<StorageCleaner> {
                     } catch {
                         print(error, "debugRemove")
                     }
-                    self.removeAll()
                     AppCoordinator.shared.logOutUser(style: style)
                 }
             }

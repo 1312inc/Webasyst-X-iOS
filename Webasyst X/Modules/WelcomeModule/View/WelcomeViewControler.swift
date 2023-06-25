@@ -138,7 +138,7 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController: SlideViewDelegate {
     
     //MARK: Next button tap
-    func nextButtonTap() {
+    func nextButtonTap(_ sender: UIButton) {
         if sender.tag != 2 {
             UIView.animate(withDuration: 0.2) {
                 self.scrollView.contentOffset.x += self.view.frame.width

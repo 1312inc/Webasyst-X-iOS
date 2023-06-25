@@ -8,8 +8,8 @@
 import Foundation
 
 struct WebasystNetworkingParameters {
-    static let addAccount = AddAccount(bundle: "teamwork", planId: "X-1312-TEAMWORK-FREE")
-    static let install = Install(appName: "tasks")
+    static let addAccount = AddAccount(bundle: "allwebasyst", planId: "TRIAL")
+    static let install = Install(appName: "shop")
 }
 
 extension WebasystNetworkingParameters {

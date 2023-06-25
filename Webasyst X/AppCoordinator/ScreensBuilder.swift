@@ -59,7 +59,7 @@ final class ScreensBuilder: WebasystScreensBuilder {
 //MARK: Webasyst X modules
 extension ScreensBuilder {
     
-    func createWelcomeViewComtroller(coordinator: WelcomeCoordinator) -> UIViewController {
+    func createWelcomeViewController(coordinator: WelcomeCoordinator) -> UIViewController {
         let viewController = WelcomeViewController()
         let viewModel = WelcomeViewModel()
         viewController.viewModel = viewModel
