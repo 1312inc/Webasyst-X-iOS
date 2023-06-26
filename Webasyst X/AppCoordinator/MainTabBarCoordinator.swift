@@ -8,118 +8,260 @@
 import UIKit
 import Webasyst
 
-final class MainTabBarCoordinator: NSObject {
+final class MainTabBarCoordinator: PasscodeActionDelegate {
     
-    private var presenter: UIWindow
-    private var tabBarController: UITabBarController
-    private var navigationController: UINavigationController
-    private var screens: ScreensBuilder
+    private let webasyst = WebasystApp()
+    private let screens = ScreensBuilder()
+    
+    private let navigationController: UINavigationController
+    
+    private let tabBarController = UITabBarController(nibName: nil, bundle: nil)
+    private var source: MainTabBarSource?
+    
     private var blogCoordinator: BlogCoordinator?
     private var siteCoordinator: SiteCoordinator?
     private var shopCoordinator: ShopCoordinator?
-    private var welcomeCoordinator: WelcomeCoordinator?
-    private var source: MainTabBarSource = MainTabBarSource()
     
-    init(presenter: UIWindow) {
-        self.presenter = presenter
-        self.screens = ScreensBuilder()
-        self.tabBarController = UITabBarController(nibName: nil, bundle: nil)
-        self.navigationController = UINavigationController()
-        tabBarController.viewControllers = source.items
-        tabBarController.selectedViewController = source[.blog]
-        super.init()
-        tabBarController.delegate = self
+    private lazy var welcomeCoordinator = WelcomeCoordinator(presenter: navigationController, screens: screens)
+    private lazy var redactorCoordinator = RedactorCoordinator(presenter: navigationController, screens: screens)
+    
+    init(presenter: UIWindow, navigationController: UINavigationController) {
+        
+        self.navigationController = navigationController
+        
+        super.init(presenter: presenter)
+        self.configurePasscodeActions(passcodeSkiped: { [weak self] in
+            guard let self = self else { return }
+            self.presenter.rootViewController = LoadingViewController()
+            self.showTabBar(false)
+        }, passcodeSuccessed: { [weak self] in
+            guard let self = self else { return }
+            self.defaultAuth(notAuthorized: false, withPasscodeCheck: false)
+        })
+        
+        configure()
     }
+    
+    fileprivate func configure() {
+        presenter.backgroundColor = .reverseLabel
+        tabBarController.view.backgroundColor = .reverseLabel
+        tabBarController.tabBar.tintColor = .appColor
+    }
+    
+}
+
+// MARK: - TabBarControllers navigation
+
+extension MainTabBarCoordinator {
+    
+    public func getViewController(of type: ScreenType) -> BaseViewController? {
+        
+        let navigationController = tabBarController.viewControllers?.first(where: { controller in
+            let nc = controller as? UINavigationController
+            switch type {
+            case .blog:
+                return nc?.topViewController is BlogViewController
+            case .site:
+                return nc?.topViewController is SiteViewController
+            case .shop:
+                return nc?.topViewController is ShopViewController
+            }
+        }) as? UINavigationController
+        
+        return navigationController?.topViewController as? BaseViewController
+    }
+    
+    enum ScreenType {
+        case blog
+        case site
+        case shop
+    }
+}
+
+// MARK: - Start & Auth coordination
+
+extension MainTabBarCoordinator {
     
     func start() {
         //Сначала загружаем ViewController с загрузкой, что бы не было черного экрана пока чекаем авторизацию юзера
-        let loadingViewController = LoadingViewController()
-        self.presenter.rootViewController = loadingViewController
-        let webasyst = WebasystApp()
-        webasyst.checkUserAuth { [weak self] userStatus in
+        presenter.rootViewController = LoadingViewController()
+        if !UserDefaults.standard.bool(forKey: "appLaunch") { return }
+        UserDefaults.standard.set(false, forKey: "appLaunch")
+        webasyst.defaultChecking { [weak self] notAuthorized in
             guard let self = self else { return }
-            switch userStatus {
-            case .authorized:
-                self.showTabBar()
-            case .nonAuthorized:
-                self.showWelcomeScreen()
-            case .error(message: _):
-                self.showWelcomeScreen()
+            self.defaultAuth(notAuthorized: notAuthorized, withPasscodeCheck: true)
+        }
+    }
+    
+    func defaultAuth(notAuthorized: Bool, withPasscodeCheck check: Bool) {
+        if notAuthorized {
+            showWelcomeScreen()
+        } else {
+            if check {
+                showPasscodeLockView()
+            } else {
+                presenter.rootViewController = LoadingViewController()
+                showTabBar(false)
             }
         }
     }
     
-    func authUser() {
-        DispatchQueue.main.async {
-            self.presenter.rootViewController = self.tabBarController
-            self.showBlogTab()
-            self.showSiteTab()
-            self.showShopTab()
+    func authUser(_ userStatus: UserStatus, style: AddCoordinatorType) {
+        authorized(userStatus, animationNeeds: true, style: style)
+    }
+    
+    func authorized(_ userStatus: UserStatus, animationNeeds: Bool = false, style: AddCoordinatorType) {
+        prepare()
+        switch userStatus {
+        case .authorized, .authorizedButNoneInstalls:
+            showTabBar(animationNeeds)
+        case .nonAuthorized:
+            showWelcomeScreen()
+        case .authorizedButProfileIsEmpty:
+            showRedactorScreen(status: .authorizedButProfileIsEmpty, style: style)
+        case .authorizedButNoneInstallsAndProfileIsEmpty:
+            showRedactorScreen(status: .authorizedButNoneInstallsAndProfileIsEmpty, style: style)
+        case .networkError(_),.error(message: _):
+            showWelcomeScreen()
         }
     }
     
-    func logOutUser() {
-        self.showWelcomeScreen()
+    func logOutUser(style: AddCoordinatorType, needToRepresent: Bool) {
+        navigationController.clearAppearance()
+        NotificationCenter.default.removeObserver(self)
+        if needToRepresent {
+            showWelcomeScreen(style: style)
+        }
+        clearControllers()
+        UserDefaults.standard.set(true, forKey: "firstLaunch")
+        UserDefaults.setCurrentInstall(withValue: nil)
+        AnalyticsManager.logEvent("logout", parameters: nil)
     }
-    
 }
 
-extension MainTabBarCoordinator: UITabBarControllerDelegate {
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let index = tabBarController.selectedIndex
-        guard index < source.items.count, let item = ViewControllerItem(rawValue: index) else {
-            fatalError("Index out of range")
-        }
-        switch item {
-        case .blog:
-            showBlogTab()
-        case .site:
-            showSiteTab()
-        case .shop:
-            showShopTab()
-        }
-    }
-    
-}
+// MARK: - Start
 
-//MARK: Private method
 extension MainTabBarCoordinator {
-    
-    private func showTabBar() {
+ 
+    func showTabBar(_ animationNeeds: Bool = false) {
+
         DispatchQueue.main.async {
-            self.presenter.rootViewController = self.tabBarController
-            self.showBlogTab()
+            
+            self.prepare()
+            self.startControllers()
+            
+            if animationNeeds {
+                self.tabBarController.showViewControllerWith(setRoot: self.presenter,
+                                                             currentRoot: self.navigationController)
+            } else {
+                self.presenter.rootViewController = self.tabBarController
+            }
+        }
+        
+        AnalyticsManager.setupAuthorizedKeys()
+    }
+    
+    private func showWelcomeScreen(style: AddCoordinatorType = .start) {
+        DispatchQueue.main.async {
+            let screen = self.screens.createWelcomeViewController(coordinator: self.welcomeCoordinator)
+            if style == .indirect {
+                self.navigationController.setViewControllers([screen], animated: true)
+                self.navigationController.dissolveViewControllerWith(setRoot: self.presenter, currentRoot: self.tabBarController)
+            } else {
+                self.navigationController.pushViewController(screen, animated: true)
+                self.navigationController.setViewControllers([screen], animated: false)
+                self.presenter.rootViewController = self.navigationController
+            }
+            self.welcomeCoordinator.start()
+        }
+        AnalyticsManager.setupAuthorizedKeys(deleteAll: true)
+    }
+    
+    private func showRedactorScreen(status: UserStatus, style: AddCoordinatorType = .indirect) {
+        DispatchQueue.main.async {
+            if style == .start {
+                self.navigationController.dismiss(animated: true, completion: {
+                    self.presenter.rootViewController = self.navigationController
+                })
+            }
+            self.redactorCoordinator.start()
+            switch status {
+            case .authorizedButProfileIsEmpty, .authorizedButNoneInstallsAndProfileIsEmpty:
+                self.redactorCoordinator.completion = {
+                    self.showTabBar(true)
+                }
+            case .nonAuthorized, .error, .authorized, .authorizedButNoneInstalls:
+                break
+            case .networkError(_):
+                break
+            }
         }
     }
     
-    private func showWelcomeScreen() {
+    func pushForDemo() {
         DispatchQueue.main.async {
-            self.presenter.rootViewController = self.navigationController
-            self.showWelcomeTab()
+            self.prepare()
+            self.startControllers()
+            self.tabBarController.tabBar.isHidden = false
+            self.tabBarController.showViewControllerWith(setRoot: self.presenter, currentRoot: self.navigationController)
         }
     }
     
-    private func showBlogTab() {
-        blogCoordinator = BlogCoordinator(presenter: source[.blog], screens: self.screens)
+    func goBackToAuth() {
+        DispatchQueue.main.async {
+            self.navigationController.hideViewControllerWith(setRoot: self.presenter, currentRoot: self.tabBarController)
+            self.clearControllers()
+        }
+    }
+    
+    private func startControllers() {
         blogCoordinator?.start()
-    }
-    
-    private func showSiteTab() {
-        siteCoordinator = SiteCoordinator(presenter: source[.site], screens: self.screens)
         siteCoordinator?.start()
-    }
-    
-    private func showShopTab() {
-        shopCoordinator = ShopCoordinator(presenter: source[.shop], screens: self.screens)
         shopCoordinator?.start()
     }
     
-    private func showWelcomeTab() {
-        welcomeCoordinator = WelcomeCoordinator(presenter: self.navigationController, screens: screens)
-        welcomeCoordinator?.start()
+    private func clearControllers() {
+        self.tabBarController.viewControllers?.forEach({
+            ($0 as? UINavigationController)?.viewControllers.forEach({
+                $0.dismiss(animated: false)
+                $0.removeFromParent()
+            })
+            $0.dismiss(animated: false)
+            $0.removeFromParent()
+        })
+        self.blogCoordinator = nil
+        self.siteCoordinator = nil
+        self.shopCoordinator = nil
+    }
+}
+
+// MARK: - Preparing
+
+extension MainTabBarCoordinator {
+    
+    fileprivate func prepare() {
+                
+        tabBarController.setViewControllers([], animated: false)
+        
+        source = MainTabBarSource(controllers: [UINavigationController(), UINavigationController(), UINavigationController()])
+        configureCoordinators()
+        
+        guard let source = source else { return }
+        
+        tabBarController.setViewControllers(source.items, animated: true)
+        tabBarController.selectedViewController = source[.blog]
+        
+        self.source?.items.removeAll()
+        self.source = nil
+        
+    }
+    
+    fileprivate func configureCoordinators() {
+        guard let source = source else { return }
+        blogCoordinator = BlogCoordinator(presenter: source[.blog], screens: screens)
+        siteCoordinator = SiteCoordinator(presenter: source[.site], screens: screens)
+        shopCoordinator = ShopCoordinator(presenter: source[.shop], screens: screens)
     }
     
 }
-
 

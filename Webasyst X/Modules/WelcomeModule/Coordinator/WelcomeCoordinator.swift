@@ -12,7 +12,7 @@ import Webasyst
 //MARK WelcomeCoordinator
 final class WelcomeCoordinator {
     
-    var presenter: UINavigationController
+    unowned var presenter: UINavigationController
     var screens: ScreensBuilder
     
     init(presenter: UINavigationController, screens: ScreensBuilder) {
@@ -26,31 +26,13 @@ final class WelcomeCoordinator {
     
     //MARK: Initial ViewController
     private func initialViewController() {
-        let viewController = screens.createWelcomeViewComtroller(coordinator: self)
+        let viewController = screens.createWelcomeViewController(coordinator: self)
         presenter.viewControllers = [viewController]
     }
     
-    func openPhoneLogin() {
-        let coordinator = PhoneAuthCoordinator(presenter: self.presenter, screens: screens)
-        coordinator.start()
-    }
-    
-    func webasystIDLogin() {
-        let webasyst = WebasystApp()
-        webasyst.oAuthLogin(navigationController: self.presenter) { serverAnswer in
-            switch serverAnswer {
-            case .success:
-                DispatchQueue.main.async {
-                    let scene = UIApplication.shared.connectedScenes.first
-                    if let sceneDelegate = scene?.delegate as? SceneDelegate {
-                        let appCoordinator = AppCoordinator(sceneDelegate: sceneDelegate)
-                        appCoordinator.authUser()
-                    }
-                }
-            case .error(error: let error):
-                print(error)
-            }
-        }
+    func openAuthController() {
+        let authCoordinator = AuthCoordinator(presenter: presenter, screens: screens, type: .normal)
+        authCoordinator.start()
     }
     
 }

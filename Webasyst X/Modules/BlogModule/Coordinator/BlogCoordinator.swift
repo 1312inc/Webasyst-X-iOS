@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK NewBlogCoordinator
-final class BlogCoordinator {
+final class BlogCoordinator: BaseCoordinator {
     
     var presenter: UINavigationController
     var screens: ScreensBuilder
@@ -29,14 +29,8 @@ final class BlogCoordinator {
         presenter.viewControllers = [viewController]
     }
     
-    func openSettingsList() {
-        let settingsCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
-        settingsCoordinator.start()
-    }
-    
     func openBlogEntryScreen(post: PostList) {
         let blogDetailCoordinator = BlogDetailCoordinator(presenter: self.presenter, screens: self.screens)
         blogDetailCoordinator.start(post: post)
     }
-    
 }

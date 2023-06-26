@@ -121,7 +121,7 @@ final class ShopViewModel: ShopViewModelType {
                                     self.errorServerRequestSubject.onNext(.requestFailed(text: json?["error_description"] ?? ""))
                                 }
                             } else {
-                                self.errorServerRequestSubject.onNext(.permisionDenied)
+                                self.errorServerRequestSubject.onNext(.accessDenied)
                             }
                         } catch let error {
                             self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
@@ -137,7 +137,7 @@ final class ShopViewModel: ShopViewModelType {
                                     let localizedString = NSLocalizedString("disabledErrorText", comment: "")
                                     self.errorServerRequestSubject.onNext(.requestFailed(text: localizedString))
                                 } else {
-                                    self.errorServerRequestSubject.onNext(.permisionDenied)
+                                    self.errorServerRequestSubject.onNext(.accessDenied)
                                 }
                             }
                         } catch let error {

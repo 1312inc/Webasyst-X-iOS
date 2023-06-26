@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SlideViewDelegate {
-    func nextButtonTap()
+    func nextButtonTap(_ sender: UIButton)
 }
 
 class SlideView: UIView {
@@ -24,8 +24,8 @@ class SlideView: UIView {
         nextButton.setTitle(NSLocalizedString("nextButton", comment: ""), for: .normal)
     }
     
-    @IBAction func tapNextButton(_ sender: Any) {
-        self.delegate.nextButtonTap()
+    @IBAction func tapNextButton(_ sender: UIButton) {
+        self.delegate.nextButtonTap(sender)
     }
     
     

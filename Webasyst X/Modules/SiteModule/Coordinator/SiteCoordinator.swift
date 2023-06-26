@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK SiteCoordinator
-final class SiteCoordinator {
+final class SiteCoordinator: BaseCoordinator {
     
     var presenter: UINavigationController
     var screens: ScreensBuilder
@@ -33,10 +33,4 @@ final class SiteCoordinator {
         let siteDetailCoordinator = SiteDetailCoordinator(presenter: self.presenter, screens: self.screens)
         siteDetailCoordinator.start(page: page)
     }
-    
-    func openSettingsList() {
-        let settingsListCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
-        settingsListCoordinator.start()
-    }
-    
 }

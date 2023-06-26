@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK ShopCoordinator
-final class ShopCoordinator {
+final class ShopCoordinator: BaseCoordinator {
     
     var presenter: UINavigationController
     var screens: ScreensBuilder
@@ -28,10 +28,4 @@ final class ShopCoordinator {
         let viewController = screens.createShopViewController(coordinator: self)
         presenter.viewControllers = [viewController]
     }
-    
-    func openSettingsList() {
-        let settingsListCoordinator = SettingsListCoordinator(presenter: self.presenter, screens: self.screens)
-        settingsListCoordinator.start()
-    }
-    
 }

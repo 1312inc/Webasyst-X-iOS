@@ -90,13 +90,13 @@ final class SiteDetailViewModel: SiteDetailViewModelType {
                     }
                 case 401:
                     self.showLoadingHubSubject.onNext(false)
-                    self.errorServerRequestSubject.onNext(.permisionDenied)
+                    self.errorServerRequestSubject.onNext(.accessDenied)
                 case 400:
                     self.showLoadingHubSubject.onNext(false)
                     self.errorServerRequestSubject.onNext(.notInstall)
                 default:
                     self.showLoadingHubSubject.onNext(false)
-                    self.errorServerRequestSubject.onNext(.permisionDenied)
+                    self.errorServerRequestSubject.onNext(.accessDenied)
                 }
             } onError: { error in
                 self.showLoadingHubSubject.onNext(false)

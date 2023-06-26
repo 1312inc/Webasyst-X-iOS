@@ -60,10 +60,6 @@ class WelcomeViewController: UIViewController {
                         slide.titleLabel.text = slides.title
                         slide.descriptionLabel.text = data.text
                         slideViews.append(SliderViews(views: .slideView(view: slide)))
-                    case .auth:
-                        let slide: AuthSlide = AuthSlide()
-                        slide.delegate = self
-                        slideViews.append(SliderViews(views: .authView(view: slide)))
                     }
                 }
                 self.slides = slideViews
@@ -112,6 +108,7 @@ class WelcomeViewController: UIViewController {
                     make.height.equalTo(self.scrollView.snp.height)
                     make.width.equalTo(self.view)
                 }
+                view.nextButton.tag = i
                 view.delegate = self
                 if i != 0 {
                     let lastView = scrollView.subviews[scrollView.subviews.count - 2]
@@ -119,17 +116,6 @@ class WelcomeViewController: UIViewController {
                 } else {
                     view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
                 }
-            case .authView(view: let view):
-                scrollView.addSubview(view)
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.snp.makeConstraints { [weak self] make in
-                    guard let self = self else { return }
-                    make.height.equalTo(self.scrollView.snp.height)
-                    make.width.equalTo(self.view)
-                }
-                view.delegate = self
-                let lastView = scrollView.subviews[scrollView.subviews.count - 2]
-                view.leadingAnchor.constraint(equalTo: lastView.trailingAnchor).isActive = true
             }
         }
         scrollView.showsHorizontalScrollIndicator = false
@@ -152,34 +138,14 @@ class WelcomeViewController: UIViewController {
 extension WelcomeViewController: SlideViewDelegate {
     
     //MARK: Next button tap
-    func nextButtonTap() {
-        UIView.animate(withDuration: 0.2) {
-            self.scrollView.contentOffset.x += self.view.frame.width
+    func nextButtonTap(_ sender: UIButton) {
+        if sender.tag != 2 {
+            UIView.animate(withDuration: 0.2) {
+                self.scrollView.contentOffset.x += self.view.frame.width
+            }
+        } else {
+            coordinator?.openAuthController()
         }
-    }
-    
-}
-
-//MARK: AuthViewDelegate
-extension WelcomeViewController: AuthViewDelegate {
-    
-    //MARK: Open GitHub
-    func openGithub() {
-        if let url = URL(string: "https://github.com/1312inc/Webasyst-X-iOS") {
-            UIApplication.shared.open(url)
-        }
-    }
-    
-    //MARK: Open phone authorization
-    func phoneLogin() {
-        guard let coordinator = self.coordinator else { return }
-        coordinator.openPhoneLogin()
-    }
-    
-    //MARK: Webasyst ID authorization
-    func webasystIDLogin() {
-        guard let coordinator = self.coordinator else { return }
-        coordinator.webasystIDLogin()
     }
     
 }

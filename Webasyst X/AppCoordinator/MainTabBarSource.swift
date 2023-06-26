@@ -19,13 +19,14 @@ protocol MainTabBarSourceType {
 
 final class MainTabBarSource: MainTabBarSourceType {
     
-    var items: [UINavigationController] = [
-        UINavigationController(nibName: nil, bundle: nil),
-        UINavigationController(nibName: nil, bundle: nil),
-        UINavigationController(nibName: nil, bundle: nil)
-    ]
+    var items: [UINavigationController] = []
     
-    init() {
+    init(controllers: [UINavigationController]) {
+        self.items = controllers
+        setUpIcons()
+    }
+    
+    func setUpIcons() {
         let blogIcon = UIImage(systemName: "pencil")
         self[.blog].tabBarItem = UITabBarItem(title: NSLocalizedString("blogTitle", comment: ""), image: blogIcon, selectedImage: blogIcon)
         let siteIcon = UIImage(systemName: "doc.text")

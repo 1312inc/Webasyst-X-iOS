@@ -5,31 +5,46 @@
 //  Created by Виктор Кобыхно on 14.07.2021.
 //
 
-import Foundation
+import UIKit
+import Webasyst
 
 final class AppCoordinator {
     
-    private unowned var sceneDelegate: SceneDelegate
+    static let shared = AppCoordinator()
+    private init() {}
     
-    private var tabBarCoordinator: MainTabBarCoordinator?
+    private var navigationController: UINavigationController!
+    unowned var sceneDelegate: SceneDelegate!
     
-    init(sceneDelegate: SceneDelegate) {
+    var tabBarCoordinator: MainTabBarCoordinator!
+    
+    func getViewController(of type: MainTabBarCoordinator.ScreenType) -> BaseViewController? {
+        return tabBarCoordinator.getViewController(of: type)
+    }
+    
+    func configure(sceneDelegate: SceneDelegate, navigationController: UINavigationController) {
         self.sceneDelegate = sceneDelegate
+        self.navigationController = navigationController
+        self.tabBarCoordinator = MainTabBarCoordinator(presenter: sceneDelegate.window!, navigationController: navigationController)
     }
     
     func start() {
-        tabBarCoordinator = MainTabBarCoordinator(presenter: sceneDelegate.window!)
-        tabBarCoordinator?.start()
+        tabBarCoordinator.start()
     }
     
-    func authUser() {
-        tabBarCoordinator = MainTabBarCoordinator(presenter: sceneDelegate.window!)
-        tabBarCoordinator?.authUser()
+    func authUser(_ userStatus: UserStatus, style: AddCoordinatorType) {
+        tabBarCoordinator.authUser(userStatus, style: style)
     }
     
-    func logOutUser() {
-        tabBarCoordinator = MainTabBarCoordinator(presenter: sceneDelegate.window!)
-        tabBarCoordinator?.logOutUser()
+    func logOutUser(style: AddCoordinatorType, needToRepresent: Bool = true) {
+        tabBarCoordinator.logOutUser(style: style, needToRepresent: needToRepresent)
     }
     
+    func pushForDemo() {
+        tabBarCoordinator.pushForDemo()
+    }
+    
+    func passcodeLock() {
+        tabBarCoordinator.showPasscodeLockView()
+    }
 }

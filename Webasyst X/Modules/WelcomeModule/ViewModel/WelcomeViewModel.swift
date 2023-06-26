@@ -60,8 +60,7 @@ final class WelcomeViewModel: WelcomeViewModelType {
         let slides: [WelcomeSlides] = [
             WelcomeSlides(title: NSLocalizedString("slideTitle_0", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_0", comment: ""), image: "slide-1"))),
             WelcomeSlides(title: NSLocalizedString("slideTitle_1", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_1", comment: ""), image: "slide-2"))),
-            WelcomeSlides(title: NSLocalizedString("slideTitle_2", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_2", comment: ""), image: "slide-3"))),
-            WelcomeSlides(title: "Webasyst X", type: .auth)
+            WelcomeSlides(title: NSLocalizedString("slideTitle_2", comment: ""), type: .slide(data: Slide(text: NSLocalizedString("slideText_2", comment: ""), image: "slide-3")))
         ]
         
         self.slidesSubject.onNext(slides)

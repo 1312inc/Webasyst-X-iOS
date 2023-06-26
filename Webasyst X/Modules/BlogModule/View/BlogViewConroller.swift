@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Webasyst
 
-final class BlogViewController: UIViewController {
+final class BlogViewController: BaseViewController {
 
     //MARK: ViewModel property
     var viewModel: BlogViewModel?
@@ -37,11 +37,30 @@ final class BlogViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         self.setupLayoutTableView(tables: self.postTableView)
         self.bindableViewModel()
-        self.createLeftNavigationButton(action: #selector(self.openSetupList))
+        self.createLeftNavigationButton(action: #selector(openSettingsList))
     }
     
     // Subscribe for model updates
     private func bindableViewModel() {
+        
+        NotificationCenter.default.rx.notification(Service.Notify.withoutInstalls)
+            .take(until: rx.deallocated)
+            .subscribe { [unowned self] _ in
+                DispatchQueue.main.async {
+                    let webasyst = WebasystApp()
+                    if let profile = webasyst.getProfileData() {
+                        self.setupWithoutInstall(profile: profile, viewController: self)
+                    }
+                }
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(Service.Notify.accountSwitched)
+            .take(until: rx.deallocated)
+            .subscribe { [unowned self] _ in
+                DispatchQueue.main.async {
+                    self.reloadViewControllers()
+                }
+            }.disposed(by: disposeBag)
         
         guard let viewModel = self.viewModel else { return }
         
@@ -86,45 +105,38 @@ final class BlogViewController: UIViewController {
             .subscribe (onNext: { [weak self] errors in
                 guard let self = self else { return }
                 switch errors {
-                case .permisionDenied:
+                case .accessDenied:
                     self.setupServerError(with: NSLocalizedString("permisionDenied", comment: ""))
                 case .notEntity:
                     self.setupEmptyView(entityName: NSLocalizedString("post", comment: ""))
-                case .requestFailed(text: let text):
+                case .requestFailed(text: let text), .missingToken(text: let text):
                     self.setupServerError(with: text)
+                case .withoutInstalls:
+                    break
                 case .notInstall:
-                    guard let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") else { return }
-                    let webasyst = WebasystApp()
-                    if let install = webasyst.getUserInstall(selectInstall) {
-                        self.setupInstallView(moduleName: NSLocalizedString("shop", comment: ""), installName: install.name ?? "", viewController: self)
+                    if let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") {
+                        let webasyst = WebasystApp()
+                        if let install = webasyst.getUserInstall(selectInstall) {
+                            self.setupInstallView(install: install, viewController: self)
+                        }
+                    } else {
+                        let webasyst = WebasystApp()
+                        if let profile = webasyst.getProfileData() {
+                            self.setupWithoutInstall(profile: profile, viewController: self)
+                        }
                     }
                 case .notConnection:
                     self.setupNotConnectionError()
+                case .withoutError:
+                    break
                 }
             }).disposed(by: disposeBag)
         
         viewModel.output.updateActiveSetting
             .subscribe(onNext: { [weak self] update in
                 guard let self = self else { return }
-                self.createLeftNavigationButton(action: #selector(self.openSetupList))
+                self.createLeftNavigationButton(action: #selector(openSettingsList))
             }).disposed(by: disposeBag)
 
     }
-    
-    @objc func openSetupList() {
-        guard let coordinator = self.coordinator else { return }
-        coordinator.openSettingsList()
-    }
-
-}
-
-extension BlogViewController: InstallModuleViewDelegate {
-    
-    func installModuleTap() {
-        let alertController = UIAlertController(title: "Install module", message: "Tap in install module button", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alertController.addAction(action)
-        self.navigationController?.present(alertController, animated: true, completion: nil)
-    }
-    
 }
