@@ -55,6 +55,51 @@ extension BaseViewController: InstallDelegate {
         alertController.addAction(action)
         self.navigationController?.present(alertController, animated: true, completion: nil)
     }
+    
+//    func install(_ closure: @escaping (InstallView.InstallResult) -> ()) {
+//
+//        let userInstall = webasyst.getUserInstall(.currentInstall)
+//
+//        webasyst.checkLicense(app: WebasystNetworkingParameters.install.appName, completion: { [weak self] result in
+//            DispatchQueue.main.async {
+//                guard let self = self else { return }
+//                switch result {
+//                case .success:
+//                    closure(.checkLicense(.success))
+//                    self.webasyst.checkInstallApp(app: WebasystNetworkingParameters.install.appName) { [weak self] install in
+//                        DispatchQueue.main.async {
+//                            guard let self = self else { return }
+//                            switch install {
+//                            case .success:
+//                                closure(.checkInstallApp(.success))
+//                                self.webasyst.checkUserAuth(completion: { [weak self] _ in
+//                                    DispatchQueue.main.async {
+//                                        guard let self = self else { return }
+//                                        closure(.completed)
+//                                        WebasystApp.requestFullScreenConfetti(for: self)
+//                                        let replacedInstall = String.getLocalizedString(withKey: "successBody").replacingOccurrences(of: "%ACCOUNTNAME%", with: "'\(userInstall?.name ?? "unowned profile")'").replacingOccurrences(of: "%APPNAME%", with: String.appName)
+//                                        self.showAlert(withTitle: .getLocalizedString(withKey: "success"),
+//                                                       description: replacedInstall) { [weak self] in
+//                                            DispatchQueue.main.async {
+//                                                guard let self = self else { return }
+//                                                self.reloadViewControllers()
+//                                            }
+//                                        }
+//                                    }
+//                                })
+//                            case .failure(let error):
+//                                closure(.checkInstallApp(.error))
+//                                self.showAlert(withTitle: .getLocalizedString(withKey: "checkInstallAppError").replacingOccurrences(of: "%APPNAME%", with: String.appName), errorMessage: error, tryAgainBlock: true, analytics: AnalyticsModel(type: "waid", debugInfo: debug(), method: "checkInstallApp"))
+//                            }
+//                        }
+//                    }
+//                case .failure(let error):
+//                    closure(.checkLicense(.error))
+//                    self.showAlert(withTitle: .getLocalizedString(withKey: "checkLicenseError"), errorMessage: error, tryAgainBlock: true, analytics: AnalyticsModel(type: "waid", debugInfo: debug(), method: "checkLicense"))
+//                }
+//            }
+//        })
+//    }
 }
 
 extension BaseViewController: AddAccountDelegate {
