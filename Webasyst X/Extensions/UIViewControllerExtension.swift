@@ -145,4 +145,34 @@ extension UIViewController {
             make.left.equalToSuperview()
         }
     }
+    
+    func setupWithoutInstall(profile: ProfileData, viewController: AddAccountDelegate?) {
+        guard let viewController = viewController as? BaseViewController else {
+            return
+        }
+        view.subviews.forEach({ $0.removeFromSuperview() })
+        let withoutInstallsView = AddAccountView(bottomBlock: false)
+        withoutInstallsView.translatesAutoresizingMaskIntoConstraints = false
+        withoutInstallsView.delegate = viewController
+        withoutInstallsView.configure(email: profile.email)
+        self.view.addSubview(withoutInstallsView)
+        
+        withoutInstallsView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.equalToSuperview()
+        }
+        
+        self.navigationItem.title = nil
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: NSLocalizedString("exitAccountButtonTitle", comment: ""),
+            style: .done,
+            target: self,
+            action: #selector(viewController.logOut)
+        )
+    }
 }

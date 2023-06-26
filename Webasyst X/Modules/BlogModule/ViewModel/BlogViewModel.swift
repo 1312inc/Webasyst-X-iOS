@@ -168,7 +168,7 @@ final class BlogViewModel: BlogViewModelType {
                             self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                         }
                     }
-                } onError: { error in
+                } onFailure: { error in
                     self.showLoadingHubSubject.onNext(false)
                     self.errorServerRequestSubject.onNext(.requestFailed(text: error.localizedDescription))
                 }.disposed(by: disposeBag)

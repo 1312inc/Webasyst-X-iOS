@@ -42,9 +42,26 @@ final class ShopViewController: BaseViewController {
     
     private func bindableViewModel() {
         
+        NotificationCenter.default.rx.notification(Service.Notify.withoutInstalls)
+            .take(until: rx.deallocated)
+            .subscribe { [unowned self] _ in
+                DispatchQueue.main.async {
+                    let webasyst = WebasystApp()
+                    if let profile = webasyst.getProfileData() {
+                        self.setupWithoutInstall(profile: profile, viewController: self)
+                    }
+                }
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(Service.Notify.accountSwitched)
+            .take(until: rx.deallocated)
+            .subscribe { [unowned self] _ in
+                DispatchQueue.main.async {
+                    self.reloadViewControllers()
+                }
+            }.disposed(by: disposeBag)
+        
         guard let viewModel = self.viewModel else { return }
-        
-        
         
         viewModel.output.ordersList
             .map({ orders -> [Orders] in
@@ -85,10 +102,16 @@ final class ShopViewController: BaseViewController {
                 case .withoutInstalls:
                     break
                 case .notInstall:
-                    guard let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") else { return }
-                    let webasyst = WebasystApp()
-                    if let install = webasyst.getUserInstall(selectInstall) {
-                        self.setupInstallView(install: install, viewController: self)
+                    if let selectInstall = UserDefaults.standard.string(forKey: "selectDomainUser") {
+                        let webasyst = WebasystApp()
+                        if let install = webasyst.getUserInstall(selectInstall) {
+                            self.setupInstallView(install: install, viewController: self)
+                        }
+                    } else {
+                        let webasyst = WebasystApp()
+                        if let profile = webasyst.getProfileData() {
+                            self.setupWithoutInstall(profile: profile, viewController: self)
+                        }
                     }
                 case .notConnection:
                     self.setupNotConnectionError()

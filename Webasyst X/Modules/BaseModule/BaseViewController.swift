@@ -26,6 +26,7 @@ class BaseViewController: UIViewController {
     
     func reloadViewControllers() {
         AppCoordinator.shared.tabBarCoordinator.showTabBar(false)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc public
@@ -35,6 +36,14 @@ class BaseViewController: UIViewController {
             guard let self = self else { return }
             reloadViewControllers()
         })
+    }
+    
+    @objc
+    func logOut() {
+        let currentUser = CurrentUser()
+        if let navigationController = baseCoordinator?.presenter {
+            currentUser.signOut(with: false, navigationController: navigationController, style: .indirect)
+        }
     }
 }
 
