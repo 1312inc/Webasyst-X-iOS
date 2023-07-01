@@ -87,17 +87,17 @@ class AuthSlide: UIView, UIDeviceShared {
         return label
     }()
 
-    private lazy var viewDemoAccount: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(openDemoViewController), for: .touchUpInside)
-        button.setTitleColor(.appColor, for: .normal)
-        button.setTitleColor(.appColor.withAlphaComponent(0.5), for: .highlighted)
-        button.titleLabel?.font = .adaptiveFont(.subheadline, 15, .semibold)
-        button.backgroundColor = .appColor.withAlphaComponent(0.1)
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    private lazy var viewDemoAccount: UIButton = {
+//        let button = UIButton()
+//        button.addTarget(self, action: #selector(openDemoViewController), for: .touchUpInside)
+//        button.setTitleColor(.appColor, for: .normal)
+//        button.setTitleColor(.appColor.withAlphaComponent(0.5), for: .highlighted)
+//        button.titleLabel?.font = .adaptiveFont(.subheadline, 15, .semibold)
+//        button.backgroundColor = .appColor.withAlphaComponent(0.1)
+//        button.layer.cornerRadius = 10
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
 
     private lazy var dropDownList: DropDown = {
         let dropDown = DropDown()
@@ -147,31 +147,31 @@ class AuthSlide: UIView, UIDeviceShared {
         return button
     }()
     
-    private lazy var loginAppleIDButton: UIButton = {
-        let button = UIButton()
-        
-        button.titleLabel?.font = .adaptiveFont(.subheadline, 15, .semibold)
-        button.setTitleColor(.label, for: .normal)
-        button.setTitleColor(.systemGray2, for: .highlighted)
-        button.tintColor = .label
-        
-        button.layer.cornerRadius = 10
-        button.layer.borderColor = isDark ? UIColor.systemGray6.cgColor : UIColor.systemGray5.cgColor
-        button.layer.borderWidth = 2
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
-        
-        let icon = (UIImage(systemName: "apple.logo") ?? UIImage(systemName: "applelogo"))?.withTintColor(.label, renderingMode: .alwaysOriginal)
-        let highlightedIcon = (UIImage(systemName: "apple.logo") ?? UIImage(systemName: "applelogo"))?.withRenderingMode(.alwaysTemplate)
-        button.setImage(icon, for: .normal)
-        button.setImage(highlightedIcon, for: .highlighted)
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageView?.tintColor = .systemGray2
-        
-        button.addTarget(self, action: #selector(loginAppleIDTap), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
+//    private lazy var loginAppleIDButton: UIButton = {
+//        let button = UIButton()
+//
+//        button.titleLabel?.font = .adaptiveFont(.subheadline, 15, .semibold)
+//        button.setTitleColor(.label, for: .normal)
+//        button.setTitleColor(.systemGray2, for: .highlighted)
+//        button.tintColor = .label
+//
+//        button.layer.cornerRadius = 10
+//        button.layer.borderColor = isDark ? UIColor.systemGray6.cgColor : UIColor.systemGray5.cgColor
+//        button.layer.borderWidth = 2
+//        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 12)
+//
+//        let icon = (UIImage(systemName: "apple.logo") ?? UIImage(systemName: "applelogo"))?.withTintColor(.label, renderingMode: .alwaysOriginal)
+//        let highlightedIcon = (UIImage(systemName: "apple.logo") ?? UIImage(systemName: "applelogo"))?.withRenderingMode(.alwaysTemplate)
+//        button.setImage(icon, for: .normal)
+//        button.setImage(highlightedIcon, for: .highlighted)
+//        button.imageView?.contentMode = .scaleAspectFit
+//        button.imageView?.tintColor = .systemGray2
+//
+//        button.addTarget(self, action: #selector(loginAppleIDTap), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return button
+//    }()
 
     private lazy var loginWebasystButton: UIButton = {
         let button = UIButton()
@@ -295,10 +295,10 @@ class AuthSlide: UIView, UIDeviceShared {
         case .normal, .none:
             
             loginPhoneNumberButton.setTitle(.getLocalizedString(withKey: "phoneLogin"), for: .normal)
-            loginAppleIDButton.setTitle(.getLocalizedString(withKey: "appleLogin"), for: .normal)
+//            loginAppleIDButton.setTitle(.getLocalizedString(withKey: "appleLogin"), for: .normal)
             loginWebasystButton.setTitle(.getLocalizedString(withKey: "emailLogin"), for: .normal)
             loginQRButton.setTitle(.getLocalizedString(withKey: "QRLogin"), for: .normal)
-            viewDemoAccount.setTitle(.getLocalizedString(withKey: "viewDemoAccount"), for: .normal)
+//            viewDemoAccount.setTitle(.getLocalizedString(withKey: "viewDemoAccount"), for: .normal)
             
             let attributedString = NSMutableAttributedString(string: .getLocalizedString(withKey: "appDescription"))
             let paragraphStyle = NSMutableParagraphStyle()
@@ -413,8 +413,8 @@ class AuthSlide: UIView, UIDeviceShared {
         case .normal, .none:
             
             contentView.addSubview(webasystLogo)
-            contentView.addSubview(viewDemoAccount)
-            contentView.addSubview(loginAppleIDButton)
+//            contentView.addSubview(viewDemoAccount)
+//            contentView.addSubview(loginAppleIDButton)
             contentView.addSubview(loginWebasystButton)
             contentView.addSubview(loginQRButton)
             
@@ -423,11 +423,14 @@ class AuthSlide: UIView, UIDeviceShared {
                 webasystLogo.heightAnchor.constraint(equalToConstant: 32),
                 webasystLogo.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 16),
                 dropDownListButton.topAnchor.constraint(equalTo: webasystLogo.bottomAnchor, constant: 16),
-                loginAppleIDButton.topAnchor.constraint(equalTo: loginPhoneNumberButton.bottomAnchor, constant: 42),
-                loginAppleIDButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                loginAppleIDButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85),
-                loginAppleIDButton.heightAnchor.constraint(equalToConstant: 50),
-                loginAppleIDButton.bottomAnchor.constraint(equalTo: loginWebasystButton.topAnchor, constant: -16),
+                
+//                loginAppleIDButton.topAnchor.constraint(equalTo: loginPhoneNumberButton.bottomAnchor, constant: 42),
+//                loginAppleIDButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//                loginAppleIDButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85),
+//                loginAppleIDButton.heightAnchor.constraint(equalToConstant: 50),
+//                loginAppleIDButton.bottomAnchor.constraint(equalTo: loginWebasystButton.topAnchor, constant: -16),
+                loginWebasystButton.topAnchor.constraint(equalTo: loginPhoneNumberButton.bottomAnchor, constant: 42),
+                
                 loginWebasystButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 loginWebasystButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85),
                 loginWebasystButton.heightAnchor.constraint(equalToConstant: 50),
@@ -441,11 +444,13 @@ class AuthSlide: UIView, UIDeviceShared {
                 aboutWebAsyst.heightAnchor.constraint(equalToConstant: 50),
                 aboutWebAsyst.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 aboutWebAsyst.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
-                viewDemoAccount.topAnchor.constraint(greaterThanOrEqualTo: aboutWebAsyst.bottomAnchor, constant: 20),
-                viewDemoAccount.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                viewDemoAccount.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85),
-                viewDemoAccount.heightAnchor.constraint(equalToConstant: 50),
-                viewDemoAccount.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: layoutConstant)
+                
+                aboutWebAsyst.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: layoutConstant)
+//                viewDemoAccount.topAnchor.constraint(greaterThanOrEqualTo: aboutWebAsyst.bottomAnchor, constant: 20),
+//                viewDemoAccount.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//                viewDemoAccount.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85),
+//                viewDemoAccount.heightAnchor.constraint(equalToConstant: 50),
+//                viewDemoAccount.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: layoutConstant)
             ])
             
         }
@@ -585,7 +590,7 @@ class AuthSlide: UIView, UIDeviceShared {
             }
             loginWebasystButton.layer.borderColor = UIColor.systemGray5.cgColor
             loginQRButton.layer.borderColor = UIColor.systemGray5.cgColor
-            loginAppleIDButton.layer.borderColor = UIColor.systemGray5.cgColor
+//            loginAppleIDButton.layer.borderColor = UIColor.systemGray5.cgColor
             loadingView.layer.borderColor = UIColor.systemGray2.cgColor
         case .dark, .unspecified:
             if !loginPhoneNumberButton.isUserInteractionEnabled {
@@ -594,7 +599,7 @@ class AuthSlide: UIView, UIDeviceShared {
             }
             loginWebasystButton.layer.borderColor = UIColor.systemGray6.cgColor
             loginQRButton.layer.borderColor = UIColor.systemGray6.cgColor
-            loginAppleIDButton.layer.borderColor = UIColor.systemGray6.cgColor
+//            loginAppleIDButton.layer.borderColor = UIColor.systemGray6.cgColor
             loadingView.layer.borderColor = UIColor.systemGray4.cgColor
         @unknown default:
             break
