@@ -152,7 +152,7 @@ extension UIViewController {
         }
     }
     
-    func setupWithoutInstallView(profile: ProfileData, viewController: AddAccountDelegate?) {
+    func setupWithoutInstallsView(profile: ProfileData, viewController: AddAccountDelegate?) {
         guard let viewController = viewController as? BaseViewController else {
             return
         }
