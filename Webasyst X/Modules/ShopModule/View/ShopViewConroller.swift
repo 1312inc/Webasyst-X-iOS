@@ -48,7 +48,7 @@ final class ShopViewController: BaseViewController {
                 DispatchQueue.main.async {
                     let webasyst = WebasystApp()
                     if let profile = webasyst.getProfileData() {
-                        self.setupWithoutInstall(profile: profile, viewController: self)
+                        self.setupWithoutInstallView(profile: profile, viewController: self)
                     }
                 }
             }.disposed(by: disposeBag)
@@ -110,7 +110,7 @@ final class ShopViewController: BaseViewController {
                     } else {
                         let webasyst = WebasystApp()
                         if let profile = webasyst.getProfileData() {
-                            self.setupWithoutInstall(profile: profile, viewController: self)
+                            self.setupWithoutInstallView(profile: profile, viewController: self)
                         }
                     }
                 case .notConnection:

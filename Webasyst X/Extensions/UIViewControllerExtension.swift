@@ -17,40 +17,46 @@ extension UIViewController {
             self.navigationItem.setLeftBarButtonItems([item], animated: false)
         } else if let changeInstall = webasyst.getUserInstall(.currentInstall) {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-            let selectDomain = UserDefaults.standard.string(forKey: "selectDomainUser") ?? ""
-            
-            guard let changeInstall = webasyst.getUserInstall(selectDomain) else {
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.triangle"), style: .done, target: self, action: action)
-                return
+            view.layer.name = "customView"
+            let imageView = UIImageView()
+            let textImage = changeInstall.logoText
+            webasyst.getAllUserInstall {
+                if let array = $0, array.count > 1 {
+                    let textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+                    textLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+                    textLabel.text = textImage
+                    textLabel.textColor = .white
+                    textLabel.textAlignment = .center
+                    textLabel.center = view.center
+                    imageView.addSubview(textLabel)
+                    imageView.image = UIImage(data: changeInstall.image!)
+                } else if let profile = webasyst.getProfileData(),
+                          let data = profile.userpic_original_crop,
+                          let image = UIImage(data: data) {
+                    imageView.image = image
+                }
             }
-            
-            let imageView = UIImageView(image: UIImage(data: changeInstall.image!))
             imageView.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
             imageView.contentMode = .scaleAspectFill
-            let textImage = changeInstall.logoText
-            
-            let textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-            textLabel.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(600))
-            textLabel.text = textImage
-            textLabel.textColor = .white
-            textLabel.textAlignment = .center
             
             imageView.center = view.center
-            textLabel.center = view.center
             
             imageView.layer.cornerRadius = view.frame.height / 2
             imageView.layer.masksToBounds = true
             
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-            button.setTitle("", for: .normal)
-            button.addTarget(self, action: action, for: .touchDown)
-            button.center = view.center
+            imageView.layer.borderWidth = 0.5
+            imageView.layer.borderColor = UIColor.systemGray2.cgColor
+            
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: action)
             
             view.addSubview(imageView)
-            view.addSubview(textLabel)
-            view.addSubview(button)
+            view.addGestureRecognizer(gestureRecognizer)
             
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: view)
+            if navigationItem.leftBarButtonItem == nil {
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: view)
+            } else {
+                self.navigationItem.leftBarButtonItem?.customView = view
+            }
         }
     }
     
@@ -146,7 +152,7 @@ extension UIViewController {
         }
     }
     
-    func setupWithoutInstall(profile: ProfileData, viewController: AddAccountDelegate?) {
+    func setupWithoutInstallView(profile: ProfileData, viewController: AddAccountDelegate?) {
         guard let viewController = viewController as? BaseViewController else {
             return
         }
