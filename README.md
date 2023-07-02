@@ -13,9 +13,9 @@ To import it into your application's controller, write ``import Webasyst`` in th
 To configure the library, create a file Webasyst.plist, in the root folder of the project, with the following content:
 
 ```
-"clientId": String // *clientId of your application. Example: "72at75391ea785412a24f4568528ed49"*
-"host": String // *host of your server, or the host of the Webasyst central serve. Example: "www.webasyst.com "r*
-"scope": String: // //the scope required by your application (separated by dot). Example: "site.blog.shop "*
+"clientId": String // clientId of your application. Example: "72at75391ea785412a24f4568528ed49"
+"host": String     // host of your server, or the host of the Webasyst central serve. Example: "www.webasyst.com"
+"scope": String    // the scope required by your application (separated by dot). Example: "site.blog.shop"
 ```
 
 *[a File example](https://github.com/1312inc/Webasyst-X-iOS/blob/master/Webasyst%20X/Webasyst.plist.example.plist)*
