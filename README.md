@@ -2,32 +2,34 @@
 
 ![webasyst-x-ios-ru-v1-showcase-dev](https://user-images.githubusercontent.com/889083/123943659-0d3f1000-d9a5-11eb-88d2-10eb1aa661cc.jpg)
 
-Simple native iOS app that authenticates users via Webasyst ID and enables direct access to all linked Webasyst accounts APIs.
+Simple native boilerplate iOS app that authenticates users via Webasyst ID and enables direct access to all linked Webasyst accounts APIs.
 
 **Creating a new application from scratch**
 
-To create an application based on the Webasyst library, add ``pod webasyst`` to your pod-file and run pod install. After that, execute pod install in the terminal. 
+To create an application based on the Webasyst library, add ``pod webasyst`` to your pod-file and run pod install. After that, run ``pod install`` in the terminal. 
 
-To import it into your application's controller, write ``import Webasyst`` in the controller's import list. 
+To import it into your application's controller, add ``import Webasyst`` in the controller's import list. 
 
-To configure the library, create a file Webasyst.plist, in the root folder of the project, with the following content:
+To configure the library, create a file ``Webasyst.plist``, in the root folder of the project, with the following content:
 
 ```
 "clientId": String // clientId of your application. Example: "72at75391ea785412a24f4568528ed49"
-"host": String     // host of your server, or the host of the Webasyst central serve. Example: "www.webasyst.com"
+"host": String     // Webasyst ID auth domain: "www.webasyst.com"
 "scope": String    // the scope required by your application (separated by dot). Example: "site.blog.shop"
 ```
 
-*[a File example](https://github.com/1312inc/Webasyst-X-iOS/blob/master/Webasyst%20X/Webasyst.plist.example.plist)*
+Get your Webasyst ID auth client id here: https://www.webasyst.com/my/waid/apps/
 
-***Note*** More documentation on Webasyst you can get [here](https://github.com/1312inc/Webasyst-X-iOS-Pod)
+pod Webasyst source code: https://github.com/1312inc/Webasyst-X-iOS-Pod
+
+Webasyst ID API documentation: https://developers.webasyst.com/docs/features/webasyst-id-auth/resources-server-api/
 
 **Running the example app with Xcode**
 
 To run the app project:
 1. Clone file `Webasyst X/Webasyst.plist.example.plist` -> `Webasyst X/Webasyst.plist`
 2. Obtain your Webasyst ID client Id from Webasyst and save it into this new .plist file.
-3. Run pod install in the terminal
+3. Run `pod install` in the terminal
 4. Launch Xcode.
 5. Open `WebasystX.xcworkspace`.
 6. Launch the app!
